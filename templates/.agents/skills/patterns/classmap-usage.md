@@ -39,5 +39,5 @@ export function PostCard({ post }: { post: Post }) {
 
 **Anti-patterns:**
 
-- Don't write raw `"flex p-4 text-sm"` — that's Tailwind coupling.
+- Raw `"flex p-4 text-sm"` in a component couples it to Tailwind — prefer the `cm.*` method, and pass a class ClassMap has no method for through `cm.cn(...)`.
 - Don't call `getClassMap()` at module scope — always inside the component body.

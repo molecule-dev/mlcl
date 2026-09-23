@@ -21,5 +21,5 @@
 ## Reference
 
 - Base design system: See `@molecule/DESIGN.md` for the complete token reference
-- UIClassMap: Use `getClassMap()` from `@molecule/app-ui` — never hardcode class names
+- UIClassMap: Use `getClassMap()` from `@molecule/app-ui` rather than hardcoded class names, so a styling swap stays one bond
 - Automation: Include `data-mol-id` on all interactive elements

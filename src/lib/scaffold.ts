@@ -119,12 +119,11 @@ const BRANDING_HEADER = `/* ====================================================
  *
  * APP_NAME / APP_DESCRIPTION / BRAND_COLOR below drive the browser-tab <title>,
  * the social + PWA meta tags, the generated logo/icons, and the package.json
- * name + description — all are derived FROM this file at scaffold time. To rename
- * or rebrand the app, edit the values here; do NOT hardcode the product name
- * anywhere else, because these places are regenerated and your edit would be lost:
+ * name + description — all were derived FROM this file at scaffold time. That
+ * sync ran once, at scaffold time: after it, a rename edits the values here AND
+ * the copies below, which do not re-read this file at runtime:
  *   • app/index.html <title> + og/twitter/apple title  ← APP_NAME
  *     ...description meta + theme-color meta            ← APP_DESCRIPTION / BRAND_COLOR
- *     (synced at scaffold time on BOTH the flagship-template and custom paths)
  *   • root/app/api package.json name + description      ← synced from here + project name
  *   • app/src/locales/<lang>/ui.ts strings              → prefer t('app.name', …)
  *     over a literal product name so a rename here flows through every locale
@@ -169,8 +168,9 @@ The posts in \`posts/\` came with the template so the site had something to show
 on its first preview. They are placeholders — nobody wrote them for this site.
 
 When real content arrives (files the owner shared, an import, a paste) it
-REPLACES these samples: delete them in the same change. Publishing the owner's
-posts next to the template's is a bug, not a fuller site.
+REPLACES these samples: delete them in the same change, unless the owner asks
+to keep them. Publishing the owner's posts next to the template's by accident
+is a bug, not a fuller site.
 
 Each sample carries \`templateDemo: true\` in its front matter, and the build
 leaves every marked post out as soon as the directory holds one post without
@@ -187,8 +187,8 @@ work without a real backend, and some apps seed their database from them.
 
 They are placeholders — not anyone's real records. When the owner supplies
 their own data, rewrite or delete these files rather than adding theirs
-alongside: the owner's records and the template's samples must never both end
-up in the app.
+alongside — the owner's records and the template's samples should not both end
+up in the app unless the owner asks for that.
 `
 
 /** Header prepended to a template app's database seed module. */
@@ -197,8 +197,9 @@ const DEMO_SEED_HEADER = `/* ===================================================
  *
  * This file exists so a fresh install has something to show. When the owner
  * supplies their own data, it REPLACES these rows: seed from their data
- * instead, or stop calling this. Never seed both — the owner's records mixed
- * in with the template's samples is a bug, not a fuller demo.
+ * instead, or stop calling this. Never seed both unless the owner asks for it —
+ * the owner's records mixed in with the template's samples by accident is a
+ * bug, not a fuller demo.
  * ============================================================================= */
 `
 
