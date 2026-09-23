@@ -17,6 +17,8 @@ test.describe('/dashboard', () => {
   })
 
   test('sidebar nav lists every primary section', async ({ page }) => {
+    // Clicks through every section in turn: measured at ~33 s, above the 30 s sandbox budget.
+    test.slow()
     await signup(page)
     await page.goto(APP_BASE + '/dashboard')
     const cases: [RegExp, RegExp][] = [

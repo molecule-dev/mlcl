@@ -7,6 +7,9 @@ import { API_BASE, APP_BASE, captureNetwork, requireAccessToken, signup } from '
  * checks every primary page, and confirms read-after-write invariants.
  */
 test.describe('user journey · webhook-manager', () => {
+  // A six-page journey: measured at ~30 s, right at the 30 s sandbox budget.
+  test.setTimeout(120_000)
+
   test('create endpoint → send test → live data on Dashboard, Endpoints, Deliveries, Audit, API keys, Team', async ({
     page,
   }) => {

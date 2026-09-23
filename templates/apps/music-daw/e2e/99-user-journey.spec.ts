@@ -12,6 +12,9 @@ import { APP_BASE, authedApi, captureNetwork, signup, uniqueHandle, whereUrl } f
  * paying customer in one continuous flow.
  */
 test.describe('Cross-page user journey', () => {
+  // A seven-page journey through Stripe checkout: measured at ~39 s, above the 30 s sandbox budget.
+  test.setTimeout(120_000)
+
   test('signup → projects → editor → mixer → settings → billing → Stripe checkout', async ({
     page,
     request,

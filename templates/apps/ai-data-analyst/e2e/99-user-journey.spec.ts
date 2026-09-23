@@ -23,6 +23,9 @@ import {
  */
 
 test.describe('Kitchen-sink user journey', () => {
+  // Walks 9 pages of sequential goto + waitForResponse steps; it ran out a 30 s budget under load.
+  test.setTimeout(120_000)
+
   test('fresh analyst seeds, queries, customizes, uploads and logs out/in', async ({ page }) => {
     // 1. Sign up — lands on /dashboard, server has a new user.
     const creds = await signup(page, { email: uniqueEmail('journey') })
