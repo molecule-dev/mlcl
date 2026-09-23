@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -54,6 +55,8 @@ export function Reservations() {
   const http = useHttpClient()
   const [reservations, setReservations] = useState<Reservation[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
   const [tab, setTab] = useState<Tab>('pending')
   const [acting, setActing] = useState<string | null>(null)
 
@@ -65,10 +68,17 @@ export function Reservations() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     http
       .get('/api/reservations')
       .then((res) => {
         if (!cancelled) setReservations(unwrapList<Reservation>(res.data))
+      })
+      .catch(() => {
+        if (!cancelled)
+          setError(
+            t('reservations.loadError', {}, { defaultValue: 'Failed to load reservations.' }),
+          )
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -76,7 +86,7 @@ export function Reservations() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
 
   const visible = useMemo(() => {
     if (tab === 'pending') return reservations.filter((r) => r.status === 'pending')
@@ -93,13 +103,15 @@ export function Reservations() {
 
   const approve = async (id: string): Promise<void> => {
     setActing(id)
+    setActionError(null)
     try {
       await http.put(`/api/bookings/${id}/confirm`)
+      track({ name: 'booking.confirmed', properties: { booking_id: id } })
       await refresh()
     } catch (_error) {
-      // Errors are visible in the network panel; surfacing a toast is
-      // future work — the queue refresh will reveal whether the row
-      // actually moved.
+      setActionError(
+        t('reservations.approveFailed', {}, { defaultValue: 'Could not approve — try again.' }),
+      )
     } finally {
       setActing(null)
     }
@@ -107,11 +119,15 @@ export function Reservations() {
 
   const decline = async (id: string): Promise<void> => {
     setActing(id)
+    setActionError(null)
     try {
       await http.put(`/api/bookings/${id}/cancel`, { reason: 'host_declined' })
+      track({ name: 'booking.declined', properties: { booking_id: id } })
       await refresh()
     } catch (_error) {
-      // see approve() — error is visible in network panel.
+      setActionError(
+        t('reservations.declineFailed', {}, { defaultValue: 'Could not decline — try again.' }),
+      )
     } finally {
       setActing(null)
     }
@@ -188,7 +204,31 @@ export function Reservations() {
         ))}
       </div>
 
-      {loading ? (
+      {actionError ? (
+        <p
+          className={cm.cn(
+            cm.sp('mb', 4),
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'text-error',
+          )}
+          role="alert"
+        >
+          {actionError}
+        </p>
+      ) : null}
+      {error ? (
+        <div
+          className={cm.cn(
+            cm.sp('p', 5),
+            cm.sp('mb', 6),
+            'rounded-2xl bg-surface-container-low border-l-4 border-error',
+          )}
+          role="alert"
+        >
+          <p className={cm.cn(cm.fontWeight('semibold'), 'text-error')}>{error}</p>
+        </div>
+      ) : loading ? (
         Array.from({ length: 2 }).map((_, i) => (
           <div
             key={i}

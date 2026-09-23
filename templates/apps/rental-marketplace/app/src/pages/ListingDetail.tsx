@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -561,6 +562,16 @@ export function ListingDetail() {
                   })) as { data?: { id?: string } } | { id?: string }
                   const respObj = (resp ?? {}) as Record<string, unknown>
                   const data = (respObj.data ?? respObj) as { id?: string }
+                  track({
+                    name: 'rental.booked',
+                    properties: {
+                      listing_id: listing.id,
+                      ...(data?.id ? { booking_id: data.id } : {}),
+                      guests,
+                      nights,
+                      instant_book: listing.instant_book,
+                    },
+                  })
                   if (data?.id) {
                     navigate(`/bookings/${data.id}`)
                   } else {

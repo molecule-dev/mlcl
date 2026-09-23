@@ -67,20 +67,44 @@ export function Settings() {
   useEffect(() => {
     if (!user) return
     const split = splitName(user.name as string | undefined)
-    const oauthData = (user.oauthData as Record<string, unknown> | undefined) ?? {}
-    setProfile({
+    setProfile((p) => ({
+      ...p,
       firstName: split.firstName,
       lastName: split.lastName,
       email: user.email ?? '',
-      phone: (oauthData.phone as string | undefined) ?? '',
-    })
-    const userPrefs = (oauthData.preferences as Partial<PreferencesForm> | undefined) ?? {}
-    setPrefs({
-      pushEnabled: userPrefs.pushEnabled ?? true,
-      emailEnabled: userPrefs.emailEnabled ?? true,
-      priceDropAlerts: userPrefs.priceDropAlerts ?? true,
-    })
+    }))
   }, [user])
+
+  // Phone + notification preferences live in the user row's oauthData blob,
+  // which the platform user resource never echoes on reads — so they come
+  // from the server-side /api/settings channel, which reads and merges it.
+  useEffect(() => {
+    if (!user) return
+    let cancelled = false
+    http
+      .get('/api/settings')
+      .then((res) => {
+        if (cancelled) return
+        const settings = unwrapSingle<{
+          phone?: string
+          preferences?: Partial<PreferencesForm>
+        }>(res)
+        if (!settings) return
+        setProfile((p) => ({ ...p, phone: settings.phone ?? '' }))
+        setPrefs((p) => ({
+          pushEnabled: settings.preferences?.pushEnabled ?? p.pushEnabled,
+          emailEnabled: settings.preferences?.emailEnabled ?? p.emailEnabled,
+          priceDropAlerts: settings.preferences?.priceDropAlerts ?? p.priceDropAlerts,
+        }))
+      })
+      .catch(() => {
+        // Settings stay at defaults when the channel is unavailable; the
+        // name/email block above still renders from the auth user.
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http, user])
 
   const verifications = useMemo(() => {
     if (!user) return []
@@ -114,27 +138,22 @@ export function Settings() {
     try {
       const fullName =
         [profile.firstName, profile.lastName].filter(Boolean).join(' ').trim() || profile.firstName
-      // Phone + preferences live under oauthData since the canonical user
-      // schema only exposes name/email/username at the top level.
-      const existingOauth = (user.oauthData as Record<string, unknown> | undefined) ?? {}
-      const payload = {
+      // Name + email are canonical user columns; phone + preferences go
+      // through the server-side settings channel (the platform user
+      // resource never echoes oauthData on reads, so round-tripping them
+      // through PATCH /api/users/:id loses them on the next reload).
+      const res = await http.patch(`/api/users/${user.id}`, {
         name: fullName,
         email: profile.email,
-        oauthData: { ...existingOauth, phone: profile.phone, preferences: prefs },
-      }
-      const res = await http.patch(`/api/users/${user.id}`, payload)
-      const updated = unwrapSingle<UserProfile & { oauthData?: Record<string, unknown> }>(res)
+      })
+      const updated = unwrapSingle<UserProfile>(res)
       if (!updated) throw new Error('No response from server')
-      // Mirror the saved fields into the auth-context user so the
-      // form re-renders with the persisted oauthData on this page +
-      // every other page that reads from useAuth(). Without this the
-      // user object only refreshes after a hard reload + refetch.
       const merged = {
         ...(user as unknown as Record<string, unknown>),
         ...(updated as unknown as Record<string, unknown>),
-        oauthData: payload.oauthData,
-      } as unknown as UserProfile & { oauthData?: Record<string, unknown> }
+      } as unknown as UserProfile
       setUser(merged)
+      await http.patch('/api/settings', { phone: profile.phone, preferences: prefs })
       setProfileSaved(true)
     } catch (err) {
       setProfileError(err instanceof Error ? err.message : 'Failed to save profile')
@@ -149,16 +168,7 @@ export function Settings() {
     const merged = { ...prefs, ...next }
     setPrefs(merged)
     try {
-      const existingOauth = (user.oauthData as Record<string, unknown> | undefined) ?? {}
-      const nextOauth = { ...existingOauth, preferences: merged }
-      await http.patch(`/api/users/${user.id}`, {
-        oauthData: nextOauth,
-      })
-      const mergedUser = {
-        ...(user as unknown as Record<string, unknown>),
-        oauthData: nextOauth,
-      } as unknown as UserProfile & { oauthData?: Record<string, unknown> }
-      setUser(mergedUser)
+      await http.patch('/api/settings', { preferences: merged })
     } catch (_error) {
       // Preference save failed — revert to previous state.
       setPrefs(prefs)

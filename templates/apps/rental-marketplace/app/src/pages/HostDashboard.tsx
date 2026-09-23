@@ -53,16 +53,28 @@ export function HostDashboard() {
   const [hostListings, setHostListings] = useState<HostListing[]>([])
   const [reservations, setReservations] = useState<Reservation[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([
       http.get('/api/host-listings').catch(() => null),
       http.get('/api/reservations').catch(() => null),
     ])
       .then(([hl, rv]) => {
         if (cancelled) return
+        if (!hl && !rv) {
+          setError(
+            t(
+              'hostDashboard.loadError',
+              {},
+              { defaultValue: 'Failed to load your hosting data. Please try again.' },
+            ),
+          )
+          return
+        }
         setHostListings(unwrapList<HostListing>(hl?.data))
         setReservations(unwrapList<Reservation>(rv?.data))
       })
@@ -72,7 +84,7 @@ export function HostDashboard() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
 
   const totals = useMemo(() => {
     // Earnings: confirmed/completed bookings paid out (subtotal minus
@@ -146,6 +158,33 @@ export function HostDashboard() {
           )}
         </p>
       </header>
+
+      {error ? (
+        <div
+          className={cm.cn(
+            cm.sp('p', 5),
+            cm.sp('mb', 8),
+            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+            'rounded-2xl bg-surface-container-low border-l-4 border-error',
+          )}
+          role="alert"
+        >
+          <p className={cm.cn(cm.fontWeight('semibold'), 'text-error')}>{error}</p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'rounded-full border border-outline-variant uppercase tracking-widest hover:border-primary hover:text-primary',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       <section
         className={cm.cn(

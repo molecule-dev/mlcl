@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -410,6 +411,10 @@ export function BookingDetail() {
                 try {
                   await http.put(`/api/bookings/${booking.id}/cancel`, {
                     reason: 'guest_cancelled',
+                  })
+                  track({
+                    name: 'booking.cancelled',
+                    properties: { booking_id: booking.id },
                   })
                   await refresh()
                 } catch (err) {

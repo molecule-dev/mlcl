@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -126,6 +127,10 @@ export function CreateListing() {
       })) as { id?: string; data?: { id?: string } } | undefined
       const id = result?.id ?? result?.data?.id
       if (id) {
+        track({
+          name: 'listing.created',
+          properties: { listing_id: id, property_type: propertyType },
+        })
         navigate(`/host/listings/${id}`)
       } else {
         navigate('/host/listings')

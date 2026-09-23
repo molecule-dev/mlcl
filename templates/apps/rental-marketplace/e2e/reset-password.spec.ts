@@ -6,33 +6,20 @@
  *   - mismatched passwords surface an inline error and skip the API
  *   - posting to the reset endpoint with an invalid token shows the
  *     server-rejection error
- *   - the full happy-path flow: signup → request reset (yields a token
- *     that we read from the database) → submit reset form → verify
- *     redirect to /login → log in with the new password
+ *   - the full happy-path flow: signup → request reset (via the test-only
+ *     /api/_test/last-reset-token introspection endpoint, which mints a
+ *     fresh token and returns the RAW value — standing in for the email
+ *     inbox; the DB stores only its sha256 hash) → submit reset form →
+ *     verify redirect to /login → log in with the new password
  *     (read-after-write end-to-end)
  *
- * Token retrieval needs the `usersSecrets` row written by the
- * forgotPassword handler, which we read out of the running Postgres
- * container. The smoke app + the polish-v2 dev rig both run Postgres
- * in `molecule-dev-db-1`, so we shell into it.
+ * The introspection endpoint is fail-closed: it 404s unless the harness
+ * sets ENABLE_E2E_TEST_ENDPOINTS=true (the scaffold default is OFF).
  */
 
-import { execSync } from 'node:child_process'
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 import { API_BASE, APP_BASE, captureNetwork, signup } from './_helpers'
-
-function readResetToken(userId: string): string | null {
-  // Postgres downcases unquoted identifiers — usersSecrets must stay
-  // quoted. We pipe the SQL via stdin to avoid juggling shell quotes.
-  const sql = `SELECT "passwordResetToken" FROM "usersSecrets" WHERE id = '${userId}';`
-  const out = execSync(
-    `docker exec -i molecule-dev-db-1 psql -U molecule -d rental_marketplace_test -At`,
-    { input: sql, encoding: 'utf8' },
-  )
-  const trimmed = out.trim()
-  return trimmed || null
-}
 
 test('reset-password page renders both password inputs', async ({ page }) => {
   await page.goto(APP_BASE + '/reset-password?token=anything')
@@ -56,6 +43,9 @@ test('mismatched passwords show inline error and skip the API call', async ({ pa
 })
 
 test('invalid token surfaces a server error', async ({ page }) => {
+  // The rejected reset POST (400/401 for an unknown token) surfaces as a
+  // browser console resource error — allow it explicitly.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 40[01]' })
   await page.goto(APP_BASE + '/reset-password?token=clearly-not-real-token')
   const pws = page.locator('input[type="password"]')
   await pws.nth(0).fill('NewPass123!')
@@ -75,29 +65,20 @@ test('happy path: signup → request reset → submit form → log in with new p
   browser,
 }) => {
   // Step 1: sign up via UI so we have a known email + password.
-  const { email, password } = await signup(page)
-  // Find the userId via the live API.
-  const me = await page.request.get(`${API_BASE}/users/me`)
-  const meBody = (await me.json()) as {
-    id?: string
-    props?: { id?: string }
-    user?: { id?: string }
-  }
-  const userId = meBody.id ?? meBody.props?.id ?? meBody.user?.id
-  expect(userId).toBeTruthy()
+  const { email } = await signup(page)
 
-  // Step 2: request a password reset link via API directly.
-  const forgot = await page.request.post(`${API_BASE}/users/forgot-password`, {
-    data: { email },
-  })
-  expect(forgot.ok()).toBe(true)
-
-  // Step 3: read the reset token off the secrets table.
-  const token = readResetToken(userId!)
-  expect(token, 'expected the forgotPassword handler to write a reset token').toBeTruthy()
+  // Step 2: mint a real reset token via the test-only introspection
+  // endpoint (fail-closed; enabled by the e2e harness only). The raw
+  // token stands in for the emailed link — the DB never holds it.
+  const probe = await page.request.get(
+    `${API_BASE}/_test/last-reset-token?email=${encodeURIComponent(email)}`,
+  )
+  expect(probe.ok(), `/_test/last-reset-token → ${probe.status()}`).toBe(true)
+  const token = ((await probe.json()) as { token?: string }).token
+  expect(token, 'expected a raw reset token').toBeTruthy()
   expect(token!.length).toBeGreaterThan(8)
 
-  // Step 4: visit the reset form and submit a new password.
+  // Step 3: visit the reset form and submit a new password.
   const newPassword = 'BrandNewPass456!'
   await page.goto(APP_BASE + `/reset-password?token=${token}`)
   const pws = page.locator('input[type="password"]')
@@ -110,12 +91,12 @@ test('happy path: signup → request reset → submit form → log in with new p
   const post = reqs.find((r) => r.url.includes('/api/users/reset-password') && r.method === 'POST')
   expect(post?.status).toBe(200)
 
-  // Step 5: read-after-write — old password rejected, new password works.
+  // Step 4: read-after-write — old password rejected, new password works.
   const fresh = await browser.newContext()
   const freshPage = await fresh.newPage()
   // Old password should fail.
   const wrong = await freshPage.request.post(`${API_BASE}/users/log-in`, {
-    data: { email, password },
+    data: { email, password: 'TestPass123!' },
   })
   expect(wrong.ok()).toBe(false)
   // New password should succeed.

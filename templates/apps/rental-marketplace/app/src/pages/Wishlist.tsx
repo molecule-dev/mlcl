@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -189,6 +190,7 @@ export function Wishlist() {
                 setItems((prev) => prev.filter((i) => i.listing_id !== listingId))
                 try {
                   await http.delete(`/api/bookmarks/${listingId}`)
+                  track({ name: 'bookmark.removed', properties: { listing_id: listingId } })
                 } catch (_error) {
                   // Optimistic removal failed — restore the item to the wishlist.
                   setItems((prev) =>

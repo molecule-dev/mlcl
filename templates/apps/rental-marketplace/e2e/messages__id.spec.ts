@@ -96,6 +96,8 @@ test('reply input is editable + Send button is rendered', async ({ page }) => {
 })
 
 test('not-found thread surfaces a Back to inbox link to /messages', async ({ page }) => {
+  // The thread fetch 404s by design — that IS the not-found path.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 40[34]' })
   await signup(page)
   // A made-up thread id should render the not-found state.
   await page.goto(APP_BASE + '/messages/00000000-0000-0000-0000-000000000000')

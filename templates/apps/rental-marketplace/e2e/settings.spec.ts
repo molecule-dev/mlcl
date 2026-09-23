@@ -6,9 +6,10 @@
  *   - profile section renders user name + email
  *   - section nav switches the rendered panel
  *   - editing the phone field + clicking Save changes fires
- *     PATCH /api/users/:id and the new phone persists across reload
- *     (read-after-write)
- *   - preference toggles fire PATCH /api/users/:id
+ *     PATCH /api/users/:id (name/email) AND PATCH /api/settings (phone),
+ *     and the new phone persists across reload (read-after-write via the
+ *     server-side settings channel)
+ *   - preference toggles fire PATCH /api/settings and persist across reload
  *   - "Open billing" CTA links to /pricing
  */
 
@@ -62,8 +63,11 @@ test('editing the phone field saves and persists across reload', async ({ page }
     await page.getByRole('button', { name: /^save changes$/i }).click()
     await page.waitForTimeout(1500)
   })
-  const patch = reqs.find((r) => /\/api\/users\/[^/]+/.test(r.url) && r.method === 'PATCH')
-  expect(patch, 'PATCH /api/users/:id should fire').toBeTruthy()
+  // Phone + preferences persist through the server-side /api/settings
+  // channel (PATCH /api/users/:id carries only name/email — the platform
+  // user resource never echoes oauthData on reads).
+  const patch = reqs.find((r) => /\/api\/settings\/?/.test(r.url) && r.method === 'PATCH')
+  expect(patch, 'PATCH /api/settings should fire when saving the phone').toBeTruthy()
   expect(patch!.status).toBe(200)
 
   // Read-after-write: reload + check phone is still set.
@@ -85,8 +89,8 @@ test('toggling a preference fires a PATCH', async ({ page }) => {
     await sw.click()
     await page.waitForTimeout(1000)
   })
-  const patch = reqs.find((r) => /\/api\/users\/[^/]+/.test(r.url) && r.method === 'PATCH')
-  expect(patch, 'PATCH /api/users/:id should fire when toggling a preference').toBeTruthy()
+  const patch = reqs.find((r) => /\/api\/settings\/?/.test(r.url) && r.method === 'PATCH')
+  expect(patch, 'PATCH /api/settings should fire when toggling a preference').toBeTruthy()
   expect(patch!.status).toBe(200)
 })
 

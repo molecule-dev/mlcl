@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -131,8 +132,10 @@ export function Search() {
     try {
       if (had) {
         await http.delete(`/api/bookmarks/${id}`)
+        track({ name: 'bookmark.removed', properties: { listing_id: id } })
       } else {
         await http.post('/api/bookmarks', { listing_id: id })
+        track({ name: 'bookmark.added', properties: { listing_id: id } })
       }
     } catch (_error) {
       // Optimistic update failed — roll back the bookmark toggle.
@@ -358,7 +361,7 @@ export function Search() {
                   onMouseLeave={() => setActiveId(null)}
                   className={cm.cn(
                     cm.sp('px', 3),
-                    cm.sp('py', 1),
+                    'py-1.5',
                     cm.fontWeight('bold'),
                     cm.textSize('xs'),
                     'absolute rounded-full shadow-md transition-all',

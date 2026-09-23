@@ -120,6 +120,8 @@ test('guests select retains the chosen value', async ({ page }) => {
 })
 
 test('404 fallback link from a non-existent listing routes to /search', async ({ page }) => {
+  // The listing fetch 404s by design — that IS the not-found path.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
   await signup(page)
   await page.goto(APP_BASE + '/listings/00000000-0000-0000-0000-000000000000')
   await page.waitForLoadState('networkidle')

@@ -42,6 +42,9 @@ test('valid credentials log the user in and persist a session', async ({ page, b
 })
 
 test('bad password keeps user on /login', async ({ page }) => {
+  // The expected 403 from POST /api/users/log-in shows up as a browser
+  // console resource error — allow it explicitly.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.goto(APP_BASE + '/login')
   const inputs = page.locator('input').filter({ visible: true })
   await inputs.nth(0).fill(uniqueEmail('nobody'))

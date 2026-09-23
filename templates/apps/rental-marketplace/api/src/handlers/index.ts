@@ -3,6 +3,7 @@ import { Router } from 'express'
 
 import { hostListingsRouter, reservationsRouter } from './_aliases.js'
 import { seedDemoForUser, seedGlobalCatalogIfEmpty } from './_seed.js'
+import testEndpoints from './_test.js'
 import bookingsRouter from './bookings.js'
 import bookmarksRouter from './bookmarks.js'
 import hostsRouter from './hosts.js'
@@ -11,6 +12,7 @@ import messagesRouter from './messages.js'
 import notificationsRouter from './notifications.js'
 import payoutsRouter from './payouts.js'
 import reviewsRouter from './reviews.js'
+import settingsRouter from './settings.js'
 import uploadsRouter from './uploads.js'
 
 const router = Router()
@@ -87,6 +89,14 @@ router.use('/payouts', payoutsRouter)
 router.use('/bookmarks', bookmarksRouter)
 router.use('/wishlist', bookmarksRouter)
 router.use('/notifications', notificationsRouter)
+// Server-side settings channel — phone + notification preferences live in
+// the user row's oauthData blob, which the platform user resource never
+// echoes on reads. GET/PATCH here read and merge it server-side so
+// Settings read-after-write actually persists. See handlers/settings.ts.
+router.use('/settings', settingsRouter)
+// Dev-only test introspection (404 unless ENABLE_E2E_TEST_ENDPOINTS=true);
+// stands in for the email inbox in reset-password e2e. See handlers/_test.ts.
+router.use('/_test', testEndpoints)
 // Listing-photo uploads: POST streams to the uploads bond, GET streams back.
 router.use('/uploads', uploadsRouter)
 export default router
