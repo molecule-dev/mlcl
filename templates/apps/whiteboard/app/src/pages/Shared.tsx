@@ -151,10 +151,9 @@ export function Shared() {
                   onClick={() => setFilter(p)}
                   className={cm.cn(
                     cm.sp('px', 4),
-                    cm.sp('py', 1),
                     cm.fontWeight('bold'),
                     cm.textSize('xs'),
-                    'uppercase tracking-widest rounded-full transition-colors',
+                    'uppercase tracking-widest rounded-full transition-colors min-h-[36px] flex items-center',
                     filter === p
                       ? 'bg-on-surface text-surface'
                       : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',

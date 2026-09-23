@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -122,6 +123,7 @@ export function Boards() {
       })
       const created = res.data
       if (created?.id) {
+        track({ name: 'board.created', properties: { board_id: created.id, source: 'boards' } })
         navigate(`/board/${created.id}`)
       } else {
         await refresh()
@@ -167,7 +169,7 @@ export function Boards() {
       title={t('boards.title', {}, { defaultValue: 'Your boards' })}
       actions={
         <>
-          <div className={cm.cn(cm.flex({ align: 'center' }), 'relative')}>
+          <div className={cm.cn(cm.flex({ align: 'center' }), 'relative w-full sm:w-auto')}>
             <span
               className={cm.cn(
                 'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]',
@@ -188,7 +190,7 @@ export function Boards() {
                 cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
-                'w-72 bg-surface-container-low border border-outline-variant/30 rounded-xl focus:ring-2 focus:ring-primary/30 transition-all outline-none',
+                'w-full sm:w-72 bg-surface-container-low border border-outline-variant/30 rounded-xl focus:ring-2 focus:ring-primary/30 transition-all outline-none',
               )}
             />
           </div>
@@ -199,7 +201,7 @@ export function Boards() {
               cm.sp('py', 2),
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
-              'bg-surface-container text-on-surface rounded-xl border border-outline-variant/40 hover:bg-surface-container-high transition-colors',
+              'bg-surface-container text-on-surface rounded-xl border border-outline-variant/40 hover:bg-surface-container-high transition-colors min-h-[36px] flex items-center',
             )}
           >
             {t('boards.startFromTemplate', {}, { defaultValue: 'Start from template' })}
@@ -227,7 +229,12 @@ export function Boards() {
       }
     >
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'lg' }), 'items-start')}>
-        <aside className={cm.cn('col-span-3 sticky top-24', cm.stack(2))}>
+        <aside
+          className={cm.cn(
+            'col-span-12 md:col-span-4 lg:col-span-3 md:sticky md:top-24',
+            cm.stack(2),
+          )}
+        >
           <div
             className={cm.cn(
               cm.sp('p', 5),
@@ -325,8 +332,7 @@ export function Boards() {
                   aria-pressed={cursorColor === color}
                   data-mol-id={`cursor-color-${color}`}
                   className={cm.cn(
-                    cm.w(8),
-                    cm.h(8),
+                    'h-10 w-10',
                     cm.roundedFull,
                     'border-2 transition-transform hover:scale-110',
                   )}
@@ -340,7 +346,7 @@ export function Boards() {
           </div>
         </aside>
 
-        <section className={cm.cn('col-span-9', cm.stack(8))}>
+        <section className={cm.cn('col-span-12 md:col-span-8 lg:col-span-9', cm.stack(8))}>
           {error && (
             <div
               role="alert"
@@ -432,7 +438,10 @@ export function Boards() {
               </div>
             </div>
           ) : (
-            <div className={cm.cn(cm.grid({ cols: 3, gap: 'lg' }))} data-mol-id="boards-grid">
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
+              data-mol-id="boards-grid"
+            >
               {filtered.map((b) => (
                 <BoardCard key={b.id} board={b} />
               ))}
@@ -450,7 +459,7 @@ export function Boards() {
                 {t('boards.sharedTitle', {}, { defaultValue: 'Shared with me' })}
               </h2>
               <div
-                className={cm.cn(cm.grid({ cols: 3, gap: 'lg' }))}
+                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
                 data-mol-id="boards-shared-grid"
               >
                 {filteredShared.map((b) => (

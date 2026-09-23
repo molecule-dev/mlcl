@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -8,9 +9,11 @@ import { getClassMap } from '@molecule/app-ui'
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { WhiteboardLayout } from '../components/WhiteboardLayout.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
 
 const TOOLS: Array<{ id: ToolId; icon: string; label: string }> = [
   { id: 'select', icon: 'arrow_selector_tool', label: 'Select' },
+  { id: 'draw', icon: 'draw', label: 'Draw' },
   { id: 'sticky', icon: 'sticky_note_2', label: 'Sticky' },
   { id: 'rectangle', icon: 'rectangle', label: 'Rectangle' },
   { id: 'ellipse', icon: 'circle', label: 'Ellipse' },
@@ -18,9 +21,12 @@ const TOOLS: Array<{ id: ToolId; icon: string; label: string }> = [
   { id: 'eraser', icon: 'ink_eraser', label: 'Eraser' },
 ]
 
-type ToolId = 'select' | 'sticky' | 'rectangle' | 'ellipse' | 'text' | 'eraser'
+type ToolId = 'select' | 'draw' | 'sticky' | 'rectangle' | 'ellipse' | 'text' | 'eraser'
 
 const STICKY_COLORS = ['#fef08a', '#bfdbfe', '#bbf7d0', '#fecdd3', '#e9d5ff', '#fed7aa']
+
+/** Ink color for freehand strokes — dark enough on every board background. */
+const STROKE_INK = '#312e81'
 
 interface BoardElement {
   id: string
@@ -49,6 +55,8 @@ interface ElementContent {
   text?: string
   color?: string
   shape?: 'rectangle' | 'ellipse'
+  /** Freehand strokes: [dx, dy] offsets from the element's x/y origin. */
+  points?: number[][]
   [k: string]: unknown
 }
 
@@ -109,6 +117,16 @@ export function BoardCanvas() {
   const [shareRole, setShareRole] = useState<'viewer' | 'commenter' | 'editor'>('viewer')
   const [shareStatus, setShareStatus] = useState<string | null>(null)
   const [snapshotStatus, setSnapshotStatus] = useState<string | null>(null)
+  const isMobile = useIsMobile()
+
+  // Freehand stroke drawing (pointer events — works for mouse, pen AND touch).
+  // While a stroke is in flight its points render as a live polyline; on
+  // pointerup the stroke commits as a `freehand` element via POST.
+  const [strokeDraft, setStrokeDraft] = useState<number[][] | null>(null)
+  const drawingRef = useRef<{ pointerId: number; points: number[][]; moved: boolean } | null>(null)
+  // A completed drag suppresses the synthetic click that follows pointerup, so
+  // finishing a stroke does not also trigger the click-to-place handler.
+  const suppressClickRef = useRef(false)
 
   const refresh = useCallback(async () => {
     if (!id) return
@@ -221,9 +239,105 @@ export function BoardCanvas() {
     return () => document.removeEventListener('keydown', onKeyDown)
   }, [showShareModal])
 
+  const toBoardPoint = useCallback(
+    (clientX: number, clientY: number): number[] | null => {
+      if (!canvasRef.current) return null
+      const rect = canvasRef.current.getBoundingClientRect()
+      const scale = zoom / 100
+      return [(clientX - rect.left) / scale, (clientY - rect.top) / scale]
+    },
+    [zoom],
+  )
+
+  const handleCanvasPointerDown = useCallback(
+    (e: React.PointerEvent<HTMLButtonElement>) => {
+      if (tool !== 'draw' || !canvasRef.current) return
+      // Pointer capture keeps move/up events on the surface even when the
+      // finger leaves the element bounds mid-stroke.
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId)
+      } catch (_error) {
+        // capture unsupported (stale pointer) — strokes just end at the surface edge
+      }
+      const p = toBoardPoint(e.clientX, e.clientY)
+      if (!p) return
+      drawingRef.current = { pointerId: e.pointerId, points: [p], moved: false }
+      setStrokeDraft([p])
+    },
+    [toBoardPoint, tool],
+  )
+
+  const handleCanvasPointerMove = useCallback(
+    (e: React.PointerEvent<HTMLButtonElement>) => {
+      const d = drawingRef.current
+      if (!d || e.pointerId !== d.pointerId) return
+      if (!canvasRef.current) return
+      const rect = canvasRef.current.getBoundingClientRect()
+      const scale = zoom / 100
+      const p = [(e.clientX - rect.left) / scale, (e.clientY - rect.top) / scale]
+      const last = d.points[d.points.length - 1]
+      if (last && Math.abs(p[0] - last[0]) + Math.abs(p[1] - last[1]) < 2) return
+      d.points.push(p)
+      d.moved = true
+      setStrokeDraft([...d.points])
+    },
+    [zoom],
+  )
+
+  const handleCanvasPointerUp = useCallback(
+    async (e: React.PointerEvent<HTMLButtonElement>) => {
+      const d = drawingRef.current
+      if (!d || e.pointerId !== d.pointerId) return
+      drawingRef.current = null
+      setStrokeDraft(null)
+      // A tap (no movement) falls through to click handling — nothing to commit.
+      if (!d.moved || d.points.length < 2) return
+      suppressClickRef.current = true
+      const xs = d.points.map((p) => p[0])
+      const ys = d.points.map((p) => p[1])
+      const x = Math.floor(Math.min(...xs))
+      const y = Math.floor(Math.min(...ys))
+      const width = Math.max(Math.ceil(Math.max(...xs)) - x, 4)
+      const height = Math.max(Math.ceil(Math.max(...ys)) - y, 4)
+      const points = d.points.map((p) => [Math.round(p[0] - x), Math.round(p[1] - y)])
+      try {
+        const res = await http.post<BoardElement>(`/api/elements/${id}`, {
+          type: 'freehand',
+          x,
+          y,
+          width,
+          height,
+          content: { points, color: STROKE_INK },
+        })
+        if (res.data?.id) {
+          // The server broadcasts element:created BEFORE answering this POST,
+          // so the socket echo may have added the element already — idempotent add.
+          setElements((prev) =>
+            prev.some((x) => x.id === res.data?.id) ? prev : [...prev, res.data],
+          )
+          track({
+            name: 'stroke.drawn',
+            properties: { board_id: id, element_id: res.data.id, points: points.length },
+          })
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : String(err))
+      }
+    },
+    [http, id],
+  )
+
   const handleCanvasClick = useCallback(
     async (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (suppressClickRef.current) {
+        suppressClickRef.current = false
+        return
+      }
       if (!canvasRef.current) return
+      if (tool === 'draw') {
+        // Taps with the draw tool place nothing — strokes commit on drag.
+        return
+      }
       if (tool === 'select' || tool === 'eraser') {
         setSelectedId(null)
         return
@@ -237,6 +351,7 @@ export function BoardCanvas() {
       const y = (clientY - rect.top) / scale
       const baseDefaults: Record<ToolId, Partial<BoardElement> & { content: ElementContent }> = {
         select: { type: 'sticky', content: {} },
+        draw: { type: 'freehand', content: {} },
         eraser: { type: 'sticky', content: {} },
         sticky: {
           type: 'sticky',
@@ -274,9 +389,17 @@ export function BoardCanvas() {
           content: defaults.content,
         })
         if (res.data?.id) {
-          setElements((prev) => [...prev, res.data])
+          // Idempotent add — the server's element:created echo may beat the
+          // POST response back to the socket handler (broadcast precedes reply).
+          setElements((prev) =>
+            prev.some((x) => x.id === res.data?.id) ? prev : [...prev, res.data],
+          )
           setSelectedId(res.data.id)
           setTool('select')
+          track({
+            name: 'element.created',
+            properties: { board_id: id, element_id: res.data.id, type: defaults.type },
+          })
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : String(err))
@@ -292,6 +415,10 @@ export function BoardCanvas() {
           await http.delete(`/api/elements/${id}/${el.id}`)
           setElements((prev) => prev.filter((x) => x.id !== el.id))
           if (selectedId === el.id) setSelectedId(null)
+          track({
+            name: 'element.deleted',
+            properties: { board_id: id, element_id: el.id, via: 'eraser' },
+          })
         } catch (err) {
           setError(err instanceof Error ? err.message : String(err))
         }
@@ -346,6 +473,10 @@ export function BoardCanvas() {
       await http.delete(`/api/elements/${id}/${selected.id}`)
       setElements((prev) => prev.filter((x) => x.id !== selected.id))
       setSelectedId(null)
+      track({
+        name: 'element.deleted',
+        properties: { board_id: id, element_id: selected.id, via: 'properties' },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
@@ -363,6 +494,10 @@ export function BoardCanvas() {
         ),
       })
       setSnapshotStatus(t('boardCanvas.snapshotSaved', {}, { defaultValue: 'Snapshot saved' })!)
+      track({
+        name: 'snapshot.saved',
+        properties: { board_id: id, elements: elements.length },
+      })
     } catch (err) {
       setSnapshotStatus(err instanceof Error ? err.message : String(err))
     }
@@ -385,6 +520,10 @@ export function BoardCanvas() {
           setShareStatus(
             t('boardCanvas.invited', { email: shareEmail }, { defaultValue: 'Invited {{email}}' })!,
           )
+          track({
+            name: 'board.shared',
+            properties: { board_id: id, collaborator_id: created.id, role: shareRole },
+          })
         }
       } catch (err) {
         setShareStatus(err instanceof Error ? err.message : String(err))
@@ -401,6 +540,10 @@ export function BoardCanvas() {
         public_slug: !board.is_public ? `b-${id.slice(0, 8)}` : null,
       })
       setBoard(res.data ?? board)
+      track({
+        name: 'board.visibility_changed',
+        properties: { board_id: id, is_public: !board.is_public },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
@@ -429,30 +572,32 @@ export function BoardCanvas() {
         <header
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            cm.sp('px', 6),
+            'px-3 sm:px-6',
             cm.sp('py', 3),
-            'sticky top-0 z-30 bg-surface/85 backdrop-blur-xl border-b border-outline-variant/30',
+            'sticky top-0 z-30 bg-surface/85 backdrop-blur-xl border-b border-outline-variant/30 flex-wrap',
           )}
         >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-nowrap min-w-0')}>
             <Link
               to="/boards"
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('semibold'),
                 cm.textSize('sm'),
-                'text-on-surface-variant hover:text-on-surface transition-colors',
+                'text-on-surface-variant hover:text-on-surface transition-colors shrink-0 min-h-[36px] min-w-[36px] justify-center',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[18px]')}>arrow_back</span>
-              {t('boardCanvas.backToBoards', {}, { defaultValue: 'All boards' })}
+              <span className="hidden sm:inline">
+                {t('boardCanvas.backToBoards', {}, { defaultValue: 'All boards' })}
+              </span>
             </Link>
-            <span className={cm.cn(cm.h(6), 'w-px bg-outline-variant/40')}></span>
+            <span className={cm.cn(cm.h(6), 'w-px bg-outline-variant/40 hidden sm:block')}></span>
             <div className={cm.stack(0)}>
               <span
                 className={cm.cn(
                   cm.fontWeight('bold'),
-                  'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                  'text-[10px] uppercase tracking-widest text-on-surface-variant hidden sm:block',
                 )}
               >
                 {t('boardCanvas.eyebrow', {}, { defaultValue: 'Board · Live' })}
@@ -461,7 +606,7 @@ export function BoardCanvas() {
                 data-mol-id="board-title"
                 className={cm.cn(
                   cm.textSize('lg'),
-                  'font-extrabold tracking-tight text-on-surface',
+                  'font-extrabold tracking-tight text-on-surface truncate max-w-[45vw] sm:max-w-none',
                 )}
               >
                 {board?.title ??
@@ -471,69 +616,81 @@ export function BoardCanvas() {
               </h1>
             </div>
           </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap justify-end')}>
             <CollaboratorStack collaborators={collaboratorAvatars} max={4} />
             <button
               type="button"
               data-mol-id="board-snapshot"
               onClick={handleSaveSnapshot}
+              aria-label={t('boardCanvas.saveSnapshot', {}, { defaultValue: 'Save snapshot' })}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('semibold'),
                 cm.textSize('xs'),
-                'bg-surface-container border border-outline-variant/40 rounded-lg hover:bg-surface-container-high transition-colors',
+                'bg-surface-container border border-outline-variant/40 rounded-lg hover:bg-surface-container-high transition-colors min-h-[36px]',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')}>save</span>
-              {t('boardCanvas.saveSnapshot', {}, { defaultValue: 'Save snapshot' })}
+              <span className="hidden md:inline">
+                {t('boardCanvas.saveSnapshot', {}, { defaultValue: 'Save snapshot' })}
+              </span>
             </button>
             <button
               type="button"
               onClick={() => navigate(`/board/${id}/history`)}
+              aria-label={t('nav.history', {}, { defaultValue: 'History' })}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('semibold'),
                 cm.textSize('xs'),
-                'bg-surface-container border border-outline-variant/40 rounded-lg hover:bg-surface-container-high transition-colors',
+                'bg-surface-container border border-outline-variant/40 rounded-lg hover:bg-surface-container-high transition-colors min-h-[36px]',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')}>history</span>
-              {t('nav.history', {}, { defaultValue: 'History' })}
+              <span className="hidden md:inline">
+                {t('nav.history', {}, { defaultValue: 'History' })}
+              </span>
             </button>
             <button
               type="button"
               onClick={() => navigate(`/board/${id}/present`)}
+              aria-label={t('boardCanvas.present', {}, { defaultValue: 'Present' })}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('semibold'),
                 cm.textSize('xs'),
-                'bg-surface-container border border-outline-variant/40 rounded-lg hover:bg-surface-container-high transition-colors',
+                'bg-surface-container border border-outline-variant/40 rounded-lg hover:bg-surface-container-high transition-colors min-h-[36px]',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')}>slideshow</span>
-              {t('boardCanvas.present', {}, { defaultValue: 'Present' })}
+              <span className="hidden md:inline">
+                {t('boardCanvas.present', {}, { defaultValue: 'Present' })}
+              </span>
             </button>
             <button
               type="button"
               data-mol-id="board-share"
               onClick={() => setShowShareModal(true)}
+              aria-label={t('common.share', {}, { defaultValue: 'Share' })}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('xs'),
                 cm.flex({ align: 'center', gap: 'xs' }),
-                'bg-gradient-to-br from-primary to-primary-hover text-white rounded-lg shadow-md shadow-primary/30 hover:scale-[1.02] transition-transform',
+                'bg-gradient-to-br from-primary to-primary-hover text-white rounded-lg shadow-md shadow-primary/30 hover:scale-[1.02] transition-transform min-h-[36px]',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')}>ios_share</span>
-              {t('common.share', {}, { defaultValue: 'Share' })}
+              <span className="hidden sm:inline">
+                {t('common.share', {}, { defaultValue: 'Share' })}
+              </span>
             </button>
           </div>
         </header>
@@ -564,17 +721,27 @@ export function BoardCanvas() {
               backgroundImage: 'radial-gradient(circle, rgba(91,91,247,0.18) 1px, transparent 1px)',
               backgroundSize: '24px 24px',
               cursor: tool === 'eraser' ? 'cell' : tool === 'select' ? 'default' : 'crosshair',
+              // Touch drawing: pointer drags must draw, not scroll the page.
+              touchAction: 'none',
             }}
           >
             {/* Real button as the click/keyboard target for the empty surface: placing an
                 element (or clearing the selection) is an action, and board elements render
                 as siblings above it — so pointer placement, Enter/Space placement at the
                 canvas center, and focus order all come for free without faking a widget
-                role on the drawing surface. */}
+                role on the drawing surface. The draw tool draws through its pointer
+                events; the synthetic click after a stroke is suppressed. */}
             <button
               type="button"
               data-mol-id="board-canvas-place"
               onClick={handleCanvasClick}
+              onPointerDown={handleCanvasPointerDown}
+              onPointerMove={handleCanvasPointerMove}
+              onPointerUp={handleCanvasPointerUp}
+              onPointerCancel={() => {
+                drawingRef.current = null
+                setStrokeDraft(null)
+              }}
               aria-label={
                 tool === 'select' || tool === 'eraser'
                   ? t(
@@ -582,15 +749,36 @@ export function BoardCanvas() {
                       {},
                       { defaultValue: 'Board canvas — clear selection' },
                     )
-                  : t(
-                      'boardCanvas.surface.place',
-                      {},
-                      { defaultValue: 'Board canvas — place element' },
-                    )
+                  : tool === 'draw'
+                    ? t(
+                        'boardCanvas.surface.draw',
+                        {},
+                        { defaultValue: 'Board canvas — drag to draw' },
+                      )
+                    : t(
+                        'boardCanvas.surface.place',
+                        {},
+                        { defaultValue: 'Board canvas — place element' },
+                      )
               }
               className={cm.cn('absolute inset-0 h-full w-full')}
-              style={{ cursor: 'inherit' }}
+              style={{ cursor: 'inherit', touchAction: 'none' }}
             />
+
+            {/* Live in-progress stroke (board coordinates, same space as elements). */}
+            {strokeDraft && strokeDraft.length > 1 && (
+              <svg aria-hidden className="absolute inset-0 h-full w-full pointer-events-none">
+                <polyline
+                  points={strokeDraft.map((p) => `${p[0]},${p[1]}`).join(' ')}
+                  fill="none"
+                  stroke={STROKE_INK}
+                  strokeWidth={3}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  opacity={0.85}
+                />
+              </svg>
+            )}
             {error && (
               <div
                 role="alert"
@@ -611,7 +799,7 @@ export function BoardCanvas() {
                 data-mol-id="board-canvas-empty"
                 className={cm.cn(
                   cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 'sm' }),
-                  'absolute inset-0 pointer-events-none text-on-surface-variant',
+                  'absolute inset-0 pointer-events-none text-on-surface-variant px-8 text-center',
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined text-[48px] text-primary')}>
@@ -642,6 +830,8 @@ export function BoardCanvas() {
               const text = (el.content?.text as string | undefined) ?? ''
               const isShapeEllipse =
                 el.type === 'shape' && (el.content?.shape as string | undefined) === 'ellipse'
+              const isFreehand = el.type === 'freehand'
+              const strokePoints = isFreehand ? (el.content?.points ?? []) : []
               const radius = isShapeEllipse ? '9999px' : el.type === 'sticky' ? '6px' : '12px'
               const isSelected = selectedId === el.id
               return (
@@ -673,24 +863,43 @@ export function BoardCanvas() {
                     top: y,
                     width: w,
                     height: h,
-                    backgroundColor: color === 'transparent' ? undefined : color,
+                    backgroundColor: isFreehand || color === 'transparent' ? undefined : color,
                     borderRadius: radius,
-                    boxShadow: el.type === 'text' ? 'none' : '2px 3px 8px rgba(0,0,0,0.1)',
+                    boxShadow:
+                      el.type === 'text' || isFreehand ? 'none' : '2px 3px 8px rgba(0,0,0,0.1)',
                     border: isSelected ? '2px solid var(--color-primary)' : 'none',
-                    padding: el.type === 'text' ? 0 : 12,
+                    padding: el.type === 'text' || isFreehand ? 0 : 12,
                     cursor: tool === 'eraser' ? 'cell' : 'pointer',
                   }}
                 >
-                  <p
-                    className={cm.cn(
-                      el.type === 'text'
-                        ? cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))
-                        : cm.cn(cm.textSize('sm'), cm.fontWeight('semibold')),
-                      'text-[var(--color-text)] whitespace-pre-wrap break-words',
-                    )}
-                  >
-                    {text || '\u00A0'}
-                  </p>
+                  {isFreehand ? (
+                    <svg
+                      aria-hidden
+                      width={Math.max(w, 1)}
+                      height={Math.max(h, 1)}
+                      className="pointer-events-none overflow-visible"
+                    >
+                      <polyline
+                        points={strokePoints.map((p) => `${num(p[0])},${num(p[1])}`).join(' ')}
+                        fill="none"
+                        stroke={color === 'transparent' ? STROKE_INK : color}
+                        strokeWidth={3}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <p
+                      className={cm.cn(
+                        el.type === 'text'
+                          ? cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))
+                          : cm.cn(cm.textSize('sm'), cm.fontWeight('semibold')),
+                        'text-[var(--color-text)] whitespace-pre-wrap break-words',
+                      )}
+                    >
+                      {text || '\u00A0'}
+                    </p>
+                  )}
                 </div>
               )
             })}
@@ -699,7 +908,7 @@ export function BoardCanvas() {
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.sp('p', 1),
-                'absolute bottom-6 left-1/2 -translate-x-1/2 bg-surface/95 backdrop-blur-md rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.12)]',
+                'absolute bottom-16 sm:bottom-6 left-1/2 -translate-x-1/2 max-w-[calc(100vw-16px)] flex-wrap justify-center gap-y-1 bg-surface/95 backdrop-blur-md rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.12)]',
               )}
             >
               {TOOLS.map((toolDef) => (
@@ -719,9 +928,7 @@ export function BoardCanvas() {
                   )}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
-                    cm.w(10),
-                    cm.h(10),
-                    'rounded-lg transition-colors',
+                    'h-11 w-11 rounded-lg transition-colors',
                     tool === toolDef.id
                       ? 'bg-primary text-white shadow-md'
                       : 'text-on-surface hover:bg-surface-container-high',
@@ -732,8 +939,8 @@ export function BoardCanvas() {
                   </span>
                 </button>
               ))}
-              <span className={cm.cn(cm.h(8), 'w-px bg-outline-variant/40 mx-2')}></span>
-              <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('px', 2))}>
+              <span className={cm.cn(cm.h(8), 'w-px bg-outline-variant/40 mx-1 sm:mx-2')}></span>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('px', 1))}>
                 {STICKY_COLORS.map((c) => (
                   <button
                     key={c}
@@ -750,18 +957,21 @@ export function BoardCanvas() {
                     )}
                     aria-pressed={stickyColor === c}
                     className={cm.cn(
-                      cm.w(5),
-                      cm.h(5),
-                      'rounded transition-transform hover:scale-110',
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-11 w-9 rounded transition-transform hover:scale-110',
                     )}
-                    style={{
-                      backgroundColor: c,
-                      border:
-                        stickyColor === c
-                          ? '2px solid var(--color-text)'
-                          : '1px solid rgba(0,0,0,0.1)',
-                    }}
-                  ></button>
+                  >
+                    <span
+                      className="h-6 w-6 rounded"
+                      style={{
+                        backgroundColor: c,
+                        border:
+                          stickyColor === c
+                            ? '2px solid var(--color-text)'
+                            : '1px solid rgba(0,0,0,0.1)',
+                      }}
+                    ></span>
+                  </button>
                 ))}
               </div>
             </div>
@@ -770,7 +980,7 @@ export function BoardCanvas() {
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.sp('p', 1),
-                'absolute bottom-6 left-6 bg-surface/95 backdrop-blur-md rounded-lg shadow-md',
+                'absolute bottom-3 left-3 sm:bottom-6 sm:left-6 bg-surface/95 backdrop-blur-md rounded-lg shadow-md',
               )}
             >
               <button
@@ -781,8 +991,7 @@ export function BoardCanvas() {
                 }}
                 aria-label={t('boardCanvas.zoomOut', {}, { defaultValue: 'Zoom out' })}
                 className={cm.cn(
-                  cm.w(8),
-                  cm.h(8),
+                  'h-10 w-10',
                   cm.flex({ align: 'center', justify: 'center' }),
                   'rounded hover:bg-surface-container-high',
                 )}
@@ -807,8 +1016,7 @@ export function BoardCanvas() {
                 }}
                 aria-label={t('boardCanvas.zoomIn', {}, { defaultValue: 'Zoom in' })}
                 className={cm.cn(
-                  cm.w(8),
-                  cm.h(8),
+                  'h-10 w-10',
                   cm.flex({ align: 'center', justify: 'center' }),
                   'rounded hover:bg-surface-container-high',
                 )}
@@ -824,7 +1032,7 @@ export function BoardCanvas() {
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('xs'),
-                'absolute bottom-6 right-6 bg-surface/95 backdrop-blur-md rounded-lg shadow-md text-on-surface-variant',
+                'absolute bottom-3 right-3 sm:bottom-6 sm:right-6 bg-surface/95 backdrop-blur-md rounded-lg shadow-md text-on-surface-variant',
               )}
             >
               {t(
@@ -842,7 +1050,9 @@ export function BoardCanvas() {
                 cm.flex({ direction: 'col' }),
                 cm.sp('p', 5),
                 cm.stack(5),
-                'w-[320px] bg-surface border-l border-outline-variant/30 overflow-y-auto',
+                isMobile
+                  ? 'fixed inset-y-0 right-0 z-40 w-[88vw] max-w-[340px] bg-surface border-l border-outline-variant/30 shadow-2xl overflow-y-auto'
+                  : 'w-[320px] bg-surface border-l border-outline-variant/30 overflow-y-auto',
               )}
             >
               <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
@@ -995,123 +1205,129 @@ export function BoardCanvas() {
               </div>
             </aside>
           ) : (
-            <aside
-              data-mol-id="board-side-info"
-              className={cm.cn(
-                cm.flex({ direction: 'col' }),
-                cm.sp('p', 5),
-                cm.stack(4),
-                'w-[280px] bg-surface border-l border-outline-variant/30 overflow-y-auto',
-              )}
-            >
-              <div className={cm.stack(2)}>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('boardCanvas.summaryTitle', {}, { defaultValue: 'Board' })}
-                </span>
-                <p
-                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-on-surface')}
-                >
-                  {board?.title ?? '—'}
-                </p>
-                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                  {t(
-                    'boardCanvas.summaryCount',
-                    { count: elements.length },
-                    { defaultValue: '{{count}} elements on the canvas' },
-                  )}
-                </p>
-              </div>
-
-              <div className={cm.stack(2)}>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('boardCanvas.collaboratorsTitle', {}, { defaultValue: 'Collaborators' })}
-                </span>
-                {collaborators.length === 0 ? (
+            !isMobile && (
+              <aside
+                data-mol-id="board-side-info"
+                className={cm.cn(
+                  cm.flex({ direction: 'col' }),
+                  cm.sp('p', 5),
+                  cm.stack(4),
+                  'w-[280px] bg-surface border-l border-outline-variant/30 overflow-y-auto',
+                )}
+              >
+                <div className={cm.stack(2)}>
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('boardCanvas.summaryTitle', {}, { defaultValue: 'Board' })}
+                  </span>
+                  <p
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'text-on-surface',
+                    )}
+                  >
+                    {board?.title ?? '—'}
+                  </p>
                   <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                     {t(
-                      'boardCanvas.noCollaborators',
-                      {},
-                      { defaultValue: 'No collaborators yet. Use Share to invite teammates.' },
+                      'boardCanvas.summaryCount',
+                      { count: elements.length },
+                      { defaultValue: '{{count}} elements on the canvas' },
                     )}
                   </p>
-                ) : (
-                  <ul className={cm.stack(1)}>
-                    {collaborators.map((c) => (
-                      <li
-                        key={c.id}
-                        data-mol-id={`board-collaborator-${c.id}`}
-                        className={cm.cn(
-                          cm.flex({ align: 'center', justify: 'between' }),
-                          cm.sp('px', 2),
-                          cm.sp('py', 1),
-                          cm.textSize('xs'),
-                          'rounded bg-surface-container-low',
-                        )}
-                      >
-                        <span className={cm.cn('truncate')}>
-                          {c.email ?? c.user_id ?? 'unknown'}
-                        </span>
-                        <span
+                </div>
+
+                <div className={cm.stack(2)}>
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('boardCanvas.collaboratorsTitle', {}, { defaultValue: 'Collaborators' })}
+                  </span>
+                  {collaborators.length === 0 ? (
+                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {t(
+                        'boardCanvas.noCollaborators',
+                        {},
+                        { defaultValue: 'No collaborators yet. Use Share to invite teammates.' },
+                      )}
+                    </p>
+                  ) : (
+                    <ul className={cm.stack(1)}>
+                      {collaborators.map((c) => (
+                        <li
+                          key={c.id}
+                          data-mol-id={`board-collaborator-${c.id}`}
                           className={cm.cn(
-                            cm.fontWeight('bold'),
-                            'uppercase tracking-widest text-[10px] text-primary',
+                            cm.flex({ align: 'center', justify: 'between' }),
+                            cm.sp('px', 2),
+                            cm.sp('py', 1),
+                            cm.textSize('xs'),
+                            'rounded bg-surface-container-low',
                           )}
                         >
-                          {c.role}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+                          <span className={cm.cn('truncate')}>
+                            {c.email ?? c.user_id ?? 'unknown'}
+                          </span>
+                          <span
+                            className={cm.cn(
+                              cm.fontWeight('bold'),
+                              'uppercase tracking-widest text-[10px] text-primary',
+                            )}
+                          >
+                            {c.role}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
 
-              <div className={cm.stack(2)}>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('boardCanvas.visibilityTitle', {}, { defaultValue: 'Visibility' })}
-                </span>
-                <button
-                  type="button"
-                  data-mol-id="board-toggle-public"
-                  onClick={handleTogglePublic}
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'between' }),
-                    cm.sp('px', 3),
-                    cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    cm.textSize('xs'),
-                    'rounded-lg bg-surface-container-low hover:bg-surface-container',
-                  )}
-                >
-                  <span>
-                    {board?.is_public
-                      ? t(
-                          'boardCanvas.public',
-                          {},
-                          { defaultValue: 'Public — anyone with link can view' },
-                        )
-                      : t('boardCanvas.private', {}, { defaultValue: 'Private — invite only' })}
+                <div className={cm.stack(2)}>
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('boardCanvas.visibilityTitle', {}, { defaultValue: 'Visibility' })}
                   </span>
-                  <span className={cm.cn('material-symbols-outlined text-[16px]')}>
-                    {board?.is_public ? 'visibility' : 'lock'}
-                  </span>
-                </button>
-              </div>
-            </aside>
+                  <button
+                    type="button"
+                    data-mol-id="board-toggle-public"
+                    onClick={handleTogglePublic}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'between' }),
+                      cm.sp('px', 3),
+                      cm.sp('py', 2),
+                      cm.fontWeight('semibold'),
+                      cm.textSize('xs'),
+                      'rounded-lg bg-surface-container-low hover:bg-surface-container',
+                    )}
+                  >
+                    <span>
+                      {board?.is_public
+                        ? t(
+                            'boardCanvas.public',
+                            {},
+                            { defaultValue: 'Public — anyone with link can view' },
+                          )
+                        : t('boardCanvas.private', {}, { defaultValue: 'Private — invite only' })}
+                    </span>
+                    <span className={cm.cn('material-symbols-outlined text-[16px]')}>
+                      {board?.is_public ? 'visibility' : 'lock'}
+                    </span>
+                  </button>
+                </div>
+              </aside>
+            )
           )}
         </div>
 

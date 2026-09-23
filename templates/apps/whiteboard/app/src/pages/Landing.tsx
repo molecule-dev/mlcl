@@ -87,20 +87,25 @@ export function Landing() {
         </Link>
         <nav
           className={cm.cn(
-            cm.flex({ align: 'center', gap: 'lg' }),
+            cm.flex({ align: 'center' }),
+            'gap-3 sm:gap-6',
             cm.fontWeight('semibold'),
             cm.textSize('sm'),
           )}
         >
           <Link
             to="/templates"
-            className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+            className={cm.cn(
+              'hidden md:inline text-on-surface-variant hover:text-on-surface transition-colors',
+            )}
           >
             {t('nav.templates', {}, { defaultValue: 'Templates' })}
           </Link>
           <Link
             to="/pricing"
-            className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+            className={cm.cn(
+              'hidden md:inline text-on-surface-variant hover:text-on-surface transition-colors',
+            )}
           >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>

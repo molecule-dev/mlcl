@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -82,6 +83,10 @@ export function TemplateDetail() {
         title: template.name,
       })
       if (res.data?.id) {
+        track({
+          name: 'board.created',
+          properties: { board_id: res.data.id, source: 'template', template_id: template.id },
+        })
         navigate(`/board/${res.data.id}`)
       }
     } catch (err) {

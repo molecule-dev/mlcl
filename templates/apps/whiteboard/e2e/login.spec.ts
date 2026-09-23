@@ -24,10 +24,15 @@ test.describe('/login — email + password sign-in', () => {
     await signup(page, email, 'TestPass!Real123')
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/login')
+    // Expected 403 from POST /api/users/log-in — the browser logs it as a
+    // console error; the app must stay on /login and surface an inline error.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.locator('input[type="email"]').first().fill(email)
     await page.locator('input[type="password"]').first().fill('TotallyWrongPass!')
     await page.locator('form button[type="submit"]').first().click()
-    await page.waitForTimeout(1500)
     await expect(page).toHaveURL(/\/login/)
   })
 
