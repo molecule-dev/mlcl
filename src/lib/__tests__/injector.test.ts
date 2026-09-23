@@ -1057,6 +1057,27 @@ describe('synthesizeAppProjectFiles', () => {
     }
   })
 
+  it('passes the app base path to setFont for font bonds', async () => {
+    // Local faces load from `<basePath>fonts/<file>`; a site served under a
+    // sub-path (Vite `base`) 404s every face at `/fonts/…` unless the app
+    // passes the base. Only the app knows it (import.meta.env.BASE_URL), so
+    // the generated bond file passes it (X0 x17/x18: every e2e test failed the
+    // console guard on the Arimo 404 under BASE_PATH=/blog).
+    const pkg = registryPackages.find((p) => p.name === '@molecule/app-fonts-arimo')
+    expect(pkg, '@molecule/app-fonts-arimo present in registry').toBeDefined()
+
+    const content = await generateBondSetupCode(
+      pkg!,
+      'app-fonts-arimo',
+      '@molecule/app-fonts',
+      tempDir,
+    )
+
+    expect(content).toContain("import { setFont } from '@molecule/app-fonts'")
+    expect(content).toContain('setFont(font, { basePath: import.meta.env.BASE_URL })')
+    expect(content).not.toContain('setFont(font)\n')
+  })
+
   it('does not re-export providers without appBondSetup.reExport', () => {
     // Create a plan with a bond setup that does NOT have reExport
     const customPlan: InjectionPlan = {

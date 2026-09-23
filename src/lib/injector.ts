@@ -1539,10 +1539,15 @@ export function setup${pascal}(): void {
 
   const allSetterImports = [setter, ...additionalPairs.map((p) => p.setter)].join(', ')
   const allProviderImports = [provider, ...additionalPairs.map((p) => p.provider)].join(', ')
-  const allSetupCalls = [
-    `${setter}(${providerCall})`,
-    ...additionalPairs.map((p) => `${p.setter}(${p.provider})`),
-  ]
+  // Local font faces load from `<basePath>fonts/<file>`; a site served under a
+  // sub-path (Vite `base`, BASE_PATH) 404s every face at `/fonts/…` unless the
+  // app passes the base it already knows. Only the app knows it — the bond
+  // cannot discover it reliably in both dev and the built site.
+  const setterCall =
+    setter === 'setFont' && interfacePackage === '@molecule/app-fonts'
+      ? `${setter}(${providerCall}, { basePath: import.meta.env.BASE_URL })`
+      : `${setter}(${providerCall})`
+  const allSetupCalls = [setterCall, ...additionalPairs.map((p) => `${p.setter}(${p.provider})`)]
     .map((call) => `  ${call}`)
     .join('\n')
 
