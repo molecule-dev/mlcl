@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -112,6 +113,7 @@ export function MenuItemDetail() {
         available: form.available,
       }
       await http.put(`/api/menu/${id}`, payload)
+      void track({ name: 'menu_item.updated', properties: { itemId: id } })
       setStatusMessage(t('common.savedPeriod', {}, { defaultValue: 'Saved.' }))
     } catch (error) {
       logError('menuItemDetail.save', error)
@@ -123,10 +125,17 @@ export function MenuItemDetail() {
 
   const handleDelete = useCallback(async () => {
     if (!id) return
+    if (
+      !window.confirm(
+        t('menuItemDetail.confirmDelete', {}, { defaultValue: 'Delete this menu item?' }),
+      )
+    )
+      return
     setSaving(true)
     setError(null)
     try {
       await http.delete(`/api/menu/${id}`)
+      void track({ name: 'menu_item.deleted', properties: { itemId: id } })
       navigate('/menu')
     } catch (error) {
       logError('menuItemDetail.delete', error)

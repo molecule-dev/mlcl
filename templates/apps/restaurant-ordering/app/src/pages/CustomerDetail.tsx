@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -96,6 +97,10 @@ export function CustomerDetail() {
         scheduled_for: scheduled.toISOString(),
         customer_id: customer.id,
       })
+      void track({
+        name: 'reservation.created',
+        properties: { partySize, customerId: customer.id },
+      })
       setStatus(
         t('customerDetail.reservationCreated', {}, { defaultValue: 'Reservation created.' }),
       )
@@ -121,6 +126,7 @@ export function CustomerDetail() {
     setError(null)
     try {
       await http.delete(`/api/customers/${customer.id}`)
+      void track({ name: 'customer.deleted', properties: { customerId: customer.id } })
       navigate('/customers')
     } catch (error) {
       logError('customerDetail.delete', error)

@@ -37,6 +37,12 @@ test('Reset password: invalid token surfaces an error', async ({ page }) => {
 test('Reset password: end-to-end reset flow lets the user log in with the new password', async ({
   page,
 }) => {
+  // Clearing localStorage below logs the session out while the app shell is
+  // still mounted, so the next /api/users/me probe 401s — expected noise.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 401',
+  })
   const { email } = await signup(page)
   // Ask for a reset, then read the most recent token from the API.
   const reqRes = await apiRequest<{ token?: string }>(page, 'POST', '/api/users/forgot-password', {

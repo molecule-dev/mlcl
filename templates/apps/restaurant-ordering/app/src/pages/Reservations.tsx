@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -105,6 +106,7 @@ export function Reservations() {
         party_size: partySize,
         scheduled_for: scheduled.toISOString(),
       })
+      void track({ name: 'reservation.created', properties: { partySize } })
       await reload()
     } catch (error) {
       logError('reservations.add', error)
@@ -120,6 +122,10 @@ export function Reservations() {
       setError(null)
       try {
         await http.put(`/api/reservations/${id}/status`, { status })
+        void track({
+          name: 'reservation.status_updated',
+          properties: { reservationId: id, status },
+        })
         await reload()
       } catch (error) {
         logError('reservations.updateStatus', error)

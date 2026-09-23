@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import {
+  cartCount,
   cartSubtotalCents,
   clearGuestCart,
   type GuestCart,
@@ -75,6 +77,17 @@ export function GuestCart() {
           special_instructions: l.note,
         })),
       })) as { id?: string }
+      // Conversion point: the guest submitted the cart to the kitchen.
+      void track({
+        name: 'order.placed',
+        properties: {
+          orderId: res?.id,
+          itemCount: cartCount(cart),
+          subtotalCents: subtotal,
+          tipPct,
+          table: cart.tableNumber ?? undefined,
+        },
+      })
       clearGuestCart()
       setSuccess(
         t(
@@ -99,7 +112,7 @@ export function GuestCart() {
     } finally {
       setSubmitting(false)
     }
-  }, [cart, customerEmail, tipPct, http, navigate, t])
+  }, [cart, customerEmail, subtotal, tipPct, http, navigate, t])
 
   if (cart.lines.length === 0 && !success) {
     return (

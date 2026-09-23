@@ -1,5 +1,7 @@
+import { bond, get } from '@molecule/api-bond'
 import { resolveAll } from '@molecule/api-secrets'
 
+import { captureOutboundEmail, isE2ECaptureEnabled } from '../lib/dev-email-capture.js'
 import { registerRealtimeJoinGuard } from '../lib/realtime-guard.js'
 import { setupEntitlements } from '../tiers.js'
 import { setupConfigEnv } from './config-env.js'
@@ -50,6 +52,7 @@ export async function setupBonds(): Promise<void> {
   setupConfigEnv()
   setupDatabasePostgresql()
   setupEmailsMailgun()
+  wrapEmailsForE2ECapture()
   setupImageSharp()
   setupMiddlewareBodyParserExpress()
   setupMiddlewareCookieParserExpress()
@@ -70,4 +73,24 @@ export async function setupBonds(): Promise<void> {
   // authorizer is registered — wire this app's operator-ownership merchant gate.
   setupResourceOrder()
   setupEntitlements()
+}
+
+/**
+ * Mirror outgoing password-reset emails into the e2e capture (see
+ * `lib/dev-email-capture.ts`) so `GET /users/reset-token` can serve the RAW
+ * token — the same handoff a real user gets by reading their inbox. The
+ * user resource persists only sha256(token), so the secrets table can never
+ * hand back a usable token. Fail-closed: with `ENABLE_E2E_TEST_ENDPOINTS`
+ * unset the email bond passes through untouched and nothing is retained.
+ */
+function wrapEmailsForE2ECapture(): void {
+  if (!isE2ECaptureEnabled()) return
+  const email = get<{ sendMail(opts: Record<string, unknown>): Promise<unknown> }>('email')
+  if (!email) return
+  bond('email', {
+    sendMail: async (opts: Record<string, unknown>) => {
+      captureOutboundEmail(opts)
+      return email.sendMail(opts)
+    },
+  })
 }

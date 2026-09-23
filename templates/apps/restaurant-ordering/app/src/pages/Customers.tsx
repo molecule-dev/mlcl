@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -84,6 +85,7 @@ export function Customers() {
       const email =
         window.prompt(t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })) || ''
       await http.post('/api/customers', { name, email })
+      void track({ name: 'customer.created', properties: { name } })
       await reload()
     } catch (error) {
       logError('customers.add', error)

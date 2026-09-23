@@ -5,6 +5,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { broadcast } from '@molecule/api-realtime'
 
@@ -116,7 +117,11 @@ router.put('/:id/status', validateBody(updateStatusSchema) as RequestHandler, as
   const { status } = req.body as z.infer<typeof updateStatusSchema>
   const result = await updateById<Record<string, unknown>>('reservations', id, { status })
   if (status === 'seated' && existing.table_id) {
-    await updateById('tables', existing.table_id as string, { status: 'reserved' }).catch(() => {})
+    await updateById('tables', existing.table_id as string, { status: 'reserved' }).catch(
+      (error) => {
+        logger.warn('reservations.markTableReserved', error)
+      },
+    )
   }
   broadcast('reservations', 'reservation_status', { id, status })
   res.json(result.data)

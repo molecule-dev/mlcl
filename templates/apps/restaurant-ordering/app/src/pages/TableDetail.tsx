@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -78,6 +79,7 @@ export function TableDetail() {
       setError(null)
       try {
         await http.put(`/api/tables/${id}/status`, { status })
+        void track({ name: 'table.status_updated', properties: { tableId: id, status } })
         await reload()
       } catch (error) {
         logError('tableDetail.updateStatus', error)
@@ -91,10 +93,13 @@ export function TableDetail() {
 
   const handleDelete = useCallback(async () => {
     if (!id) return
+    if (!window.confirm(t('tableDetail.confirmDelete', {}, { defaultValue: 'Delete this table?' })))
+      return
     setBusy(true)
     setError(null)
     try {
       await http.delete(`/api/tables/${id}`)
+      void track({ name: 'table.deleted', properties: { tableId: id } })
       navigate('/tables')
     } catch (error) {
       logError('tableDetail.delete', error)

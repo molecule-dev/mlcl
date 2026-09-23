@@ -2,6 +2,8 @@ import { useTranslation } from '@molecule/app-react'
 import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
+import { MobileNavShell } from './MobileNavShell.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -27,16 +29,30 @@ const NAV_KEYS = [
  * icons (restaurant_menu, table_restaurant, event_seat). Built on the
  * shared SidebarLayout package; renders <Outlet /> in the main panel.
  *
- * Pattern source: banking-dashboard's MeridianLayout.
+ * Mobile (<768px): a template-local MobileNavShell (sticky top bar + drawer).
+ * The shared SidebarLayout has no collapse and crushes a 390px viewport's
+ * content column to ~150px. The shell is conditionally RENDERED via matchMedia
+ * (not CSS-hidden) so nav `data-mol-id`s are never duplicated in the DOM.
  */
 export function RestaurantOrderingLayout() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`restaurantOrderingLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+  const navAriaLabel = t(
+    'restaurantOrderingLayout.primaryNavLabel',
+    {},
+    { defaultValue: 'Primary navigation' },
+  )
+
+  if (isMobile) {
+    return <MobileNavShell logoTo="/dashboard" navItems={navItems} navAriaLabel={navAriaLabel} />
+  }
+
   return (
     <SidebarLayout
       appName={APP_NAME}
@@ -44,11 +60,7 @@ export function RestaurantOrderingLayout() {
       navItems={navItems}
       userMenu={<UserMenu />}
       themeToggle={<ThemeToggle />}
-      navAriaLabel={t(
-        'restaurantOrderingLayout.primaryNavLabel',
-        {},
-        { defaultValue: 'Primary navigation' },
-      )}
+      navAriaLabel={navAriaLabel}
     />
   )
 }

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -80,6 +81,7 @@ export function Tables() {
     try {
       const next = (tables.reduce((max, t) => Math.max(max, Number(t.label) || 0), 0) || 0) + 1
       await http.post('/api/tables', { table_number: next, seats: 2, section: 'main' })
+      void track({ name: 'table.created', properties: { tableNumber: next } })
       await reload()
     } catch (error) {
       logError('tables.add', error)

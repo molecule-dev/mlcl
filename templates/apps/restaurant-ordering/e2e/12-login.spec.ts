@@ -30,6 +30,12 @@ test('Login: successful credentials redirect to /dashboard', async ({ page }) =>
 })
 
 test('Login: bad credentials surface an error and stay on /login', async ({ page }) => {
+  // The 403 from /api/users/log-in is the EXPECTED response here — the
+  // browser logs any failed fetch to console, so annotate it up front.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   await page.goto(APP_BASE + '/login', { waitUntil: 'domcontentloaded' })
   await page
     .locator('input[type="email"]')

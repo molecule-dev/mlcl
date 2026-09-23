@@ -9,17 +9,18 @@
  *
  * Currently exposes:
  *   GET /users/reset-token?email=<email>
- *     → 200 { token: string } if a reset token is currently stored on
- *       the user's `usersSecrets` row, else 404. Tests use this to
- *       simulate the email-delivered token handoff without needing a
- *       real inbox.
+ *     → 200 { token: string } with the RAW reset token captured from the
+ *       outbound reset email (see `lib/dev-email-capture.ts`), else 404.
+ *       The user resource persists only sha256(token) in `usersSecrets`, so
+ *       the secrets table can never hand back a usable token — the captured
+ *       email IS the handoff a real user gets by reading their inbox.
  *
  * @module
  */
 
 import { type Request, type Response, Router } from 'express'
 
-import { findOne } from '@molecule/api-database'
+import { getCapturedResetToken } from '../lib/dev-email-capture.js'
 
 const router = Router()
 
@@ -44,22 +45,15 @@ router.get('/reset-token', async (req: Request, res: Response) => {
     res.status(400).json({ error: 'email query param is required' })
     return
   }
-  const user = await findOne<{ id: string }>('users', [
-    { field: 'email', operator: '=', value: email },
-  ])
-  if (!user) {
-    res.status(404).json({ error: 'user not found' })
+  const token = getCapturedResetToken(email)
+  if (!token) {
+    res.status(404).json({
+      error:
+        'no reset token captured — a POST /users/forgot-password must have run with the email bond armed (ENABLE_E2E_TEST_ENDPOINTS=true)',
+    })
     return
   }
-  const secret = await findOne<{
-    id: string
-    passwordResetToken?: string | null
-  }>('usersSecrets', [{ field: 'id', operator: '=', value: user.id }])
-  if (!secret || !secret.passwordResetToken) {
-    res.status(404).json({ error: 'no reset token issued' })
-    return
-  }
-  res.json({ token: secret.passwordResetToken })
+  res.json({ token })
 })
 
 export default router

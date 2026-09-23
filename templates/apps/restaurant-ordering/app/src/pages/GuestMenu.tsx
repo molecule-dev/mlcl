@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -51,6 +52,11 @@ export function GuestMenu() {
         if (cancelled) return
         const list = unwrapList<ApiMenuItem>(res).filter((i) => i.available !== false)
         setItems(list)
+        // Top of the guest ordering funnel: the QR-code menu was viewed.
+        void track({
+          name: 'menu.viewed',
+          properties: { itemCount: list.length, table: tableNumber ?? undefined },
+        })
       })
       .catch(() => {
         if (!cancelled)
@@ -62,7 +68,7 @@ export function GuestMenu() {
     return () => {
       cancelled = true
     }
-  }, [http, ownerParam, t])
+  }, [http, ownerParam, tableNumber, t])
 
   useEffect(() => {
     setCart((prev) => {
@@ -89,6 +95,10 @@ export function GuestMenu() {
   const count = cartCount(cart)
 
   const handleAdd = useCallback((item: ApiMenuItem) => {
+    void track({
+      name: 'item.added_to_cart',
+      properties: { itemId: item.id, name: item.name },
+    })
     setCart((prev) => {
       const next = addLine(prev, {
         id: item.id,

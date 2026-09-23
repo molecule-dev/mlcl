@@ -204,7 +204,7 @@ router.post(
 
       res.status(201).json({ ...orderResult.data, items: orderItems })
     } catch (err) {
-      console.error('[orders/create] failed', err)
+      logger.error('orders.create', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -376,7 +376,7 @@ router.post('/:id/pay', validateBody(paySchema) as RequestHandler, async (req, r
 
     res.json({ success: true, chargeAmount, paymentId })
   } catch (err) {
-    console.error('[orders/pay] failed', err)
+    logger.error('orders.pay', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

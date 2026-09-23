@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -61,8 +62,10 @@ export function OrderDetail() {
     try {
       if (next.next === 'paid') {
         await http.post(`/api/orders/${id}/pay`, { paymentMethodId: 'pm_card_test' })
+        void track({ name: 'order.paid', properties: { orderId: id, from: order.status } })
       } else {
         await http.put(`/api/orders/${id}/status`, { status: next.next })
+        void track({ name: 'order.status_updated', properties: { orderId: id, status: next.next } })
       }
       setStatus(t('orderDetail.statusUpdated', {}, { defaultValue: 'Status updated.' }))
       await reload()
@@ -81,6 +84,7 @@ export function OrderDetail() {
     setStatus(null)
     try {
       await http.put(`/api/orders/${id}/status`, { status: 'cancelled' })
+      void track({ name: 'order.cancelled', properties: { orderId: id, from: order.status } })
       setStatus(t('orderDetail.cancelled', {}, { defaultValue: 'Order cancelled.' }))
       await reload()
     } catch (error) {
