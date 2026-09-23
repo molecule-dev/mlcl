@@ -31,7 +31,7 @@
     "@molecule/app-bond": "1.0.2",
     "@molecule/app-code-editor": "1.0.2",
     "@molecule/app-device": "1.0.2",
-    "@molecule/app-fonts": "1.0.2",
+    "@molecule/app-fonts": "1.1.0",
     "@molecule/app-fonts-arimo": "1.0.2",
     "@molecule/app-footer-react": "1.0.3",
     "@molecule/app-forms": "1.0.2",
