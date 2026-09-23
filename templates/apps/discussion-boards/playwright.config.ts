@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 import { defineConfig } from '@playwright/test'
 
-import { resolveE2EProviderName } from '@molecule/app-e2e'
+import { e2eRunnerDefaults, resolveE2EProviderName } from '@molecule/app-e2e'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -66,15 +66,12 @@ const preview = resolveE2EProviderName() === 'preview'
 const sandbox = existsSync('/etc/mol/app-root')
 
 export default defineConfig({
+  ...e2eRunnerDefaults(),
   testDir: './e2e',
   // Fails in seconds when nothing answers at the target (see e2e/global-setup.ts).
   globalSetup: './e2e/global-setup.ts',
   testMatch: /.*\.spec\.ts$/,
-  timeout: 120_000,
   expect: { timeout: 15_000 },
-  fullyParallel: false,
-  workers: 1,
-  retries: sandbox ? 0 : 2,
   // 'list' for console output; the replay reporter writes the per-app
   // chapter video + actions.json + viewer to .app-screenshots/replays/<slug>/.
   reporter:

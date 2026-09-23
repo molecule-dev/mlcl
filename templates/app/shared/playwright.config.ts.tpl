@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 
 import { defineConfig, devices } from '@playwright/test'
 
-import { resolveE2EProviderName } from '@molecule/app-e2e'
+import { e2eRunnerDefaults, resolveE2EProviderName } from '@molecule/app-e2e'
 
 // Inside a molecule sandbox (the marker the platform writes) the app is served on
 // 5173; elsewhere Vite's scaffolded 3000. Set on process.env so the spec workers
@@ -21,15 +21,16 @@ const VITE_PORT = process.env.VITE_PORT
  * — `baseURL` is ignored there because the preview page's own origin is used,
  * and it fails fast when no tab is attached). See `e2e/bonds.ts`.
  *
- * Inside a sandbox a failed test is a failed test — the run is the executor's
- * feedback loop, and a retry only replays the same result and multiplies the
- * run time — so retries are off there.
+ * Workers, parallelism, retries, the failure cap and the per-test timeout come
+ * from `e2eRunnerDefaults()` (@molecule/app-e2e), spread first so a field set
+ * below it wins. Inside a sandbox that means no retries, a stop after 8
+ * failures and 30 s per test; on a real browser the tests run in parallel on
+ * half the machine's cores, so the suite costs roughly its slowest file; over
+ * the preview there is one page, so one worker. A test that genuinely runs long
+ * says so itself (`test.slow()`), rather than raising the timeout for all.
  *
- * Run the WHOLE suite — `npm run test:e2e`. On a real browser the tests run in
- * parallel on half the machine's cores (each worker has its own browser against
- * the same dev server), so the suite costs roughly its slowest file, not the
- * sum; over the preview there is one page, so it stays one worker. A file per
- * command pays the runner startup again each time.
+ * Run the WHOLE suite — `npm run test:e2e`. A file per command pays the runner
+ * startup again each time.
  * Narrow it only when you mean to: `npm run test:e2e -- e2e/home.spec.ts` (a
  * list of files is also one process), or `npm run test:e2e:changed`, which
  * runs the spec files that differ from HEAD, plus any spec that IMPORTS a
@@ -38,25 +39,16 @@ const VITE_PORT = process.env.VITE_PORT
  * because a run that selects nothing still exits 0.
  */
 // Which bond runs the specs is @molecule/app-e2e's one rule (MOL_E2E_PROVIDER, else the
-// environment). Inside a sandbox (the marker the platform writes): no retries.
+// environment).
 const preview = resolveE2EProviderName() === 'preview'
-const sandbox = existsSync('/etc/mol/app-root')
 
 export default defineConfig({
+  ...e2eRunnerDefaults(),
   testDir: './e2e',
   // Fails in seconds when nothing answers at the target (see e2e/global-setup.ts).
   globalSetup: './e2e/global-setup.ts',
   testMatch: /.*\.spec\.ts$/,
-  fullyParallel: !preview,
-  workers: preview ? 1 : '50%',
-  retries: sandbox ? 0 : 1,
-  // Inside a sandbox a run that is failing everywhere (usually specs pointed at
-  // the wrong server or base path) stops after 8 failures instead of waiting out
-  // every test's timeouts: X0 x40 spent two runs of 280 s each learning nothing.
-  // The failures it did hit are still reported in full.
-  maxFailures: sandbox ? 8 : 0,
   reporter: [['list']],
-  timeout: sandbox ? 30_000 : 60_000,
   expect: { timeout: 10_000 },
   use: {
     baseURL: process.env.APP_BASE || `http://localhost:${VITE_PORT}`,
