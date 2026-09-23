@@ -9,8 +9,14 @@ test.describe('library page', () => {
     // spec keeps working once the demo videos are replaced.
     const video = await pickVideo(page)
     // Watching a video creates a video_views row → shows up in /api/library/history.
+    // Arm the wait BEFORE the goto — a fixed sleep races the history POST and
+    // the fetch below can beat the insert (observed flake).
+    const historyPost = page.waitForResponse(
+      (r) => /\/api\/library\/history\/?$/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 10_000 },
+    )
     await page.goto(APP_BASE + `/watch/${video.id}`)
-    await page.waitForTimeout(800)
+    await historyPost
 
     const { status, body } = await authedFetch<Array<Record<string, unknown>>>(
       page,
@@ -38,11 +44,17 @@ test.describe('library page', () => {
     const video = await pickVideo(page)
     // Save a video, then visit /library and confirm it renders.
     await page.goto(APP_BASE + `/watch/${video.id}`)
+    // Arm the wait BEFORE the click — a fixed sleep races the insert and
+    // /library's later-fetch can beat it (observed flake).
+    const savedPost = page.waitForResponse(
+      (r) => /\/api\/library\/later\/?$/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 10_000 },
+    )
     await page
       .getByRole('button', { name: /^Save$/i })
       .first()
       .click()
-    await page.waitForTimeout(500)
+    await savedPost
 
     await page.goto(APP_BASE + '/library')
     await expect(page.getByText(video.title).first()).toBeVisible({

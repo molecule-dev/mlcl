@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -213,6 +214,7 @@ export function Channel() {
     if (subscribed && followId) {
       try {
         await http.delete(`/api/follows/${followId}`)
+        track({ name: 'channel.unsubscribed', properties: { channelId: id } })
         setSubscribed(false)
         setFollowId(null)
         setChannel((prev) => ({
@@ -227,6 +229,7 @@ export function Channel() {
     try {
       const res = await http.post('/api/follows', { channel_id: id })
       const row = unwrapSingle<Record<string, unknown>>(res) ?? {}
+      track({ name: 'channel.subscribed', properties: { channelId: id } })
       setSubscribed(true)
       setFollowId(String(row.id ?? ''))
       setChannel((prev) => ({ ...prev, subscriber_count: prev.subscriber_count + 1 }))
@@ -255,7 +258,9 @@ export function Channel() {
         />
       </div>
 
-      <div className={cm.cn('flex items-end gap-4 -mt-6 px-4')}>
+      {/* Stack under `sm` so the fixed-width Subscribe button never crushes
+          the channel name into one or two characters on a 390px phone. */}
+      <div className={cm.cn('flex flex-col items-start gap-4 -mt-6 px-4 sm:flex-row sm:items-end')}>
         <div
           className={cm.cn(
             'w-28 h-28 md:w-32 md:h-32 rounded-full shrink-0 flex items-center justify-center shadow-2xl border-4 border-background',
@@ -267,11 +272,15 @@ export function Channel() {
             person
           </span>
         </div>
-        <div className={cm.cn('flex-1 min-w-0 pb-2')}>
+        <div className={cm.cn('flex-1 min-w-0 sm:pb-2 w-full')}>
           <h1 className={cm.cn('text-3xl md:text-4xl font-extrabold tracking-tight truncate')}>
             {channel.name}
           </h1>
-          <div className={cm.cn('flex items-center gap-2 mt-1 text-sm text-on-surface-variant')}>
+          <div
+            className={cm.cn(
+              'flex items-center flex-wrap gap-x-2 gap-y-0.5 mt-1 text-sm text-on-surface-variant',
+            )}
+          >
             <span>@{channel.handle}</span>
             <span aria-hidden="true">·</span>
             <span className={cm.cn('tabular-nums')}>
@@ -317,7 +326,8 @@ export function Channel() {
         aria-label={t('channel.tabsLabel', {}, { defaultValue: 'Channel tabs' })}
         className={cm.cn('border-b border-outline-variant/60 px-4')}
       >
-        <ul className={cm.flex({ gap: 'lg' })}>
+        {/* Tabs scroll horizontally on phones instead of clipping the last ones. */}
+        <ul className={cm.cn(cm.flex({ gap: 'lg' }), 'overflow-x-auto')}>
           {TABS.map((s) => {
             const active = tab === s
             return (
@@ -326,7 +336,7 @@ export function Channel() {
                   type="button"
                   onClick={() => setTab(s)}
                   className={cm.cn(
-                    'px-1 py-3 text-sm font-bold uppercase tracking-widest transition-colors border-b-2',
+                    'px-1 py-3 text-sm font-bold uppercase tracking-widest whitespace-nowrap transition-colors border-b-2',
                     active
                       ? 'text-on-surface border-primary'
                       : 'text-on-surface-variant border-transparent hover:text-on-surface',

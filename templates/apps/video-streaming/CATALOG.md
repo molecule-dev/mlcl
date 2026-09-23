@@ -42,6 +42,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **library** — `api/src/handlers/library.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
 - **playlists** — `api/src/handlers/playlists.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **studio** — `api/src/handlers/studio.ts`
 - **videos** — `api/src/handlers/videos.ts`
 

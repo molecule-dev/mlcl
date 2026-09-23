@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ACCENT_COLOR, APP_NAME, BRAND_COLOR } from '../branding.js'
+import { unwrapSingle } from '../lib/unwrap.js'
 
 type Stage = 'choose' | 'details' | 'visibility'
 
@@ -49,11 +51,13 @@ export function Upload() {
   const [tags, setTags] = useState('')
   const [visibility, setVisibility] = useState<Visibility>('public')
   const [submitting, setSubmitting] = useState(false)
+  const [publishError, setPublishError] = useState<string | null>(null)
   const stageIndex = STAGES.indexOf(stage)
 
   const handlePublish = async () => {
     if (!title.trim()) return
     setSubmitting(true)
+    setPublishError(null)
     try {
       // The videos schema accepts a single `tag` string, not the
       // comma-separated `tags` UI. We promote the first comma-separated
@@ -80,10 +84,18 @@ export function Upload() {
       // promotes the row to published; without it the upload sits in
       // processing). We don't have a transcoder pipeline wired in v1, so
       // leave the row as `processing` which is the API default.
-      await http.post('/api/videos', body)
+      const res = await http.post('/api/videos', body)
+      const created = unwrapSingle<{ id?: string }>(res?.data) ?? {}
+      track({
+        name: 'upload.completed',
+        properties: { videoId: String(created.id ?? ''), tag: primaryTag ?? '' },
+      })
       navigate('/studio')
     } catch (_error) {
-      // Surface a soft visual cue: stop the spinner so the user can retry.
+      // Inline, retryable feedback — never a silent stop-the-spinner failure.
+      setPublishError(
+        t('upload.publishError', {}, { defaultValue: 'Publishing failed — please try again.' }),
+      )
     } finally {
       setSubmitting(false)
     }
@@ -100,7 +112,9 @@ export function Upload() {
         </h1>
       </header>
 
-      <ol className={cm.flex({ align: 'center', gap: 'md' })}>
+      {/* gap + connector shrink below `sm` so all three steps fit a 390px
+          column instead of clipping the Visibility step off-screen. */}
+      <ol className={cm.cn('flex items-center gap-2 sm:gap-4')}>
         {STAGES.map((s, i) => {
           const reached = i <= stageIndex
           return (
@@ -122,14 +136,19 @@ export function Upload() {
               </div>
               <span
                 className={cm.cn(
-                  'text-xs font-bold uppercase tracking-widest',
+                  'text-xs font-bold uppercase tracking-widest whitespace-nowrap',
                   reached ? 'text-on-surface' : 'text-on-surface-variant',
                 )}
               >
                 {t(`upload.stage.${s}`, {}, { defaultValue: STAGE_LABEL[s] })}
               </span>
               {i < STAGES.length - 1 && (
-                <span className={cm.cn('w-12 h-[2px] bg-outline-variant')} aria-hidden="true" />
+                <span
+                  className={cm.cn(
+                    'w-6 sm:w-12 h-[2px] bg-outline-variant shrink-0 hidden sm:block',
+                  )}
+                  aria-hidden="true"
+                />
               )}
             </li>
           )
@@ -425,6 +444,17 @@ export function Upload() {
               )
             })}
           </ul>
+
+          {publishError && (
+            <p
+              role="alert"
+              className={cm.cn(
+                'px-4 py-3 rounded-xl bg-error-container text-on-error-container text-sm',
+              )}
+            >
+              {publishError}
+            </p>
+          )}
 
           <div className={cm.cn('flex items-center gap-3 pt-2')}>
             <button

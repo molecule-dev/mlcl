@@ -162,9 +162,11 @@ test('Full user journey across every primary page', async ({ page }) => {
   const sw = page.getByRole('switch').first()
   if ((await sw.count()) > 0) {
     const before = await sw.getAttribute('aria-checked')
+    // Prefs persist through the server-side /api/preferences channel
+    // (users.oauthData is stripped from user-resource reads).
     const patched = page.waitForResponse(
       (r) =>
-        /\/api\/users\/[^/?]+$/.test(r.url()) &&
+        /\/api\/preferences\/?$/.test(r.url()) &&
         r.request().method() === 'PATCH' &&
         r.status() === 200,
       { timeout: 10_000 },

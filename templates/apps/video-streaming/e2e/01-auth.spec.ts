@@ -15,6 +15,9 @@ test.describe('auth flow', () => {
   })
 
   test('login form rejects invalid credentials with a visible error', async ({ page }) => {
+    // The expected 403 from /api/users/log-in is the contract under test —
+    // not a page bug — so the console-guard must not fail on it.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(uniqueEmail('bad'))
     await page.locator('input[type="password"]').first().fill('wrong-password')

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -213,6 +214,7 @@ export function PlaylistDetail() {
     setAddError(null)
     try {
       const res = await http.post(`/api/playlists/${id}/videos`, { video_id: videoId })
+      track({ name: 'playlist.video_added', properties: { playlistId: id, videoId } })
       // Optimistic refresh: refetch the playlist so the new row appears.
       const p = await http.get(`/api/playlists/${id}`).catch(() => null)
       if (p) {

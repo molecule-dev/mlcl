@@ -70,6 +70,9 @@ test.describe('/login', () => {
   })
 
   test('Submit with bad credentials surfaces an error and stays on /login', async ({ page }) => {
+    // The expected 403 from /api/users/log-in is the contract under test —
+    // not a page bug — so the console-guard must not fail on it.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill('nobody+nobad@example.com')
     await page.locator('input[type="password"]').first().fill('NotARealPassword!')

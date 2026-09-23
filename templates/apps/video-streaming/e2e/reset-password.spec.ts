@@ -41,6 +41,11 @@ test.describe('/reset-password', () => {
   })
 
   test('Submit with an invalid token fails gracefully (4xx — never 5xx)', async ({ page }) => {
+    // The expected 4xx (401 on a bad token) is the contract under test —
+    // not a page bug — so the console-guard must not fail on it.
+    test
+      .info()
+      .annotations.push({ type: 'allow-console-error', description: 'status of 4[0-9][0-9]' })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?token=invalid-token-xyz&email=test@example.com')
       await page.locator('input[type="password"]').first().fill('NewPass123!')

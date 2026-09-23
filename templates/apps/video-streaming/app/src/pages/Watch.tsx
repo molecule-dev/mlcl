@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -170,6 +171,8 @@ export function Watch() {
   const resumeAtRef = useRef<number | null>(null)
   const resumeAppliedRef = useRef(false)
   const lastSavedRef = useRef(0)
+  // Fires `video.played` once per video (not once per seek/pause cycle).
+  const playedTrackedRef = useRef('')
 
   const seekToResume = useCallback(() => {
     const el = videoRef.current
@@ -316,6 +319,7 @@ export function Watch() {
       // wrapped the body which sent `{ data: { reaction } }` to the server
       // and silently failed validation.
       await http.post(`/api/videos/${id}/react`, { reaction: next })
+      track({ name: 'video.reaction', properties: { videoId: id, reaction: next } })
       setVideo((prev) =>
         next === 'like'
           ? { ...prev, like_count: prev.like_count + 1 }
@@ -332,6 +336,7 @@ export function Watch() {
     if (subscribed && followId) {
       try {
         await http.delete(`/api/follows/${followId}`)
+        track({ name: 'channel.unsubscribed', properties: { channelId: video.channel_id } })
         setSubscribed(false)
         setFollowId(null)
         setVideo((prev) => ({
@@ -345,6 +350,7 @@ export function Watch() {
       try {
         const res = await http.post('/api/follows', { channel_id: video.channel_id })
         const row = unwrapSingle<Record<string, unknown>>(res) ?? {}
+        track({ name: 'channel.subscribed', properties: { channelId: video.channel_id } })
         setSubscribed(true)
         setFollowId(String(row.id ?? ''))
         setVideo((prev) => ({ ...prev, channel_subscribers: prev.channel_subscribers + 1 }))
@@ -359,6 +365,7 @@ export function Watch() {
     if (saved && savedId) {
       try {
         await http.delete(`/api/library/later/${savedId}`)
+        track({ name: 'video.unsaved', properties: { videoId: id } })
         setSaved(false)
         setSavedId(null)
       } catch (_error) {
@@ -368,6 +375,7 @@ export function Watch() {
       try {
         const res = await http.post('/api/library/later', { video_id: id })
         const row = unwrapSingle<Record<string, unknown>>(res) ?? {}
+        track({ name: 'video.saved', properties: { videoId: id } })
         setSaved(true)
         setSavedId(String(row.id ?? ''))
       } catch (_error) {
@@ -392,6 +400,10 @@ export function Watch() {
     try {
       const res = await http.post('/api/comments', { video_id: id, body: composerBody.trim() })
       const row = unwrapSingle<Record<string, unknown>>(res) ?? {}
+      track({
+        name: 'comment.created',
+        properties: { videoId: id, commentId: String(row.id ?? '') },
+      })
       const next: CommentRow = {
         id: String(row.id ?? `local-${Date.now()}`),
         body: composerBody.trim(),
@@ -439,6 +451,13 @@ export function Watch() {
                 playsInline
                 preload="metadata"
                 className={cm.cn('w-full h-full')}
+                onPlay={() => {
+                  // Domain funnel: the video actually started playing.
+                  if (id && playedTrackedRef.current !== id) {
+                    playedTrackedRef.current = id
+                    track({ name: 'video.played', properties: { videoId: id } })
+                  }
+                }}
                 onTimeUpdate={(e) => {
                   const now = e.currentTarget.currentTime
                   setProgressSeconds(now)
@@ -553,7 +572,9 @@ export function Watch() {
                 </div>
               </Link>
 
-              <div className={cm.cn('flex items-center gap-2')}>
+              {/* flex-wrap: four pill actions exceed a 390px column — they
+                  must wrap to a second row, not clip past the viewport. */}
+              <div className={cm.cn('flex items-center gap-2 flex-wrap')}>
                 <button
                   type="button"
                   onClick={handleSubscribe}

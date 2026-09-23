@@ -15,7 +15,7 @@ test.describe('settings page', () => {
     )
   })
 
-  test('Toggle preference persists across reload via /api/users PATCH', async ({ page }) => {
+  test('Toggle preference persists across reload via /api/preferences PATCH', async ({ page }) => {
     const { userId } = await signup(page)
     await page.goto(APP_BASE + '/settings')
     // The first switch on the page is the first preference toggle.
@@ -27,11 +27,14 @@ test.describe('settings page', () => {
       return
     }
     const before = await sw.getAttribute('aria-checked')
-    // Wait for the PATCH /api/users/:id to land before we navigate away —
-    // otherwise the reload races the debounced persist.
+    // Wait for the PATCH /api/preferences to land before we navigate away —
+    // otherwise the reload races the debounced persist. (Prefs live in
+    // users.oauthData.preferences, which the platform user resource strips
+    // from every READ — so the app persists through the server-side
+    // /api/preferences channel, which merges the slice into the row.)
     const patched = page.waitForResponse(
       (r) =>
-        /\/api\/users\/[^/?]+$/.test(r.url()) &&
+        /\/api\/preferences\/?$/.test(r.url()) &&
         r.request().method() === 'PATCH' &&
         r.status() === 200,
       { timeout: 10_000 },

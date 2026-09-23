@@ -103,6 +103,7 @@ interface ToggleProps {
 function ToggleRow({ toggle, value, onChange }: ToggleProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const label = t(`settings.toggle.${toggle.key}.label`, {}, { defaultValue: toggle.defaultLabel })
   return (
     <li
       className={cm.cn(
@@ -119,9 +120,7 @@ function ToggleRow({ toggle, value, onChange }: ToggleProps) {
         </span>
       </span>
       <div className={cm.cn('flex-1 min-w-0')}>
-        <p className={cm.cn('text-sm font-bold tracking-tight')}>
-          {t(`settings.toggle.${toggle.key}.label`, {}, { defaultValue: toggle.defaultLabel })}
-        </p>
+        <p className={cm.cn('text-sm font-bold tracking-tight')}>{label}</p>
         <p className={cm.cn('text-xs text-on-surface-variant mt-0.5')}>
           {t(
             `settings.toggle.${toggle.key}.description`,
@@ -134,6 +133,7 @@ function ToggleRow({ toggle, value, onChange }: ToggleProps) {
         type="button"
         role="switch"
         aria-checked={value}
+        aria-label={label}
         onClick={() => onChange(!value)}
         className={cm.cn(
           'relative w-12 h-7 rounded-full transition-colors shrink-0 mt-0.5',
@@ -185,32 +185,22 @@ export function Settings() {
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
 
-  // Hydrate from a fresh GET /api/users/me on mount — the auth-context
-  // `user` is the snapshot from login/register (which omits oauthData
-  // entirely on signup), so reading prefs from it would always show the
-  // defaults until the next full login. Going to the API directly is the
-  // only way to see preferences saved in a previous session.
-  //
-  // /api/users/me returns the resource envelope `{ props: {…} }` for a
-  // single user (per @molecule/api-resource-user), so reach into .props
-  // before plucking oauthData.
+  // Hydrate from GET /api/preferences — a server-side channel that reads
+  // `oauthData.preferences` straight from the DB row. The platform user
+  // resource NEVER returns `oauthData` on reads (sensitive-column strip), so
+  // hydrating from `/api/users/me` would always show the defaults and a
+  // reload would silently reset every saved toggle.
   useEffect(() => {
     if (initialisedRef.current) return
     let cancelled = false
     http
-      .get('/api/users/me')
+      .get('/api/preferences')
       .then((res) => {
         if (cancelled) return
         const env = unwrapSingle<Record<string, unknown>>(res.data) ?? {}
-        const propsField =
-          env.props && typeof env.props === 'object' ? (env.props as Record<string, unknown>) : env
-        const oauth = (propsField as { oauthData?: Record<string, unknown> | null }).oauthData
-        const prefs =
-          oauth && typeof oauth === 'object' && 'preferences' in oauth
-            ? (oauth as { preferences: Record<string, boolean> }).preferences
-            : null
+        const prefs = env.preferences
         if (prefs && typeof prefs === 'object') {
-          setToggles((prev) => ({ ...prev, ...prefs }))
+          setToggles((prev) => ({ ...prev, ...(prefs as Record<string, boolean>) }))
         }
         initialisedRef.current = true
       })
@@ -224,21 +214,14 @@ export function Settings() {
 
   const persist = (next: Record<string, boolean>) => {
     if (!user?.id) return
-    const oauth = ((user as { oauthData?: Record<string, unknown> | null }).oauthData ??
-      {}) as Record<string, unknown>
-    const updated = { ...oauth, preferences: next }
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(async () => {
       try {
-        const res = await http.patch(`/api/users/${user.id}`, { oauthData: updated })
-        // Sync the in-memory auth user so a subsequent reload of the page
-        // (which restores user from localStorage via authClient.initialize)
-        // sees the new oauthData. Without this the persisted DB value is
-        // overwritten on hydrate by the stale localStorage snapshot.
-        const patched = unwrapSingle<Record<string, unknown>>(res.data) ?? {}
-        const mergedUser = { ...(user as unknown as Record<string, unknown>), ...patched }
-        if (mergedUser.oauthData === undefined) mergedUser.oauthData = updated
-        authClient.setUser(mergedUser as unknown as UserProfile)
+        // PATCH /api/preferences merges server-side into the EXISTING
+        // oauthData bag — it can never clobber unrelated oauthData keys the
+        // way a client-side read-merge against the oauthData-less user
+        // snapshot would.
+        await http.patch('/api/preferences', { preferences: next })
         setSavedAt(Date.now())
       } catch (_error) {
         // Settings page rolls back nothing on failure — a network blip
@@ -372,6 +355,22 @@ export function Settings() {
             </span>
           </button>
         </div>
+        {/* Mobile-only path to the same editor — the inline card button is
+            hidden below `sm`, so without this a phone has no way in. */}
+        {!editingProfile && (
+          <button
+            type="button"
+            className={cm.cn(
+              'relative z-10 sm:hidden mt-4 w-full inline-flex items-center justify-center gap-1.5 px-5 h-11 rounded-full text-xs font-bold uppercase tracking-widest bg-white/20 hover:bg-white/30 backdrop-blur-md transition-colors',
+            )}
+            onClick={openEditProfile}
+          >
+            {t('nav.editProfile', {}, { defaultValue: 'Edit profile' })}
+            <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+              arrow_forward
+            </span>
+          </button>
+        )}
         {editingProfile && (
           <div
             className={cm.cn(
