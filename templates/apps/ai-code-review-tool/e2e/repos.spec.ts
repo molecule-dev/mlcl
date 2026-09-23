@@ -86,9 +86,12 @@ test.describe('Repositories page', () => {
     await page.getByRole('button', { name: /connect repository/i }).click()
     const select = page.getByLabel(/provider/i)
     await select.selectOption('gitlab')
-    await expect(select).toHaveValue('gitlab')
+    // Generous timeouts: under a loaded machine the React re-render of the
+    // controlled select can lag the change event by seconds (observed as a
+    // one-off flake at the 5s default; the semantics themselves are stable).
+    await expect(select).toHaveValue('gitlab', { timeout: 15000 })
     await select.selectOption('github')
-    await expect(select).toHaveValue('github')
+    await expect(select).toHaveValue('github', { timeout: 15000 })
   })
 
   test('AuthGuard redirects anonymous visitors to /login', async ({ page }) => {

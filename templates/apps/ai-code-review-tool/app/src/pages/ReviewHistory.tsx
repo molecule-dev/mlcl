@@ -149,7 +149,7 @@ export function ReviewHistory() {
               disabled={active}
               className={cm.cn(
                 cm.sp('px', 4),
-                cm.sp('py', 2),
+                cm.sp('py', 3),
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'rounded-full uppercase tracking-widest font-mono transition-colors',

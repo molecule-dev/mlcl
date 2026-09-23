@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -108,6 +109,10 @@ export function Settings() {
         encrypted_token: `pending-${provider}-${Date.now()}`,
         scopes_json: ['repo'],
       })
+      track({
+        name: 'integration.connected',
+        properties: { provider },
+      })
       loadCredentials()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -121,6 +126,10 @@ export function Settings() {
     setSavingProvider(provider)
     try {
       await http.delete(`/api/api-credentials/${id}`)
+      track({
+        name: 'integration.disconnected',
+        properties: { provider },
+      })
       loadCredentials()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -266,7 +275,7 @@ export function Settings() {
                       existing ? handleDisconnect(provider, existing.id) : handleConnect(provider)
                     }
                     className={cm.cn(
-                      'px-3 py-1.5 rounded-md text-[10px] font-extrabold uppercase tracking-widest font-mono disabled:opacity-50',
+                      'px-3 min-h-[40px] inline-flex items-center rounded-md text-[10px] font-extrabold uppercase tracking-widest font-mono disabled:opacity-50',
                       tint.bg,
                       tint.fg,
                     )}
@@ -353,7 +362,7 @@ export function Settings() {
               type="button"
               onClick={() => navigate('/profile')}
               className={cm.cn(
-                'px-3 py-1.5 rounded-md text-[10px] font-extrabold uppercase tracking-widest font-mono bg-surface-container-low text-on-surface-variant',
+                'px-3 min-h-[40px] inline-flex items-center rounded-md text-[10px] font-extrabold uppercase tracking-widest font-mono bg-surface-container-low text-on-surface-variant',
               )}
             >
               {t('nav.profile', {}, { defaultValue: 'Profile' })}
@@ -402,7 +411,7 @@ export function Settings() {
             )}
           </p>
         </div>
-        <ThemeToggle />
+        <ThemeToggle className="w-11 h-11" />
       </section>
       <section
         className={cm.cn(
@@ -442,7 +451,7 @@ export function Settings() {
             cm.sp('py', 2),
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
-            'rounded-full bg-primary-dark text-white hover:opacity-90 transition-opacity shadow-sm',
+            'min-h-[40px] inline-flex items-center rounded-full bg-primary-dark text-white hover:opacity-90 transition-opacity shadow-sm',
           )}
         >
           {t('settings.notifications.openCta', {}, { defaultValue: 'Open notifications' })}

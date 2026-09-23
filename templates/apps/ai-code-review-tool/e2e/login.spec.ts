@@ -37,6 +37,11 @@ test.describe('Login page', () => {
   })
 
   test('invalid credentials show inline error and stay on /login', async ({ page }) => {
+    // The failed log-in intentionally 403s; the page must surface it inline.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page
       .getByLabel(/email/i)
@@ -53,6 +58,8 @@ test.describe('Login page', () => {
     // remain on /login (no redirect to /dashboard)
     await page.waitForTimeout(1500)
     await expect(page).toHaveURL(/\/login/)
+    // The 403 must be surfaced as an inline alert, never a silent blank.
+    await expect(page.getByRole('alert')).toBeVisible()
   })
 
   test('show/hide password toggle exposes password text', async ({ page }) => {

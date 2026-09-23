@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Repository {
   id: string
@@ -90,10 +91,19 @@ export function Repositories() {
     setConnectBusy(true)
     setConnectError(null)
     try {
-      await http.post('/api/repositories', {
+      const res = await http.post('/api/repositories', {
         provider: connectProvider,
         full_name: connectFullName.trim(),
         default_branch: 'main',
+      })
+      const created = unwrapSingle<Repository>(res)
+      track({
+        name: 'repo.connected',
+        properties: {
+          repository_id: created?.id,
+          provider: connectProvider,
+          full_name: created?.full_name ?? connectFullName.trim(),
+        },
       })
       setConnectFullName('')
       setConnectOpen(false)

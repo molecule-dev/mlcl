@@ -29,6 +29,12 @@ test.describe('Reset password page (/reset-password)', () => {
   test('submitting an INVALID token POSTs /api/users/reset-password and surfaces failure (no silent success)', async ({
     page,
   }) => {
+    // The invalid token intentionally 401s; the page must surface it inline
+    // and the contract assertions below pin the response semantics.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=' + 'a'.repeat(32))
     await page.getByLabel(/NEW PASSWORD/i).fill('NewPass123!')
     await page.getByLabel(/CONFIRM PASSWORD/i).fill('NewPass123!')

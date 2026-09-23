@@ -225,7 +225,14 @@ export function Dashboard() {
             >
               {t('dashboard.recentHeading', {}, { defaultValue: 'Recent pull requests' })}
             </h2>
-            <Link to="/history" className={cm.cn('text-sm font-bold text-primary hover:underline')}>
+            <Link
+              to="/history"
+              className={cm.cn(
+                // Negative margins grow the tap target to 44px without
+                // shifting the baseline-aligned header row.
+                'inline-flex items-center px-1 -mx-1 py-3 -my-3 text-sm font-bold text-primary hover:underline',
+              )}
+            >
               {t('dashboard.viewAllPrs', {}, { defaultValue: 'Review history →' })}
             </Link>
           </div>

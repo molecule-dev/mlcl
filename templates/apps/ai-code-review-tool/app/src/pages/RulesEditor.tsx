@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -103,6 +104,10 @@ export function RulesEditor() {
     try {
       const ids = Object.keys(pendingChanges)
       await Promise.all(ids.map((id) => http.put(`/api/custom-rules/${id}`, pendingChanges[id])))
+      track({
+        name: 'rule.updated',
+        properties: { rule_count: ids.length },
+      })
       setPendingChanges({})
       setSavedAt(new Date().toISOString())
     } catch (err) {
@@ -119,6 +124,10 @@ export function RulesEditor() {
     setRules((prev) => prev.filter((r) => r.id !== id))
     try {
       await http.delete(`/api/custom-rules/${id}`)
+      track({
+        name: 'rule.deleted',
+        properties: { rule_id: id },
+      })
     } catch (err) {
       console.error('[rules-editor] delete failed', err)
       setRules(previous)
@@ -166,6 +175,14 @@ export function RulesEditor() {
         setRules(unwrapList<CustomRuleRow>(refreshed))
       }
       setDraft(EMPTY_DRAFT)
+      track({
+        name: 'rule.created',
+        properties: {
+          rule_id: created?.id,
+          language: draft.language.trim() || 'any',
+          severity: draft.severity,
+        },
+      })
     } catch (err) {
       console.error('[rules-editor] create failed', err)
       const message = err instanceof Error ? err.message : ''
@@ -232,7 +249,7 @@ export function RulesEditor() {
           data-mol-id="rules-save-btn"
           className={cm.cn(
             cm.sp('px', 5),
-            cm.sp('py', 2),
+            cm.sp('py', 3),
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
             'rounded-full bg-primary-dark text-white hover:opacity-90 transition-opacity shadow-sm disabled:opacity-50',
@@ -374,7 +391,7 @@ export function RulesEditor() {
           </label>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }))}>
             <div
-              className={cm.cn(cm.flex({ gap: 'xs' }))}
+              className={cm.cn(cm.flex({ gap: 'xs', wrap: 'wrap' }))}
               role="group"
               aria-label={t('rulesEditor.field.severity', {}, { defaultValue: 'Severity' })}
             >
@@ -387,7 +404,7 @@ export function RulesEditor() {
                     onClick={() => setDraft((d) => ({ ...d, severity: sev }))}
                     aria-pressed={active}
                     className={cm.cn(
-                      'px-2 py-1 text-[10px] font-extrabold uppercase tracking-widest font-mono rounded-md transition-all',
+                      'px-3 min-h-[40px] text-[10px] font-extrabold uppercase tracking-widest font-mono rounded-md transition-all',
                       active
                         ? `${SEVERITY_TINT[sev]} ring-2 ring-current/40`
                         : 'text-on-surface-variant hover:bg-surface-container-low',
@@ -473,7 +490,7 @@ export function RulesEditor() {
                 data-mol-id="rule-row"
                 data-rule-id={r.id}
                 className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'md' }),
+                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
                   cm.sp('p', 3),
                   'rounded-lg border border-outline-variant/40 bg-surface',
                 )}
@@ -489,15 +506,15 @@ export function RulesEditor() {
                       : t('rulesEditor.enableRule', {}, { defaultValue: 'Enable rule' })
                   }
                   className={cm.cn(
-                    'shrink-0 w-10 h-6 rounded-full relative transition-colors',
+                    'shrink-0 w-12 h-7 rounded-full relative transition-colors',
                     r.enabled ? 'bg-primary' : 'bg-surface-variant',
                   )}
                 >
                   <span
                     className={cm.cn(
-                      'absolute top-1 w-4 h-4 rounded-full bg-surface shadow transition-transform',
+                      'absolute top-1 w-5 h-5 rounded-full bg-surface shadow transition-transform',
                     )}
-                    style={{ left: r.enabled ? 'calc(100% - 1.25rem)' : '0.25rem' }}
+                    style={{ left: r.enabled ? 'calc(100% - 1.5rem)' : '0.25rem' }}
                   />
                 </button>
                 <div className={cm.cn('flex-1 min-w-0')}>
@@ -517,7 +534,7 @@ export function RulesEditor() {
                     {r.description ?? r.pattern}
                   </p>
                 </div>
-                <div className={cm.cn(cm.flex({ gap: 'xs' }), 'shrink-0')}>
+                <div className={cm.cn(cm.flex({ gap: 'xs', wrap: 'wrap' }), 'shrink-0')}>
                   {SEVERITY_OPTIONS.map((sev) => {
                     const active = r.severity === sev
                     return (
@@ -527,7 +544,7 @@ export function RulesEditor() {
                         onClick={() => setSeverity(r.id, sev)}
                         aria-pressed={active}
                         className={cm.cn(
-                          'px-2 py-1 text-[10px] font-extrabold uppercase tracking-widest font-mono rounded-md transition-all',
+                          'px-3 min-h-[40px] text-[10px] font-extrabold uppercase tracking-widest font-mono rounded-md transition-all',
                           active
                             ? `${SEVERITY_TINT[sev]} ring-2 ring-current/40`
                             : 'text-on-surface-variant hover:bg-surface-container-low',
@@ -544,10 +561,10 @@ export function RulesEditor() {
                   aria-label={t('rulesEditor.deleteRule', {}, { defaultValue: 'Delete rule' })}
                   data-mol-id="rule-delete"
                   className={cm.cn(
-                    'shrink-0 px-2 py-1 rounded-md text-on-surface-variant hover:bg-red-500/10 hover:text-error transition-colors',
+                    'shrink-0 w-10 h-10 inline-flex items-center justify-center rounded-md text-on-surface-variant hover:bg-red-500/10 hover:text-error transition-colors',
                   )}
                 >
-                  <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
+                  <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
                     delete
                   </span>
                 </button>

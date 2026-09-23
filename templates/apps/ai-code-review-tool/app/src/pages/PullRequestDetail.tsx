@@ -415,7 +415,10 @@ export function PullRequestDetail() {
                             <pre
                               className={cm.cn(
                                 cm.sp('p', 2),
-                                'bg-surface-container-low rounded text-[10px] font-mono overflow-x-auto',
+                                // Wrap long patch lines on phones (overflow-x-auto
+                                // alone left the tail of a diff unreachable when the
+                                // pre sat inside a padding-constrained column).
+                                'bg-surface-container-low rounded text-[10px] font-mono whitespace-pre-wrap break-words',
                               )}
                               data-mol-id="review-comment-patch"
                             >

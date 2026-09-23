@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -115,6 +116,10 @@ export function Notifications() {
         prev.map((n) => (n.id === id ? { ...n, read_at: stamp, unread: false } : n)),
       )
       await http.post(`/api/notifications/${id}/read`, {})
+      track({
+        name: 'notification.read',
+        properties: { notification_id: id },
+      })
     } catch (err) {
       console.error('[notifications] mark read failed', err)
       setError(t('notifications.markReadError', {}, { defaultValue: 'Failed to mark as read.' }))
@@ -136,6 +141,10 @@ export function Notifications() {
         prev.map((n) => (isUnread(n) ? { ...n, read_at: stamp, unread: false } : n)),
       )
       await Promise.all(targets.map((n) => http.post(`/api/notifications/${n.id}/read`, {})))
+      track({
+        name: 'notification.read_all',
+        properties: { count: targets.length },
+      })
     } catch (err) {
       console.error('[notifications] mark all read failed', err)
       setError(t('notifications.markAllError', {}, { defaultValue: 'Failed to mark all as read.' }))
@@ -217,7 +226,7 @@ export function Notifications() {
             data-mol-id="notif-mark-all-read"
             className={cm.cn(
               cm.sp('px', 4),
-              cm.sp('py', 1),
+              cm.sp('py', 3),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               'ml-auto rounded-full uppercase tracking-wider font-mono bg-surface-container-low text-on-surface-variant hover:bg-surface-container disabled:opacity-50 transition-colors',
@@ -245,7 +254,7 @@ export function Notifications() {
               disabled={active}
               className={cm.cn(
                 cm.sp('px', 4),
-                cm.sp('py', 2),
+                cm.sp('py', 3),
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'rounded-full uppercase tracking-widest font-mono transition-colors',

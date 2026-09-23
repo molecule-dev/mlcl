@@ -1,7 +1,7 @@
 // Refract login — dev-tools cluster auth-page pattern (POLISHED-PATTERN-CATALOG §13)
 // Pattern source: api-documentation Login (Prism dark monospace aesthetic),
 // recoloured to the Refract violet → cyan palette.
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
@@ -38,6 +38,13 @@ export function Login() {
   const setEmail = (value: string): void => setAuthFormField('email', value)
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  // Dedicated auth screen: focusing the email field on mount is the expected
+  // pattern (jsx-a11y/no-autofocus bans the attribute; a ref focus is the
+  // deliberate, lint-clean equivalent).
+  const emailRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    emailRef.current?.focus()
+  }, [])
 
   const isLoggingIn = status === 'pending'
 
@@ -126,6 +133,7 @@ export function Login() {
                     color: 'var(--color-auth-text)',
                   }}
                   id="email"
+                  ref={emailRef}
                   type="email"
                   autoComplete="email"
                   required

@@ -70,6 +70,11 @@ test.describe('Pull request detail', () => {
   })
 
   test('non-existent PR id renders friendly unavailable message', async ({ page }) => {
+    // The unknown PR 404s by design; the page must render the friendly copy.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/prs/00000000-0000-0000-0000-000000000000')
     await expect(page.getByText(/this pull request is unavailable/i)).toBeVisible()
