@@ -1585,7 +1585,10 @@
         "DEFAULT_SEARCH_EXCLUDED_DIRS",
         "truncate",
         "truncateMiddle",
-        "whitespaceTolerantReplace"
+        "whitespaceTolerantReplace",
+        "PARSE_CHECKABLE",
+        "parseCheckCommand",
+        "parseCheckProblem"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -28653,22 +28656,24 @@
       "defaultProvider": "@molecule/app-fonts-arimo",
       "alwaysInclude": true,
       "exports": [
-        "FontSourceType",
-        "FontRole",
-        "FontFaceDescriptor",
-        "FontSource",
-        "FontDefinition",
-        "FontConfig",
-        "systemSans",
-        "systemSerif",
-        "systemMono",
-        "buildFontFamily",
+        "resolveFontBasePath",
         "setFont",
         "getFont",
         "hasFont",
         "getFontConfig",
         "hasFontConfig",
-        "resetFonts"
+        "resetFonts",
+        "FontSourceType",
+        "FontRole",
+        "FontFaceDescriptor",
+        "FontSource",
+        "FontDefinition",
+        "SetFontOptions",
+        "FontConfig",
+        "systemSans",
+        "systemSerif",
+        "systemMono",
+        "buildFontFamily"
       ],
       "secrets": [],
       "runtimeDependencies": [
