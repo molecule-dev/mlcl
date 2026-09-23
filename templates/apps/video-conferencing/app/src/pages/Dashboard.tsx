@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -133,33 +134,54 @@ export function Dashboard() {
   const [joinCode, setJoinCode] = useState('')
   const [joinError, setJoinError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
-  useEffect(() => {
+  const loadDashboard = useCallback(() => {
+    setLoading(true)
+    setLoadError(false)
     let cancelled = false
-    Promise.allSettled([
-      http.get('/api/meetings?status=scheduled'),
-      http.get('/api/recordings?limit=3'),
-      http.get('/api/notifications?limit=4'),
-    ])
-      .then(([meetingsRes, recordingsRes, notifsRes]) => {
-        if (cancelled) return
-        if (meetingsRes.status === 'fulfilled') {
-          setMeetings(unwrap<ApiMeeting[]>(meetingsRes.value, []))
-        }
-        if (recordingsRes.status === 'fulfilled') {
-          setRecordings(unwrap<ApiRecording[]>(recordingsRes.value, []))
-        }
-        if (notifsRes.status === 'fulfilled') {
-          setNotifications(unwrap<ApiNotification[]>(notifsRes.value, []))
-        }
+    let failures = 0
+    let settled = 0
+    const finish = () => {
+      settled += 1
+      if (settled === 3 && !cancelled) setLoading(false)
+    }
+    const onFail = () => {
+      failures += 1
+      // Only the meetings list drives the hero + primary CTA — treat its
+      // failure (all three fail together on an API outage) as a page error.
+      if (failures >= 3 && !cancelled) setLoadError(true)
+    }
+    http
+      .get('/api/meetings?status=scheduled')
+      .then((res) => {
+        if (!cancelled) setMeetings(unwrap<ApiMeeting[]>(res, []))
       })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
+      .catch(() => onFail())
+      .finally(finish)
+    http
+      .get('/api/recordings?limit=3')
+      .then((res) => {
+        if (!cancelled) setRecordings(unwrap<ApiRecording[]>(res, []))
       })
+      .catch(() => onFail())
+      .finally(finish)
+    http
+      .get('/api/notifications?limit=4')
+      .then((res) => {
+        if (!cancelled) setNotifications(unwrap<ApiNotification[]>(res, []))
+      })
+      .catch(() => onFail())
+      .finally(finish)
     return () => {
       cancelled = true
     }
   }, [http])
+
+  useEffect(() => {
+    const dispose = loadDashboard()
+    return dispose
+  }, [loadDashboard])
 
   const joinMeeting = useCallback(async () => {
     const code = joinCode.trim()
@@ -171,6 +193,7 @@ export function Dashboard() {
       const meetingId =
         (res as { id?: string })?.id ?? (res as { data?: { id?: string } })?.data?.id
       if (meetingId) {
+        track({ name: 'meeting.code_resolved', properties: { meeting_id: meetingId } })
         navigate(`/meeting/${meetingId}/lobby`)
         return
       }
@@ -189,6 +212,7 @@ export function Dashboard() {
       const meetingId =
         (res as { id?: string })?.id ?? (res as { data?: { id?: string } })?.data?.id
       if (meetingId) {
+        track({ name: 'meeting.created', properties: { meeting_id: meetingId, instant: true } })
         navigate(`/meeting/${meetingId}/lobby`)
         return
       }
@@ -238,7 +262,41 @@ export function Dashboard() {
         </p>
       </header>
 
-      {next && (
+      {loadError && !loading && (
+        <div
+          role="alert"
+          data-testid="dashboard-load-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+            cm.sp('p', 4),
+            'rounded-xl bg-error/10 border border-error/30',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>
+            {t(
+              'dashboard.loadError',
+              {},
+              { defaultValue: 'Could not reach the server. Check your connection.' },
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={loadDashboard}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.roundedFull,
+              'bg-error text-on-error hover:bg-error-active transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )}
+
+      {next && !loadError && (
         <MeetingHeroCard
           title={next.title}
           startsAtLabel={formatScheduledLabel(next.starts_at)}

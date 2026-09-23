@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -75,17 +76,31 @@ export function Schedule() {
   const [createInvites, setCreateInvites] = useState('')
   const [createSubmitting, setCreateSubmitting] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState(false)
 
   const loadMeetings = useCallback(() => {
     http
       .get('/api/meetings')
-      .then((res) => setMeetings(unwrap<ApiMeeting[]>(res, [])))
-      .catch(() => undefined)
+      .then((res) => {
+        setMeetings(unwrap<ApiMeeting[]>(res, []))
+        setLoadError(false)
+      })
+      .catch(() => setLoadError(true))
   }, [http])
 
   useEffect(() => {
     loadMeetings()
   }, [loadMeetings])
+
+  // Escape closes the create modal.
+  useEffect(() => {
+    if (!showCreate) return
+    const onKey = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') setShowCreate(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [showCreate])
 
   const filteredMeetings = useMemo(() => {
     const now = Date.now()
@@ -137,6 +152,14 @@ export function Schedule() {
         invite_emails: inviteEmails.length ? inviteEmails : undefined,
       })) as { id?: string } | { data?: { id?: string } }
       const id = (res as { id?: string })?.id ?? (res as { data?: { id?: string } })?.data?.id
+      track({
+        name: 'meeting.created',
+        properties: {
+          meeting_id: id,
+          duration_minutes: createDuration,
+          invite_count: inviteEmails.length,
+        },
+      })
       setShowCreate(false)
       setCreateTitle('')
       setCreateInvites('')
@@ -266,7 +289,36 @@ export function Schedule() {
       </div>
 
       <section className={cm.stack(8)}>
-        {filteredMeetings.length === 0 ? (
+        {loadError && (
+          <div
+            role="alert"
+            data-testid="schedule-load-error"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+              cm.sp('p', 4),
+              'rounded-xl bg-error/10 border border-error/30',
+            )}
+          >
+            <p className={cm.cn(cm.textSize('sm'), 'text-error')}>
+              {t('schedule.loadError', {}, { defaultValue: 'Could not load your meetings.' })}
+            </p>
+            <button
+              type="button"
+              onClick={loadMeetings}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.roundedFull,
+                'bg-error text-on-error hover:bg-error-active transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        )}
+        {!loadError && filteredMeetings.length === 0 ? (
           <div data-testid="no-meetings" className={cm.cn(cm.textCenter, cm.sp('py', 12))}>
             <span className="material-symbols-outlined text-5xl text-on-surface-variant/40">
               event_busy
@@ -322,17 +374,26 @@ export function Schedule() {
         <div
           role="dialog"
           aria-modal="true"
+          aria-label={t('schedule.newMeeting', {}, { defaultValue: 'New meeting' })}
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
-            'fixed inset-0 z-50 bg-black/40 p-4',
+            'fixed inset-0 z-50 p-4',
           )}
         >
+          {/* Backdrop as a real button — keyboard-reachable dismissal, and
+              clicks on the panel never reach it (the panel sits above). */}
+          <button
+            type="button"
+            aria-label={t('schedule.closeDialog', {}, { defaultValue: 'Close dialog' })}
+            onClick={() => setShowCreate(false)}
+            className={cm.cn('absolute inset-0 cursor-default bg-black/40')}
+          />
           <div
             data-testid="create-meeting-form"
             className={cm.cn(
               cm.sp('p', 6),
               cm.stack(4),
-              'bg-surface rounded-2xl shadow-2xl w-full max-w-md',
+              'relative bg-surface rounded-2xl shadow-2xl w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto',
             )}
           >
             <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>

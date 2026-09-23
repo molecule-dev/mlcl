@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -105,6 +106,7 @@ export function MeetingDetail() {
 
   const [cancelling, setCancelling] = useState(false)
   const [cancelError, setCancelError] = useState<string | null>(null)
+  const [confirmingCancel, setConfirmingCancel] = useState(false)
 
   const loadMeeting = useCallback(() => {
     if (!id) return
@@ -156,6 +158,10 @@ export function MeetingDetail() {
         starts_at: startsAt ? startsAt.toISOString() : undefined,
         ends_at: endsAt ? endsAt.toISOString() : undefined,
       })
+      track({
+        name: 'meeting.updated',
+        properties: { meeting_id: meeting.id, title: editTitle.trim() },
+      })
       setEditing(false)
       loadMeeting()
     } catch (err) {
@@ -182,6 +188,10 @@ export function MeetingDetail() {
     setInviting(true)
     try {
       await http.post(`/api/meetings/${meeting.id}/invite`, { emails })
+      track({
+        name: 'meeting.invites_sent',
+        properties: { meeting_id: meeting.id, count: emails.length },
+      })
       setInviteSuccess(
         t(
           'meetingDetail.invitesSent',
@@ -203,11 +213,13 @@ export function MeetingDetail() {
     setCancelling(true)
     try {
       await http.delete(`/api/meetings/${meeting.id}`)
+      track({ name: 'meeting.cancelled', properties: { meeting_id: meeting.id } })
       navigate('/schedule')
     } catch (err) {
       setCancelError(err instanceof Error ? err.message : 'Failed to cancel meeting')
     } finally {
       setCancelling(false)
+      setConfirmingCancel(false)
     }
   }, [http, meeting, navigate])
 
@@ -625,24 +637,82 @@ export function MeetingDetail() {
               {cancelError}
             </p>
           )}
-          <button
-            type="button"
-            onClick={cancelMeeting}
-            disabled={cancelling}
-            data-testid="cancel-meeting"
-            className={cm.cn(
-              cm.sp('mt', 2),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              cm.roundedFull,
-              'w-full bg-error/10 text-error hover:bg-error/20 transition-colors disabled:opacity-50',
-            )}
-          >
-            {cancelling
-              ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
-              : t('meetingDetail.cancel', {}, { defaultValue: 'Cancel meeting' })}
-          </button>
+          {/* Cancel is a destructive delete — confirm inline before firing. */}
+          {confirmingCancel ? (
+            <div
+              role="alertdialog"
+              aria-label={t(
+                'meetingDetail.confirmCancelTitle',
+                {},
+                { defaultValue: 'Cancel this meeting?' },
+              )}
+              data-testid="confirm-cancel-dialog"
+              className={cm.cn(
+                cm.sp('p', 4),
+                cm.stack(3),
+                'rounded-xl bg-error/5 border border-error/30',
+              )}
+            >
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface')}>
+                {t(
+                  'meetingDetail.confirmCancelBody',
+                  {},
+                  { defaultValue: 'This permanently deletes the meeting and its invites.' },
+                )}
+              </p>
+              <div className={cm.flex({ gap: 2, justify: 'end' })}>
+                <button
+                  type="button"
+                  onClick={() => setConfirmingCancel(false)}
+                  data-testid="keep-meeting"
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    cm.roundedFull,
+                    'bg-surface-container text-on-surface hover:bg-surface-container-high',
+                  )}
+                >
+                  {t('meetingDetail.keepMeeting', {}, { defaultValue: 'Keep meeting' })}
+                </button>
+                <button
+                  type="button"
+                  onClick={cancelMeeting}
+                  disabled={cancelling}
+                  data-testid="confirm-cancel-meeting"
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    cm.roundedFull,
+                    'bg-error text-on-error hover:bg-error-active disabled:opacity-50',
+                  )}
+                >
+                  {cancelling
+                    ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+                    : t('meetingDetail.confirmCancel', {}, { defaultValue: 'Yes, cancel it' })}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setConfirmingCancel(true)}
+              data-testid="cancel-meeting"
+              className={cm.cn(
+                cm.sp('mt', 2),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.roundedFull,
+                'w-full bg-error/10 text-error hover:bg-error/20 transition-colors',
+              )}
+            >
+              {t('meetingDetail.cancel', {}, { defaultValue: 'Cancel meeting' })}
+            </button>
+          )}
         </section>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -49,18 +49,21 @@ export function Recordings() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [recordings, setRecordings] = useState<ApiRecording[]>([])
-  const [filter, setFilter] = useState<'all' | 'mine' | 'shared'>('all')
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
-  useEffect(() => {
+  const loadRecordings = useCallback(() => {
+    setLoading(true)
+    setLoadError(false)
     let cancelled = false
     http
       .get('/api/recordings')
       .then((res) => {
-        if (cancelled) return
-        setRecordings(unwrap<ApiRecording[]>(res, []))
+        if (!cancelled) setRecordings(unwrap<ApiRecording[]>(res, []))
       })
-      .catch(() => undefined)
+      .catch(() => {
+        if (!cancelled) setLoadError(true)
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
@@ -68,6 +71,11 @@ export function Recordings() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(() => {
+    const dispose = loadRecordings()
+    return dispose
+  }, [loadRecordings])
 
   return (
     <div className={cm.stack(8)}>
@@ -93,42 +101,41 @@ export function Recordings() {
         </p>
       </header>
 
-      <div className={cm.flex({ gap: 2 })}>
-        {(
-          [
-            { value: 'all', label: t('recordings.filterAll', {}, { defaultValue: 'All' }) },
-            { value: 'mine', label: t('recordings.filterMine', {}, { defaultValue: 'Mine' }) },
-            {
-              value: 'shared',
-              label: t('recordings.filterShared', {}, { defaultValue: 'Shared' }),
-            },
-          ] as const
-        ).map((option) => (
+      {/* The API lists recordings the signed-in user owns — no fake Mine/Shared
+          chips: a "Shared" tab with no server concept would always be empty. */}
+
+      {loading && recordings.length === 0 ? (
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+        </p>
+      ) : loadError ? (
+        <div
+          role="alert"
+          data-testid="recordings-load-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+            cm.sp('p', 4),
+            'rounded-xl bg-error/10 border border-error/30',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>
+            {t('recordings.loadError', {}, { defaultValue: 'Could not load recordings.' })}
+          </p>
           <button
-            key={option.value}
             type="button"
-            onClick={() => setFilter(option.value)}
+            onClick={loadRecordings}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
               cm.roundedFull,
-              'transition-colors',
-              filter === option.value
-                ? 'bg-primary text-on-primary shadow-md shadow-primary/25'
-                : 'bg-surface-container text-on-surface-variant hover:text-on-surface',
+              'bg-error text-on-error hover:bg-error-active transition-colors',
             )}
           >
-            {option.label}
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
           </button>
-        ))}
-      </div>
-
-      {loading && recordings.length === 0 ? (
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-          {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-        </p>
+        </div>
       ) : recordings.length === 0 ? (
         <div data-testid="no-recordings" className={cm.cn(cm.textCenter, cm.sp('py', 16))}>
           <span className="material-symbols-outlined text-6xl text-on-surface-variant/40">

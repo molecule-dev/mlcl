@@ -69,12 +69,15 @@ export function MeetingCard({
   return (
     <article
       className={cm.cn(
-        cm.flex({ align: 'center', gap: 6 }),
+        cm.flex({ gap: 6 }),
         cm.sp('p', 5),
+        // Stack vertically on phones (time above, actions below-right);
+        // editorial row from sm up.
+        'flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6',
         'group bg-surface-container-lowest border-l-4 border-primary/70 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
       )}
     >
-      <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-[88px]')}>
+      <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-[88px] shrink-0')}>
         <span
           className={cm.cn(
             cm.textSize('xs'),
@@ -96,16 +99,22 @@ export function MeetingCard({
           </span>
         )}
       </div>
-      <div className={cm.cn(cm.flex1, cm.stack(1))}>
+      <div className={cm.cn(cm.flex1, cm.stack(1), 'min-w-0')}>
         <div className={cm.flex({ align: 'center', gap: 3 })}>
-          <h3 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'text-on-surface')}>
+          <h3
+            className={cm.cn(
+              cm.textSize('base'),
+              cm.fontWeight('semibold'),
+              'text-on-surface truncate',
+            )}
+          >
             {title}
           </h3>
           <span
             className={cm.cn(
               cm.flex({ align: 'center', gap: 1 }),
               cm.sp('px', 2),
-              'py-0.5 text-[10px] font-black uppercase tracking-widest rounded-full',
+              'py-0.5 text-[10px] font-black uppercase tracking-widest rounded-full shrink-0',
               styles.pill,
             )}
           >
@@ -114,10 +123,12 @@ export function MeetingCard({
           </span>
         </div>
         {subtitle && (
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>{subtitle}</p>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant truncate')}>{subtitle}</p>
         )}
       </div>
-      <div className={cm.flex({ align: 'center', gap: 4 })}>
+      <div
+        className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'self-end sm:self-auto shrink-0')}
+      >
         <div className={'flex -space-x-2'}>
           {visible.map((a) => (
             <div

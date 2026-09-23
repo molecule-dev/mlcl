@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
-import { useTranslation } from '@molecule/app-react'
+import { track } from '@molecule/app-analytics'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -15,6 +16,7 @@ const DEVICES = {
 export function Lobby() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const http = useHttpClient()
   const navigate = useNavigate()
   const { id = 'instant' } = useParams<{ id: string }>()
   const [audioEnabled, setAudioEnabled] = useState(true)
@@ -22,6 +24,43 @@ export function Lobby() {
   const [mic, setMic] = useState(DEVICES.microphones[0])
   const [cam, setCam] = useState(DEVICES.cameras[0])
   const [speaker, setSpeaker] = useState(DEVICES.speakers[0])
+  const [joining, setJoining] = useState(false)
+  const [joinError, setJoinError] = useState<string | null>(null)
+
+  // Register with the meeting before entering the room: the join endpoint
+  // creates the participant row (so the roster, capacity check, and ended
+  // status are all enforced server-side) and broadcasts participant:joined.
+  // Only the fatal verdicts (ended / full) block entry; a transient failure
+  // degrades to entering the room as today.
+  const joinMeeting = useCallback(async () => {
+    if (joining) return
+    setJoining(true)
+    setJoinError(null)
+    try {
+      await http.post(`/api/participants/${id}/join`, { role: 'attendee' })
+      track({ name: 'meeting.joined', properties: { meeting_id: id } })
+      navigate(`/meeting/${id}`)
+      return
+    } catch (err) {
+      const status =
+        (err as { status?: number; response?: { status?: number } })?.status ??
+        (err as { response?: { status?: number } })?.response?.status
+      if (status === 409) {
+        setJoinError(
+          t('lobby.meetingEnded', {}, { defaultValue: 'This meeting has already ended.' }),
+        )
+      } else if (status === 403) {
+        setJoinError(t('lobby.meetingFull', {}, { defaultValue: 'This meeting is full.' }))
+      } else {
+        // Non-fatal (network blip, auth refresh) — enter the room anyway.
+        track({ name: 'meeting.joined', properties: { meeting_id: id } })
+        navigate(`/meeting/${id}`)
+        return
+      }
+    } finally {
+      setJoining(false)
+    }
+  }, [http, id, joining, navigate, t])
 
   return (
     <div
@@ -189,6 +228,22 @@ export function Lobby() {
           />
         </div>
 
+        {joinError && (
+          <p
+            role="alert"
+            data-testid="lobby-join-error"
+            className={cm.cn(
+              cm.sp('mb', 4),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-xl bg-error/20 border border-error/40 text-white',
+            )}
+          >
+            {joinError}
+          </p>
+        )}
+
         <div className={cm.flex({ gap: 3 })}>
           <button
             type="button"
@@ -205,18 +260,23 @@ export function Lobby() {
           </button>
           <button
             type="button"
-            onClick={() => navigate(`/meeting/${id}`)}
+            onClick={joinMeeting}
+            disabled={joining}
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center', gap: 2 }),
               cm.flex1,
               cm.sp('py', 3),
               cm.fontWeight('bold'),
               cm.roundedFull,
-              'bg-gradient-to-r from-primary to-secondary text-on-primary shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/60 transition-all',
+              'bg-gradient-to-r from-primary to-secondary text-on-primary shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/60 transition-all disabled:opacity-60 disabled:cursor-wait',
             )}
           >
-            <span className="material-symbols-outlined">videocam</span>
-            {t('lobby.joinCta', {}, { defaultValue: 'Join meeting' })}
+            <span className="material-symbols-outlined">
+              {joining ? 'progress_activity' : 'videocam'}
+            </span>
+            {joining
+              ? t('lobby.joining', {}, { defaultValue: 'Joining…' })
+              : t('lobby.joinCta', {}, { defaultValue: 'Join meeting' })}
           </button>
         </div>
       </div>

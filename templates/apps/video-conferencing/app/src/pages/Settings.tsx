@@ -272,7 +272,14 @@ export function Settings() {
             </div>
           )}
         </section>
-        <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
+        <section
+          className={cm.cn(
+            cm.sp('p', 8),
+            // Third grid child: spans the full row from md up, otherwise it
+            // would wrap into the 220px nav column and cram the toggle.
+            'md:col-span-2 bg-surface-container-low rounded-xl',
+          )}
+        >
           <div className={cm.sp('mb', 6)}>
             <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
               {t('nav.appearance', {}, { defaultValue: 'Appearance' })}

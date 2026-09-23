@@ -73,7 +73,10 @@ test.describe('meetings CRUD', () => {
       title: 'To be cancelled',
     })
     await page.goto(`/meeting/${meeting.id}/details`)
+    // Cancel is destructive — the UI confirms inline before deleting.
     await page.getByTestId('cancel-meeting').click()
+    await page.getByTestId('confirm-cancel-dialog').waitFor()
+    await page.getByTestId('confirm-cancel-meeting').click()
     await expect(page).toHaveURL(/\/schedule/)
     const after = await rawApi(page, 'GET', `/meetings/${meeting.id}`)
     expect([404, 500]).toContain(after.status)
@@ -110,6 +113,12 @@ test.describe('meetings CRUD', () => {
   })
 
   test('dashboard join-by-code shows error on invalid code', async ({ page }) => {
+    // The invalid-code lookup legitimately 404s — silence the expected
+    // console error before it fires (console-guard fails the test otherwise).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto('/dashboard')
     await page.getByLabel('Meeting code').fill('definitely-not-a-real-code-zzz')

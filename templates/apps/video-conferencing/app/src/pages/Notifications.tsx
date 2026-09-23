@@ -82,14 +82,17 @@ export function Notifications() {
   const [notifications, setNotifications] = useState<ApiNotification[]>([])
   const [marking, setMarking] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   const loadNotifications = useCallback(() => {
+    setLoading(true)
     http
       .get('/api/notifications')
       .then((res) => {
         setNotifications(unwrap<ApiNotification[]>(res, []))
+        setLoadError(false)
       })
-      .catch(() => undefined)
+      .catch(() => setLoadError(true))
       .finally(() => setLoading(false))
   }, [http])
 
@@ -161,6 +164,34 @@ export function Notifications() {
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : loadError ? (
+        <div
+          role="alert"
+          data-testid="notifications-load-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+            cm.sp('p', 4),
+            'rounded-xl bg-error/10 border border-error/30',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>
+            {t('notifications.loadError', {}, { defaultValue: 'Could not load notifications.' })}
+          </p>
+          <button
+            type="button"
+            onClick={loadNotifications}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.roundedFull,
+              'bg-error text-on-error hover:bg-error-active transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : notifications.length === 0 ? (
         <div data-testid="no-notifications" className={cm.cn(cm.textCenter, cm.sp('py', 12))}>
           <span className="material-symbols-outlined text-5xl text-on-surface-variant/40">

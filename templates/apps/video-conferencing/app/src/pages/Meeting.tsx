@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -83,7 +84,12 @@ export function Meeting() {
   const [videoEnabled, setVideoEnabled] = useState(true)
   const [screenSharing, setScreenSharing] = useState(false)
   const [recording, setRecording] = useState(false)
-  const [showChat, setShowChat] = useState(true)
+  const [handRaised, setHandRaised] = useState(false)
+  // The chat rail is a full-screen overlay on phones — start closed there so
+  // the video grid is the first thing a mobile joiner sees.
+  const [showChat, setShowChat] = useState(
+    () => typeof window === 'undefined' || window.innerWidth >= 640,
+  )
   const [showParticipants, setShowParticipants] = useState(false)
   const [elapsed, setElapsed] = useState(0)
 
@@ -164,6 +170,7 @@ export function Meeting() {
     }
     setChat((prev) => [...prev, message])
     setNewChat('')
+    track({ name: 'meeting.chat_sent', properties: { meeting_id: id } })
     try {
       await http.post(`/api/chat/${id}`, { content: message.content })
     } catch (_error) {
@@ -172,6 +179,7 @@ export function Meeting() {
   }, [newChat, http, id])
 
   const leaveMeeting = useCallback(async () => {
+    track({ name: 'meeting.left', properties: { meeting_id: id } })
     try {
       await http.post(`/api/participants/${id}/leave`, {})
     } catch (_error) {
@@ -215,9 +223,11 @@ export function Meeting() {
         <div className={cm.cn(cm.textSize('xs'), 'tabular-nums text-white/70')}>{elapsedLabel}</div>
       </header>
 
-      <div className={cm.cn(cm.flex({ gap: 0 }), cm.flex1)}>
-        <main className={cm.cn(cm.flex1, cm.sp('p', 4), 'overflow-hidden')}>
-          <div className={cm.cn(cm.grid({ cols: 3, gap: 'sm' }), 'auto-rows-fr h-full')}>
+      <div className={cm.cn(cm.flex({ gap: 0 }), cm.flex1, 'min-h-0')}>
+        <main className={cm.cn(cm.flex1, cm.sp('p', 2), 'sm:p-4 overflow-y-auto')}>
+          {/* 2-up on phones (Meet-style, no pinched 3rd column), 3-up from lg.
+              The gallery scrolls instead of clipping when rows overflow. */}
+          <div className={cm.cn(cm.grid({ cols: 2, gap: 'sm' }), 'lg:grid-cols-3 auto-rows-fr')}>
             {participants.map((p) => (
               <ParticipantTile key={p.id} participant={p} />
             ))}
@@ -228,7 +238,7 @@ export function Meeting() {
           <aside
             className={cm.cn(
               cm.flex({ direction: 'col' }),
-              'w-[320px] bg-participant-tile border-l border-surface/10',
+              'fixed top-12 bottom-[72px] right-0 z-40 w-full shadow-2xl sm:static sm:top-auto sm:bottom-auto sm:w-[320px] sm:shadow-none bg-participant-tile border-l border-surface/10',
             )}
           >
             <div
@@ -330,6 +340,11 @@ export function Meeting() {
                     value={newChat}
                     onChange={(e) => setNewChat(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && sendChat()}
+                    aria-label={t(
+                      'meeting.chatPlaceholder',
+                      {},
+                      { defaultValue: 'Type a message…' },
+                    )}
                     placeholder={t(
                       'meeting.chatPlaceholder',
                       {},
@@ -414,93 +429,143 @@ export function Meeting() {
 
       <footer
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 6),
-          'h-[72px] bg-foreground/60 backdrop-blur-xl border-t border-surface/10 z-30',
+          cm.flex({ align: 'center', justify: 'between', gap: 2 }),
+          cm.sp('px', 3),
+          'sm:px-6 h-[72px] shrink-0 bg-foreground/60 backdrop-blur-xl border-t border-surface/10 z-30',
         )}
       >
-        <div className={cm.cn(cm.textSize('xs'), 'tabular-nums text-white/60')}>{elapsedLabel}</div>
-        <div className={cm.flex({ align: 'center', gap: 2 })}>
-          <ControlButton
-            icon={audioEnabled ? 'mic' : 'mic_off'}
-            label={
-              audioEnabled
-                ? t('meeting.mute', {}, { defaultValue: 'Mute' })
-                : t('meeting.unmute', {}, { defaultValue: 'Unmute' })
-            }
-            active={!audioEnabled}
-            onClick={() => setAudioEnabled((v) => !v)}
-          />
-          <ControlButton
-            icon={videoEnabled ? 'videocam' : 'videocam_off'}
-            label={
-              videoEnabled
-                ? t('meeting.stopVideo', {}, { defaultValue: 'Stop video' })
-                : t('meeting.startVideo', {}, { defaultValue: 'Start video' })
-            }
-            active={!videoEnabled}
-            onClick={() => setVideoEnabled((v) => !v)}
-          />
-          <ControlButton
-            icon="screen_share"
-            label={
-              screenSharing
-                ? t('meeting.stopShare', {}, { defaultValue: 'Stop sharing' })
-                : t('meeting.shareScreen', {}, { defaultValue: 'Share screen' })
-            }
-            active={screenSharing}
-            onClick={() => setScreenSharing((v) => !v)}
-          />
-          <ControlButton
-            icon="pan_tool"
-            label={t('meeting.raiseHand', {}, { defaultValue: 'Raise hand' })}
-            active={false}
-            onClick={() => undefined}
-          />
-          <ControlButton
-            icon="fiber_manual_record"
-            label={
-              recording
-                ? t('meeting.stopRecording', {}, { defaultValue: 'Stop recording' })
-                : t('meeting.record', {}, { defaultValue: 'Record' })
-            }
-            active={recording}
-            tone={recording ? 'recording' : undefined}
-            onClick={() => setRecording((v) => !v)}
-          />
-          <ControlButton
-            icon="chat"
-            label={t('meeting.chat', {}, { defaultValue: 'Chat' })}
-            active={showChat}
-            onClick={() => {
-              setShowChat((v) => !v)
-              setShowParticipants(false)
-            }}
-          />
-          <ControlButton
-            icon="people"
-            label={t('meeting.participantsList', {}, { defaultValue: 'Participants' })}
-            active={showParticipants}
-            onClick={() => {
-              setShowParticipants((v) => !v)
-              setShowChat(false)
-            }}
-          />
+        <div className={cm.cn(cm.textSize('xs'), 'hidden sm:block tabular-nums text-white/60')}>
+          {elapsedLabel}
+        </div>
+        {/* The seven in-call controls need ~430px — on phones they live in a
+            horizontally scrollable strip instead of overflowing the bar. */}
+        <div className={cm.cn(cm.flex1, cm.flex({ align: 'center' }), 'min-w-0')}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'overflow-x-auto py-2')}>
+            <ControlButton
+              icon={audioEnabled ? 'mic' : 'mic_off'}
+              label={
+                audioEnabled
+                  ? t('meeting.mute', {}, { defaultValue: 'Mute' })
+                  : t('meeting.unmute', {}, { defaultValue: 'Unmute' })
+              }
+              active={!audioEnabled}
+              onClick={() => {
+                const next = !audioEnabled
+                setAudioEnabled(next)
+                track({
+                  name: next ? 'participant.unmuted' : 'participant.muted',
+                  properties: { meeting_id: id },
+                })
+              }}
+            />
+            <ControlButton
+              icon={videoEnabled ? 'videocam' : 'videocam_off'}
+              label={
+                videoEnabled
+                  ? t('meeting.stopVideo', {}, { defaultValue: 'Stop video' })
+                  : t('meeting.startVideo', {}, { defaultValue: 'Start video' })
+              }
+              active={!videoEnabled}
+              onClick={() => {
+                const next = !videoEnabled
+                setVideoEnabled(next)
+                track({
+                  name: next ? 'participant.video_on' : 'participant.video_off',
+                  properties: { meeting_id: id },
+                })
+              }}
+            />
+            <ControlButton
+              icon="screen_share"
+              label={
+                screenSharing
+                  ? t('meeting.stopShare', {}, { defaultValue: 'Stop sharing' })
+                  : t('meeting.shareScreen', {}, { defaultValue: 'Share screen' })
+              }
+              active={screenSharing}
+              onClick={() => {
+                const next = !screenSharing
+                setScreenSharing(next)
+                track({
+                  name: next ? 'meeting.screen_share_started' : 'meeting.screen_share_stopped',
+                  properties: { meeting_id: id },
+                })
+              }}
+            />
+            <ControlButton
+              icon="pan_tool"
+              label={
+                handRaised
+                  ? t('meeting.lowerHand', {}, { defaultValue: 'Lower hand' })
+                  : t('meeting.raiseHand', {}, { defaultValue: 'Raise hand' })
+              }
+              active={handRaised}
+              onClick={() => {
+                const next = !handRaised
+                setHandRaised(next)
+                if (next) {
+                  track({
+                    name: 'meeting.hand_raised',
+                    properties: { meeting_id: id },
+                  })
+                }
+              }}
+            />
+            <ControlButton
+              icon="fiber_manual_record"
+              label={
+                recording
+                  ? t('meeting.stopRecording', {}, { defaultValue: 'Stop recording' })
+                  : t('meeting.record', {}, { defaultValue: 'Record' })
+              }
+              active={recording}
+              tone={recording ? 'recording' : undefined}
+              onClick={() => {
+                const next = !recording
+                setRecording(next)
+                track({
+                  name: next ? 'meeting.recording_started' : 'meeting.recording_stopped',
+                  properties: { meeting_id: id },
+                })
+              }}
+            />
+            <ControlButton
+              icon="chat"
+              label={t('meeting.chat', {}, { defaultValue: 'Chat' })}
+              active={showChat}
+              onClick={() => {
+                setShowChat((v) => !v)
+                setShowParticipants(false)
+              }}
+            />
+            <ControlButton
+              icon="people"
+              label={t('meeting.participantsList', {}, { defaultValue: 'Participants' })}
+              active={showParticipants}
+              onClick={() => {
+                setShowParticipants((v) => !v)
+                setShowChat(false)
+              }}
+            />
+          </div>
         </div>
         <button
           type="button"
           onClick={leaveMeeting}
           className={cm.cn(
             cm.flex({ align: 'center', gap: 2 }),
-            cm.sp('px', 6),
+            cm.sp('px', 4),
+            'sm:px-6',
             cm.fontWeight('bold'),
             cm.textSize('sm'),
             cm.roundedFull,
-            'h-10 bg-error text-on-error hover:bg-error-active transition-colors shadow-lg shadow-error/40',
+            'h-10 shrink-0 bg-error text-on-error hover:bg-error-active transition-colors shadow-lg shadow-error/40',
           )}
         >
           <span className="material-symbols-outlined">call_end</span>
-          {t('meeting.leave', {}, { defaultValue: 'Leave' })}
+          <span className="hidden sm:inline">
+            {t('meeting.leave', {}, { defaultValue: 'Leave' })}
+          </span>
         </button>
       </footer>
     </div>
@@ -529,7 +594,7 @@ function ParticipantTile({ participant }: { participant: Participant }) {
         >
           <div
             className={
-              'w-20 h-20 rounded-full bg-surface/15 backdrop-blur-md flex items-center justify-center text-3xl font-bold'
+              'w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-surface/15 backdrop-blur-md flex items-center justify-center text-2xl sm:text-3xl font-bold'
             }
           >
             {participant.user_name.charAt(0)}
@@ -539,7 +604,7 @@ function ParticipantTile({ participant }: { participant: Participant }) {
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), 'absolute inset-0')}>
           <div
             className={
-              'w-20 h-20 rounded-full bg-primary flex items-center justify-center text-3xl font-bold text-on-primary'
+              'w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-primary flex items-center justify-center text-2xl sm:text-3xl font-bold text-on-primary'
             }
           >
             {participant.user_name.charAt(0)}
@@ -591,7 +656,7 @@ function ControlButton({
       aria-label={label}
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'center' }),
-        'w-12 h-12 rounded-full transition-all',
+        'w-12 h-12 shrink-0 rounded-full transition-all',
         tone === 'recording' && active
           ? 'bg-error text-on-error shadow-lg shadow-error/40'
           : active

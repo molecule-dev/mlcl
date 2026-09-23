@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -100,6 +101,11 @@ export function TeamMembers() {
         workspace_id: workspace.id,
         email: inviteEmail.trim(),
         role: inviteRole,
+      })
+      // No PII in telemetry — role + workspace are enough for the funnel.
+      track({
+        name: 'member.invited',
+        properties: { workspace_id: workspace.id, role: inviteRole },
       })
       setInviteSuccess(
         t(
