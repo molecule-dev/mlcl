@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -147,6 +148,10 @@ export function StateMachine() {
       })
       const created = res.data as ApiState | null
       if (created && 'id' in created) {
+        track({
+          name: 'state.created',
+          properties: { projectId: id, stateId: created.id, isInitial },
+        })
         setStates((prev) => (prev ? [...prev, created] : [created]))
         setSelectedNode(created.id)
         setStatesError(null)
@@ -213,12 +218,17 @@ export function StateMachine() {
       }
       fullBleed
     >
-      <div className={cm.cn(cm.flex({ direction: 'row' }), 'h-full')}>
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          'lg:flex-row h-full min-h-0 lg:overflow-hidden',
+        )}
+      >
         <aside
           className={cm.cn(
             cm.sp('p', 4),
             cm.stack(4),
-            'w-[260px] border-r border-[var(--anim-border)] bg-[var(--anim-surface)]/60 overflow-y-auto',
+            'w-full lg:w-[260px] lg:shrink-0 border-b lg:border-b-0 lg:border-r border-[var(--anim-border)] bg-[var(--anim-surface)]/60 lg:overflow-y-auto',
           )}
         >
           <h3
@@ -330,7 +340,9 @@ export function StateMachine() {
         </aside>
 
         <section
-          className={cm.cn('flex-1 relative bg-[var(--anim-background)] overflow-auto')}
+          className={cm.cn(
+            'flex-1 relative bg-[var(--anim-background)] min-h-[340px] lg:min-h-0 overflow-auto',
+          )}
           style={{
             backgroundImage:
               'radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--anim-primary) 15%, transparent) 1px, transparent 0)',
@@ -449,7 +461,7 @@ export function StateMachine() {
           className={cm.cn(
             cm.sp('p', 4),
             cm.stack(4),
-            'w-[300px] border-l border-[var(--anim-border)] bg-[var(--anim-surface)]/60 overflow-y-auto',
+            'w-full lg:w-[300px] lg:shrink-0 border-t lg:border-t-0 lg:border-l border-[var(--anim-border)] bg-[var(--anim-surface)]/60 lg:overflow-y-auto',
           )}
         >
           <h3

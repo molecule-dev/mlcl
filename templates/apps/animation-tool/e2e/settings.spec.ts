@@ -109,7 +109,14 @@ test.describe('/settings (Settings)', () => {
 
   test('Update password PATCHes /api/users/:id/password and the OLD password is rejected on next login', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // The OLD-password login at the end is SUPPOSED to fail (403) — that is
+    // the invariant under test. The browser logs that 403 to the console;
+    // expected noise, not a bug.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const oldPw = 'TestPass123!'
     const newPw = 'NewPa55Word!'
     const email = uniqueEmail('settings-pwch')

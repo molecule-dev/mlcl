@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -141,6 +142,10 @@ export function Export() {
       })
       const created = res.data as ApiExport | null
       if (created && 'id' in created) {
+        track({
+          name: 'export.rendered',
+          properties: { projectId: id, exportId: created.id, format },
+        })
         setExports((prev) => (prev ? [created, ...prev] : [created]))
       } else {
         const refresh = await http.get<ApiExport[] | { data: ApiExport[] }>(
@@ -223,7 +228,7 @@ export function Export() {
             <div
               className={cm.cn(
                 cm.flex({ gap: 2 }),
-                'rounded-full p-1 bg-[var(--anim-surface)] border border-[var(--anim-border)] w-fit',
+                'flex-wrap rounded-3xl p-1 bg-[var(--anim-surface)] border border-[var(--anim-border)] w-fit max-w-full',
               )}
             >
               {FORMATS.map((f) => (

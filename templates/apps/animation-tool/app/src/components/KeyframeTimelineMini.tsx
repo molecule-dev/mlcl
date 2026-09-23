@@ -8,7 +8,7 @@
  */
 import { getClassMap } from '@molecule/app-ui'
 
-interface Track {
+export interface Track {
   label: string
   keyframes: number[]
   selected?: number

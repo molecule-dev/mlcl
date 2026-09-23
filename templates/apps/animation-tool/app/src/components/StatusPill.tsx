@@ -62,8 +62,7 @@ export function StatusPill({ status, label }: StatusPillProps) {
       className={cm.cn(
         cm.sp('px', 2),
         cm.sp('py', 1),
-        'inline-flex items-center text-[10px] font-mono font-bold uppercase tracking-widest rounded-full border',
-        cfg.pulse ? 'animate-pulse' : '',
+        'inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-widest rounded-full border',
       )}
       style={{
         backgroundColor: cfg.bg,
@@ -71,6 +70,16 @@ export function StatusPill({ status, label }: StatusPillProps) {
         borderColor: cfg.border,
       }}
     >
+      {/* The "in progress" pulse lives on a non-text dot: animating the whole
+          pill fades the TEXT below the contrast floor and trips axe mid-cycle
+          (contrast is computed against the faded composite). */}
+      {cfg.pulse ? (
+        <span
+          aria-hidden
+          className={cm.cn('animate-pulse w-1.5 h-1.5 rounded-full')}
+          style={{ backgroundColor: cfg.text }}
+        />
+      ) : null}
       {label ?? t(`statusPill.${status}`, {}, { defaultValue: cfg.defaultLabel })}
     </span>
   )

@@ -19,7 +19,14 @@ test.describe('/reset-password (ResetPassword)', () => {
 
   test('Reset password submit POSTs the reset endpoint (call must wire through to the backend)', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // The fake token intentionally makes the backend reject the POST with a
+    // 401 — that is what "wired through to the backend" means here. The
+    // browser logs the 401 to the console; expected noise, not a bug.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=fake-token')
     const reqs = await captureNetwork(page, async () => {
       await page.locator('input[type=password]').nth(0).fill('NewPa55!')

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -154,6 +155,7 @@ export function Projects() {
       })
       const id = res.data?.id
       if (id) {
+        track({ name: 'animation.created', properties: { projectId: id } })
         navigate(`/projects/${id}`)
       } else {
         // Re-fetch list when API returns no id (defensive)

@@ -23,7 +23,14 @@ test.describe('/pricing (Pricing)', () => {
 
   test('Upgrade to Pro click on a fresh public visit POSTs /billing/checkout and the unauthed response is 401 (no broken silent button)', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // The whole point of this test is the 401 the backend returns for an
+    // unauthed checkout POST — the browser also logs that 401 to the console,
+    // which is expected, not a bug.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/pricing')
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /Upgrade to Pro/i }).click()
@@ -36,7 +43,12 @@ test.describe('/pricing (Pricing)', () => {
 
   test('Upgrade to Team click on a fresh public visit POSTs /billing/checkout and the unauthed response is 401', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // Expected 401 — same contract as the Pro upgrade test above.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/pricing')
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /Upgrade to Team/i }).click()

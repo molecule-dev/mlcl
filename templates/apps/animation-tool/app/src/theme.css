@@ -150,7 +150,7 @@
   --mol-color-input-background: #ffffff;
   --mol-color-text: #18181b;
   --mol-color-text-secondary: #52525b;
-  --mol-color-text-tertiary: #a1a1aa;
+  --mol-color-text-tertiary: #52525b; /* was #a1a1aa — 2.3:1 on white; zinc-600 matches the hardened --anim-text-muted (5.8:1) */
   --mol-color-text-inverse: #ffffff;
   --mol-color-border: #e4e4e7;
   --mol-color-border-secondary: #d4d4d8;
@@ -217,7 +217,7 @@
 
   --anim-text: #f5f5f7;
   --anim-text-secondary: #b8b8bf;
-  --anim-text-muted: #75757d;
+  --anim-text-muted: #8a8a92; /* was #75757d — 4.3:1 on the rich-black bg; #8a8a92 = 5.7:1 for the tiny mono labels */
 
   --anim-canvas-bg: #000000;
   --anim-selection: #e879f9;
@@ -247,7 +247,7 @@
   --mol-color-input-background: #0a0a0c;
   --mol-color-text: #f5f5f7;
   --mol-color-text-secondary: #b8b8bf;
-  --mol-color-text-tertiary: #75757d;
+  --mol-color-text-tertiary: #8a8a92; /* matches --anim-text-muted — was #75757d (4.3:1) */
   --mol-color-text-inverse: #0a0a0c;
   --mol-color-border: #2e2e34;
   --mol-color-border-secondary: #1e1e22;
