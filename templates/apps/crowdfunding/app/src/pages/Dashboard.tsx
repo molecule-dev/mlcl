@@ -11,7 +11,7 @@ import { api, type ApiCampaign, type ApiNotification, toCardData } from '../lib/
 const ACTIVITY_TINT: Record<ApiNotification['kind'], string> = {
   pledge_received: 'bg-primary/10 text-primary',
   pledge_made: 'bg-tertiary/10 text-tertiary',
-  campaign_funded: 'bg-accent/10 text-accent',
+  campaign_funded: 'bg-accent/10 text-accent-700',
   campaign_update: 'bg-warning/10 text-warning',
 }
 const ACTIVITY_ICON: Record<ApiNotification['kind'], string> = {

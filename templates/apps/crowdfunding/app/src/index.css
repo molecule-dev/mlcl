@@ -110,4 +110,7 @@
    definitions keep overriding at runtime for theming). */
 @theme {
   --color-accent: #10b981;
+  /* AA-safe shade for white TEXT on accent backgrounds (12px bold badges need
+     4.5:1; accent #10b981 gives only 2.53:1, accent-700 gives 5.46:1). */
+  --color-accent-700: #047857;
 }

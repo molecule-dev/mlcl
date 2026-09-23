@@ -26,7 +26,7 @@ const CATEGORY_TINT: Record<string, string> = {
   tech: 'bg-primary text-white',
   design: 'bg-tertiary text-white',
   film: 'bg-secondary text-white',
-  games: 'bg-accent text-white',
+  games: 'bg-accent-700 text-white',
   music: 'bg-warning text-on-warning-container',
   food: 'bg-success text-white',
   art: 'bg-tertiary text-white',

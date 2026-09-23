@@ -24,7 +24,7 @@ const ACCENT_BORDER: Record<NonNullable<KpiStatCardProps['accent']>, string> = {
 
 const ACCENT_BG: Record<NonNullable<KpiStatCardProps['accent']>, string> = {
   primary: 'bg-primary/10 text-primary',
-  accent: 'bg-accent/10 text-accent',
+  accent: 'bg-accent/10 text-accent-700',
   warning: 'bg-warning/10 text-warning',
   tertiary: 'bg-tertiary/10 text-tertiary',
 }

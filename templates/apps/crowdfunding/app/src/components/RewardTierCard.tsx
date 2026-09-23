@@ -77,7 +77,7 @@ export function RewardTierCard({
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               cm.roundedFull,
-              'uppercase tracking-widest bg-accent text-white',
+              'uppercase tracking-widest bg-accent-700 text-white',
             )}
           >
             {t(
