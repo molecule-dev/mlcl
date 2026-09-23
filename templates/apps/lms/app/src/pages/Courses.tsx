@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -140,6 +141,7 @@ function CoursesPage() {
         course_id: courseId,
         student_email: me.email,
       })
+      track({ name: 'course.enrolled', properties: { courseId } })
       await load()
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
@@ -155,7 +157,12 @@ function CoursesPage() {
       <SideNavBar />
       <TopNavBar contextCrumb={t('coursesPage.crumb', {}, { defaultValue: 'Courses' })} />
       <main
-        className={cm.cn(cm.stack(10), cm.sp('px', 8), cm.sp('pb', 12), 'ml-[260px] pt-24')}
+        className={cm.cn(
+          cm.stack(10),
+          cm.sp('px', 8),
+          cm.sp('pb', 12),
+          'md:ml-[260px] pt-6 md:pt-24',
+        )}
         data-mol-id="courses-page"
       >
         <header className={cm.stack(2)}>

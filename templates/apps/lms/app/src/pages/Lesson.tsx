@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -92,6 +93,7 @@ function Lesson() {
     setMarking(true)
     try {
       await http.post(`/api/courses/${courseId}/lessons/${lessonId}/complete`, {})
+      track({ name: 'lesson.completed', properties: { courseId, lessonId } })
       setCompleted(true)
       const progressRes: unknown = await http
         .get(`/api/courses/${courseId}/progress`)

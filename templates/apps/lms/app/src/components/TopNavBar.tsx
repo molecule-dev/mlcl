@@ -25,7 +25,7 @@ function TopNavBar({ contextCrumb }: TopNavBarProps = {}) {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
         cm.h(16),
-        'fixed top-0 left-[260px] right-0 bg-surface/80 backdrop-blur-md border-b border-border z-40',
+        'fixed top-0 left-0 md:left-[260px] right-0 bg-surface/80 backdrop-blur-md border-b border-border z-40 hidden md:flex',
       )}
     >
       <div

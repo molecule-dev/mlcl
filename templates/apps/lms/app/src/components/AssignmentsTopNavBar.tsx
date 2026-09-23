@@ -22,7 +22,7 @@ function AssignmentsTopNavBar({
         cm.w('full'),
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
-        'sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-border',
+        'sticky top-14 md:top-0 z-30 bg-surface/80 backdrop-blur-md border-b border-border',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1)}>
@@ -61,7 +61,7 @@ function AssignmentsTopNavBar({
           />
         </div>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'hidden md:flex')}>
         <button
           className={cm.cn(
             cm.sp('p', 2),

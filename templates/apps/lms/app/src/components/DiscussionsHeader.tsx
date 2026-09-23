@@ -29,20 +29,20 @@ function DiscussionsHeader({
         cm.h(16),
         cm.sp('px', 8),
         cm.w('full'),
-        'sticky top-0 bg-surface/80 backdrop-blur-md z-30 border-b border-border',
+        'sticky top-14 md:top-0 bg-surface/80 backdrop-blur-md z-30 border-b border-border h-auto sm:h-16 py-3 sm:py-0 flex-col sm:flex-row items-start sm:items-center gap-3 px-4 md:px-8',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, 'gap-6')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, 'gap-6 min-w-0')}>
         <h1
           className={cm.cn(
             cm.textSize('4xl'),
             cm.fontWeight('extrabold'),
-            'tracking-tight text-on-surface',
+            'tracking-tight text-on-surface text-2xl sm:text-4xl',
           )}
         >
           {t('discussionsHeader.title', {}, { defaultValue: 'Discussions' })}
         </h1>
-        <div className={cm.cn(cm.w('full'), cm.maxW('md'), 'relative group')}>
+        <div className={cm.cn(cm.w('full'), cm.maxW('md'), 'relative group min-w-0 flex-1')}>
           <span
             className={cm.cn(
               'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]',
@@ -70,7 +70,7 @@ function DiscussionsHeader({
           />
         </div>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4 hidden lg:flex')}>
         <div
           className={cm.cn(
             cm.flex({ align: 'center' }),

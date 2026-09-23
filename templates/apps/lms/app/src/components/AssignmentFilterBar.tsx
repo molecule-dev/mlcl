@@ -32,7 +32,7 @@ function AssignmentFilterBar({
       className={cm.cn(
         cm.flex({ align: 'center' }),
         cm.w('fit'),
-        'gap-1 bg-surface-container-low p-1.5 rounded-2xl',
+        'gap-1 bg-surface-container-low p-1.5 rounded-2xl max-w-full overflow-x-auto',
       )}
     >
       <button

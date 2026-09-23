@@ -29,7 +29,7 @@ function GradebookTopNavBar({
         cm.sp('px', 8),
         cm.h(16),
         cm.w('full'),
-        'sticky top-0 z-40 bg-surface/80 backdrop-blur-md border-b border-border',
+        'sticky top-14 md:top-0 z-30 bg-surface/80 backdrop-blur-md border-b border-border px-4 md:px-8',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
@@ -43,8 +43,8 @@ function GradebookTopNavBar({
           {t('gradebookTopNavBar.appName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
         </span>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }))}>
-        <div className={cm.cn(cm.w(64), 'relative hidden md:block')}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'min-w-0 gap-3 md:gap-6')}>
+        <div className={cm.cn(cm.w(64), 'relative hidden lg:block')}>
           <span
             className={cm.cn(
               cm.textSize('lg'),

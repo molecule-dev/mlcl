@@ -30,6 +30,12 @@ test.describe('/reset-password', () => {
   })
 
   test('matching passwords post to /api/users/reset-password', async ({ page }) => {
+    // The token is deliberately bogus so the server answers 401 — the
+    // assertion is that the request fires with the correct path and shape.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?token=demo-token-xyz')
       await page.locator('input#password').fill('NewPass123!')

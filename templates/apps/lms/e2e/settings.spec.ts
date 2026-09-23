@@ -4,10 +4,18 @@ import { APP_BASE, signup, api, getMyUserId, getAccessToken } from './_helpers.j
 test('PATCH /api/users/:id updates name + email (read-after-write through /profile/me)', async ({
   page,
 }) => {
-  await signup(page)
+  const password = 'TestPass123!'
+  await signup(page, undefined, password)
   const id = await getMyUserId(page)
   const newEmail = `renamed+${Date.now()}@example.com`
-  await api(page, 'PATCH', `/users/${id}`, { name: 'Renamed Student', email: newEmail })
+  // The molecule core user resource requires the CURRENT password whenever
+  // the email changes (verified: PATCH {name} alone → 200; PATCH {name,
+  // email} without currentPassword → 400 currentPasswordRequired).
+  await api(page, 'PATCH', `/users/${id}`, {
+    name: 'Renamed Student',
+    email: newEmail,
+    currentPassword: password,
+  })
   const me = await api<{ name: string; email: string }>(page, 'GET', '/profile/me')
   expect(me.name).toBe('Renamed Student')
   expect(me.email).toBe(newEmail)

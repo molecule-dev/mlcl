@@ -138,7 +138,11 @@ function Assignments() {
   if (loading) {
     return (
       <div
-        className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface antialiased')}
+        className={cm.cn(
+          cm.flex(),
+          cm.minH('screen'),
+          'bg-background text-on-surface antialiased flex-col md:flex-row',
+        )}
       >
         <AssignmentsSideNavBar />
         <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
@@ -175,7 +179,11 @@ function Assignments() {
   if (error) {
     return (
       <div
-        className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface antialiased')}
+        className={cm.cn(
+          cm.flex(),
+          cm.minH('screen'),
+          'bg-background text-on-surface antialiased flex-col md:flex-row',
+        )}
       >
         <AssignmentsSideNavBar />
         <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
@@ -222,7 +230,11 @@ function Assignments() {
 
   return (
     <div
-      className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface antialiased')}
+      className={cm.cn(
+        cm.flex(),
+        cm.minH('screen'),
+        'bg-background text-on-surface antialiased flex-col md:flex-row',
+      )}
     >
       <AssignmentsSideNavBar />
       <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>

@@ -82,7 +82,7 @@ function Gradebook() {
     <div className={cm.cn(cm.minH('screen'), 'bg-surface font-body text-on-surface')}>
       <SideNavBar />
       {/* Main Wrapper */}
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'ml-[260px]')}>
+      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'md:ml-[260px]')}>
         {/* TopNavBar */}
         <GradebookTopNavBar search={search} onSearchChange={setSearch} />
         {/* Main Content Area */}

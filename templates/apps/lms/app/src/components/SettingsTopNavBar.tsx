@@ -25,7 +25,7 @@ function SettingsTopNavBar() {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
         cm.h(16),
-        'fixed top-0 right-0 w-[calc(100%-260px)] z-40 bg-surface/80 backdrop-blur-md ml-[260px] border-b border-border',
+        'fixed top-0 left-0 md:left-[260px] right-0 z-40 bg-surface/80 backdrop-blur-md border-b border-border hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), cm.flex1)}>

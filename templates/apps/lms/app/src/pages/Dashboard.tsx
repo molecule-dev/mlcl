@@ -24,7 +24,12 @@ function Dashboard() {
       <TopNavBar />
       {/* Main Content */}
       <main
-        className={cm.cn(cm.sp('px', 8), cm.sp('pb', 12), cm.stack(10), 'ml-[260px] pt-24')}
+        className={cm.cn(
+          cm.sp('px', 8),
+          cm.sp('pb', 12),
+          cm.stack(10),
+          'md:ml-[260px] pt-6 md:pt-24',
+        )}
         aria-label={t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}
       >
         {/* Welcome Banner */}

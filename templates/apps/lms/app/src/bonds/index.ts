@@ -16,7 +16,9 @@ export { authClient, i18nProvider }
 export function setupProviders(): void {
   setupAllDefaultBonds()
   setupAppThemeCssVariables()
-  setupAuthDefault()
+  // http BEFORE auth: setupAuthDefault hydrates/subscribes via
+  // `getHttpClient()`, which must already be the client the pages use.
   setupHttpDefault()
+  setupAuthDefault()
   setupAppAnalytics()
 }

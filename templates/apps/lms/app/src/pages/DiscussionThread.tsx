@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -98,6 +99,7 @@ function DiscussionThread() {
       const created = unwrap<ReplyRow>(res)
       if (created?.id) setReplies((prev) => [...prev, created])
       setReply('')
+      track({ name: 'discussion.replied', properties: { discussionId } })
     } catch (err) {
       setReplyError(
         (err as Error)?.message ||
@@ -119,9 +121,17 @@ function DiscussionThread() {
     (name ?? '').trim() || t('discussions.classmate', {}, { defaultValue: 'Classmate' })
 
   return (
-    <div className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface')}>
+    <div
+      className={cm.cn(
+        cm.flex(),
+        cm.minH('screen'),
+        'bg-background text-on-surface flex-col md:flex-row',
+      )}
+    >
       <DiscussionsSideNavBar />
-      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'))}>
+      <main
+        className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'), 'min-w-0')}
+      >
         <div
           className={cm.cn(cm.sp('p', 8), cm.maxW('4xl'), cm.mxAuto, cm.w('full'), cm.stack(8))}
           data-mol-id="discussion-thread"

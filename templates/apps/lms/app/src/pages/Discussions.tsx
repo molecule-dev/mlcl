@@ -2,6 +2,7 @@
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Modal } from '@molecule/app-ui-react'
@@ -125,7 +126,8 @@ function Discussions() {
         title: composerTitle.trim(),
         content: composerContent.trim(),
       })
-      setComposerOpen(false)
+      track({ name: 'discussion.created', properties: { courseId: composerCourseId } })
+
       setComposerTitle('')
       setComposerContent('')
       await loadDiscussions()
@@ -147,11 +149,19 @@ function Discussions() {
   )
 
   return (
-    <div className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface')}>
+    <div
+      className={cm.cn(
+        cm.flex(),
+        cm.minH('screen'),
+        'bg-background text-on-surface flex-col md:flex-row',
+      )}
+    >
       {/* SideNavBar Component */}
       <DiscussionsSideNavBar onNewThread={openComposer} />
       {/* Main Content Canvas */}
-      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'))}>
+      <main
+        className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'), 'min-w-0')}
+      >
         {/* TopNavBar Component */}
         <DiscussionsHeader search={search} onSearchChange={setSearch} />
         {/* Content Area */}

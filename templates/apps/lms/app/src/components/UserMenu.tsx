@@ -15,8 +15,11 @@ function UserMenuPanel() {
  * own `SettingsPanel` as the drawer body. Public pages (Pricing, About,
  * Terms, Privacy) share the same header — logged-out visitors get auth
  * entry points instead of the signed-in panel.
+ *
+ * `dataMolId` lets hosts disambiguate multiple mounted menus (e.g. the
+ * mobile bar's `user-menu-mobile` next to the desktop TopNavBar's).
  */
-export function UserMenu() {
+export function UserMenu({ dataMolId }: { dataMolId?: string } = {}) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const isAuthenticated = useIsAuthenticated()
@@ -53,7 +56,7 @@ export function UserMenu() {
   }
 
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu dataMolId={dataMolId}>
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

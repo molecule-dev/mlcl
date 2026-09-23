@@ -4,6 +4,7 @@
 // `/api/profile/me/preferences`.
 import React, { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -48,6 +49,13 @@ function Settings() {
   const [passwordLoading, setPasswordLoading] = useState(false)
   const [passwordError, setPasswordError] = useState('')
   const [passwordSuccess, setPasswordSuccess] = useState(false)
+  // Changing the email is a sensitive write: the molecule core user resource
+  // rejects PATCH {email} without the account's current password (400
+  // currentPasswordRequired). Show a confirm-password input only while the
+  // email field differs from the signed-in address.
+  const originalEmail = user?.email || ''
+  const emailChanged = email !== originalEmail && email.trim() !== ''
+  const [emailPassword, setEmailPassword] = useState('')
   const [notifyEmail, setNotifyEmailState] = useState(true)
   const [notifyCourseUpdates, setNotifyCourseUpdatesState] = useState(true)
   const [notifyAssignments, setNotifyAssignmentsState] = useState(true)
@@ -152,20 +160,45 @@ function Settings() {
     setProfileError(null)
     try {
       if (!userId) throw new Error('Not signed in')
+      if (emailChanged && emailPassword.trim() === '') {
+        throw new Error(
+          t(
+            'settings.emailPasswordRequired',
+            {},
+            {
+              defaultValue: 'Enter your current password to change your email address.',
+            },
+          ),
+        )
+      }
       // The molecule core user resource exposes PATCH /api/users/:id (not
-      // PUT /api/user). Send a partial with just the fields the core schema
-      // accepts. `bio` is per-app — store it under preferences instead.
-      await http.patch(`/api/users/${userId}`, { name, email })
+      // PUT /api/user). Send a partial with just the fields that changed;
+      // an email change must carry `currentPassword` or the API 400s.
+      // `bio` is per-app — store it under preferences instead.
+      const patch: Record<string, unknown> = { name }
+      if (emailChanged) {
+        patch.email = email
+        patch.currentPassword = emailPassword
+      }
+      await http.patch(`/api/users/${userId}`, patch)
       if (bio.trim().length > 0) {
         await persistPreferences({ bio })
       }
+      track({
+        name: 'profile.updated',
+        properties: { userId, emailChanged },
+      })
       setProfileSuccess(true)
+      setEmailPassword('')
       setSavedAt(Date.now())
     } catch (err) {
+      const apiMessage = (err as { response?: { body?: { error?: string } } } | null)?.response
+        ?.body?.error
       setProfileError(
-        err instanceof Error
-          ? err.message
-          : t('settings.profileSaveError', {}, { defaultValue: 'Failed to save profile.' }),
+        apiMessage ||
+          (err instanceof Error
+            ? err.message
+            : t('settings.profileSaveError', {}, { defaultValue: 'Failed to save profile.' })),
       )
     } finally {
       setProfileLoading(false)
@@ -186,6 +219,7 @@ function Settings() {
     try {
       if (!userId) throw new Error('Not signed in')
       await http.patch(`/api/users/${userId}/password`, { currentPassword, newPassword })
+      track({ name: 'password.changed', properties: { userId } })
       setPasswordSuccess(true)
       setCurrentPassword('')
       setNewPassword('')
@@ -222,7 +256,7 @@ function Settings() {
       {/* TopAppBar (Execution from JSON) */}
       <SettingsTopNavBar />
       {/* Main Content Canvas */}
-      <main className={cm.cn(cm.minH('screen'), 'ml-[260px] pt-20 pb-32')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[260px] pt-6 md:pt-20 pb-32')}>
         <div
           className={cm.cn(
             cm.maxW('5xl'),
@@ -244,6 +278,9 @@ function Settings() {
             setBio={setBio}
             profileSuccess={profileSuccess}
             profileError={profileError}
+            emailChanged={emailChanged}
+            emailPassword={emailPassword}
+            setEmailPassword={setEmailPassword}
           />
           <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-2')}>
             {/* Notifications Section */}

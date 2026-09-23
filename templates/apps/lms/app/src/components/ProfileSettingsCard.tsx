@@ -10,6 +10,10 @@ interface ProfileSettingsCardProps {
   setBio: (v: string) => void
   profileSuccess: boolean
   profileError?: string | null
+  /** True while the email field differs from the signed-in address. */
+  emailChanged?: boolean
+  emailPassword?: string
+  setEmailPassword?: (v: string) => void
 }
 
 function ProfileSettingsCard({
@@ -21,6 +25,9 @@ function ProfileSettingsCard({
   setBio,
   profileSuccess,
   profileError,
+  emailChanged = false,
+  emailPassword = '',
+  setEmailPassword,
 }: ProfileSettingsCardProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -106,6 +113,42 @@ function ProfileSettingsCard({
               />
             </div>
           </div>
+          {emailChanged && (
+            <div className={cm.stack(2)}>
+              <label
+                htmlFor="profile-email-password"
+                className={cm.cn(
+                  cm.fontWeight('semibold'),
+                  cm.sp('ml', 1),
+                  'text-[0.75rem] text-foreground-secondary uppercase tracking-wider',
+                )}
+              >
+                {t(
+                  'profileSettingsCard.confirmCurrentPassword',
+                  {},
+                  { defaultValue: 'Current Password (to change email)' },
+                )}
+              </label>
+              <input
+                id="profile-email-password"
+                name="currentPassword"
+                autoComplete="current-password"
+                className={cm.cn(
+                  cm.w('full'),
+                  cm.sp('p', 4),
+                  'bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface font-body outline-none',
+                )}
+                placeholder={t(
+                  'profileSettingsCard.confirmCurrentPasswordHint',
+                  {},
+                  { defaultValue: 'Confirm your identity to change your email' },
+                )}
+                type="password"
+                value={emailPassword}
+                onChange={(e) => setEmailPassword?.(e.target.value)}
+              />
+            </div>
+          )}
           <div className={cm.stack(2)}>
             <label
               className={cm.cn(

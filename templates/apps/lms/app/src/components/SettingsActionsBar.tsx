@@ -14,12 +14,16 @@ function SettingsActionsBar({ onSave, onCancel, loading, savedAt }: SettingsActi
     <div
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between' }),
-        cm.sp('px', 12),
         cm.sp('py', 6),
-        'fixed bottom-0 right-0 w-[calc(100%-260px)] bg-surface/90 backdrop-blur-md border-t border-border z-40',
+        'fixed bottom-0 left-0 md:left-[260px] right-0 px-4 md:px-12 bg-surface/90 backdrop-blur-md border-t border-border z-40',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'text-foreground-tertiary')}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 2 }),
+          'text-foreground-tertiary hidden md:flex min-w-0',
+        )}
+      >
         <span
           className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
           data-icon="info"

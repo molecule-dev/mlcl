@@ -224,7 +224,7 @@ function CourseDetail() {
             cm.flex({ align: 'center', justify: 'center' }),
             cm.sp('px', 8),
             cm.sp('pb', 12),
-            'ml-[260px] pt-24',
+            'md:ml-[260px] pt-6 md:pt-24',
           )}
           style={{ minHeight: 'calc(100vh - 4rem)' }}
         >
@@ -255,7 +255,7 @@ function CourseDetail() {
             cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 4 }),
             cm.sp('px', 8),
             cm.sp('py', 24),
-            'ml-[260px] text-center',
+            'md:ml-[260px] pt-6 md:pt-24 text-center',
           )}
         >
           <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
@@ -293,7 +293,12 @@ function CourseDetail() {
       <SideNavBar />
       <TopNavBar contextCrumb={breadcrumb} />
       <main
-        className={cm.cn(cm.flex({ gap: 8 }), cm.sp('px', 8), cm.sp('pb', 12), 'ml-[260px] pt-24')}
+        className={cm.cn(
+          cm.flex({ gap: 8 }),
+          cm.sp('px', 8),
+          cm.sp('pb', 12),
+          'md:ml-[260px] pt-6 md:pt-24 flex-col md:flex-row',
+        )}
       >
         <div className={cm.cn(cm.flex1, cm.maxW('5xl'))}>
           <CourseHeader
