@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -82,6 +83,7 @@ export function MessageThread() {
         content: draft.trim(),
       })
       setDraft('')
+      void track({ name: 'message.sent', properties: { threadId } })
       await refresh()
     } finally {
       setSending(false)

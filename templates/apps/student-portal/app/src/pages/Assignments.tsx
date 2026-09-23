@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -22,18 +22,24 @@ export function Assignments() {
   const http = useHttpClient()
   const [assignments, setAssignments] = useState<ApiAssignment[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [filter, setFilter] = useState<'all' | AssignmentStatus>('all')
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     http
       .get('/api/assignments')
       .then((res) => {
         if (cancelled) return
         setAssignments(unwrapList<ApiAssignment>(res))
       })
-      .catch(() => {})
+      .catch(() => {
+        // A failed fetch must never render as a silent blank — the error
+        // state below offers a retry.
+        if (!cancelled) setError(true)
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
@@ -41,6 +47,8 @@ export function Assignments() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(load, [load])
 
   const visible = useMemo(() => {
     if (filter === 'all') return assignments
@@ -95,6 +103,39 @@ export function Assignments() {
           <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
             {t('assignments.loading', {}, { defaultValue: 'Loading assignments…' })}
           </p>
+        ) : error ? (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
+              cm.sp('py', 12),
+              'text-on-surface-variant',
+            )}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-5xl text-error opacity-70')}
+              aria-hidden="true"
+            >
+              wifi_off
+            </span>
+            <p className={cm.textSize('lg')}>
+              {t('assignments.loadError', {}, { defaultValue: 'Couldn’t load assignments.' })}
+            </p>
+            <button
+              type="button"
+              data-mol-id="assignments-retry"
+              onClick={load}
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.roundedFull,
+                'bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Try again' })}
+            </button>
+          </div>
         ) : visible.length === 0 ? (
           <div
             className={cm.cn(

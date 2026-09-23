@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -108,6 +109,12 @@ export function Messages() {
       setRecipientName('')
       setRecipientEmail('')
       setContent('')
+      if (created?.id) {
+        void track({
+          name: 'message.sent',
+          properties: { messageId: created.id, hasEmail: Boolean(recipientEmail.trim()) },
+        })
+      }
       await refresh()
       if (created?.thread_id) {
         navigate(`/messages/${created.thread_id}`)

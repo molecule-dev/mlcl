@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -64,6 +64,17 @@ export function Schedule() {
     return Math.max(0, Math.min(4, d - 1))
   })()
   const [activeDay, setActiveDay] = useState(initialDay)
+  // The week grid is wider than a phone; when it overflows, keep the
+  // selected day's column scrolled into view instead of always showing Mon.
+  const gridScrollRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    const el = gridScrollRef.current
+    if (!el || el.scrollWidth <= el.clientWidth) return
+    const colWidth = 180 + 12
+    const left = Math.max(0, 120 + activeDay * colWidth - 12)
+    el.scrollTo({ left, behavior: 'smooth' })
+  }, [activeDay, loading])
 
   useEffect(() => {
     let cancelled = false
@@ -174,6 +185,7 @@ export function Schedule() {
       </header>
 
       <section
+        ref={gridScrollRef}
         className={cm.cn(cm.sp('p', 5), 'rounded-2xl overflow-x-auto bg-[--color-schedule-card]')}
       >
         {loading ? (

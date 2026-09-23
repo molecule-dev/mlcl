@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -73,6 +74,10 @@ export function AssignmentDetail() {
           { defaultValue: 'Submission recorded — your teacher has been notified.' },
         ),
       )
+      void track({
+        name: 'assignment.submitted',
+        properties: { assignmentId: assignment.id, status: 'submitted' },
+      })
     } catch (error) {
       logError('assignmentDetail.submit', error)
       setStatusMessage(

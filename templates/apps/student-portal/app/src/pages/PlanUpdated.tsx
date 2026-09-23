@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useTranslation, useVerifyPaymentReturn } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -14,7 +15,13 @@ export function PlanUpdated() {
   // The checkout provider returns the buyer here with the payment id in the
   // query (`?provider=…&sessionId=…`). Confirming it from THIS origin, where
   // the session cookie applies, is what actually grants the plan.
-  const verification = useVerifyPaymentReturn()
+  const verification = useVerifyPaymentReturn({
+    onVerified: () =>
+      void track({
+        name: 'plan.upgraded',
+        properties: { provider: verification.provider ?? 'unknown' },
+      }),
+  })
 
   if (verification.status === 'verifying') {
     return (

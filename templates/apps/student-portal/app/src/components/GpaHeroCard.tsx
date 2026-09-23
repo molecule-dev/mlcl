@@ -36,23 +36,33 @@ export function GpaHeroCard(props: GpaHeroCardProps) {
   const http = useHttpClient()
   const [gpa, setGpa] = useState<number | null>(null)
   const [classesToday, setClassesToday] = useState<number>(0)
+  // Static-demo usage (marketing pages pass `gpa`/`classesToday` props) must
+  // NOT hit the API: on a public page those calls run unauthenticated and
+  // every visit logs two 401 console errors.
+  const needsLiveGpa = props.gpa == null
+  const needsLiveClasses = props.classesToday == null
 
   useEffect(() => {
+    if (!needsLiveGpa && !needsLiveClasses) return
     let cancelled = false
     Promise.all([
-      http.get('/api/grades/gpa').then((r) => unwrapSingle<GpaResponse>(r)),
-      http.get('/api/schedule/today').then((r) => unwrapList<ScheduleEntryRaw>(r)),
+      needsLiveGpa
+        ? http.get('/api/grades/gpa').then((r) => unwrapSingle<GpaResponse>(r))
+        : Promise.resolve(null),
+      needsLiveClasses
+        ? http.get('/api/schedule/today').then((r) => unwrapList<ScheduleEntryRaw>(r))
+        : Promise.resolve(null),
     ])
       .then(([g, s]) => {
         if (cancelled) return
         if (g) setGpa(g.gpa)
-        setClassesToday(s.length)
+        if (s) setClassesToday(s.length)
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, needsLiveGpa, needsLiveClasses])
 
   const gpaText = props.gpa ?? (gpa != null ? gpa.toFixed(2) : '—')
   const trendIcon =

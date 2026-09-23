@@ -33,6 +33,10 @@ test('Login with the same credentials re-authenticates after logout', async ({ p
 })
 
 test('Signup rejects duplicate emails', async ({ page }) => {
+  // The duplicate POST is EXPECTED to answer 403 — that rejection is the
+  // behavior under test, and the browser logs every failed fetch. Annotate
+  // before the request fires so the console guard lets it through.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   const email = uniqueEmail('dup')
   await signup(page, email)
   await page.context().clearCookies()

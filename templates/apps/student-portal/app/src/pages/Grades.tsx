@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -48,10 +48,12 @@ export function Grades() {
   const [grades, setGrades] = useState<ApiGrade[]>([])
   const [schedule, setSchedule] = useState<ApiScheduleEntry[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     Promise.all([
       http.get('/api/grades').then((r) => unwrapList<ApiGrade>(r)),
       http.get('/api/schedule').then((r) => unwrapList<ApiScheduleEntry>(r)),
@@ -61,7 +63,10 @@ export function Grades() {
         setGrades(gs)
         setSchedule(sc)
       })
-      .catch(() => {})
+      .catch(() => {
+        // Surface the failure — never a silent blank.
+        if (!cancelled) setError(true)
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
@@ -69,6 +74,8 @@ export function Grades() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(load, [load])
 
   const courses: CourseGrade[] = useMemo(() => {
     const groups = new Map<string, ApiGrade[]>()
@@ -179,6 +186,33 @@ export function Grades() {
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('grades.loading', {}, { defaultValue: 'Loading grades…' })}
           </p>
+        ) : error ? (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
+              cm.sp('py', 10),
+              'text-on-surface-variant',
+            )}
+          >
+            <p className={cm.textSize('sm')}>
+              {t('grades.loadError', {}, { defaultValue: 'Couldn’t load your grades.' })}
+            </p>
+            <button
+              type="button"
+              data-mol-id="grades-retry"
+              onClick={load}
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.roundedFull,
+                'bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Try again' })}
+            </button>
+          </div>
         ) : courses.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('grades.empty', {}, { defaultValue: 'No grades posted yet.' })}

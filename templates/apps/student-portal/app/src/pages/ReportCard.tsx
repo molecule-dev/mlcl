@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -86,6 +87,7 @@ export function ReportCard() {
     // the click handler so we can record a friendly status message.
     const url = '/api/grades/report-card/pdf'
     window.open(url, '_blank', 'noopener,noreferrer')
+    void track({ name: 'reportCard.downloaded', properties: { format: 'pdf' } })
     setDownloadStatus(
       t('reportCard.downloaded', {}, { defaultValue: 'Report card opened in a new tab.' }),
     )

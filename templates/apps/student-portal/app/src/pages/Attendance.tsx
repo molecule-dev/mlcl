@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -37,10 +37,12 @@ export function Attendance() {
   const [rows, setRows] = useState<ApiAttendance[]>([])
   const [summary, setSummary] = useState<AttendanceSummary | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     Promise.all([
       http.get('/api/attendance').then((r) => unwrapList<ApiAttendance>(r)),
       http.get('/api/attendance/summary').then((r) => unwrapSingle<AttendanceSummary>(r)),
@@ -50,7 +52,10 @@ export function Attendance() {
         setRows(list)
         if (sum) setSummary(sum)
       })
-      .catch(() => {})
+      .catch(() => {
+        // Surface the failure — never a silent blank.
+        if (!cancelled) setError(true)
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
@@ -58,6 +63,8 @@ export function Attendance() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(load, [load])
 
   const presentPct = summary ? Math.round(summary.presentRate * 100) : 0
 
@@ -168,6 +175,33 @@ export function Attendance() {
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('attendance.loading', {}, { defaultValue: 'Loading attendance…' })}
           </p>
+        ) : error ? (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
+              cm.sp('py', 10),
+              'text-on-surface-variant',
+            )}
+          >
+            <p className={cm.textSize('sm')}>
+              {t('attendance.loadError', {}, { defaultValue: 'Couldn’t load attendance records.' })}
+            </p>
+            <button
+              type="button"
+              data-mol-id="attendance-retry"
+              onClick={load}
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.roundedFull,
+                'bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Try again' })}
+            </button>
+          </div>
         ) : rows.length === 0 ? (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('attendance.empty', {}, { defaultValue: 'No attendance records yet.' })}

@@ -1,6 +1,7 @@
 import { type Request, type RequestHandler, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { OrderBy, WhereCondition } from '@molecule/api-database'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
@@ -11,6 +12,8 @@ import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { StudentPortalLimits } from '../tiers.js'
 import { ensureStudentPortalSeeded } from './_seed.js'
+
+const logger = getLogger()
 
 const router = Router()
 
@@ -148,8 +151,10 @@ router.post(
           ),
           text: req.body.content,
         })
-      } catch (_error) {
-        // Email is best-effort; the message itself was persisted.
+      } catch (error) {
+        // Email is best-effort; the message itself was persisted. Say why it
+        // failed instead of swallowing silently.
+        logger.error('messages.notifyEmail', error)
       }
     }
 
