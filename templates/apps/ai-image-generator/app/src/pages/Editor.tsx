@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -43,6 +44,11 @@ export function Editor() {
       // which produces an observable network event for the verifier.
       await http.post(`/api/generations/${params.id}/variations`, { count: 1 })
       setSavingState('saved')
+      // Domain event at the commit point — the editor's version-save funnel.
+      void track({
+        name: 'editor.version_saved',
+        properties: { generationId: params.id, tool },
+      })
       setTimeout(() => setSavingState('idle'), 1_500)
     } catch (error) {
       logError('editor.saveVersion', error)
