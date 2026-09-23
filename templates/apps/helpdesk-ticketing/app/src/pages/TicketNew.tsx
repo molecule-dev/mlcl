@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { MobilePageHeader } from '../components/MobileNavDrawer.js'
 import SideNavBar from '../components/SideNavBar.js'
 
 interface CreatedTicket {
@@ -47,6 +49,8 @@ function TicketNew() {
       if (category.trim()) payload.category = category.trim()
       const res = await http.post<unknown>('/api/tickets', payload)
       const id = pickId(res)
+      // Domain analytics (no-op unless a provider is bonded via VITE_POSTHOG_KEY).
+      void track({ name: 'ticket.created', properties: { ticket_id: id ?? null, priority } })
       if (id) {
         navigate(`/tickets/${id}`)
         return
@@ -68,9 +72,10 @@ function TicketNew() {
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
         <SideNavBar />
-        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 ml-[240px]')}>
+        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 md:ml-[240px]')}>
+          <MobilePageHeader title={t('ticketNew.title', {}, { defaultValue: 'New Ticket' })} />
           <div
-            className={cm.cn(cm.sp('p', 8), cm.maxW('3xl'), cm.mxAuto, cm.w('full'), cm.stack(6))}
+            className={cm.cn(cm.maxW('3xl'), cm.mxAuto, cm.w('full'), cm.stack(6), 'p-4 md:p-8')}
           >
             <header className={cm.stack(2)}>
               <h1

@@ -3,6 +3,8 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { MobileNavHamburger } from './MobileNavDrawer.js'
+
 export default function SettingsTopBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -17,6 +19,7 @@ export default function SettingsTopBar() {
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-2')}>
+        <MobileNavHamburger />
         <Link
           to="/"
           className={cm.cn(
@@ -36,10 +39,14 @@ export default function SettingsTopBar() {
           {t('nav.settings', {}, { defaultValue: 'Settings' })}
         </span>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-1')}>
         <Link
           to="/notifications"
-          className={cm.cn('text-foreground-secondary hover:text-sky-600 transition-all')}
+          className={cm.cn(
+            cm.sp('p', 2),
+            cm.roundedFull,
+            'text-foreground-secondary hover:text-sky-600 hover:bg-surface-container-high transition-all',
+          )}
           aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
         >
           <span className={cm.cn('material-symbols-outlined')} data-icon="notifications">
@@ -48,7 +55,11 @@ export default function SettingsTopBar() {
         </Link>
         <Link
           to="/knowledge-base"
-          className={cm.cn('text-foreground-secondary hover:text-sky-600 transition-all')}
+          className={cm.cn(
+            cm.sp('p', 2),
+            cm.roundedFull,
+            'text-foreground-secondary hover:text-sky-600 hover:bg-surface-container-high transition-all',
+          )}
           aria-label={t('common.help', {}, { defaultValue: 'Help' })}
         >
           <span className={cm.cn('material-symbols-outlined')} data-icon="help_outline">

@@ -238,16 +238,16 @@ function Settings() {
       <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
         <SideNavBar />
         {/* Main Content Area */}
-        <main className={cm.cn(cm.flex1, cm.minH('screen'), 'ml-[240px] bg-surface')}>
+        <main className={cm.cn(cm.flex1, cm.minH('screen'), 'md:ml-[240px] bg-surface')}>
           {/* TopAppBar */}
           <SettingsTopBar />
           <div
             className={cm.cn(
               cm.mxAuto,
-              cm.sp('px', 8),
               cm.sp('py', 12),
               cm.maxW('4xl'),
               cm.stack(10),
+              'px-4 md:px-8',
             )}
           >
             <SettingsPageHeader />

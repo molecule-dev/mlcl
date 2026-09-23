@@ -5,6 +5,7 @@ import { useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { MobileNavHamburger } from './MobileNavDrawer.js'
 
 /**
  * Top nav for ticket-detail. Honors the design two-icon layout
@@ -26,11 +27,12 @@ function TicketDetailTopNavBar() {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.h(16),
         cm.sp('px', 8),
-        'fixed top-0 right-0 left-[240px] bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none z-40',
+        'fixed top-0 right-0 left-0 md:left-[240px] bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none z-40',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>
-        <div className={cm.cn('relative group')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3 md:gap-8 min-w-0')}>
+        <MobileNavHamburger />
+        <div className={cm.cn('relative group min-w-0 flex-1 md:flex-none')}>
           <span
             className={cm.cn(
               'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors',
@@ -45,7 +47,7 @@ function TicketDetailTopNavBar() {
               cm.sp('pr', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              cm.w(64),
+              'w-full md:w-64',
               'bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all',
             )}
             data-mol-id="global-search"

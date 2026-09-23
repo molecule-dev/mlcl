@@ -63,7 +63,7 @@ function TicketVolumeChart({ tickets = [], loading = false }: TicketVolumeChartP
 
   return (
     <section
-      className={cm.cn(cm.sp('p', 8), 'bg-surface-container-lowest rounded-xl editorial-shadow')}
+      className={cm.cn('bg-surface-container-lowest rounded-xl editorial-shadow p-4 md:p-8')}
       data-mol-id="ticket-volume-chart"
     >
       <div
@@ -107,8 +107,8 @@ function TicketVolumeChart({ tickets = [], loading = false }: TicketVolumeChartP
       <div
         className={cm.cn(
           cm.h(48),
-          cm.flex({ align: 'end', justify: 'between', gap: 4 }),
-          cm.sp('px', 2),
+          cm.flex({ align: 'end', justify: 'between' }),
+          'gap-1 md:gap-4 px-1 md:px-2 overflow-hidden',
         )}
         data-mol-id="ticket-volume-bars"
       >
@@ -118,7 +118,11 @@ function TicketVolumeChart({ tickets = [], loading = false }: TicketVolumeChartP
           return (
             <div
               key={idx}
-              className={cm.cn(cm.flex1, cm.flex({ direction: 'col', align: 'center', gap: 2 }))}
+              className={cm.cn(
+                cm.flex1,
+                cm.flex({ direction: 'col', align: 'center', gap: 2 }),
+                'min-w-0',
+              )}
               data-mol-id="ticket-volume-bar"
               data-day={bucket.key}
               data-incoming={bucket.incoming}

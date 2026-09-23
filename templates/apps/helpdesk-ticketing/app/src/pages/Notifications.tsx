@@ -6,6 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { MobilePageHeader } from '../components/MobileNavDrawer.js'
 import SideNavBar from '../components/SideNavBar.js'
 
 interface NotifTicket {
@@ -155,7 +156,10 @@ export function Notifications() {
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
-      <main data-mol-id="page-notifications" className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main data-mol-id="page-notifications" className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
+        <MobilePageHeader
+          title={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+        />
         <div className={cm.cn(cm.mxAuto, 'max-w-3xl', cm.sp('px', 6), cm.sp('py', 8))}>
           <header className={cm.stack(2)}>
             <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>

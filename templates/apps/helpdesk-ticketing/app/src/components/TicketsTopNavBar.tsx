@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { MobileNavHamburger } from './MobileNavDrawer.js'
+
 interface TicketsTopNavBarProps {
   search: string
   onSearchChange: (val: string) => void
@@ -25,13 +27,19 @@ export default function TicketsTopNavBar({
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
         cm.w('full'),
-        cm.h(16),
-        'fixed top-0 right-0 left-[240px] z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none',
+        'fixed top-0 right-0 left-0 md:left-[240px] z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none',
+        'min-h-16 md:h-16 flex-wrap gap-y-1 py-2 md:py-0',
       )}
       data-mol-id="top-nav"
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))}>
-        <div className={cm.cn('relative')}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center' }),
+          'gap-3 md:gap-8 min-w-0 flex-1 md:flex-none',
+        )}
+      >
+        <MobileNavHamburger />
+        <div className={cm.cn('relative min-w-0 flex-1 md:flex-none')}>
           <span
             className={cm.cn(
               cm.textSize('sm'),
@@ -46,7 +54,7 @@ export default function TicketsTopNavBar({
               cm.sp('pl', 10),
               cm.sp('pr', 4),
               cm.textSize('sm'),
-              cm.w(64),
+              'w-full md:w-64',
               'bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all',
             )}
             placeholder={t(
@@ -59,7 +67,12 @@ export default function TicketsTopNavBar({
             onChange={(e) => onSearchChange(e.target.value)}
           />
         </div>
-        <nav className={cm.cn(cm.flex({ align: 'center', gap: 6 }))}>
+        <nav
+          className={cm.cn(
+            cm.flex({ align: 'center' }),
+            'gap-4 md:gap-6 order-last basis-full md:order-none md:basis-auto',
+          )}
+        >
           <button
             onClick={() => onViewTabChange('all')}
             className={cm.cn(

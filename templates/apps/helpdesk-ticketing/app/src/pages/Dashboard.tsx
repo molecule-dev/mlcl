@@ -167,7 +167,7 @@ function Dashboard() {
       {/* SideNavBar (Execution from JSON) */}
       <SideNavBar />
       {/* Main Content Shell */}
-      <main className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
         {/* TopNavBar (Execution from JSON) */}
         <TopNavBar />
         {/* Canvas Body */}
@@ -175,10 +175,9 @@ function Dashboard() {
           className={cm.cn(
             cm.stack(10),
             cm.sp('pb', 12),
-            cm.sp('px', 10),
             cm.maxW('7xl'),
             cm.mxAuto,
-            'pt-28',
+            'pt-28 px-4 md:px-10',
           )}
         >
           <DashboardHeroHeader />
@@ -189,7 +188,7 @@ function Dashboard() {
             loading={loading}
           />
           {/* Asymmetric Dashboard Content */}
-          <div className={cm.grid({ cols: 12, gap: 10 })}>
+          <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10')}>
             {/* Left: Ticket Volume & Table (8 columns) */}
             <div className={cm.cn(cm.stack(10), 'col-span-12 lg:col-span-8')}>
               {/* Chart Placeholder Section */}

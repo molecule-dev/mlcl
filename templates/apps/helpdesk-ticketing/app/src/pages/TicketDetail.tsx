@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -102,10 +103,15 @@ function TicketDetail() {
 
   async function handleStatusChange(nextStatus: string) {
     if (!id || statusUpdating || !ticket || nextStatus === ticket.status) return
+    const previousStatus = ticket.status
     setStatusUpdating(true)
     setReplyError(null)
     try {
       await http.patch(`/api/tickets/${id}`, { status: nextStatus })
+      void track({
+        name: 'ticket.status_changed',
+        properties: { ticket_id: id, from: previousStatus, to: nextStatus },
+      })
       await fetchTicket()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -130,6 +136,10 @@ function TicketDetail() {
     setReplyError(null)
     try {
       await http.post(`/api/tickets/${id}/replies`, { body: replyBody, is_internal: isInternal })
+      void track({
+        name: 'ticket.replied',
+        properties: { ticket_id: id, is_internal: isInternal },
+      })
       setReplyBody('')
       setIsInternal(false)
       await fetchTicket()
@@ -216,16 +226,15 @@ function TicketDetail() {
     <div className={cm.cn(cm.surface, 'text-on-surface selection:bg-primary-fixed')}>
       <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
         <SideNavBar />
-        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 ml-[240px]')}>
+        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 md:ml-[240px]')}>
           <TicketDetailTopNavBar />
           <div
             className={cm.cn(
-              cm.sp('p', 8),
-              cm.sp('pt', 24),
               cm.maxW('7xl'),
               cm.mxAuto,
               cm.w('full'),
               cm.stack(10),
+              'p-4 pt-24 md:p-8',
             )}
           >
             {replyError && (
@@ -240,8 +249,12 @@ function TicketDetail() {
               </div>
             )}
             <TicketBreadcrumbHeader ticket={ticket} />
-            <div className={cm.flex({ align: 'start', gap: 10 })}>
-              <div className={cm.cn(cm.w('[65%]'), cm.stack(10))}>
+            {/* Two-column desktop layout stacks below lg so the 65/35 split
+                never crams side-by-side on a phone. */}
+            <div
+              className={cm.cn(cm.flex({ align: 'start' }), 'gap-4 lg:gap-10 flex-col lg:flex-row')}
+            >
+              <div className={cm.cn(cm.stack(10), 'w-full lg:w-[65%] min-w-0')}>
                 <TicketInfoBar
                   ticket={ticket}
                   statusUpdating={statusUpdating}
@@ -257,7 +270,7 @@ function TicketDetail() {
                   onSubmit={handleReply}
                 />
               </div>
-              <div className={cm.cn(cm.w('[35%]'), cm.stack(10))}>
+              <div className={cm.cn(cm.stack(10), 'w-full lg:w-[35%] min-w-0')}>
                 <TicketDetailsCard ticket={ticket} />
                 <TicketCustomerInfoCard ticket={ticket} />
                 <TicketRelatedArticles articles={ticket.related_articles ?? []} />

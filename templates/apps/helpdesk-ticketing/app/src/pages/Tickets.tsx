@@ -101,7 +101,7 @@ function Tickets() {
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
       {/* Main Content Area */}
-      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'ml-[240px]')}>
+      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'md:ml-[240px]')}>
         {/* TopNavBar (Authority: JSON) */}
         <TicketsTopNavBar
           search={search}
@@ -109,8 +109,10 @@ function Tickets() {
           viewTab={viewTab}
           onViewTabChange={setViewTab}
         />
-        {/* Content Canvas */}
-        <section className={cm.cn(cm.sp('mt', 16), cm.sp('p', 8), cm.flex1, cm.stack(10))}>
+        {/* Content Canvas — clears the (taller, wrapped) fixed top bar on mobile */}
+        <section
+          className={cm.cn(cm.flex1, cm.stack(10), 'mt-32 md:mt-16 px-4 md:p-8 pt-2 md:pt-8')}
+        >
           {/* Filter Bar */}
           <TicketsFilterBar
             statusFilter={statusFilter}

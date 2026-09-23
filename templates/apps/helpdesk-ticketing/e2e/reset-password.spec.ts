@@ -30,6 +30,9 @@ test.describe('helpdesk-ticketing: /reset-password', () => {
   test('submitting the reset form posts to /api/users/reset-password (captured)', async ({
     page,
   }) => {
+    // The bogus token is EXPECTED to be rejected with a 4xx; that response
+    // logs a browser console error the console guard would fail the test on.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     await page.goto(APP_BASE + '/reset-password?token=walking-test-token')
     const reqs = await captureNetwork(page, async () => {
       await page.locator('input[type="password"]').first().fill('NewWalkingPass1!')

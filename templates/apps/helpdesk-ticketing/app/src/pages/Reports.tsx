@@ -116,16 +116,14 @@ function Reports() {
       {/* SideNavBar (Authority: JSON & Design System) */}
       <SideNavBar />
       {/* Main Content Shell */}
-      <main className={cm.cn(cm.flex({ direction: 'col' }), 'ml-[240px] min-h-screen')}>
+      <main className={cm.cn(cm.flex({ direction: 'col' }), 'md:ml-[240px] min-h-screen')}>
         {/* TopAppBar (Authority: JSON & Design System) */}
         <TopAppBar />
         {/* Content Canvas */}
         <div
           className={cm.cn(
-            cm.sp('mt', 16),
-            cm.sp('p', 8),
             cm.stack(10),
-            'overflow-y-auto h-[calc(100vh-64px)] no-scrollbar',
+            'mt-16 px-4 md:p-8 overflow-y-auto h-[calc(100vh-64px)] no-scrollbar',
           )}
         >
           {/* KPI Section (Editorial Typography & Tonal Depth) */}
@@ -136,7 +134,7 @@ function Reports() {
             ticketsThisWeek={ticketsThisWeek > 0 ? ticketsThisWeek : tickets.length}
           />
           {/* Main Analytics Section (Asymmetric Layout) */}
-          <div className={cm.cn(cm.grid({ cols: 12, gap: 10 }))}>
+          <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10')}>
             <div className={cm.cn('col-span-12 lg:col-span-8')}>
               <ReportsTicketVolumeChart volumeData={loading ? [] : volumeData} loading={loading} />
             </div>

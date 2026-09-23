@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { MobileNavHamburger } from './MobileNavDrawer.js'
+
 export default function TopAppBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -14,21 +16,27 @@ export default function TopAppBar() {
         cm.sp('px', 8),
         cm.w('full'),
         cm.h(16),
-        'fixed top-0 right-0 left-[240px] z-40 bg-surface/80 backdrop-blur-md',
+        'fixed top-0 right-0 left-0 md:left-[240px] z-40 bg-surface/80 backdrop-blur-md',
       )}
     >
-      <div className={cm.flex({ align: 'center', gap: 5 })}>
-        <h1 className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-2 md:gap-5 min-w-0')}>
+        <MobileNavHamburger />
+        <h1
+          className={cm.cn(
+            cm.textSize('xl'),
+            'font-extrabold tracking-tight text-on-surface truncate',
+          )}
+        >
           {t('topAppBar.title', {}, { defaultValue: 'Support Reports' })}
         </h1>
-        <div className={cm.cn(cm.h(4), 'w-px bg-outline-variant/30')}></div>
+        <div className={cm.cn(cm.h(4), 'w-px bg-outline-variant/30 hidden sm:block')}></div>
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 3 }),
             cm.sp('px', 3),
             cm.textSize('xs'),
             cm.fontWeight('medium'),
-            'py-1.5 rounded-md bg-surface-container-low text-on-surface-variant',
+            'py-1.5 rounded-md bg-surface-container-low text-on-surface-variant whitespace-nowrap',
           )}
           aria-label={t('topAppBar.reportingPeriod', {}, { defaultValue: 'Reporting period' })}
         >

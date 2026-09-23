@@ -86,16 +86,16 @@ function KnowledgeBase() {
       <KnowledgeTopNavBar />
       {/* Main Content Canvas */}
       <main
-        className={cm.cn(cm.sp('pt', 16), cm.surface, 'ml-[240px] min-h-screen')}
+        className={cm.cn(cm.sp('pt', 16), cm.surface, 'md:ml-[240px] min-h-screen')}
         data-mol-id="main-canvas"
       >
         <div
           className={cm.cn(
             cm.maxW('7xl'),
             cm.mxAuto,
-            cm.sp('px', 10),
             cm.sp('py', 12),
             cm.stack(10),
+            'px-4 md:px-10',
           )}
           data-mol-id="main-container"
         >

@@ -5,195 +5,239 @@ import { getClassMap } from '@molecule/app-ui'
 import { SidebarUserCard, usePanelClose } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { MobileNavDrawer, type MobileNavLink } from './MobileNavDrawer.js'
 import { SettingsPanel } from './SettingsPanel.js'
 
 function SideNavUserPanel() {
   return <SettingsPanel onClose={usePanelClose()} />
 }
 
+/** Nav links shared verbatim by the desktop sidebar and the mobile drawer. */
+const NAV_LINKS: MobileNavLink[] = [
+  {
+    to: '/',
+    match: (p) => p === '/',
+    icon: 'dashboard',
+    labelKey: 'nav.dashboard',
+    labelFallback: 'Dashboard',
+  },
+  {
+    to: '/tickets',
+    match: (p) => p.startsWith('/tickets'),
+    icon: 'confirmation_number',
+    labelKey: 'sideNavBar.navTickets',
+    labelFallback: 'Tickets',
+  },
+  {
+    to: '/knowledge-base',
+    match: (p) => p.startsWith('/knowledge-base'),
+    icon: 'book',
+    labelKey: 'sideNavBar.navKnowledgeBase',
+    labelFallback: 'Knowledge Base',
+  },
+  {
+    to: '/reports',
+    match: (p) => p.startsWith('/reports'),
+    icon: 'bar_chart',
+    labelKey: 'nav.reports',
+    labelFallback: 'Reports',
+  },
+  {
+    to: '/settings',
+    match: (p) => p.startsWith('/settings'),
+    icon: 'settings',
+    labelKey: 'nav.settings',
+    labelFallback: 'Settings',
+  },
+]
+
 export function SideNavBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
   return (
-    <aside
-      className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        cm.sp('py', 8),
-        cm.sp('px', 4),
-        'h-screen w-[240px] fixed left-0 top-0 border-r-0 bg-surface-secondary z-50',
-      )}
-    >
-      <div
-        className={cm.cn(cm.sp('mb', 10), cm.sp('px', 4), cm.flex({ direction: 'col', gap: 1 }))}
+    <>
+      {/* Mobile: the top bars host the hamburger; this drawer carries the links. */}
+      <MobileNavDrawer links={NAV_LINKS} />
+      <aside
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.sp('py', 8),
+          cm.sp('px', 4),
+          'hidden md:flex h-screen w-[240px] fixed left-0 top-0 border-r-0 bg-surface-secondary z-50',
+        )}
       >
-        <h1 className={cm.cn(cm.textSize('2xl'), cm.textPrimary, 'font-black tracking-tighter')}>
-          {t('sideNavBar.brandName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-        </h1>
-        <p
-          className={cm.cn(
-            cm.textSize('xs'),
-            cm.fontWeight('medium'),
-            'text-foreground-secondary tracking-tight uppercase',
-          )}
+        <div
+          className={cm.cn(cm.sp('mb', 10), cm.sp('px', 4), cm.flex({ direction: 'col', gap: 1 }))}
         >
-          {t('sideNavBar.productTagline', {}, { defaultValue: 'Support Desk' })}
-        </p>
-      </div>
-      <nav className={cm.cn(cm.flex1, cm.stack(2))}>
-        {/* Active: Dashboard */}
-        <Link
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 3 }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            'transition-colors duration-200',
-            location.pathname === '/'
-              ? cm.cn(
-                  cm.textPrimary,
-                  cm.fontWeight('bold'),
-                  'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
-                )
-              : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
-          )}
-          to="/"
-        >
-          <span className={cm.cn('material-symbols-outlined')} data-icon="dashboard">
-            dashboard
-          </span>
-          <span
+          <h1 className={cm.cn(cm.textSize('2xl'), cm.textPrimary, 'font-black tracking-tighter')}>
+            {t('sideNavBar.brandName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+          </h1>
+          <p
             className={cm.cn(
+              cm.textSize('xs'),
               cm.fontWeight('medium'),
-              cm.textSize('sm'),
-              "font-['Inter'] tracking-tight",
+              'text-foreground-secondary tracking-tight uppercase',
             )}
           >
-            {t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}
-          </span>
-        </Link>
-        <Link
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 3 }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            'transition-colors duration-200',
-            location.pathname.startsWith('/tickets')
-              ? cm.cn(
-                  cm.textPrimary,
-                  cm.fontWeight('bold'),
-                  'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
-                )
-              : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
-          )}
-          to="/tickets"
-        >
-          <span className={cm.cn('material-symbols-outlined')} data-icon="confirmation_number">
-            confirmation_number
-          </span>
-          <span
+            {t('sideNavBar.productTagline', {}, { defaultValue: 'Support Desk' })}
+          </p>
+        </div>
+        <nav className={cm.cn(cm.flex1, cm.stack(2))}>
+          {/* Active: Dashboard */}
+          <Link
             className={cm.cn(
-              cm.fontWeight('medium'),
-              cm.textSize('sm'),
-              "font-['Inter'] tracking-tight",
+              cm.flex({ align: 'center', gap: 3 }),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'transition-colors duration-200',
+              location.pathname === '/'
+                ? cm.cn(
+                    cm.textPrimary,
+                    cm.fontWeight('bold'),
+                    'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
+                  )
+                : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
             )}
+            to="/"
           >
-            {t('sideNavBar.navTickets', {}, { defaultValue: 'Tickets' })}
-          </span>
-        </Link>
-        <Link
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 3 }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            'transition-colors duration-200',
-            location.pathname.startsWith('/knowledge-base')
-              ? cm.cn(
-                  cm.textPrimary,
-                  cm.fontWeight('bold'),
-                  'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
-                )
-              : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
-          )}
-          to="/knowledge-base"
-        >
-          <span className={cm.cn('material-symbols-outlined')} data-icon="book">
-            book
-          </span>
-          <span
+            <span className={cm.cn('material-symbols-outlined')} data-icon="dashboard">
+              dashboard
+            </span>
+            <span
+              className={cm.cn(
+                cm.fontWeight('medium'),
+                cm.textSize('sm'),
+                "font-['Inter'] tracking-tight",
+              )}
+            >
+              {t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}
+            </span>
+          </Link>
+          <Link
             className={cm.cn(
-              cm.fontWeight('medium'),
-              cm.textSize('sm'),
-              "font-['Inter'] tracking-tight",
+              cm.flex({ align: 'center', gap: 3 }),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'transition-colors duration-200',
+              location.pathname.startsWith('/tickets')
+                ? cm.cn(
+                    cm.textPrimary,
+                    cm.fontWeight('bold'),
+                    'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
+                  )
+                : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
             )}
+            to="/tickets"
           >
-            {t('sideNavBar.navKnowledgeBase', {}, { defaultValue: 'Knowledge Base' })}
-          </span>
-        </Link>
-        <Link
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 3 }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            'transition-colors duration-200',
-            location.pathname.startsWith('/reports')
-              ? cm.cn(
-                  cm.textPrimary,
-                  cm.fontWeight('bold'),
-                  'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
-                )
-              : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
-          )}
-          to="/reports"
-        >
-          <span className={cm.cn('material-symbols-outlined')} data-icon="bar_chart">
-            bar_chart
-          </span>
-          <span
+            <span className={cm.cn('material-symbols-outlined')} data-icon="confirmation_number">
+              confirmation_number
+            </span>
+            <span
+              className={cm.cn(
+                cm.fontWeight('medium'),
+                cm.textSize('sm'),
+                "font-['Inter'] tracking-tight",
+              )}
+            >
+              {t('sideNavBar.navTickets', {}, { defaultValue: 'Tickets' })}
+            </span>
+          </Link>
+          <Link
             className={cm.cn(
-              cm.fontWeight('medium'),
-              cm.textSize('sm'),
-              "font-['Inter'] tracking-tight",
+              cm.flex({ align: 'center', gap: 3 }),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'transition-colors duration-200',
+              location.pathname.startsWith('/knowledge-base')
+                ? cm.cn(
+                    cm.textPrimary,
+                    cm.fontWeight('bold'),
+                    'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
+                  )
+                : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
             )}
+            to="/knowledge-base"
           >
-            {t('nav.reports', {}, { defaultValue: 'Reports' })}
-          </span>
-        </Link>
-        <Link
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 3 }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            'transition-colors duration-200',
-            location.pathname.startsWith('/settings')
-              ? cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-primary border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
-                )
-              : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
-          )}
-          to="/settings"
-        >
-          <span className={cm.cn('material-symbols-outlined')} data-icon="settings">
-            settings
-          </span>
-          <span
+            <span className={cm.cn('material-symbols-outlined')} data-icon="book">
+              book
+            </span>
+            <span
+              className={cm.cn(
+                cm.fontWeight('medium'),
+                cm.textSize('sm'),
+                "font-['Inter'] tracking-tight",
+              )}
+            >
+              {t('sideNavBar.navKnowledgeBase', {}, { defaultValue: 'Knowledge Base' })}
+            </span>
+          </Link>
+          <Link
             className={cm.cn(
-              cm.fontWeight('medium'),
-              cm.textSize('sm'),
-              "font-['Inter'] tracking-tight",
+              cm.flex({ align: 'center', gap: 3 }),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'transition-colors duration-200',
+              location.pathname.startsWith('/reports')
+                ? cm.cn(
+                    cm.textPrimary,
+                    cm.fontWeight('bold'),
+                    'border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
+                  )
+                : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
             )}
+            to="/reports"
           >
-            {t('nav.settings', {}, { defaultValue: 'Settings' })}
-          </span>
-        </Link>
-      </nav>
-      {/* Signed-in user card — opens the settings drawer (identity, settings, sign out). */}
-      <div className={cm.cn(cm.sp('pt', 2), 'mt-auto')}>
-        <SidebarUserCard>
-          <SideNavUserPanel />
-        </SidebarUserCard>
-      </div>
-    </aside>
+            <span className={cm.cn('material-symbols-outlined')} data-icon="bar_chart">
+              bar_chart
+            </span>
+            <span
+              className={cm.cn(
+                cm.fontWeight('medium'),
+                cm.textSize('sm'),
+                "font-['Inter'] tracking-tight",
+              )}
+            >
+              {t('nav.reports', {}, { defaultValue: 'Reports' })}
+            </span>
+          </Link>
+          <Link
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 3 }),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              'transition-colors duration-200',
+              location.pathname.startsWith('/settings')
+                ? cm.cn(
+                    cm.fontWeight('bold'),
+                    'text-primary border-r-2 border-primary hover:bg-border/50 scale-[0.98]',
+                  )
+                : 'text-foreground-secondary hover:text-foreground hover:bg-border/50',
+            )}
+            to="/settings"
+          >
+            <span className={cm.cn('material-symbols-outlined')} data-icon="settings">
+              settings
+            </span>
+            <span
+              className={cm.cn(
+                cm.fontWeight('medium'),
+                cm.textSize('sm'),
+                "font-['Inter'] tracking-tight",
+              )}
+            >
+              {t('nav.settings', {}, { defaultValue: 'Settings' })}
+            </span>
+          </Link>
+        </nav>
+        {/* Signed-in user card — opens the settings drawer (identity, settings, sign out). */}
+        <div className={cm.cn(cm.sp('pt', 2), 'mt-auto')}>
+          <SidebarUserCard>
+            <SideNavUserPanel />
+          </SidebarUserCard>
+        </div>
+      </aside>
+    </>
   )
 }
 export default SideNavBar

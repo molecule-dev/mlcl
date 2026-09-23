@@ -21,6 +21,9 @@ test.describe('helpdesk-ticketing: /login', () => {
   })
 
   test('login with an unknown email keeps the user on /login', async ({ page }) => {
+    // The expected 403 (invalid credentials) logs a browser console error —
+    // allowlisted so the console guard doesn't fail an assertion about the URL.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email, input[type="email"]').first().fill(uniqueEmail('nobody'))
     await page.locator('#password, input[type="password"]').first().fill('does-not-exist')

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { MobileNavHamburger } from './MobileNavDrawer.js'
 import { UserMenu } from './UserMenu.js'
 
 function KnowledgeTopNavBar() {
@@ -15,13 +16,21 @@ function KnowledgeTopNavBar() {
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
         cm.h(16),
-        'fixed top-0 right-0 left-[240px] z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none',
+        'fixed top-0 right-0 left-0 md:left-[240px] z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none',
       )}
       data-mol-id="top-nav-1"
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }))} data-mol-id="top-nav-left">
+      <div
+        className={cm.cn(cm.flex({ align: 'center' }), 'gap-3 md:gap-8 min-w-0')}
+        data-mol-id="top-nav-left"
+      >
+        <MobileNavHamburger />
         <span
-          className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-foreground')}
+          className={cm.cn(
+            cm.textSize('lg'),
+            cm.fontWeight('semibold'),
+            'text-foreground truncate',
+          )}
           data-mol-id="top-nav-title"
         >
           {t('knowledgeTopNavBar.title', {}, { defaultValue: 'Knowledge Base' })}

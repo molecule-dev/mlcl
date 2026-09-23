@@ -28,6 +28,9 @@ test.describe('helpdesk-ticketing: auth', () => {
   })
 
   test('login with bad credentials surfaces an error and stays on /login', async ({ page }) => {
+    // A 403 from /api/users/log-in is the EXPECTED response here — the page
+    // renders it as the inline error banner. Silence the console guard for it.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email, input[type="email"]').first().fill(uniqueEmail('bad'))
     await page.locator('#password, input[type="password"]').first().fill('wrong-password')

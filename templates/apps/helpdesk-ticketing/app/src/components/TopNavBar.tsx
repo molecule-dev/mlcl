@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { MobileNavHamburger } from './MobileNavDrawer.js'
 import { UserMenu } from './UserMenu.js'
 
 function TopNavBar() {
@@ -18,11 +19,12 @@ function TopNavBar() {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
         cm.h(16),
-        'fixed top-0 right-0 left-[240px] z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none',
+        'fixed top-0 right-0 left-0 md:left-[240px] z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 8 }), cm.flex1)}>
-        <div className={cm.cn(cm.w('full'), cm.maxW('md'), 'relative')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, 'gap-3 md:gap-8 min-w-0')}>
+        <MobileNavHamburger />
+        <div className={cm.cn(cm.w('full'), 'max-w-[10rem] sm:max-w-md relative min-w-0')}>
           <span
             className={cm.cn(
               cm.textSize('lg'),
