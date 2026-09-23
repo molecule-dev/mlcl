@@ -245,7 +245,7 @@ export function Dashboard() {
       </div>
 
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
-        <div className={cm.cn('lg:col-span-7')}>
+        <div className={cm.cn('lg:col-span-7 min-w-0')}>
           {featured ? (
             <LiveResultsHero
               eyebrow={t('dashboard.featuredEyebrow', {}, { defaultValue: 'Featured · live' })}
@@ -289,7 +289,7 @@ export function Dashboard() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            'lg:col-span-5 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header

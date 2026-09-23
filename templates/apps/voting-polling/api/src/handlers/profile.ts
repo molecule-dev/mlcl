@@ -66,7 +66,7 @@ router.get('/me', async (_req: Request, res: Response) => {
       },
     })
   } catch (err) {
-    logger.error(err)
+    logger.error('profile.get', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -122,7 +122,7 @@ router.patch('/me', validateBody(profileSchema), async (req: Request, res: Respo
       notifications: freshPrefs.notifications ?? {},
     })
   } catch (err) {
-    logger.error(err)
+    logger.error('profile.update', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

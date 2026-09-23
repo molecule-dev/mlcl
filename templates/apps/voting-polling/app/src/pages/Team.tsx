@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,6 +91,7 @@ export function Team() {
         email: inviteEmail.trim().toLowerCase(),
         role: inviteRole,
       })
+      track({ name: 'invite.sent', properties: { role: inviteRole } })
       setShowInvite(false)
       setInviteEmail('')
       setInviteRole('viewer')

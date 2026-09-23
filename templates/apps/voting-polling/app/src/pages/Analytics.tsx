@@ -193,7 +193,7 @@ export function Analytics() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            'lg:col-span-8 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header
@@ -231,7 +231,7 @@ export function Analytics() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            'lg:col-span-4 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header className={cm.sp('mb', 4)}>

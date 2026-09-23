@@ -209,18 +209,18 @@ export function LiveResults() {
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' min-w-0'}>
             <Link
               to="/dashboard"
               className={cm.cn(
                 cm.textSize('xs'),
-                'text-primary hover:underline font-semibold tracking-wide uppercase',
+                'inline-flex min-h-[40px] items-center text-primary hover:underline font-semibold tracking-wide uppercase',
               )}
             >
               ← {t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}
             </Link>
             <span className={cm.cn('text-on-surface-variant text-xs')}>/</span>
-            <span className={cm.cn('text-xs font-mono text-on-surface-variant')}>
+            <span className={cm.cn('min-w-0 truncate text-xs font-mono text-on-surface-variant')}>
               {t('liveResults.pollId', { id: poll.id }, { defaultValue: 'poll · {{id}}' })}
             </span>
           </div>
@@ -317,7 +317,7 @@ export function LiveResults() {
           icon="schedule"
           tone="warning"
           label={t('liveResults.kpi.opened', {}, { defaultValue: 'Opened' })}
-          value={poll.start_date ? new Date(poll.start_date).toLocaleString() : '—'}
+          value={poll.start_date ? new Date(poll.start_date).toLocaleDateString() : '—'}
         />
         <QuorumKpiCard
           icon="verified"
@@ -328,7 +328,7 @@ export function LiveResults() {
       </div>
 
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
-        <div className={cm.cn('lg:col-span-8')}>
+        <div className={cm.cn('lg:col-span-8 min-w-0')}>
           <LiveResultsHero
             eyebrow={t('liveResults.heroEyebrow', {}, { defaultValue: 'Real-time tally' })}
             title={poll.title}
@@ -354,7 +354,7 @@ export function LiveResults() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            'lg:col-span-4 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header className={cm.sp('mb', 4)}>

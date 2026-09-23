@@ -30,6 +30,13 @@ test('POST /api/users/reset-password with an invalid token is rejected with 4xx'
 test('observation invariant: /reset-password fires POST /api/users/reset-password on submit', async ({
   page,
 }) => {
+  // A fabricated token is expected to be rejected (401) — the browser logs
+  // the failed resource load, which this test explicitly allows: the
+  // invariant under test is that the POST FIRES, not that it succeeds.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 401',
+  })
   // Pass token + email in the URL so the controlled inputs are
   // pre-populated, then fill the password field. All three are required
   // by the form so leaving any blank means the submit click is silently

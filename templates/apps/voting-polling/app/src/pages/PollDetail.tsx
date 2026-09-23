@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,7 @@ export function PollDetail() {
     setActionError(null)
     try {
       await http.post(`/api/polls/${poll.id}/publish`, {})
+      track({ name: 'poll.published', properties: { pollId: poll.id } })
       setActionMessage(
         t(
           'pollDetail.published',
@@ -119,6 +121,7 @@ export function PollDetail() {
     setActionError(null)
     try {
       await http.post(`/api/polls/${poll.id}/close`, {})
+      track({ name: 'poll.closed', properties: { pollId: poll.id } })
       setActionMessage(
         t('pollDetail.closed', {}, { defaultValue: 'Poll closed — final tally is sealed.' }),
       )
@@ -139,6 +142,7 @@ export function PollDetail() {
     setActionError(null)
     try {
       await http.delete(`/api/polls/${poll.id}`)
+      track({ name: 'poll.deleted', properties: { pollId: poll.id } })
       navigate('/dashboard', { replace: true })
     } catch (err) {
       setActionError(
@@ -201,18 +205,18 @@ export function PollDetail() {
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' min-w-0'}>
             <Link
               to="/dashboard"
               className={cm.cn(
                 cm.textSize('xs'),
-                'text-primary hover:underline font-semibold uppercase tracking-wide',
+                'inline-flex min-h-[40px] items-center text-primary hover:underline font-semibold uppercase tracking-wide',
               )}
             >
               ← {t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}
             </Link>
             <span className={cm.cn('text-on-surface-variant text-xs')}>/</span>
-            <span className={cm.cn('text-xs font-mono text-on-surface-variant')}>
+            <span className={cm.cn('min-w-0 truncate text-xs font-mono text-on-surface-variant')}>
               {t('pollDetail.pollId', { id: poll.id }, { defaultValue: 'poll · {{id}}' })}
             </span>
           </div>
@@ -428,7 +432,7 @@ export function PollDetail() {
       </div>
 
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
-        <div className={cm.cn('lg:col-span-12')}>
+        <div className={cm.cn('lg:col-span-12 min-w-0')}>
           <LiveResultsHero
             eyebrow={t('pollDetail.heroEyebrow', {}, { defaultValue: 'Tally so far' })}
             title={poll.title}

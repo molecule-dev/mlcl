@@ -229,12 +229,34 @@ export async function seedDemoForUser(userId: string): Promise<SeedResult> {
   return result
 }
 
-/** Convenience wrapper used by feature handlers (notifications, polls)
- *  on first GET so a fresh signup lands on populated pages. */
+/**
+ * Convenience wrapper used by feature handlers (notifications, polls)
+ * on first GET so a fresh signup lands on populated pages.
+ *
+ * Several handlers call this on their first GET, and a freshly signed-in
+ * browser fires several of those GETs CONCURRENTLY (dashboard: /api/polls +
+ * notifications; a test harness adds its own /api/polls read on top). The
+ * count-then-create idempotency check inside seedDemoForUser is not atomic,
+ * so two concurrent first calls both see zero polls and BOTH seed — the
+ * dashboard briefly shows 6 starter ballots and card-count assertions race.
+ * Memoize the in-flight seed per user so concurrent callers share one run;
+ * after it settles the entry is cleared and the count checks keep later
+ * (post-race) calls cheap.
+ */
+const inflightSeeds = new Map<string, Promise<void>>()
+
 export async function seedDemoOnSignup(userId: string): Promise<void> {
-  try {
-    await seedDemoForUser(userId)
-  } catch (err) {
-    logger.warn(err)
-  }
+  const inflight = inflightSeeds.get(userId)
+  if (inflight) return inflight
+  const seed = (async () => {
+    try {
+      await seedDemoForUser(userId)
+    } catch (err) {
+      logger.warn(err)
+    } finally {
+      inflightSeeds.delete(userId)
+    }
+  })()
+  inflightSeeds.set(userId, seed)
+  return seed
 }

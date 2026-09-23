@@ -207,7 +207,7 @@ export function Notifications() {
                 cm.sp('py', 2),
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                'rounded-full uppercase tracking-widest transition-colors',
+                'inline-flex min-h-[40px] items-center rounded-full uppercase tracking-widest transition-colors',
                 isActive
                   ? 'bg-primary text-on-primary'
                   : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-low',
@@ -289,11 +289,11 @@ export function Notifications() {
                     onClick={() => void markOne(n.id)}
                     disabled={busy}
                     className={cm.cn(
-                      cm.sp('px', 3),
-                      cm.sp('py', 1),
+                      cm.sp('px', 4),
+                      cm.sp('py', 2),
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'rounded-full border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                      'inline-flex min-h-[40px] shrink-0 items-center rounded-full border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low transition-colors',
                     )}
                     data-test={`notification-mark-${n.id}`}
                   >

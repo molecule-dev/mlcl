@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -107,7 +108,9 @@ export function CreatePoll() {
       }
       if (intent === 'publish') {
         await http.post<unknown>(`/api/polls/${poll.id}/publish`, {})
+        track({ name: 'poll.published', properties: { pollId: poll.id, via: 'create' } })
       }
+      track({ name: 'poll.created', properties: { pollId: poll.id, type } })
       return poll
     } catch (err) {
       setError(

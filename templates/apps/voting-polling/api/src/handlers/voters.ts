@@ -62,7 +62,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     const total = await count('voters', where)
     res.json({ data: items, total })
   } catch (err) {
-    logger.error(err)
+    logger.error('voters.list', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -87,7 +87,7 @@ router.post('/', validateBody(createSchema), async (req: Request, res: Response)
     })
     res.status(201).json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('voters.create', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -111,7 +111,7 @@ router.put('/:id', validateBody(updateSchema), async (req: Request, res: Respons
     const result = await updateById('voters', id, { ...body })
     res.json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('voters.update', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -134,7 +134,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('voters', id)
     res.status(204).end()
   } catch (err) {
-    logger.error(err)
+    logger.error('voters.delete', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

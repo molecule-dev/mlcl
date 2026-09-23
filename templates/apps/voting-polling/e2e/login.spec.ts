@@ -38,6 +38,12 @@ test('Login with correct credentials sets token and routes to /dashboard', async
 })
 
 test('Login with wrong password shows error and stays on /login', async ({ page }) => {
+  // The wrong-password attempt legitimately answers 403 and the browser
+  // logs the failed resource load — expected here, not a console bug.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   const { email } = await signup(page)
   await page.evaluate(() => window.localStorage.clear())
   await page.goto(APP_BASE + '/login')

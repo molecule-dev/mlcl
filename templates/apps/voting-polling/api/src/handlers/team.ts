@@ -95,7 +95,7 @@ router.get('/', async (_req: Request, res: Response) => {
     )
     res.json({ workspace_id: workspaceId, members: result.rows })
   } catch (err) {
-    logger.error(err)
+    logger.error('team.list', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -167,7 +167,7 @@ router.post('/invite', validateBody(inviteSchema), async (req: Request, res: Res
     }
     res.status(202).json({ email: body.email, role: body.role, pending: true })
   } catch (err) {
-    logger.error(err)
+    logger.error('team.invite', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -195,7 +195,7 @@ router.put('/:id/role', validateBody(updateRoleSchema), async (req: Request, res
     const result = await updateById('workspace_members', id, { role: body.role })
     res.json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('team.role', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -222,7 +222,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('workspace_members', id)
     res.status(204).end()
   } catch (err) {
-    logger.error(err)
+    logger.error('team.remove', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

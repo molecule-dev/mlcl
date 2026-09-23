@@ -195,7 +195,7 @@ export function Settings() {
         <nav
           className={cm.cn(
             cm.sp('p', 4),
-            'lg:col-span-3 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm self-start',
+            'lg:col-span-3 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm self-start',
           )}
           aria-label={t('nav.settingsSections', {}, { defaultValue: 'Settings sections' })}
         >
@@ -230,7 +230,7 @@ export function Settings() {
           </ul>
         </nav>
 
-        <section className={cm.cn('lg:col-span-9 space-y-6')}>
+        <section className={cm.cn('lg:col-span-9 min-w-0 space-y-6')}>
           <div
             className={cm.cn(
               cm.sp('p', 6),

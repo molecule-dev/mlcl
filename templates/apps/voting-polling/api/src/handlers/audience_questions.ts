@@ -74,7 +74,7 @@ router.get('/poll/:pollId', async (req: Request, res: Response) => {
     }
     res.json(items)
   } catch (err) {
-    logger.error(err)
+    logger.error('questions.list', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -114,7 +114,7 @@ router.post('/', validateBody(askSchema), async (req: Request, res: Response) =>
     }
     res.status(201).json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('questions.create', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -164,7 +164,7 @@ router.post('/:id/vote', async (req: Request, res: Response) => {
     }
     res.json({ question_id: id, vote_count: total })
   } catch (err) {
-    logger.error(err)
+    logger.error('questions.upvote', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -200,7 +200,7 @@ router.put('/:id/status', validateBody(updateStatusSchema), async (req: Request,
     }
     res.json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('questions.status', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

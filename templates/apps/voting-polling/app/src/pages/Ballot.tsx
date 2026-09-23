@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -97,6 +98,10 @@ export function Ballot() {
         payload.open_text = openText.trim()
       }
       await http.post('/api/votes', payload)
+      track({
+        name: 'vote.cast',
+        properties: { pollId: poll.id, pollType: poll.type },
+      })
       setSubmitted(true)
     } catch (err) {
       setSubmitError(

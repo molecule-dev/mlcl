@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -134,6 +135,7 @@ export function AudienceQA() {
     setSubmitting(true)
     try {
       await http.post('/api/audience_questions', { poll_id: id, body: askText.trim() })
+      track({ name: 'question.asked', properties: { pollId: id } })
       setAskText('')
       await refresh()
     } catch (err) {
@@ -166,6 +168,7 @@ export function AudienceQA() {
     setBusy(q.id)
     try {
       await http.put(`/api/audience_questions/${q.id}/status`, { status })
+      track({ name: `question.${status}`, properties: { pollId: id, questionId: q.id } })
       await refresh()
     } catch (err) {
       setError(
@@ -186,7 +189,7 @@ export function AudienceQA() {
               to="/dashboard"
               className={cm.cn(
                 cm.textSize('xs'),
-                'text-primary hover:underline font-semibold uppercase tracking-wide',
+                'inline-flex min-h-[40px] items-center text-primary hover:underline font-semibold uppercase tracking-wide',
               )}
             >
               ← {t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -109,6 +110,7 @@ export function Voters() {
         await http.put(`/api/voters/${editing.id}`, payload)
       } else {
         await http.post('/api/voters', payload)
+        track({ name: 'voter.created', properties: { role: payload.role ?? null } })
       }
       setShowInvite(false)
       await refresh(search.trim() || undefined)
@@ -136,6 +138,7 @@ export function Voters() {
       return
     try {
       await http.delete(`/api/voters/${v.id}`)
+      track({ name: 'voter.deleted', properties: { voterId: v.id } })
       await refresh(search.trim() || undefined)
     } catch (err) {
       setError((err as Error).message ?? 'Failed to delete voter')
@@ -247,7 +250,7 @@ export function Voters() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            'lg:col-span-4 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header className={cm.sp('mb', 4)}>
@@ -301,7 +304,7 @@ export function Voters() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            'lg:col-span-8 min-w-0 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header
