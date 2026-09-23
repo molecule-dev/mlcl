@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -208,8 +209,10 @@ export function Discover() {
         const favs = unwrapList<ApiFavorite>(favRes)
         const row = favs.find((f) => f.restaurant_id === restaurantId)
         if (row) await http.delete(`/api/favorites/${row.id}`)
+        void track({ name: 'favorite.removed', properties: { restaurant_id: restaurantId } })
       } else {
         await http.post('/api/favorites', { restaurant_id: restaurantId })
+        void track({ name: 'favorite.added', properties: { restaurant_id: restaurantId } })
       }
     } catch (err) {
       console.error('[Discover] favorite toggle failed', err)

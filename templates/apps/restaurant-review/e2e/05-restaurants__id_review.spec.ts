@@ -46,6 +46,13 @@ test('Posting a duplicate review surfaces the 409 to the user', async ({ page })
 
   // Try to post a SECOND review for the same restaurant — should error.
   await page.goto(APP_BASE + `/restaurants/${target.id}/review`)
+  // The 409 round-trip is the subject of this spec: the browser logs the
+  // failed resource AND WriteReview logs the swallowed HttpError before the
+  // inline error renders. Allow exactly those, nothing broader.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 409|status 409',
+  })
   await page.locator('[data-testid="write-review-star-3"]').click()
   await page
     .locator('[data-testid="write-review-body"]')

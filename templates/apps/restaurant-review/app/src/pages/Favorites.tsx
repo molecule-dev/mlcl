@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -135,6 +136,7 @@ export function Favorites() {
     setRestaurants((cur) => cur.filter((r) => r.id !== restaurantId))
     try {
       await http.delete(`/api/favorites/${fav.id}`)
+      void track({ name: 'favorite.removed', properties: { restaurant_id: restaurantId } })
     } catch (err) {
       console.error('[Favorites] removeFavorite failed', err)
       setFavorites(prevFavs)

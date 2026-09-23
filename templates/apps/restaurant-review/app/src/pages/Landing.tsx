@@ -111,6 +111,7 @@ export function Landing() {
   const isAuthenticated = useIsAuthenticated()
   const [previewRestaurants, setPreviewRestaurants] = useState<RestaurantSummary[]>([])
   const [featuredReviews, setFeaturedReviews] = useState<ReviewExcerpt[]>([])
+  const [railsLoaded, setRailsLoaded] = useState(false)
 
   // Hydrate the landing-page rails from the live API. Both endpoints are
   // public (no auth required) so this works pre-signin too.
@@ -119,40 +120,44 @@ export function Landing() {
     Promise.all([
       http.get('/api/restaurants?limit=3&sort_by=rating&sort_order=desc').catch(() => null),
       http.get('/api/reviews?limit=2&sort_by=created_at&sort_order=desc').catch(() => null),
-    ]).then(async ([restRes, revRes]) => {
-      if (cancelled) return
-      const all = unwrapList<ApiRestaurant>(restRes)
-      setPreviewRestaurants(all.slice(0, 3).map(landingToSummary))
-      const restMap = new Map(all.map((r) => [r.id, r]))
-      const reviews = unwrapList<ApiReview>(revRes).slice(0, 2)
-      const excerpts: ReviewExcerpt[] = reviews.map((r) => {
-        const rest = restMap.get(r.restaurant_id)
-        return {
-          id: r.id,
-          rating: r.rating,
-          body: r.body,
-          posted_at: r.created_at,
-          helpful_count: r.helpful_count ?? 0,
-          photo_urls: landingAsArray(r.photos),
-          author: {
-            id: 'anon',
-            name: t(
-              'landing.reviews.author',
-              { appName: APP_NAME },
-              { defaultValue: 'A {{appName}} diner' },
-            ),
-            review_count: 0,
-          },
-          restaurant: rest
-            ? { id: rest.id, name: rest.name, cuisine: rest.cuisine }
-            : {
-                id: r.restaurant_id,
-                name: t('landing.reviews.unknown', {}, { defaultValue: 'Restaurant' }),
-              },
-        }
+    ])
+      .then(async ([restRes, revRes]) => {
+        if (cancelled) return
+        const all = unwrapList<ApiRestaurant>(restRes)
+        setPreviewRestaurants(all.slice(0, 3).map(landingToSummary))
+        const restMap = new Map(all.map((r) => [r.id, r]))
+        const reviews = unwrapList<ApiReview>(revRes).slice(0, 2)
+        const excerpts: ReviewExcerpt[] = reviews.map((r) => {
+          const rest = restMap.get(r.restaurant_id)
+          return {
+            id: r.id,
+            rating: r.rating,
+            body: r.body,
+            posted_at: r.created_at,
+            helpful_count: r.helpful_count ?? 0,
+            photo_urls: landingAsArray(r.photos),
+            author: {
+              id: 'anon',
+              name: t(
+                'landing.reviews.author',
+                { appName: APP_NAME },
+                { defaultValue: 'A {{appName}} diner' },
+              ),
+              review_count: 0,
+            },
+            restaurant: rest
+              ? { id: rest.id, name: rest.name, cuisine: rest.cuisine }
+              : {
+                  id: r.restaurant_id,
+                  name: t('landing.reviews.unknown', {}, { defaultValue: 'Restaurant' }),
+                },
+          }
+        })
+        setFeaturedReviews(excerpts)
       })
-      setFeaturedReviews(excerpts)
-    })
+      .finally(() => {
+        if (!cancelled) setRailsLoaded(true)
+      })
     return () => {
       cancelled = true
     }
@@ -377,6 +382,20 @@ export function Landing() {
               {previewRestaurants.map((r) => (
                 <RestaurantListingCard key={r.id} restaurant={r} />
               ))}
+              {railsLoaded && previewRestaurants.length === 0 ? (
+                <p
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-on-surface-variant md:col-span-2 lg:col-span-3',
+                  )}
+                >
+                  {t(
+                    'landing.preview.unavailable',
+                    {},
+                    { defaultValue: 'Live picks are unavailable right now — check back soon.' },
+                  )}
+                </p>
+              ) : null}
             </div>
           </div>
         </section>
@@ -408,6 +427,15 @@ export function Landing() {
             {featuredReviews.map((rv) => (
               <ReviewExcerptCard key={rv.id} review={rv} />
             ))}
+            {railsLoaded && featuredReviews.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant md:col-span-2')}>
+                {t(
+                  'landing.reviews.unavailable',
+                  {},
+                  { defaultValue: 'No tasting notes yet — your review could be the first.' },
+                )}
+              </p>
+            ) : null}
           </div>
         </section>
 

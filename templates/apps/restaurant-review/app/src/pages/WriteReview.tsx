@@ -1,19 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
-const DIETARY_TAGS = [
-  { value: 'vegetarian', label: 'Vegetarian-friendly' },
-  { value: 'vegan', label: 'Vegan options' },
-  { value: 'gluten_free', label: 'Gluten-free' },
-  { value: 'kid_friendly', label: 'Kid-friendly' },
-  { value: 'date_night', label: 'Date night' },
-  { value: 'group', label: 'Group dining' },
-] as const
+const MAX_PHOTOS = 8
 
 interface ApiRestaurant {
   id: string
@@ -26,7 +20,6 @@ interface WriteReviewProps {
     rating?: number
     body?: string
     title?: string
-    tags?: string[]
     photoUrls?: string[]
     headingOverride?: string
     submitOverride?: string
@@ -48,8 +41,9 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
   const [rating, setRating] = useState<number>(initial?.rating ?? 0)
   const [hoverRating, setHoverRating] = useState<number>(0)
   const [body, setBody] = useState(initial?.body ?? '')
-  const [tags, setTags] = useState<Set<string>>(new Set(initial?.tags ?? []))
-  const [photos] = useState<string[]>(initial?.photoUrls ?? [])
+  const [photos, setPhotos] = useState<string[]>(initial?.photoUrls ?? [])
+  const [photoUrl, setPhotoUrl] = useState('')
+  const [photoError, setPhotoError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [restaurantName, setRestaurantName] = useState<string | null>(null)
@@ -78,13 +72,32 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
   const charCount = body.length
   const maxChars = 4000
 
-  const toggleTag = (v: string) => {
-    setTags((prev) => {
-      const next = new Set(prev)
-      if (next.has(v)) next.delete(v)
-      else next.add(v)
-      return next
-    })
+  const addPhoto = () => {
+    const url = photoUrl.trim()
+    if (!url) return
+    if (!/^https?:\/\//i.test(url)) {
+      setPhotoError(
+        t(
+          'writeReview.photoUrlInvalid',
+          {},
+          { defaultValue: 'Enter a full image URL (https://…).' },
+        ),
+      )
+      return
+    }
+    if (photos.length >= MAX_PHOTOS) {
+      setPhotoError(
+        t('writeReview.photoLimit', { max: MAX_PHOTOS }, { defaultValue: 'Up to {{max}} photos.' }),
+      )
+      return
+    }
+    setPhotoError(null)
+    setPhotos((prev) => [...prev, url])
+    setPhotoUrl('')
+  }
+
+  const removePhoto = (index: number) => {
+    setPhotos((prev) => prev.filter((_, i) => i !== index))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -99,13 +112,28 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
           body,
           photos,
         })
+        void track({
+          name: 'review.updated',
+          properties: { review_id: initial.reviewId, restaurant_id: restaurantId, rating },
+        })
       } else {
         if (!restaurantId) throw new Error('No restaurant id available')
-        await http.post('/api/reviews', {
+        const created = await http.post('/api/reviews', {
           restaurant_id: restaurantId,
           rating,
           body,
           photos,
+        })
+        const createdId =
+          unwrapSingle<{ id: string }>(created)?.id ??
+          (restaurantId ? `${restaurantId}:new` : 'unknown')
+        void track({
+          name: 'review.created',
+          properties: { review_id: createdId, restaurant_id: restaurantId, rating },
+        })
+        void track({
+          name: 'rating.submitted',
+          properties: { restaurant_id: restaurantId, rating },
         })
       }
       navigate(`/restaurants/${restaurantId ?? ''}`, { replace: true })
@@ -154,6 +182,10 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
     setDeleting(true)
     try {
       await http.delete(`/api/reviews/${initial.reviewId}`)
+      void track({
+        name: 'review.deleted',
+        properties: { review_id: initial.reviewId, restaurant_id: restaurantId },
+      })
       navigate(`/restaurants/${restaurantId ?? ''}`, { replace: true })
     } catch (err) {
       console.error('[WriteReview] delete failed', err)
@@ -320,42 +352,7 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
 
         <section>
           <label
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant block',
-            )}
-          >
-            {t('writeReview.tagsLabel', {}, { defaultValue: 'Add useful tags' })}
-          </label>
-          <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'xs' }), cm.sp('mt', 3))}>
-            {DIETARY_TAGS.map((tag) => {
-              const active = tags.has(tag.value)
-              return (
-                <button
-                  key={tag.value}
-                  type="button"
-                  onClick={() => toggleTag(tag.value)}
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'rounded-full transition-colors',
-                    active
-                      ? 'bg-primary text-on-primary shadow-sm'
-                      : 'bg-surface-container-low text-on-surface hover:bg-surface-container',
-                  )}
-                >
-                  {t(`writeReview.tag.${tag.value}`, {}, { defaultValue: tag.label })}
-                </button>
-              )
-            })}
-          </div>
-        </section>
-
-        <section>
-          <label
+            htmlFor="write-review-photo-url"
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
@@ -367,8 +364,9 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
           <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'sm' }), cm.sp('mt', 3))}>
             {photos.map((url, i) => (
               <span
-                key={i}
+                key={`${url}-${i}`}
                 className={cm.cn(
+                  'relative block',
                   cm.w(20),
                   cm.h(20),
                   'rounded-lg overflow-hidden border border-outline-variant shrink-0',
@@ -376,28 +374,102 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
               >
                 <img
                   src={url}
-                  alt=""
+                  alt={t('writeReview.photoAlt', { n: i + 1 }, { defaultValue: 'Photo {{n}}' })}
                   className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
                 />
+                <button
+                  type="button"
+                  onClick={() => removePhoto(i)}
+                  aria-label={t(
+                    'writeReview.photoRemove',
+                    { n: i + 1 },
+                    { defaultValue: 'Remove photo {{n}}' },
+                  )}
+                  className={cm.cn(
+                    cm.w(7),
+                    cm.h(7),
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    'absolute top-0.5 right-0.5 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors',
+                  )}
+                >
+                  <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
+                    close
+                  </span>
+                </button>
               </span>
             ))}
+            {photos.length < MAX_PHOTOS ? (
+              <span
+                className={cm.cn(
+                  cm.w(20),
+                  cm.h(20),
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'rounded-lg border-2 border-dashed border-outline-variant text-on-surface-variant shrink-0',
+                )}
+                aria-hidden={photoUrl.length > 0 ? undefined : true}
+              >
+                <span className={'material-symbols-outlined text-2xl'} aria-hidden="true">
+                  add_a_photo
+                </span>
+              </span>
+            ) : null}
+          </div>
+          <div className={cm.cn(cm.flex({ gap: 'xs' }), cm.sp('mt', 3))}>
+            <input
+              id="write-review-photo-url"
+              type="url"
+              inputMode="url"
+              value={photoUrl}
+              onChange={(e) => {
+                setPhotoUrl(e.target.value)
+                if (photoError) setPhotoError(null)
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                  addPhoto()
+                }
+              }}
+              data-testid="write-review-photo-url"
+              placeholder={t(
+                'writeReview.photoUrlPlaceholder',
+                {},
+                { defaultValue: 'Paste an image URL (https://…)' },
+              )}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'flex-1 min-w-0 bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+              )}
+            />
             <button
               type="button"
+              onClick={addPhoto}
+              disabled={photos.length >= MAX_PHOTOS}
+              data-testid="write-review-photo-add"
               className={cm.cn(
-                cm.w(20),
-                cm.h(20),
-                cm.flex({ align: 'center', justify: 'center' }),
-                'rounded-lg border-2 border-dashed border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors',
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                'rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors disabled:opacity-50',
               )}
-              aria-label={t('writeReview.uploadAria', {}, { defaultValue: 'Upload photos' })}
             >
-              <span className={'material-symbols-outlined text-2xl'} aria-hidden="true">
-                add_a_photo
-              </span>
+              {t('writeReview.photoAdd', {}, { defaultValue: 'Add' })}
             </button>
           </div>
+          {photoError ? (
+            <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-error')} role="alert">
+              {photoError}
+            </p>
+          ) : null}
           <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-on-surface-variant')}>
-            {t('writeReview.photosHint', {}, { defaultValue: 'Up to 8 photos. JPG or PNG.' })}
+            {t(
+              'writeReview.photosHint',
+              { max: MAX_PHOTOS },
+              { defaultValue: 'Up to {{max}} photos — paste image links from the web.' },
+            )}
           </p>
         </section>
 

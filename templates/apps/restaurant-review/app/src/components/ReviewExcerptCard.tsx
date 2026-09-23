@@ -122,7 +122,7 @@ export function ReviewExcerptCard({
           className={cm.cn(
             cm.textSize('xs'),
             cm.fontWeight('bold'),
-            'uppercase tracking-[0.25em] text-primary hover:underline',
+            'self-start inline-flex items-center min-h-[24px] uppercase tracking-[0.25em] text-primary hover:underline',
           )}
         >
           {review.restaurant.name}
@@ -188,12 +188,12 @@ export function ReviewExcerptCard({
           type="button"
           onClick={() => onMarkHelpful?.(review.id)}
           className={cm.cn(
-            cm.sp('px', 3),
-            cm.sp('py', 1),
-            cm.textSize('xs'),
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
             cm.fontWeight('bold'),
             cm.flex({ align: 'center', gap: 'xs' }),
-            'rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors',
+            'min-h-[2.5rem] rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors',
           )}
           aria-label={t(
             'reviewExcerptCard.helpfulAria',

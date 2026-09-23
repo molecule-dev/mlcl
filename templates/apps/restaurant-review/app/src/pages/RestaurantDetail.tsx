@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -126,6 +127,10 @@ export function RestaurantDetail() {
         setReviews(unwrapList<ApiReview>(revRes))
         const favs = unwrapList<ApiFavorite>(favRes)
         setFavoriteRow(favs.find((f) => f.restaurant_id === id) ?? null)
+        void track({
+          name: 'restaurant.viewed',
+          properties: { restaurant_id: r.id, rating: r.rating, review_count: r.review_count },
+        })
       })
       .catch(() => {
         if (!cancelled)
@@ -190,10 +195,18 @@ export function RestaurantDetail() {
       if (favoriteRow) {
         setFavoriteRow(null)
         await http.delete(`/api/favorites/${favoriteRow.id}`)
+        void track({
+          name: 'favorite.removed',
+          properties: { restaurant_id: restaurant.id },
+        })
       } else {
         const result = await http.post('/api/favorites', { restaurant_id: restaurant.id })
         const created = unwrapSingle<ApiFavorite>(result)
         setFavoriteRow(created)
+        void track({
+          name: 'favorite.added',
+          properties: { restaurant_id: restaurant.id, favorite_id: created?.id },
+        })
       }
     } catch (err) {
       console.error('[RestaurantDetail] favorite toggle failed', err)
@@ -252,7 +265,14 @@ export function RestaurantDetail() {
   return (
     <main className={cm.cn(cm.maxW('7xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
       <section className={cm.cn(cm.sp('mb', 8), 'relative rounded-[2rem] overflow-hidden')}>
-        <div className={cm.cn('relative aspect-[16/7] bg-surface-variant overflow-hidden')}>
+        {/* h-80 at 390px: the bottom-anchored overlay (badge + name + description)
+            is taller than a 16/7 crop of a 342px column and the name clips off
+            the top; 320px holds it, and sm+ restores the editorial 16/7. */}
+        <div
+          className={cm.cn(
+            'relative h-80 sm:h-auto sm:aspect-[16/7] bg-surface-variant overflow-hidden',
+          )}
+        >
           <img src={heroUrl} alt="" className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')} />
           <div
             className={cm.cn(
@@ -280,7 +300,7 @@ export function RestaurantDetail() {
             ) : null}
             <h1
               data-testid="restaurant-name"
-              className={cm.cn(cm.textSize('5xl'), 'text-white leading-tight')}
+              className={cm.cn('text-4xl md:text-5xl', 'text-white leading-tight')}
               style={{ fontFamily: '"DM Serif Display", Georgia, serif', fontWeight: 400 }}
             >
               {restaurant.name}
@@ -383,7 +403,11 @@ export function RestaurantDetail() {
                   >
                     <img
                       src={url}
-                      alt=""
+                      alt={t(
+                        'restaurantDetail.gallery.photoAlt',
+                        { name: restaurant.name, n: i + 1 },
+                        { defaultValue: '{{name}} — guest photo {{n}}' },
+                      )}
                       className={cm.cn(
                         cm.w('full'),
                         cm.h('full'),
@@ -477,7 +501,7 @@ export function RestaurantDetail() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'text-primary hover:underline',
+                  'inline-flex items-center min-h-[24px] text-primary hover:underline',
                 )}
               >
                 {t('restaurantDetail.reviews.write', {}, { defaultValue: 'Write yours' })}

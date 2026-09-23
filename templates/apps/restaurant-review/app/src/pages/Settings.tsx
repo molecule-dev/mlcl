@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -157,6 +158,10 @@ export function Settings() {
         bio,
         dietary: Array.from(diet),
         notifications: notif,
+      })
+      void track({
+        name: 'settings.updated',
+        properties: { user_id: user.id, fields: Object.keys(patch) },
       })
       setSavedMessage(t('common.settingsSavedPeriod', {}, { defaultValue: 'Settings saved.' }))
     } catch (err) {

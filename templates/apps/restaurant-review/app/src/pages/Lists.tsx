@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -39,7 +40,7 @@ function ListCard({ list, isYours }: { list: ListWithCount; isYours: boolean }) 
       <div className={cm.cn('relative aspect-[16/9] overflow-hidden bg-surface-variant')}>
         <img
           src={list.cover_url ?? FALLBACK_COVER}
-          alt=""
+          alt={t('lists.coverAlt', { name: list.name }, { defaultValue: '{{name}} list cover' })}
           className={cm.cn(
             cm.w('full'),
             cm.h('full'),
@@ -198,6 +199,10 @@ export function Lists() {
       const created = unwrapSingle<ApiList>(res)
       if (created) {
         setYourLists((prev) => [{ ...created, itemCount: 0 }, ...prev])
+        void track({
+          name: 'list.created',
+          properties: { list_id: created.id, visibility: created.visibility },
+        })
       } else {
         // fall back: refetch
         await loadAll()
