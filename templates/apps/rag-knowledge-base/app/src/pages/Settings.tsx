@@ -11,14 +11,14 @@ interface CurrentUser {
   id: string
   name?: string | null
   email?: string | null
-  oauthData?: {
-    rag?: {
-      retrievalK?: number
-      chunkSize?: number
-      chunkOverlap?: number
-      embeddingSize?: 'large' | 'small'
-    }
-  } | null
+}
+
+/** The `rag` slice served by GET/PATCH /api/settings (server-side channel). */
+interface RagPrefs {
+  retrievalK?: number
+  chunkSize?: number
+  chunkOverlap?: number
+  embeddingSize?: 'large' | 'small'
 }
 
 interface ApiTokenRecord {
@@ -61,6 +61,10 @@ export function Settings() {
   const [tokenError, setTokenError] = useState<string | null>(null)
   const [newToken, setNewToken] = useState<string | null>(null)
   const [tokenFormOpen, setTokenFormOpen] = useState(false)
+  // Two-step revoke: the first click arms the row ("Revoke?" → "Confirm"),
+  // so a destructive action can't fire from a single slip. Clicking elsewhere
+  // or re-clicking the armed row's Reset disarms it.
+  const [armedRevokeId, setArmedRevokeId] = useState<string | null>(null)
 
   // Load latest user state — `useUser()` only reflects the cached login
   // payload, not the post-update record. /api/users/:id is the source of
@@ -85,7 +89,17 @@ export function Settings() {
         setLoadedUser(fetched)
         setName(fetched.name ?? '')
         setEmail(fetched.email ?? '')
-        const prefs = fetched.oauthData?.rag ?? {}
+      })
+      .catch(() => {})
+    // Retrieval defaults come from the server-side /api/settings channel:
+    // the platform user resource NEVER returns `oauthData` on reads (it is
+    // stripped as sensitive), so prefs saved into users.oauthData are only
+    // readable through this handler, which reads the column server-side.
+    http
+      .get('/api/settings')
+      .then((res) => {
+        if (cancelled) return
+        const prefs = unwrapSingle<{ rag?: RagPrefs }>(res)?.rag ?? {}
         setRetrievalK(prefs.retrievalK ?? DEFAULT_PREFS.retrievalK)
         setChunkSize(prefs.chunkSize ?? DEFAULT_PREFS.chunkSize)
         setChunkOverlap(prefs.chunkOverlap ?? DEFAULT_PREFS.chunkOverlap)
@@ -158,16 +172,22 @@ export function Settings() {
 
   async function savePrefs(event: React.FormEvent) {
     event.preventDefault()
-    if (!user?.id) return
     setPrefsSaving(true)
     setPrefsSaved(false)
     setPrefsError(null)
     try {
-      await http.patch(`/api/users/${user.id}`, {
-        oauthData: {
-          rag: { retrievalK, chunkSize, chunkOverlap, embeddingSize },
-        },
+      const res = await http.patch('/api/settings', {
+        rag: { retrievalK, chunkSize, chunkOverlap, embeddingSize },
       })
+      // Read-after-write from the server's response (merged slice) so the
+      // form shows exactly what was persisted.
+      const prefs = unwrapSingle<{ rag?: RagPrefs }>(res)?.rag
+      if (prefs) {
+        setRetrievalK(prefs.retrievalK ?? retrievalK)
+        setChunkSize(prefs.chunkSize ?? chunkSize)
+        setChunkOverlap(prefs.chunkOverlap ?? chunkOverlap)
+        setEmbeddingSize(prefs.embeddingSize ?? embeddingSize)
+      }
       setPrefsSaved(true)
     } catch (err) {
       setPrefsError(
@@ -215,6 +235,7 @@ export function Settings() {
     try {
       await http.delete(`/api/api-tokens/${id}`)
       setTokens((prev) => prev.filter((tok) => tok.id !== id))
+      setArmedRevokeId(null)
     } catch (_error) {
       // revoke failure is surfaced via localized message; error detail not exposed to user
       setTokenError(
@@ -707,17 +728,45 @@ export function Settings() {
                         'text-right',
                       )}
                     >
-                      <button
-                        type="button"
-                        onClick={() => revokeToken(k.id)}
-                        data-testid={`settings-token-revoke-${k.id}`}
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'font-semibold text-error hover:underline',
-                        )}
-                      >
-                        {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                      </button>
+                      {armedRevokeId === k.id ? (
+                        <span className={cm.cn(cm.flex({ align: 'center' }), 'gap-2')}>
+                          <button
+                            type="button"
+                            onClick={() => revokeToken(k.id)}
+                            data-testid={`settings-token-confirm-${k.id}`}
+                            className={cm.cn(
+                              cm.sp('px', 3),
+                              cm.sp('py', 1),
+                              cm.textSize('xs'),
+                              'font-bold rounded-full bg-error text-white',
+                            )}
+                          >
+                            {t('common.confirm', {}, { defaultValue: 'Confirm' })}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setArmedRevokeId(null)}
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              'font-semibold text-on-surface-variant hover:underline',
+                            )}
+                          >
+                            {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                          </button>
+                        </span>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setArmedRevokeId(k.id)}
+                          data-testid={`settings-token-revoke-${k.id}`}
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'font-semibold text-error hover:underline',
+                          )}
+                        >
+                          {t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}

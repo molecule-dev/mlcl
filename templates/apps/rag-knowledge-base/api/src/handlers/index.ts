@@ -8,6 +8,7 @@ import members from './members.js'
 import notifications from './notifications.js'
 import qa from './qa.js'
 import reports from './reports.js'
+import settings from './settings.js'
 import sources from './sources.js'
 
 const router = Router()
@@ -21,5 +22,6 @@ router.use('/notifications', notifications)
 router.use('/api-tokens', apiTokens)
 router.use('/graph', graph)
 router.use('/reports', reports)
+router.use('/settings', settings)
 
 export default router

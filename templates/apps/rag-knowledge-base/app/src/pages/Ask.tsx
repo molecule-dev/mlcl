@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -132,6 +133,25 @@ export function Ask() {
       const entry = unwrapSingle<QAEntryRecord>(res)
       if (entry) {
         setAnswer(entryToAnswer(entry))
+        // Domain funnel: the question was asked AND answered with sources.
+        void track({
+          name: 'query.asked',
+          properties: {
+            entry_id: entry.id,
+            response_ms: entry.response_time_ms ?? entry.response_ms ?? null,
+            citation_count: entry.citations?.length ?? 0,
+          },
+        })
+        if (entry.citations?.length) {
+          void track({
+            name: 'source.cited',
+            properties: {
+              entry_id: entry.id,
+              citation_count: entry.citations.length,
+              citation_ids: Array.from(new Set(entry.citations.map((c) => c.id))),
+            },
+          })
+        }
         await refreshStatsAndHistory()
       } else {
         setAskError(

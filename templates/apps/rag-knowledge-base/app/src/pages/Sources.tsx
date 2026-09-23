@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -10,7 +11,7 @@ import {
   type SourceKind,
   type SourceStatus,
 } from '../components/SourceConnectorCard.js'
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 type BackendKind = 'upload' | 'url' | 'notion' | 'confluence' | 'gdrive'
 type BackendStatus = 'idle' | 'pending' | 'syncing' | 'failed' | 'ready'
@@ -150,7 +151,13 @@ export function Sources() {
       body.source_url = form.source_url.trim()
     }
     try {
-      await http.post('/api/sources', body)
+      const res = await http.post('/api/sources', body)
+      // Domain funnel: a knowledge source was connected.
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'source.connected',
+        properties: { source_id: created?.id ?? null, kind: form.kind },
+      })
       setShowAdd(false)
       await refresh()
     } catch (err) {

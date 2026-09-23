@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,6 +68,7 @@ export function Documents() {
   const [filter, setFilter] = useState<Filter>('all')
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
 
@@ -84,8 +86,12 @@ export function Documents() {
       .then((res) => {
         const data = unwrapList<DocumentRecord>(res)
         setDocs(data)
+        setLoadError(null)
       })
-      .catch(() => setDocs([]))
+      .catch(() => {
+        setDocs([])
+        setLoadError(t('documents.error.load', {}, { defaultValue: 'Could not load documents.' }))
+      })
       .finally(() => setLoading(false))
   }
 
@@ -100,7 +106,10 @@ export function Documents() {
         setDocs(data)
       })
       .catch(() => {
-        if (!cancelled) setDocs([])
+        if (!cancelled) {
+          setDocs([])
+          setLoadError(t('documents.error.load', {}, { defaultValue: 'Could not load documents.' }))
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -108,7 +117,7 @@ export function Documents() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
 
   const counts = useMemo(() => {
     const indexed = docs.filter((d) => uiStatus(d.status) === 'indexed').length
@@ -149,6 +158,16 @@ export function Documents() {
       })
       const created = unwrapSingle<CreateDocumentResponse>(res)
       if (created) {
+        // Domain funnel: a document entered the index.
+        void track({
+          name: 'doc.uploaded',
+          properties: {
+            document_id: created.id,
+            mime,
+            size_bytes: sizeBytes,
+            status: created.status ?? created.ingest_status ?? 'ready',
+          },
+        })
         setDocs((prev) => [
           {
             id: created.id,
@@ -425,6 +444,36 @@ export function Documents() {
           />
         </div>
       </section>
+
+      {loadError && !loading ? (
+        <div
+          data-testid="documents-error"
+          role="alert"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            cm.sp('p', 4),
+            'rounded-xl bg-error-container text-on-error-container',
+          )}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'font-semibold')}>{loadError}</span>
+          <button
+            type="button"
+            onClick={() => {
+              setLoadError(null)
+              refresh()
+            }}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'rounded-full bg-primary text-on-primary shrink-0',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       {loading ? (
         <p

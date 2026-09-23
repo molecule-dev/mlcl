@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -139,6 +140,8 @@ export function SourceDetail() {
       // last_sync_at timestamp so the read-after-write check holds.
       await http.put(`/api/sources/${id}`, { sync_status: 'syncing' })
       await http.put(`/api/sources/${id}`, { sync_status: 'ready' })
+      // Domain funnel: an explicit re-sync of a connected source.
+      void track({ name: 'source.synced', properties: { source_id: id } })
       await refresh()
     } catch (err) {
       setError(
