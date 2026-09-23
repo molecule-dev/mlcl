@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -103,6 +104,7 @@ export function AssetDetail() {
     setError(null)
     try {
       await http.delete(`/api/assets/${asset.id}`)
+      void track({ name: 'asset.deleted', properties: { asset_id: asset.id } })
       navigate('/assets')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Delete failed.')

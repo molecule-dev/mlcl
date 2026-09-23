@@ -17,6 +17,9 @@ test.describe('auth', () => {
   })
 
   test('login with bad creds shows error and stays on /login', async ({ page }) => {
+    // A rejected login is EXPECTED to 403 — the browser logs it, but the page
+    // handles it by showing the inline error under the form.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill(uniqueEmail('bad'))
     await page.locator('#password').fill('WrongPassword123!')

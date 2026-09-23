@@ -287,7 +287,7 @@ export function Dashboard() {
               <Link
                 to="/templates"
                 className={
-                  'font-mono text-[11px] uppercase tracking-widest text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors'
+                  'inline-block py-2 font-mono text-[11px] uppercase tracking-widest text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors'
                 }
               >
                 {t('dashboard.browseTemplates', {}, { defaultValue: 'Browse templates →' })}
@@ -442,7 +442,7 @@ function Tip({ step, title, body, to, cta }: TipProps) {
         <Link
           to={to}
           className={cm.cn(
-            'font-mono text-[10px] uppercase tracking-widest text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors',
+            'inline-block py-1.5 font-mono text-[10px] uppercase tracking-widest text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors',
           )}
         >
           {cta} →

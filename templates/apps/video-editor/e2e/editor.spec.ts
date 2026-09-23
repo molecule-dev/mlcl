@@ -55,6 +55,9 @@ test.describe('editor', () => {
   })
 
   test('unknown editor id renders error gracefully', async ({ page }) => {
+    // The unknown project id 404s — the page catches it and renders the
+    // editor-error state; the browser's 404 console line is expected noise.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signupWithProject(page, 'Decoy')
     await page.goto(APP_BASE + '/editor/00000000-0000-0000-0000-000000000000')
     await expect(page.locator('[data-mol-id="editor-error"]')).toBeVisible({ timeout: 10_000 })

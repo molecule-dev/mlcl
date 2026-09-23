@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -150,6 +151,7 @@ export function ProjectDetail() {
       const updated = unwrapSingle<ProjectRow>(res.data)
       setProject(updated as ProjectRow)
       setEditingName(false)
+      void track({ name: 'project.renamed', properties: { project_id: project.id } })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to update project.')
     }
@@ -171,6 +173,7 @@ export function ProjectDetail() {
     setError(null)
     try {
       await http.delete(`/api/projects/${project.id}`)
+      void track({ name: 'project.deleted', properties: { project_id: project.id } })
       navigate('/dashboard')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Delete failed.')
@@ -188,6 +191,15 @@ export function ProjectDetail() {
       })
       const created = unwrapSingle<ExportRow>(res.data)
       if (!created?.id) throw new Error('Export not created')
+      void track({
+        name: 'export.rendered',
+        properties: {
+          project_id: project.id,
+          export_id: created.id,
+          format: 'mp4',
+          resolution: '1080p',
+        },
+      })
       navigate(`/export/${created.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Render queue failed.')

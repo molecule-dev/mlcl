@@ -126,6 +126,9 @@ test.describe('settings', () => {
   })
 
   test('delete account removes the user and forces re-login to fail', async ({ page }) => {
+    // After self-deletion the session token is already invalid, so the client
+    // logout call 401s — expected; the app routes to /login regardless.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const { email, password } = await signup(page)
     await page.goto(APP_BASE + '/settings')
     await page.locator('[data-mol-id="delete-account-toggle"]').click()

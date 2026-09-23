@@ -154,7 +154,7 @@ export function RenderJobCard({ jobs, loading, error, hideViewAll = false }: Ren
         <Link
           to="/export"
           className={cm.cn(
-            'font-mono text-[10px] uppercase tracking-widest text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors text-center',
+            'inline-block py-2 font-mono text-[10px] uppercase tracking-widest text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors text-center',
           )}
         >
           {t('renderJobCard.viewAll', {}, { defaultValue: 'Open export queue →' })}

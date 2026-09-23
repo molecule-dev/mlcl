@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -79,6 +80,10 @@ export function TemplateDetail() {
       const res = await http.post(`/api/templates/${tpl.id}/use`, {})
       const created = unwrapSingle<{ id?: string }>(res.data)
       if (!created?.id) throw new Error('Project creation failed')
+      void track({
+        name: 'template.applied',
+        properties: { template_id: tpl.id, project_id: created.id },
+      })
       navigate(`/editor/${created.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to use template.')

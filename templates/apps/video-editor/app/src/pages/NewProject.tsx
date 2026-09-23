@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -140,6 +141,15 @@ export function NewProject() {
       })
       const created = unwrapSingle<{ id?: string }>(res.data)
       if (!created?.id) throw new Error('No project id returned')
+      void track({
+        name: 'project.created',
+        properties: {
+          project_id: created.id,
+          preset: presetId,
+          width: preset.width,
+          height: preset.height,
+        },
+      })
       navigate(`/editor/${created.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create project.')

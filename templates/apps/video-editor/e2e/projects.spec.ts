@@ -58,6 +58,9 @@ test.describe('projects', () => {
   })
 
   test('unknown project id renders error gracefully', async ({ page }) => {
+    // Unknown project 404s — the page renders its error state; the browser's
+    // 404 console line is expected noise.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/projects/00000000-0000-0000-0000-000000000000')
     await expect(page.locator('[data-mol-id="project-error"]')).toBeVisible({ timeout: 10_000 })

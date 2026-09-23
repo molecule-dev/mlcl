@@ -157,7 +157,7 @@ export function Templates() {
               aria-pressed={category === c}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 'font-mono text-[10px] uppercase tracking-widest rounded-full border transition-colors',
                 category === c
                   ? 'bg-[var(--video-cta-from)]/15 text-[var(--video-link)] border-[var(--video-cta-from)]/40'

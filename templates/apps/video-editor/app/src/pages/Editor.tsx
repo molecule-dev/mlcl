@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track as trackEvent } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -165,6 +166,10 @@ export function Editor() {
       })
       const clip = unwrapSingle<ClipRow>(res.data) as ClipRow
       setClips((c) => [...c, clip])
+      void trackEvent({
+        name: 'clip.added',
+        properties: { project_id: project.id, clip_id: clip.id, kind: asset.kind },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to add clip.')
     } finally {
@@ -182,6 +187,15 @@ export function Editor() {
       })
       const created = unwrapSingle<{ id?: string }>(res.data)
       if (!created?.id) throw new Error('Export not created')
+      void trackEvent({
+        name: 'export.rendered',
+        properties: {
+          project_id: project.id,
+          export_id: created.id,
+          format: 'mp4',
+          resolution: '1080p',
+        },
+      })
       navigate(`/export/${created.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Render queue failed.')
@@ -231,10 +245,10 @@ export function Editor() {
 
   return (
     <RushesLayout title={project.name} breadcrumb="// editor" fullBleed>
-      <div className={cm.cn('flex flex-col h-full')} data-mol-id="editor-shell">
+      <div className={cm.cn('flex flex-col lg:h-full')} data-mol-id="editor-shell">
         <div
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+            'flex flex-row items-center justify-between flex-wrap gap-x-4 gap-y-2',
             cm.sp('px', 5),
             cm.sp('py', 3),
             'border-b border-[var(--video-border-subtle)] bg-[var(--video-input-bg)]',
@@ -295,10 +309,11 @@ export function Editor() {
           </div>
         </div>
 
-        <div className={cm.cn('flex-1 grid grid-cols-[280px_1fr_320px] min-h-0')}>
+        {/* Stacks to one column below lg; the three-pane studio grid above. */}
+        <div className={cm.cn('flex-1 grid grid-cols-1 lg:grid-cols-[280px_1fr_320px] min-h-0')}>
           <aside
             className={cm.cn(
-              'border-r border-[var(--video-border-subtle)] bg-[var(--video-input-bg)] flex flex-col min-h-0',
+              'border-b lg:border-b-0 lg:border-r border-[var(--video-border-subtle)] bg-[var(--video-input-bg)] flex flex-col',
             )}
           >
             <div
@@ -317,7 +332,7 @@ export function Editor() {
                   data-mol-id="editor-import"
                   aria-label={t('editor.import', {}, { defaultValue: 'Open asset library' })}
                   className={
-                    'text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors'
+                    'inline-flex p-2.5 -m-1.5 text-[var(--video-link)] hover:text-[var(--video-link-hover)] transition-colors'
                   }
                 >
                   <span className="material-symbols-outlined text-[18px]">add</span>
@@ -350,7 +365,7 @@ export function Editor() {
                     aria-pressed={filter === f.id}
                     className={cm.cn(
                       cm.flex({ align: 'center', gap: 1 }),
-                      'px-2 py-1 rounded-md text-[10px] font-mono uppercase tracking-widest border transition-colors',
+                      'px-2.5 py-2 rounded-md text-[10px] font-mono uppercase tracking-widest border transition-colors',
                       filter === f.id
                         ? 'border-[var(--video-cta-from)] bg-[var(--video-cta-from)]/15 text-[var(--video-link)]'
                         : 'border-[var(--video-border-subtle)] text-[var(--video-text-muted-alt)] hover:border-[var(--video-cta-from)]/40 hover:text-[var(--video-text-primary)]',
@@ -496,7 +511,7 @@ export function Editor() {
                 aria-pressed={isPlaying}
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),
-                  'w-10 h-10 rounded-full bg-gradient-to-r from-[var(--video-cta-from)] to-[var(--video-cta-to)] text-white hover:opacity-90 transition-opacity',
+                  'w-12 h-12 rounded-full bg-gradient-to-r from-[var(--video-cta-from)] to-[var(--video-cta-to)] text-white hover:opacity-90 transition-opacity',
                 )}
               >
                 <span className="material-symbols-outlined text-[20px]">
@@ -537,7 +552,7 @@ export function Editor() {
 
           <aside
             className={cm.cn(
-              'border-l border-[var(--video-border-subtle)] bg-[var(--video-input-bg)] overflow-y-auto',
+              'border-t lg:border-t-0 lg:border-l border-[var(--video-border-subtle)] bg-[var(--video-input-bg)] lg:overflow-y-auto',
               cm.stack(0),
             )}
             data-mol-id="editor-inspector"

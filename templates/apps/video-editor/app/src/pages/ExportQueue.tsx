@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -123,10 +124,19 @@ export function ExportQueue() {
     setCreating(true)
     setError(null)
     try {
-      await http.post('/api/exports', {
+      const res = await http.post('/api/exports', {
         project_id: selectedProject,
         format: selectedFormat,
         resolution: selectedResolution,
+      })
+      void track({
+        name: 'export.rendered',
+        properties: {
+          project_id: selectedProject,
+          export_id: (res as { data?: { id?: string } })?.data?.id,
+          format: selectedFormat,
+          resolution: selectedResolution,
+        },
       })
       await reload()
     } catch (err) {

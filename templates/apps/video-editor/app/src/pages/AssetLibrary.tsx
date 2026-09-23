@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -131,10 +132,17 @@ export function AssetLibrary() {
     setCreating(true)
     setError(null)
     try {
-      await http.post('/api/assets', {
+      const res = await http.post('/api/assets', {
         name: uploadName.trim(),
         kind: uploadKind,
         source_url: uploadUrl.trim(),
+      })
+      void track({
+        name: 'asset.created',
+        properties: {
+          asset_id: (res as { data?: { id?: string } })?.data?.id,
+          kind: uploadKind,
+        },
       })
       setUploadName('')
       setUploadUrl('')
@@ -360,7 +368,7 @@ export function AssetLibrary() {
                 aria-pressed={filter === f.id}
                 className={cm.cn(
                   cm.sp('px', 3),
-                  cm.sp('py', 1),
+                  cm.sp('py', 2),
                   'font-mono text-[10px] uppercase tracking-widest rounded-full border transition-colors',
                   filter === f.id
                     ? 'bg-[var(--video-cta-from)]/15 text-[var(--video-link)] border-[var(--video-cta-from)]/40'
