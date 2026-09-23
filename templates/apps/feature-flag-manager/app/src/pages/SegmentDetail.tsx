@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -199,6 +200,15 @@ export function SegmentDetail() {
         { attribute: ruleAttr, operator: ruleOp, value },
       ]
       await http.put(`/api/segments/${segment.id}`, { conditions: next })
+      void track({
+        name: 'segment.rule_added',
+        properties: {
+          segment_id: segment.id,
+          key: segment.key,
+          attribute: ruleAttr,
+          operator: ruleOp,
+        },
+      })
       setShowAddRule(false)
       setRuleValue('US, CA')
       await reload()
@@ -212,6 +222,10 @@ export function SegmentDetail() {
     const conds = Array.isArray(segment.conditions) ? segment.conditions : []
     const next = conds.filter((_, i) => i !== idx)
     await http.put(`/api/segments/${segment.id}`, { conditions: next })
+    void track({
+      name: 'segment.rule_removed',
+      properties: { segment_id: segment.id, key: segment.key },
+    })
     await reload()
   }
 
@@ -220,6 +234,10 @@ export function SegmentDetail() {
     setSavingSegment(true)
     try {
       await http.put(`/api/segments/${segment.id}`, { description: pendingDescription })
+      void track({
+        name: 'segment.updated',
+        properties: { segment_id: segment.id, key: segment.key, fields: ['description'] },
+      })
       setPendingDescription(null)
       await reload()
     } finally {
@@ -240,6 +258,10 @@ export function SegmentDetail() {
     )
       return
     await http.delete(`/api/segments/${segment.id}`)
+    void track({
+      name: 'segment.deleted',
+      properties: { segment_id: segment.id, key: segment.key },
+    })
     navigate('/segments')
   }
 

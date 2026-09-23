@@ -30,6 +30,12 @@ test.describe('/reset-password', () => {
   })
 
   test('invalid token submits and surfaces an error (does not navigate)', async ({ page }) => {
+    // The 401 is the test's own input (invalid token on purpose); its
+    // browser console line ("...status of 401") is expected, not a bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?email=missing@example.com&token=invalid')
       await page.locator('#reset-password').fill('Whatever123!')

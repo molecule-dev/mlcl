@@ -175,7 +175,7 @@ export function AuditLog() {
                   type="button"
                   onClick={() => setFilter(f)}
                   className={cm.cn(
-                    'rounded-md px-2.5 py-1 font-mono text-xs font-semibold transition-colors',
+                    'min-h-[28px] rounded-md px-3 py-1.5 font-mono text-xs font-semibold transition-colors',
                   )}
                   style={
                     active

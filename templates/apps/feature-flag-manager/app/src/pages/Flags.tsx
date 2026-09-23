@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -109,6 +110,10 @@ export function Flags() {
     if (!flag.id) return
     try {
       await http.put(`/api/flags/${flag.id}/toggle`, {})
+      void track({
+        name: 'flag.toggled',
+        properties: { flag_id: flag.id, key: flag.key, from_state: flag.state },
+      })
       await reload()
     } catch (_error) {
       // Surface as a row-level error: re-throw via state if needed; for now silently re-fetch.
@@ -220,7 +225,7 @@ export function Flags() {
                   type="button"
                   onClick={() => setEnvFilter(f.key)}
                   className={cm.cn(
-                    'rounded-md px-2.5 py-1 font-mono text-xs font-semibold transition-colors',
+                    'min-h-[28px] rounded-md px-3 py-1.5 font-mono text-xs font-semibold transition-colors',
                     active ? 'text-on-surface' : 'text-on-surface-variant hover:text-on-surface',
                   )}
                   style={
@@ -254,7 +259,7 @@ export function Flags() {
                   type="button"
                   onClick={() => setStateFilter(s)}
                   className={cm.cn(
-                    'rounded-md px-2.5 py-1 font-mono text-xs font-semibold transition-colors',
+                    'min-h-[28px] rounded-md px-3 py-1.5 font-mono text-xs font-semibold transition-colors',
                     active ? 'text-on-surface' : 'text-on-surface-variant hover:text-on-surface',
                   )}
                   style={

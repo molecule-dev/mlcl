@@ -81,7 +81,7 @@ export function SDKKeyDisplay({ envName, envTone, sdkKey }: SDKKeyDisplayProps) 
           type="button"
           onClick={() => setRevealed((v) => !v)}
           className={cm.cn(
-            'inline-flex items-center justify-center rounded-md p-1 text-on-surface-variant hover:text-on-surface transition-colors',
+            'inline-flex min-h-[28px] min-w-[28px] items-center justify-center rounded-md p-2 text-on-surface-variant hover:text-on-surface transition-colors',
           )}
           aria-label={
             revealed
@@ -97,7 +97,7 @@ export function SDKKeyDisplay({ envName, envTone, sdkKey }: SDKKeyDisplayProps) 
           type="button"
           onClick={handleCopy}
           className={cm.cn(
-            'inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-mono font-semibold transition-colors',
+            'inline-flex min-h-[28px] items-center gap-1 rounded-md px-2.5 py-1.5 text-xs font-mono font-semibold transition-colors',
           )}
           style={{
             backgroundColor: copied ? 'var(--color-env-filter-active-bg)' : 'rgba(30, 41, 59, 0.8)',

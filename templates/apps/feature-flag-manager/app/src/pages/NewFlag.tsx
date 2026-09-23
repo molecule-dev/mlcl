@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -112,6 +113,15 @@ export function NewFlag() {
         default_value: flagType === 'boolean' ? defaultRule === 'true' : defaultRule,
       })
       const newKey = created.data?.key ?? derivedKey
+      void track({
+        name: 'flag.created',
+        properties: {
+          flag_id: created.data?.id,
+          key: newKey,
+          flag_type: flagType,
+          environment: primaryEnv,
+        },
+      })
       navigate(`/flags/${newKey}`)
     } catch (error) {
       // Stay on the form so the user can adjust — and tell them why it
@@ -330,7 +340,9 @@ export function NewFlag() {
                       { tag },
                       { defaultValue: 'Remove tag {{tag}}' },
                     )}
-                    className={cm.cn('hover:opacity-80')}
+                    className={cm.cn(
+                      'inline-flex min-h-[28px] min-w-[28px] items-center justify-center hover:opacity-80',
+                    )}
                   >
                     <span
                       className={cm.cn('material-symbols-outlined text-[12px]')}
@@ -523,7 +535,7 @@ export function NewFlag() {
                       { defaultValue: 'Remove variant {{key}}' },
                     )}
                     className={cm.cn(
-                      'inline-flex items-center justify-center rounded-md p-1 text-on-surface-variant hover:text-on-surface transition-colors',
+                      'inline-flex min-h-[28px] min-w-[28px] items-center justify-center rounded-md p-1.5 text-on-surface-variant hover:text-on-surface transition-colors',
                     )}
                   >
                     <span className={cm.cn('material-symbols-outlined text-base')}>delete</span>

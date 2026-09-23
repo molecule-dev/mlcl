@@ -62,9 +62,7 @@ test.describe('/settings', () => {
     await expect(page).toHaveURL(/\/pricing/, { timeout: 5000 })
   })
 
-  test('saving organization name PATCHes /api/users/me and persists oauthData.org_name', async ({
-    page,
-  }) => {
+  test('saving organization name PATCHes /api/settings and persists org_name', async ({ page }) => {
     await signup(page)
     await page.goto(APP_BASE + '/settings')
     await page.waitForTimeout(2000)
@@ -74,15 +72,16 @@ test.describe('/settings', () => {
       await page.locator('[data-mol-id="settings-org-save"]').click()
       await page.waitForTimeout(2000)
     })
-    const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/users\/me/.test(r.url))
-    expect(patch, 'PATCH /api/users/me should fire').toBeDefined()
+    const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/settings/.test(r.url))
+    expect(patch, 'PATCH /api/settings should fire').toBeDefined()
     expect(patch!.status).toBeGreaterThanOrEqual(200)
     expect(patch!.status).toBeLessThan(300)
-    // Read-after-write: org_name persisted in oauthData.
-    const me = await apiFetch(page, 'GET', '/users/me')
-    const oauth = (me.json as { props?: { oauthData?: Record<string, unknown> | null } }).props
-      ?.oauthData
-    expect(oauth?.org_name).toBe(orgName)
+    // Read-after-write through the app's own settings channel. (The platform
+    // user resource NEVER returns oauthData on reads, so /users/me can't
+    // prove persistence — /api/settings reads the stored slice server-side.)
+    const me = await apiFetch(page, 'GET', '/settings')
+    const settings = me.json as { settings?: { org_name?: string } }
+    expect(settings.settings?.org_name).toBe(orgName)
   })
 
   test('saving display name PATCHes /api/users/me and persists name', async ({ page }) => {

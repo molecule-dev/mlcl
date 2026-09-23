@@ -223,7 +223,7 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
                   <Link
                     to={`/flags/${flag}`}
                     className={cm.cn(
-                      'flex items-center gap-2 font-mono text-xs text-on-surface hover:text-primary transition-colors min-w-0',
+                      'flex min-h-[28px] items-center gap-2 font-mono text-xs text-on-surface hover:text-primary transition-colors min-w-0',
                     )}
                   >
                     <span
@@ -279,7 +279,7 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
         >
           <div className={cm.cn('md:hidden')}>
             <PennantBrandMark size="sm" />
-          </div>
+          </div>{' '}
           <div className={cm.cn('relative flex-1 max-w-xl')}>
             <span
               className={cm.cn(
@@ -348,6 +348,51 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
             {t('layout.newFlag', {}, { defaultValue: 'New flag' })}
           </Link>
         </header>
+
+        {/* Mobile nav — the sidebar is hidden below md, so the primary
+            navigation renders as a horizontally scrollable chip row pinned
+            under the sticky top bar (fleet mobile-shell pattern). */}
+        <nav
+          aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
+          className={cm.cn(
+            'sticky top-12 z-10 flex items-center gap-1.5 overflow-x-auto px-4 py-2 md:hidden',
+          )}
+          style={{
+            backgroundColor: 'rgba(17, 24, 39, 0.85)',
+            borderBottom: '1px solid rgba(30, 41, 59, 0.7)',
+            backdropFilter: 'blur(8px)',
+          }}
+          data-mol-id="mobile-nav"
+        >
+          {NAV_ITEMS.map((item) => {
+            const active = item.match(pathname)
+            return (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={cm.cn(
+                  'inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest whitespace-nowrap transition-colors',
+                  active ? 'font-bold' : 'text-on-surface-variant',
+                )}
+                style={
+                  active
+                    ? {
+                        backgroundColor: 'var(--color-emerald-chip-bg)',
+                        color: 'var(--color-env-filter-active-text)',
+                      }
+                    : { backgroundColor: 'rgba(30, 41, 59, 0.7)' }
+                }
+                aria-current={active ? 'page' : undefined}
+                data-mol-id={`mobile-nav-${item.to.slice(1).replace(/\//g, '-')}`}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                  {item.icon}
+                </span>
+                {t(`layout.${item.labelKey}`, {}, { defaultValue: item.defaultLabel })}
+              </NavLink>
+            )
+          })}
+        </nav>
 
         <main className={cm.cn('flex-1 px-5 py-6 md:px-8 md:py-8')}>{children ?? <Outlet />}</main>
       </div>

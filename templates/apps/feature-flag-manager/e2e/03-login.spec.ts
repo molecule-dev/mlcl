@@ -34,6 +34,12 @@ test.describe('/login', () => {
   })
 
   test('invalid credentials surface an error and stay on /login', async ({ page }) => {
+    // The 403 is the test's own input (bad credentials on purpose); its
+    // browser console line ("...status of 403") is expected, not a bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill(uniqueEmail('nobody'))
     await page.locator('#password').fill('WrongPassword!1')

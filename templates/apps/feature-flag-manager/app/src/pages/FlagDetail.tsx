@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -165,6 +166,10 @@ export function FlagDetail() {
     if (!flag) return
     try {
       await http.put(`/api/flags/${flag.id}/toggle`, {})
+      void track({
+        name: 'flag.toggled',
+        properties: { flag_id: flag.id, key: flag.key, from_state: toToggleState(flag) },
+      })
     } finally {
       await reload()
     }
@@ -179,6 +184,10 @@ export function FlagDetail() {
       if (pendingDescription !== null) update.description = pendingDescription
       if (Object.keys(update).length === 0) return
       await http.put(`/api/flags/${flag.id}`, update)
+      void track({
+        name: 'flag.updated',
+        properties: { flag_id: flag.id, key: flag.key, fields: Object.keys(update) },
+      })
       setPendingRollout(null)
       setPendingDescription(null)
       await reload()
@@ -206,6 +215,10 @@ export function FlagDetail() {
         priority: flag.rules?.length ?? 0,
         description: '',
       })
+      void track({
+        name: 'flag.rule_added',
+        properties: { flag_id: flag.id, key: flag.key, attribute: ruleAttr, operator: ruleOp },
+      })
       setShowAddRule(false)
       setRuleValue('US, CA')
       await reload()
@@ -218,6 +231,10 @@ export function FlagDetail() {
     if (!flag) return
     try {
       await http.delete(`/api/flags/${flag.id}/rules/${ruleId}`)
+      void track({
+        name: 'flag.rule_removed',
+        properties: { flag_id: flag.id, key: flag.key, rule_id: ruleId },
+      })
     } finally {
       await reload()
     }
@@ -237,6 +254,7 @@ export function FlagDetail() {
       return
     try {
       await http.delete(`/api/flags/${flag.id}`)
+      void track({ name: 'flag.deleted', properties: { flag_id: flag.id, key: flag.key } })
       navigate('/flags')
     } catch (_error) {
       // stay on page; error displayed via reload
@@ -272,7 +290,7 @@ export function FlagDetail() {
         </p>
         <Link
           to="/flags"
-          className={cm.cn('font-mono text-xs')}
+          className={cm.cn('inline-flex min-h-[28px] items-center self-start font-mono text-xs')}
           style={{ color: 'var(--color-text-link)' }}
         >
           ← {t('flagDetail.backToFlags', {}, { defaultValue: 'Back to flags' })}
@@ -386,7 +404,7 @@ export function FlagDetail() {
               type="button"
               onClick={() => void onDeleteFlag()}
               className={cm.cn(
-                'inline-flex items-center gap-1 rounded-md px-2.5 py-1 font-mono text-[11px] font-bold',
+                'inline-flex min-h-[28px] items-center gap-1 rounded-md px-2.5 py-1.5 font-mono text-[11px] font-bold',
               )}
               style={{
                 backgroundColor: 'var(--color-error-chip-bg)',
@@ -458,10 +476,11 @@ export function FlagDetail() {
         </div>
       </section>
 
-      {/* Targeting rules + audit */}
-      <div className={cm.cn('grid gap-6 lg:grid-cols-3')}>
+      {/* Targeting rules + audit — min-w-0 on the grid items so truncating
+          audit rows shrink instead of stretching past the viewport. */}
+      <div className={cm.cn('grid min-w-0 gap-6 lg:grid-cols-3')}>
         <section
-          className={cm.cn('lg:col-span-2 rounded-xl')}
+          className={cm.cn('min-w-0 rounded-xl lg:col-span-2')}
           style={{
             backgroundColor: 'var(--color-surface)',
             border: '1px solid rgba(30, 41, 59, 0.7)',
@@ -659,7 +678,7 @@ export function FlagDetail() {
                       type="button"
                       onClick={() => void onRemoveRule(rule.id)}
                       className={cm.cn(
-                        'ml-auto inline-flex items-center rounded-md p-1 text-on-surface-variant hover:text-on-surface transition-colors',
+                        'ml-auto inline-flex min-h-[28px] min-w-[28px] items-center justify-center rounded-md p-1.5 text-on-surface-variant hover:text-on-surface transition-colors',
                       )}
                       data-mol-id={`flag-detail-remove-rule-${rule.id}`}
                       aria-label={t(
@@ -678,7 +697,7 @@ export function FlagDetail() {
         </section>
 
         <section
-          className={cm.cn('rounded-xl')}
+          className={cm.cn('min-w-0 rounded-xl')}
           style={{
             backgroundColor: 'var(--color-surface)',
             border: '1px solid rgba(30, 41, 59, 0.7)',

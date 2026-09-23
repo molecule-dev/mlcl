@@ -189,7 +189,7 @@ export function Landing() {
                 <Link
                   to="/login"
                   className={cm.cn(
-                    'text-sm font-medium text-white/70 hover:text-white transition-colors',
+                    'inline-flex min-h-[28px] items-center text-sm font-medium text-white/70 hover:text-white transition-colors',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

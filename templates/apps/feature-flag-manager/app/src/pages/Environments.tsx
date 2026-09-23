@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -73,11 +74,15 @@ export function Environments() {
     setCreating(true)
     setActionError(null)
     try {
-      await http.post('/api/environments', {
+      const created = await http.post<{ id?: string; key?: string }>('/api/environments', {
         key: newKey,
         name: newName,
         color: newColor,
         is_production: newIsProd,
+      })
+      void track({
+        name: 'environment.added',
+        properties: { environment_id: created.data?.id, key: newKey, is_production: newIsProd },
       })
       setShowCreate(false)
       setNewKey('')
@@ -111,6 +116,10 @@ export function Environments() {
     setActionError(null)
     try {
       await http.put(`/api/environments/${env.id}`, { rotate_keys: true })
+      void track({
+        name: 'environment.keys_rotated',
+        properties: { environment_id: env.id, key: env.key },
+      })
     } catch (err) {
       setActionError(err instanceof Error ? err.message : 'request failed')
     }
@@ -131,6 +140,10 @@ export function Environments() {
     setActionError(null)
     try {
       await http.delete(`/api/environments/${env.id}`)
+      void track({
+        name: 'environment.deleted',
+        properties: { environment_id: env.id, key: env.key },
+      })
     } catch (err) {
       setActionError(err instanceof Error ? err.message : 'request failed')
     }
@@ -194,7 +207,7 @@ export function Environments() {
             onChange={(e) => setNewKey(e.target.value)}
             placeholder={t('environments.keyPh', {}, { defaultValue: 'key' })}
             required
-            pattern="[a-zA-Z0-9_-]+"
+            pattern="[a-zA-Z0-9_\-]+"
             className={cm.cn('h-9 rounded-md px-2 font-mono text-sm')}
             style={{
               backgroundColor: 'var(--color-code-block)',
@@ -308,7 +321,7 @@ export function Environments() {
             return (
               <article
                 key={env.id}
-                className={cm.cn('relative overflow-hidden rounded-2xl p-6')}
+                className={cm.cn('relative min-w-0 overflow-hidden rounded-2xl p-6')}
                 style={{
                   backgroundColor: 'var(--color-surface)',
                   border: '1px solid rgba(30, 41, 59, 0.7)',

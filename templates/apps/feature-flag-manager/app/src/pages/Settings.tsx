@@ -19,7 +19,6 @@ interface UserMe {
     id: string
     email?: string | null
     name?: string | null
-    oauthData?: Record<string, unknown> | null
     planKey?: string | null
   }
   plan: {
@@ -30,6 +29,18 @@ interface UserMe {
     expiresAt?: string | null
     autoRenews?: boolean
   }
+}
+
+/**
+ * Workspace settings slice served by GET/PATCH /api/settings.
+ *
+ * Why not `oauthData` off /api/users/me: the platform user resource NEVER
+ * returns `oauthData` on reads, so organization settings persisted through
+ * the user CRUD silently reset on every reload. /api/settings reads/merges
+ * the stored slice server-side instead.
+ */
+interface WorkspaceSettings {
+  org_name?: string
 }
 
 interface BillingStatus {
@@ -74,13 +85,14 @@ export function Settings() {
       try {
         const meRes = await http.get<UserMe>('/api/users/me')
         const billingRes = await http.get<BillingStatus>('/api/billing/status')
+        const settingsRes = await http.get<{ settings: WorkspaceSettings }>('/api/settings')
         if (cancelled) return
         const meData = (meRes.data as UserMe) ?? null
         setMe(meData)
         setBilling((billingRes.data as BillingStatus) ?? null)
+        const stored = settingsRes.data?.settings ?? {}
+        setOrgName(typeof stored.org_name === 'string' ? stored.org_name : '')
         if (meData) {
-          const oauth = meData.props?.oauthData as Record<string, unknown> | null | undefined
-          setOrgName(typeof oauth?.org_name === 'string' ? (oauth.org_name as string) : '')
           setName(typeof meData.props?.name === 'string' ? meData.props.name : '')
           setEmail(typeof meData.props?.email === 'string' ? meData.props.email : '')
         }
@@ -101,8 +113,7 @@ export function Settings() {
     setSavingOrg(true)
     setOrgSaved(false)
     try {
-      const oauth = (me.props.oauthData ?? {}) as Record<string, unknown>
-      await http.patch('/api/users/me', { oauthData: { ...oauth, org_name: orgName.trim() } })
+      await http.patch('/api/settings', { org_name: orgName.trim() })
       setOrgSaved(true)
       setTimeout(() => setOrgSaved(false), 3000)
     } catch (e) {

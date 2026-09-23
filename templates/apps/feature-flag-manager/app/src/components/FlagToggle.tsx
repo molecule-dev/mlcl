@@ -41,45 +41,89 @@ export function FlagToggle({ state, onClick, ariaLabel, hideLabel = false }: Fla
   const knobX = state === 'off' ? 3 : 23
   const interactive = onClick != null && state !== 'killed'
 
-  const Tag = interactive ? 'button' : 'span'
+  // The visible pill stays at the DESIGN.md spec (44×24), but when the
+  // toggle is interactive the <button> hit area is 44×36 — a 24px-tall
+  // touch target is under every mobile guideline, and the extra 12px are
+  // transparent padding around the pill, not a visual change.
   const label = ariaLabel ?? t(`flagToggle.${state}`, {}, { defaultValue: DEFAULT_ARIA[state] })
+
+  const pill = (
+    <span
+      className={cm.cn('relative inline-block rounded-full')}
+      style={{
+        width: 44,
+        height: 24,
+        backgroundColor: tint.bg,
+        boxShadow: `inset 0 0 0 1px ${tint.ring}`,
+      }}
+    >
+      <span
+        className={cm.cn(
+          'absolute top-1/2 -translate-y-1/2 inline-block rounded-full transition-all duration-150 ease-out',
+        )}
+        style={{
+          left: knobX,
+          width: 18,
+          height: 18,
+          backgroundColor: 'var(--color-inverse-surface, #ffffff)',
+          boxShadow: '0 1px 2px rgba(0, 0, 0, 0.25)',
+        }}
+        aria-hidden="true"
+      />
+    </span>
+  )
 
   return (
     <span className={cm.flex({ align: 'center', gap: 'sm' })} data-mol-id={`flag-toggle-${state}`}>
-      <Tag
-        type={interactive ? 'button' : undefined}
-        onClick={interactive ? onClick : undefined}
-        // Non-interactive renders are a <span>; aria-label needs a valid role
-        // there (axe aria-prohibited-attr), and `disabled` is button-only.
-        role={interactive ? undefined : 'img'}
-        aria-pressed={interactive ? state === 'on' : undefined}
-        aria-label={label}
-        className={cm.cn(
-          'relative inline-block rounded-full transition-all duration-150 ease-out',
-          interactive && 'cursor-pointer hover:opacity-90',
-          state === 'killed' && 'cursor-not-allowed opacity-80',
-        )}
-        style={{
-          width: 44,
-          height: 24,
-          backgroundColor: tint.bg,
-          boxShadow: `inset 0 0 0 1px ${tint.ring}`,
-        }}
-      >
-        <span
+      {interactive ? (
+        <button
+          type="button"
+          onClick={onClick}
+          aria-pressed={state === 'on'}
+          aria-label={label}
           className={cm.cn(
-            'absolute top-1/2 -translate-y-1/2 inline-block rounded-full transition-all duration-150 ease-out',
+            'inline-flex items-center justify-center rounded-full transition-all duration-150 ease-out cursor-pointer hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
           )}
           style={{
-            left: knobX,
-            width: 18,
-            height: 18,
-            backgroundColor: 'var(--color-inverse-surface, #ffffff)',
-            boxShadow: '0 1px 2px rgba(0, 0, 0, 0.25)',
+            width: 44,
+            height: 36,
+            outlineColor: 'var(--color-primary)',
           }}
-          aria-hidden="true"
-        />
-      </Tag>
+        >
+          {pill}
+        </button>
+      ) : (
+        <span
+          // Non-interactive renders are a <span>; aria-label needs a valid
+          // role there (axe aria-prohibited-attr).
+          role="img"
+          aria-label={label}
+          className={cm.cn(
+            'relative inline-block rounded-full',
+            state === 'killed' && 'cursor-not-allowed opacity-80',
+          )}
+          style={{
+            width: 44,
+            height: 24,
+            backgroundColor: tint.bg,
+            boxShadow: `inset 0 0 0 1px ${tint.ring}`,
+          }}
+        >
+          <span
+            className={cm.cn(
+              'absolute top-1/2 -translate-y-1/2 inline-block rounded-full transition-all duration-150 ease-out',
+            )}
+            style={{
+              left: knobX,
+              width: 18,
+              height: 18,
+              backgroundColor: 'var(--color-inverse-surface, #ffffff)',
+              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.25)',
+            }}
+            aria-hidden="true"
+          />
+        </span>
+      )}
       {hideLabel ? null : (
         <span
           className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}

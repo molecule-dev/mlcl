@@ -109,14 +109,17 @@ export function AuditEntry({ entry, noBorder = false }: AuditEntryProps) {
         >
           {actorInitial(entry.actor)}
         </span>
-        <span className={cm.cn('text-sm font-semibold text-on-surface truncate')}>
+        {/* min-w-0 lets the truncating spans shrink inside the flex row —
+            without it a long actor email / UUID target forces the row (and
+            the whole page) wider than a 390px viewport. */}
+        <span className={cm.cn('min-w-0 text-sm font-semibold text-on-surface truncate')}>
           {entry.actor}
         </span>
-        <span className={cm.cn('text-sm text-on-surface-variant')}>
+        <span className={cm.cn('shrink-0 text-sm text-on-surface-variant')}>
           {t(`auditEntry.verb.${entry.action}`, {}, { defaultValue: verb.label })}
         </span>
         <span
-          className={cm.cn('font-mono text-sm font-bold truncate')}
+          className={cm.cn('min-w-0 font-mono text-sm font-bold truncate')}
           style={{ color: verb.color }}
         >
           {entry.target}

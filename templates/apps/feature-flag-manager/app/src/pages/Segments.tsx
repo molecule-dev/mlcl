@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -63,11 +64,15 @@ export function Segments() {
     setCreating(true)
     setCreateError(null)
     try {
-      await http.post('/api/segments', {
+      const created = await http.post<{ id?: string; key?: string }>('/api/segments', {
         key: newKey,
         name: newName,
         description: newDescription,
         conditions: [],
+      })
+      void track({
+        name: 'segment.created',
+        properties: { segment_id: created.data?.id, key: newKey },
       })
       setShowCreate(false)
       setNewKey('')
@@ -136,7 +141,7 @@ export function Segments() {
             onChange={(e) => setNewKey(e.target.value)}
             placeholder={t('segments.keyPh', {}, { defaultValue: 'segment_key' })}
             required
-            pattern="[a-zA-Z0-9_-]+"
+            pattern="[a-zA-Z0-9_\-]+"
             className={cm.cn('h-9 rounded-md px-2 font-mono text-sm')}
             style={{
               backgroundColor: 'var(--color-code-block)',

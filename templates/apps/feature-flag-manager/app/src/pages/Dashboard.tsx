@@ -266,10 +266,12 @@ export function Dashboard() {
         />
       </div>
 
-      {/* Two-column: recent flag changes + audit feed */}
-      <div className={cm.cn('grid gap-6 lg:grid-cols-3')}>
+      {/* Two-column: recent flag changes + audit feed. min-w-0 on the grid
+          items lets the truncating audit rows below shrink instead of
+          stretching the track wider than a 390px viewport. */}
+      <div className={cm.cn('grid min-w-0 gap-6 lg:grid-cols-3')}>
         <section
-          className={cm.cn('lg:col-span-2 rounded-xl')}
+          className={cm.cn('min-w-0 rounded-xl lg:col-span-2')}
           style={{
             backgroundColor: 'var(--color-surface)',
             border: '1px solid rgba(30, 41, 59, 0.7)',
@@ -296,7 +298,9 @@ export function Dashboard() {
             </div>
             <Link
               to="/flags"
-              className={cm.cn('font-mono text-xs font-bold transition-colors hover:opacity-80')}
+              className={cm.cn(
+                'inline-flex min-h-[28px] items-center font-mono text-xs font-bold transition-colors hover:opacity-80',
+              )}
               style={{ color: 'var(--color-text-link)' }}
             >
               {t('dashboard.recent.viewAll', {}, { defaultValue: 'All flags →' })}
@@ -330,7 +334,7 @@ export function Dashboard() {
         </section>
 
         <section
-          className={cm.cn('rounded-xl')}
+          className={cm.cn('min-w-0 rounded-xl')}
           style={{
             backgroundColor: 'var(--color-surface)',
             border: '1px solid rgba(30, 41, 59, 0.7)',
