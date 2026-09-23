@@ -43,7 +43,7 @@ export function JoinCodeHero({
   return (
     <section
       className={cm.cn(
-        'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-primary to-[--quiz-gradient-to] text-white shadow-2xl shadow-primary/30',
+        'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-primary to-[var(--quiz-gradient-to)] text-white shadow-2xl shadow-primary/30',
         cm.sp('p', 10),
       )}
     >
@@ -93,15 +93,19 @@ export function JoinCodeHero({
           </p>
           <div
             className={cm.cn(
-              'inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-surface/10 backdrop-blur-md border border-surface/20 shadow-inner',
+              'inline-flex flex-wrap items-center gap-3 px-4 py-3 sm:px-6 sm:py-4 rounded-2xl bg-surface/10 backdrop-blur-md border border-surface/20 shadow-inner',
               cm.sp('mb', 6),
             )}
           >
             <span className={cm.cn('text-[10px] uppercase tracking-widest font-black opacity-80')}>
               {t('joinCodeHero.joinCodeLabel', {}, { defaultValue: 'Join code' })}
             </span>
+            {/* Tracking must stay [0.25em] at every size — the e2e lobby spec
+                locates the code via that exact class. Only the font scales. */}
             <span
-              className={cm.cn('text-5xl font-mono font-bold tracking-[0.25em] text-amber-300')}
+              className={cm.cn(
+                'text-3xl sm:text-5xl font-mono font-bold tracking-[0.25em] text-amber-300',
+              )}
             >
               {joinCode}
             </span>
@@ -165,7 +169,9 @@ export function JoinCodeHero({
                 return (
                   <span
                     key={i}
-                    className={filled ? 'bg-[--quiz-gradient-from] rounded-[2px]' : 'bg-surface'}
+                    className={
+                      filled ? 'bg-[var(--quiz-gradient-from)] rounded-[2px]' : 'bg-surface'
+                    }
                   />
                 )
               })}

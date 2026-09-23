@@ -5,6 +5,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { index as indexDocument, search as searchIndex } from '@molecule/api-search'
 
@@ -57,7 +58,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     return res.json(quizzes)
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.list', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -83,7 +84,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     return res.json(quiz)
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.get', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -115,7 +116,7 @@ router.post('/', validateBody(createQuizSchema), async (req: Request, res: Respo
     }
     return res.status(201).json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.create', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -151,7 +152,7 @@ router.put('/:id', validateBody(updateQuizSchema), async (req: Request, res: Res
     }
     return res.json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.update', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -177,7 +178,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('quizzes', id)
     return res.status(204).end()
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.delete', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -256,7 +257,7 @@ router.post('/:id/publish', async (req: Request, res: Response) => {
     }
     return res.json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.publish', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -319,7 +320,7 @@ router.post('/:id/duplicate', async (req: Request, res: Response) => {
     }
     return res.status(201).json(copy)
   } catch (error) {
-    console.error(error)
+    logger.error('quizzes.duplicate', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

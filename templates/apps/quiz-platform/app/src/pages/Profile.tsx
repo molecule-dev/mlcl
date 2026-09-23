@@ -5,6 +5,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 import { QuizStatsRow } from '../components/QuizStatsRow.js'
 
@@ -75,17 +76,23 @@ export function Profile() {
   const isMe = !username || username === user?.username || username === user?.email?.split('@')[0]
   const [quizzes, setQuizzes] = useState<QuizRow[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const refresh = useCallback(async () => {
     if (!isMe || !user?.id) {
       setLoading(false)
       return
     }
+    setLoading(true)
+    setError(false)
     try {
       const res = await http.get('/api/quizzes?mine=true')
       const list = unwrap<QuizRow[]>(res) ?? []
       const published = (Array.isArray(list) ? list : []).filter((q) => q.status === 'published')
       setQuizzes(published)
+    } catch (_error) {
+      // Failed fetch must not render as "Nothing published yet."
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -228,6 +235,8 @@ export function Profile() {
           <p className={cm.cn('text-sm text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
+        ) : error ? (
+          <LoadErrorBanner onRetry={() => void refresh()} />
         ) : quizzes.length === 0 ? (
           <div
             className={cm.cn(

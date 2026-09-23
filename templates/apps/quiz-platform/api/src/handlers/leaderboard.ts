@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { aggregate } from '@molecule/api-reporting'
 
 const router = Router()
@@ -43,7 +44,7 @@ router.get('/session/:sessionId', async (req: Request, res: Response) => {
     })
     return res.json(participants)
   } catch (error) {
-    console.error(error)
+    logger.error('leaderboard.session', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -85,7 +86,7 @@ router.get('/quiz/:quizId', async (req: Request, res: Response) => {
       return res.json(participants)
     }
   } catch (error) {
-    console.error(error)
+    logger.error('leaderboard.quiz', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -110,7 +111,7 @@ router.get('/global', async (_req: Request, res: Response) => {
       return res.json([])
     }
   } catch (error) {
-    console.error(error)
+    logger.error('leaderboard.global', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

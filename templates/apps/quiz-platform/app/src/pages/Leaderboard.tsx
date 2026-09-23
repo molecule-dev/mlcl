@@ -4,6 +4,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { type LeaderboardEntry, LeaderboardRow } from '../components/LeaderboardRow.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 
 interface AuthUser {
   id: string
@@ -48,9 +49,11 @@ export function Leaderboard() {
   const { user } = useAuth<AuthUser>()
   const [entries, setEntries] = useState<LeaderboardEntry[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const refresh = useCallback(async () => {
     setLoading(true)
+    setError(false)
     try {
       const res = await http.get('/api/leaderboard/global')
       const list = unwrap<GlobalRow[]>(res) ?? []
@@ -58,6 +61,9 @@ export function Leaderboard() {
         rowToEntry(row, i + 1, user?.id),
       )
       setEntries(mapped)
+    } catch (_error) {
+      // Failed fetch must not render as an empty board — surface a banner.
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -97,6 +103,8 @@ export function Leaderboard() {
         <p className={cm.cn('text-sm text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : error ? (
+        <LoadErrorBanner onRetry={() => void refresh()} />
       ) : entries.length === 0 ? (
         <div
           className={cm.cn(

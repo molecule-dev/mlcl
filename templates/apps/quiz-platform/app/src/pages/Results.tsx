@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -55,14 +56,27 @@ export function Results() {
     }
     try {
       const res = await http.get(`/api/sessions/${sessionId}/results`)
-      setData(unwrap<ResultsPayload>(res))
+      const payload = unwrap<ResultsPayload>(res)
+      setData(payload)
+      if (payload) {
+        track({
+          name: 'score.recorded',
+          properties: {
+            quiz_id: quizId,
+            session_id: sessionId,
+            score: payload.score,
+            total_correct: payload.totalCorrect,
+            total_questions: payload.totalQuestions,
+          },
+        })
+      }
     } catch (err) {
       setError(t('results.error', {}, { defaultValue: 'Could not load results.' }))
       console.error(err)
     } finally {
       setLoading(false)
     }
-  }, [http, sessionId, t])
+  }, [http, sessionId, quizId, t])
 
   useEffect(() => {
     void refresh()

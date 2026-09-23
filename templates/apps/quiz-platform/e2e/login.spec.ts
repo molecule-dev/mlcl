@@ -114,6 +114,12 @@ test.describe('/login', () => {
       })
       .catch(() => undefined)
     await page.goto(APP_BASE + '/login')
+    // The 403 from the bad login logs a browser console error by design —
+    // allow it (regex matches console text) so the guard doesn't fail the test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[13]',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.locator('input[type="email"]').first().fill(email)
       await page.locator('input[type="password"]').first().fill('WrongPass!1234')

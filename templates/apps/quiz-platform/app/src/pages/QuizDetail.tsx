@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { LeaderboardRow } from '../components/LeaderboardRow.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizStatsRow } from '../components/QuizStatsRow.js'
 
 interface QuestionRow {
@@ -60,10 +61,12 @@ export function QuizDetail() {
   const [questions, setQuestions] = useState<QuestionRow[]>([])
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const refresh = useCallback(async () => {
     if (!quizId) return
     setLoading(true)
+    setError(false)
     try {
       const [quizRes, qRes, lbRes] = await Promise.allSettled([
         http.get(`/api/quizzes/${quizId}`),
@@ -81,6 +84,9 @@ export function QuizDetail() {
         const list = unwrap<LeaderboardEntry[]>(lbRes.value) ?? []
         setLeaderboard(Array.isArray(list) ? list : [])
       }
+      // The quiz row is the page's subject: if IT fails to load, the page has
+      // no subject — say so instead of spinning forever.
+      if (quizRes.status === 'rejected') setError(true)
     } finally {
       setLoading(false)
     }
@@ -90,10 +96,21 @@ export function QuizDetail() {
     void refresh()
   }, [refresh])
 
-  if (loading || !quiz) {
+  if (loading) {
     return (
       <div className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
         {t('quizDetail.loading', {}, { defaultValue: 'Loading quiz…' })}
+      </div>
+    )
+  }
+
+  if (error || !quiz) {
+    return (
+      <div className={cm.cn(cm.stack(4), cm.sp('py', 12))}>
+        <LoadErrorBanner
+          onRetry={() => void refresh()}
+          message={t('quizDetail.loadError', {}, { defaultValue: 'Could not load this quiz.' })}
+        />
       </div>
     )
   }
@@ -110,7 +127,7 @@ export function QuizDetail() {
     <div className={cm.cn(cm.stack(8), cm.sp('py', 8))} data-testid="quiz-detail">
       <section
         className={cm.cn(
-          'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-tertiary via-primary to-[--quiz-gradient-to] text-white shadow-2xl shadow-primary/30',
+          'relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-tertiary via-primary to-[var(--quiz-gradient-to)] text-white shadow-2xl shadow-primary/30',
           cm.sp('p', 10),
         )}
       >

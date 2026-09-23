@@ -378,7 +378,7 @@ export function Landing() {
         >
           <div
             className={cm.cn(
-              'relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-primary to-[--quiz-gradient-to] text-white shadow-2xl shadow-primary/30',
+              'relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-primary to-[var(--quiz-gradient-to)] text-white shadow-2xl shadow-primary/30',
               cm.sp('p', 12),
             )}
           >

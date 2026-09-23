@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 
 const CATEGORIES = [
@@ -79,9 +80,11 @@ export function Discover() {
   const [pendingSearch, setPendingSearch] = useState('')
   const [quizzes, setQuizzes] = useState<QuizRow[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const refresh = useCallback(async () => {
     setLoading(true)
+    setError(false)
     try {
       const params = new URLSearchParams()
       if (activeCategory !== 'all') params.set('category', activeCategory)
@@ -100,6 +103,9 @@ export function Discover() {
         ? body
         : (body?.hits ?? []).map((hit) => ({ id: hit.id, ...hit.document }) as unknown as QuizRow)
       setQuizzes(list)
+    } catch (_error) {
+      // Failed fetch must not render as an empty library — surface a banner.
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -122,7 +128,7 @@ export function Discover() {
     <div className={cm.cn(cm.stack(10), cm.sp('py', 8))}>
       <section
         className={cm.cn(
-          'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-primary/30 bg-gradient-to-br from-primary via-tertiary to-[--quiz-gradient-to]',
+          'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-primary/30 bg-gradient-to-br from-primary via-tertiary to-[var(--quiz-gradient-to)]',
           cm.sp('p', 10),
         )}
       >
@@ -170,7 +176,7 @@ export function Discover() {
           <form
             onSubmit={handleSearchSubmit}
             className={cm.cn(
-              'flex items-center gap-3 px-4 py-3 rounded-2xl bg-surface/15 backdrop-blur-md border border-surface/20',
+              'flex items-center gap-3 px-4 py-3 rounded-2xl bg-surface/15 backdrop-blur-md border border-surface/20 focus-within:ring-2 focus-within:ring-amber-300/70',
             )}
           >
             <span className="material-symbols-outlined" aria-hidden="true">
@@ -193,7 +199,7 @@ export function Discover() {
             <button
               type="submit"
               className={cm.cn(
-                'px-3 py-1 rounded-full bg-amber-400 text-amber-950 text-[10px] font-black uppercase tracking-widest',
+                'min-h-[40px] px-4 rounded-full bg-amber-400 text-amber-950 text-[10px] font-black uppercase tracking-widest flex-shrink-0',
               )}
             >
               {t('common.search', {}, { defaultValue: 'Search' })}
@@ -212,7 +218,7 @@ export function Discover() {
                 type="button"
                 onClick={() => setActiveCategory(cat.key)}
                 className={cm.cn(
-                  'inline-flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-black uppercase tracking-widest transition-colors',
+                  'inline-flex items-center gap-2 px-4 min-h-[40px] rounded-full text-[11px] font-black uppercase tracking-widest transition-colors',
                   active
                     ? 'bg-primary text-white shadow-md shadow-primary/20'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -230,6 +236,8 @@ export function Discover() {
           <p className={cm.cn('text-sm text-on-surface-variant')}>
             {t('discover.loading', {}, { defaultValue: 'Loading…' })}
           </p>
+        ) : error ? (
+          <LoadErrorBanner onRetry={() => void refresh()} />
         ) : filtered.length === 0 ? (
           <div
             className={cm.cn(

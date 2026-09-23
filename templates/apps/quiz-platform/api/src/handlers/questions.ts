@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -85,7 +86,7 @@ router.get('/quiz/:quizId', async (req: Request, res: Response) => {
     })
     return res.json(isOwner ? questions : questions.map(sanitizeQuestion))
   } catch (error) {
-    console.error(error)
+    logger.error('questions.list', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -119,7 +120,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     return res.json(isOwner ? question : sanitizeQuestion(question))
   } catch (error) {
-    console.error(error)
+    logger.error('questions.get', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -157,7 +158,7 @@ router.post('/', validateBody(createQuestionSchema), async (req: Request, res: R
     })
     return res.status(201).json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('questions.create', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -192,7 +193,7 @@ router.put('/:id', validateBody(updateQuestionSchema), async (req: Request, res:
     const result = await updateById('questions', id, updates)
     return res.json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('questions.update', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -223,7 +224,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('questions', id)
     return res.status(204).end()
   } catch (error) {
-    console.error(error)
+    logger.error('questions.delete', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -262,7 +263,7 @@ router.put(
       }
       return res.json({ success: true })
     } catch (error) {
-      console.error(error)
+      logger.error('questions.reorder', error)
       return res
         .status(500)
         .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

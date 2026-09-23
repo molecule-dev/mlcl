@@ -178,7 +178,7 @@ export function HostLobby() {
       <div
         className={cm.cn(
           cm.minH('screen'),
-          'bg-[--quiz-gradient-from] text-white antialiased',
+          'bg-[var(--quiz-gradient-from)] text-white antialiased',
           cm.flex({ align: 'center', justify: 'center' }),
         )}
       >
@@ -210,7 +210,7 @@ export function HostLobby() {
 
   return (
     <div
-      className={cm.cn(cm.minH('screen'), 'bg-[--quiz-gradient-from] text-white antialiased')}
+      className={cm.cn(cm.minH('screen'), 'bg-[var(--quiz-gradient-from)] text-white antialiased')}
       data-testid="host-lobby"
     >
       <header

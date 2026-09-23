@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, findById, findMany, findOne, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { broadcast, sendTo } from '@molecule/api-realtime'
 
@@ -73,7 +74,7 @@ router.post('/', validateBody(createSessionSchema), async (req: Request, res: Re
     })
     return res.status(201).json(result.data ?? result)
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.create', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -118,7 +119,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     const { join_code: _joinCode, ...safe } = session
     return res.json(safe)
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.get', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -210,7 +211,7 @@ router.get('/:id/results', async (req: Request, res: Response) => {
       recap,
     })
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.results', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -268,7 +269,7 @@ router.post('/:id/join', validateBody(joinSessionSchema), async (req: Request, r
     }
     return res.status(201).json(participant)
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.join', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -323,7 +324,7 @@ router.post('/:id/start', async (req: Request, res: Response) => {
     }
     return res.json(session)
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.start', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -390,7 +391,7 @@ router.post('/:id/next-question', async (req: Request, res: Response) => {
     }
     return res.json(updated)
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.nextQuestion', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -483,7 +484,7 @@ router.post('/:id/answer', validateBody(answerSchema), async (req: Request, res:
     }
     return res.status(201).json(answer)
   } catch (error) {
-    console.error(error)
+    logger.error('sessions.answer', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

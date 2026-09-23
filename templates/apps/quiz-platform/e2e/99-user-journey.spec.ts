@@ -41,8 +41,10 @@ test.describe.serial('99-user-journey: full Sparq Quiz lifecycle', () => {
     expect(auth.token).toBeTruthy()
 
     // ─── 3. Discover seeded demo quizzes ────────────────────────────────
-    await page.goto(APP_BASE + '/discover')
+    // Arm the capture BEFORE navigating — the page's mount fetch can fire
+    // between goto() and waitForLoadState('networkidle') and be missed.
     const discoverReqs = await captureNetwork(page, async () => {
+      await page.goto(APP_BASE + '/discover')
       await page.waitForLoadState('networkidle')
     })
     const discoverGet = discoverReqs.find(
@@ -177,8 +179,9 @@ test.describe.serial('99-user-journey: full Sparq Quiz lifecycle', () => {
     await expect(page.getByTestId('quiz-play')).toBeVisible({ timeout: 15000 })
 
     // ─── 10. Leaderboard page renders ───────────────────────────────────
-    await page.goto(APP_BASE + '/leaderboard')
+    // Capture armed before goto (mount fetch raced the listener — see step 3).
     const lbReqs = await captureNetwork(page, async () => {
+      await page.goto(APP_BASE + '/leaderboard')
       await page.waitForLoadState('networkidle')
     })
     expect(
@@ -186,8 +189,8 @@ test.describe.serial('99-user-journey: full Sparq Quiz lifecycle', () => {
     ).toBeTruthy()
 
     // ─── 11. Notifications page ─────────────────────────────────────────
-    await page.goto(APP_BASE + '/notifications')
     const notifReqs = await captureNetwork(page, async () => {
+      await page.goto(APP_BASE + '/notifications')
       await page.waitForLoadState('networkidle')
     })
     expect(
@@ -228,8 +231,8 @@ test.describe.serial('99-user-journey: full Sparq Quiz lifecycle', () => {
     }
 
     // ─── 13. Pricing page renders ───────────────────────────────────────
-    await page.goto(APP_BASE + '/pricing')
     const pricingReqs = await captureNetwork(page, async () => {
+      await page.goto(APP_BASE + '/pricing')
       await page.waitForLoadState('networkidle')
     })
     expect(

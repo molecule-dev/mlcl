@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -143,6 +144,11 @@ export function QuizBuilder() {
     try {
       await http.put(`/api/quizzes/${quiz.id}`, { title })
       setQuiz({ ...quiz, title })
+      track({ name: 'quiz.updated', properties: { quiz_id: quiz.id, field: 'title' } })
+    } catch (_error) {
+      setStatusMessage(
+        t('quizBuilder.saveFailed', {}, { defaultValue: 'Could not save the title. Try again.' }),
+      )
     } finally {
       setSavingTitle(false)
     }
@@ -162,8 +168,22 @@ export function QuizBuilder() {
       const res = await http.put(`/api/questions/${id}`, body)
       const updated = unwrap<QuestionRow>(res)
       if (updated) {
-        setQuestions((qs) => qs.map((q) => (q.id === id ? { ...q, ...updated } : q)))
+        setQuestions((qs) =>
+          qs.map((q) => {
+            if (q.id !== id) return q
+            // Keep the LOCAL choices: two blur-commit PUTs (choice A, then B)
+            // race, and the earlier PUT's response can land last — trusting
+            // the response's choices here would revert the sibling choice the
+            // user just typed and re-disable its "mark correct" radio.
+            return { ...updated, choices: q.choices }
+          }),
+        )
+        track({ name: 'question.updated', properties: { question_id: id, quiz_id: quizId } })
       }
+    } catch (_error) {
+      setStatusMessage(
+        t('quizBuilder.saveFailed', {}, { defaultValue: 'Could not save the title. Try again.' }),
+      )
     } finally {
       setSavingQuestion(null)
     }
@@ -205,25 +225,43 @@ export function QuizBuilder() {
   async function addQuestion() {
     if (!quiz) return
     const choices = blankChoices()
-    const res = await http.post('/api/questions', {
-      quiz_id: quiz.id,
-      prompt: 'New question',
-      type: 'multiple-choice',
-      choices,
-      correct_answer: '',
-      points: 1000,
-      time_limit_s: 20,
-      position: questions.length,
-    })
-    const created = unwrap<QuestionRow>(res)
-    if (created) {
-      setQuestions((qs) => [...qs, created])
-      setActiveId(created.id)
+    try {
+      const res = await http.post('/api/questions', {
+        quiz_id: quiz.id,
+        prompt: 'New question',
+        type: 'multiple-choice',
+        choices,
+        correct_answer: '',
+        points: 1000,
+        time_limit_s: 20,
+        position: questions.length,
+      })
+      const created = unwrap<QuestionRow>(res)
+      if (created) {
+        setQuestions((qs) => [...qs, created])
+        setActiveId(created.id)
+        track({
+          name: 'question.created',
+          properties: { question_id: created.id, quiz_id: quiz.id },
+        })
+      }
+    } catch (_error) {
+      setStatusMessage(
+        t('quizBuilder.addFailed', {}, { defaultValue: 'Could not add the question. Try again.' }),
+      )
     }
   }
 
   async function deleteQuestion(id: string) {
-    await http.delete(`/api/questions/${id}`)
+    try {
+      await http.delete(`/api/questions/${id}`)
+    } catch (_error) {
+      setStatusMessage(
+        t('quizBuilder.deleteFailed', {}, { defaultValue: 'Could not delete the question.' }),
+      )
+      return
+    }
+    track({ name: 'question.deleted', properties: { question_id: id, quiz_id: quizId } })
     setQuestions((qs) => qs.filter((q) => q.id !== id))
     if (activeId === id) {
       const remaining = questions.filter((q) => q.id !== id)
@@ -255,6 +293,10 @@ export function QuizBuilder() {
       }
       await http.post(`/api/quizzes/${quiz.id}/publish`, {})
       setQuiz({ ...quiz, status: 'published' })
+      track({
+        name: 'quiz.published',
+        properties: { quiz_id: quiz.id, question_count: questions.length },
+      })
       setStatusMessage(
         t('quizBuilder.published', {}, { defaultValue: 'Published — visible in Discover.' }),
       )

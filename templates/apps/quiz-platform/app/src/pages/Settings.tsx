@@ -348,16 +348,21 @@ export function Settings() {
                   type="button"
                   onClick={() => setPrefs((p) => ({ ...p, [pref.key]: !p[pref.key] }))}
                   aria-pressed={enabled}
+                  aria-label={t(
+                    `settings.preferences.${pref.key}.title`,
+                    {},
+                    { defaultValue: pref.title },
+                  )}
                   data-testid={`pref-${pref.key}`}
                   className={cm.cn(
-                    'relative w-12 h-7 rounded-full transition-colors',
+                    'relative w-14 h-10 rounded-full transition-colors flex-shrink-0',
                     enabled ? 'bg-primary' : 'bg-surface-container-high',
                   )}
                 >
                   <span
                     className={cm.cn(
-                      'absolute top-1 w-5 h-5 rounded-full bg-white shadow transition-all',
-                      enabled ? 'left-6' : 'left-1',
+                      'absolute top-1 w-8 h-8 rounded-full bg-white shadow transition-all',
+                      enabled ? 'left-5' : 'left-1',
                     )}
                   />
                 </button>

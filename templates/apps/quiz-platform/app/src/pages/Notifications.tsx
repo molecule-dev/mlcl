@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+
 interface NotificationRow {
   id: string
   type: string
@@ -64,13 +66,18 @@ export function Notifications() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['key']>('all')
   const [items, setItems] = useState<NotificationRow[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const refresh = useCallback(async () => {
     setLoading(true)
+    setError(false)
     try {
       const res = await http.get('/api/notifications')
       const list = unwrap<NotificationRow[]>(res) ?? []
       setItems(Array.isArray(list) ? list : [])
+    } catch (_error) {
+      // Failed fetch must not render as "No notifications." — surface a banner.
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -138,7 +145,7 @@ export function Notifications() {
           disabled={unreadCount === 0}
           data-testid="mark-all-read"
           className={cm.cn(
-            'px-4 py-2 rounded-xl bg-surface-container-low text-on-surface-variant text-xs font-extrabold uppercase tracking-widest hover:bg-surface-container transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
+            'px-4 min-h-[40px] inline-flex items-center rounded-xl bg-surface-container-low text-on-surface-variant text-xs font-extrabold uppercase tracking-widest hover:bg-surface-container transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
           )}
         >
           {t('common.markAllAsRead', {}, { defaultValue: 'Mark all as read' })}
@@ -157,7 +164,7 @@ export function Notifications() {
             type="button"
             onClick={() => setFilter(f.key)}
             className={cm.cn(
-              'px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-colors',
+              'px-4 min-h-[40px] inline-flex items-center rounded-xl text-[11px] font-black uppercase tracking-widest transition-colors',
               filter === f.key
                 ? 'bg-primary text-white shadow-md shadow-primary/20'
                 : 'text-on-surface-variant hover:text-on-surface',
@@ -177,6 +184,10 @@ export function Notifications() {
           {loading ? (
             <li className={cm.cn(cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>
               {t('notifications.loading', {}, { defaultValue: 'Loading…' })}
+            </li>
+          ) : error ? (
+            <li className={cm.cn(cm.sp('p', 5))}>
+              <LoadErrorBanner onRetry={() => void refresh()} />
             </li>
           ) : visible.length === 0 ? (
             <li className={cm.cn(cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>
@@ -221,7 +232,7 @@ export function Notifications() {
                         to={n.href}
                         onClick={() => unread && void handleMarkOne(n.id)}
                         className={cm.cn(
-                          'font-bold text-sm hover:underline',
+                          'inline-flex items-center min-h-[40px] font-bold text-sm hover:underline',
                           unread ? 'text-on-surface' : 'text-on-surface-variant',
                         )}
                       >
@@ -232,7 +243,7 @@ export function Notifications() {
                         type="button"
                         onClick={() => unread && void handleMarkOne(n.id)}
                         className={cm.cn(
-                          'text-left font-bold text-sm',
+                          'inline-flex items-center min-h-[40px] text-left font-bold text-sm',
                           unread ? 'text-on-surface' : 'text-on-surface-variant',
                         )}
                       >

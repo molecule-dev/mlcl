@@ -169,6 +169,12 @@ test.describe('/settings', () => {
     const auth = await signup(page)
     const token = await bearerToken(page)
     await page.goto(APP_BASE + '/settings')
+    // After DELETE /api/users/{id} the session is already invalid server-side,
+    // so the client's post-delete logout POST 401s — an expected console error.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.getByTestId('delete-account').click()
     const reqs = await captureNetwork(page, async () => {
       await page.getByTestId('confirm-delete').click()

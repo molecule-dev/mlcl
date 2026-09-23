@@ -15,7 +15,7 @@ export function NotFound() {
       className={cm.cn(
         cm.minH('screen'),
         cm.flex({ align: 'center', justify: 'center' }),
-        'bg-gradient-to-br from-[--quiz-gradient-from] via-primary to-[--quiz-gradient-to] text-white',
+        'bg-gradient-to-br from-[var(--quiz-gradient-from)] via-primary to-[var(--quiz-gradient-to)] text-white',
         cm.sp('p', 6),
       )}
     >

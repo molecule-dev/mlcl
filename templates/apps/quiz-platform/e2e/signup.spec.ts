@@ -80,9 +80,16 @@ test.describe('/signup', () => {
 
   test('duplicate-email signup → POST /api/users returns 4xx, stays on /signup', async ({
     page,
+    context,
   }) => {
     const email = uniqueEmail('signup-dup')
     await signup(page, email, 'TestPass!1234')
+    // The expected 4xx logs a browser console error by design — allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4[0-9][0-9]',
+    })
+    await context.clearCookies()
     await page
       .evaluate(() => {
         try {

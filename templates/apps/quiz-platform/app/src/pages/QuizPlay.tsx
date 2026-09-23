@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -130,6 +131,7 @@ export function QuizPlay() {
       }
       setSessionId(sessionToUse)
       startedAtRef.current = Date.now()
+      track({ name: 'quiz.taken', properties: { quiz_id: quizId, session_id: sessionToUse } })
     } catch (err) {
       setError(
         t('quizPlay.error', {}, { defaultValue: 'Could not load this quiz. Please try again.' }),
@@ -177,6 +179,14 @@ export function QuizPlay() {
           correct_answer?: string | null
         }>(res)
         setRevealedCorrect(resp?.correct_answer ?? null)
+        track({
+          name: 'answer.submitted',
+          properties: {
+            session_id: sessionId,
+            question_id: question.id,
+            is_correct: Boolean(resp?.is_correct),
+          },
+        })
         if (resp?.is_correct) {
           setScore((s) => s + Number(resp.points_earned ?? 0))
           setStreak((s) => s + 1)
@@ -199,6 +209,10 @@ export function QuizPlay() {
     if (questionIndex + 1 >= total) {
       // Best-effort: ask server to finish the session.
       void http.post(`/api/sessions/${sessionId}/next-question`, {}).catch(() => undefined)
+      track({
+        name: 'quiz.completed',
+        properties: { quiz_id: quizId, session_id: sessionId, score },
+      })
       navigate(`/quiz/${quizId}/results?sessionId=${sessionId}`)
       return
     }
@@ -217,7 +231,7 @@ export function QuizPlay() {
         className={cm.cn(
           cm.minH('screen'),
           cm.flex({ align: 'center', justify: 'center' }),
-          'bg-gradient-to-br from-[--quiz-gradient-from] via-primary to-[--quiz-gradient-to] text-white',
+          'bg-gradient-to-br from-[var(--quiz-gradient-from)] via-primary to-[var(--quiz-gradient-to)] text-white',
         )}
       >
         <div className={cm.cn(cm.textCenter)} data-testid="quiz-loading">
@@ -240,7 +254,7 @@ export function QuizPlay() {
         className={cm.cn(
           cm.minH('screen'),
           cm.flex({ align: 'center', justify: 'center' }),
-          'bg-gradient-to-br from-[--quiz-gradient-from] via-primary to-[--quiz-gradient-to] text-white',
+          'bg-gradient-to-br from-[var(--quiz-gradient-from)] via-primary to-[var(--quiz-gradient-to)] text-white',
         )}
       >
         <div className={cm.cn(cm.textCenter, cm.maxW('md'), cm.sp('p', 8))}>
@@ -275,7 +289,7 @@ export function QuizPlay() {
     <div
       className={cm.cn(
         cm.minH('screen'),
-        'bg-gradient-to-br from-[--quiz-gradient-from] via-primary to-[--quiz-gradient-to] text-white overflow-hidden relative',
+        'bg-gradient-to-br from-[var(--quiz-gradient-from)] via-primary to-[var(--quiz-gradient-to)] text-white overflow-hidden relative',
       )}
       data-testid="quiz-play"
     >
@@ -294,8 +308,8 @@ export function QuizPlay() {
 
       <header
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 8),
+          cm.flex({ align: 'center', justify: 'between', gap: 2 }),
+          'px-4 md:px-8',
           cm.sp('py', 5),
           'relative z-10',
         )}
@@ -332,7 +346,7 @@ export function QuizPlay() {
             type="button"
             onClick={() => navigate(`/quiz/${quizId}`)}
             className={cm.cn(
-              'text-xs font-semibold text-white/80 hover:text-white transition-colors',
+              'inline-flex items-center min-h-[40px] px-2 text-xs font-semibold text-white/80 hover:text-white transition-colors',
             )}
           >
             {t('quizPlay.exit', {}, { defaultValue: 'Exit' })}

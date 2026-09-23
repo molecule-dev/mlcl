@@ -39,7 +39,7 @@ router.get('/', async (_req: Request, res: Response) => {
     })
     res.json(items)
   } catch (err) {
-    logger.error(err)
+    logger.error('notifications.list', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -64,7 +64,7 @@ router.put('/:id/read', async (req: Request, res: Response) => {
     const result = await updateById('notifications', id, { read: true })
     res.json(result.data ?? result)
   } catch (err) {
-    logger.error(err)
+    logger.error('notifications.markRead', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -87,7 +87,7 @@ router.post('/read-all', async (_req: Request, res: Response) => {
     )
     res.json({ updated: result.rows.length })
   } catch (err) {
-    logger.error(err)
+    logger.error('notifications.readAll', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

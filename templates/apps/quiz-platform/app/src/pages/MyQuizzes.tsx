@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { QuizCard, type QuizCardProps } from '../components/QuizCard.js'
 
 interface QuizRow {
@@ -71,22 +73,34 @@ export function MyQuizzes() {
   const [played, setPlayed] = useState<QuizRow[]>([])
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState(false)
+  const [error, setError] = useState(false)
+  // Two-step delete: the first click arms the confirmation, the second commits.
+  const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
 
   const refresh = useCallback(async () => {
     setLoading(true)
+    setError(false)
     try {
       const [mineRes, playedRes] = await Promise.allSettled([
         http.get('/api/quizzes?mine=true'),
         http.get('/api/quizzes'),
       ])
+      let anyFailed = false
       if (mineRes.status === 'fulfilled') {
         const list = unwrap<QuizRow[]>(mineRes.value) ?? []
         setCreated(Array.isArray(list) ? list : [])
+      } else {
+        anyFailed = true
       }
       if (playedRes.status === 'fulfilled') {
         const list = unwrap<QuizRow[]>(playedRes.value) ?? []
         setPlayed(Array.isArray(list) ? list : [])
+      } else {
+        anyFailed = true
       }
+      if (anyFailed) setError(true)
+    } catch (_error) {
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -98,6 +112,7 @@ export function MyQuizzes() {
 
   async function handleCreate() {
     setCreating(true)
+    setError(false)
     try {
       const res = await http.post('/api/quizzes', {
         title: 'Untitled quiz',
@@ -106,19 +121,29 @@ export function MyQuizzes() {
       })
       const quiz = unwrap<QuizRow>(res)
       if (quiz?.id) {
+        track({ name: 'quiz.created', properties: { quiz_id: quiz.id, source: 'my-quizzes' } })
         navigate(`/quiz/${quiz.id}/edit`)
       }
+    } catch (_error) {
+      setError(true)
     } finally {
       setCreating(false)
     }
   }
 
   async function handleDelete(id: string) {
+    // First click arms the inline confirmation; the second commits.
+    if (pendingDeleteId !== id) {
+      setPendingDeleteId(id)
+      return
+    }
+    setPendingDeleteId(null)
     // Optimistic remove first; if the request fails we refresh from the
     // server so the row pops back in.
     setCreated((prev) => prev.filter((q) => q.id !== id))
     try {
       await http.delete(`/api/quizzes/${id}`)
+      track({ name: 'quiz.deleted', properties: { quiz_id: id } })
     } catch (_error) {
       // Delete failed; refresh restores the optimistically-removed row
       await refresh()
@@ -179,7 +204,7 @@ export function MyQuizzes() {
             type="button"
             onClick={() => setTab(option)}
             className={cm.cn(
-              'px-5 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-colors',
+              'px-5 min-h-[40px] inline-flex items-center rounded-xl text-[11px] font-black uppercase tracking-widest transition-colors',
               tab === option
                 ? 'bg-primary text-white shadow-md shadow-primary/20'
                 : 'text-on-surface-variant hover:text-on-surface',
@@ -198,6 +223,8 @@ export function MyQuizzes() {
         <p className={cm.cn('text-sm text-on-surface-variant')}>
           {t('myQuizzes.loading', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : error && list.length === 0 ? (
+        <LoadErrorBanner onRetry={() => void refresh()} />
       ) : list.length === 0 ? (
         <div
           className={cm.cn(
@@ -232,22 +259,59 @@ export function MyQuizzes() {
             <div key={q.id} data-testid={`quiz-row-${q.id}`} className={cm.cn(cm.stack(2))}>
               <QuizCard {...q} />
               {tab === 'created' ? (
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 2, justify: 'between' }))}>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 2, wrap: 'wrap' }))}>
                   <Link
                     to={`/quiz/${q.id}/edit`}
                     data-testid={`quiz-edit-${q.id}`}
-                    className={cm.cn('text-xs font-bold text-primary hover:underline')}
+                    className={cm.cn(
+                      'inline-flex items-center min-h-[40px] px-2 text-xs font-bold text-primary hover:underline',
+                    )}
                   >
                     {t('common.edit', {}, { defaultValue: 'Edit' })}
                   </Link>
-                  <button
-                    type="button"
-                    data-testid={`quiz-delete-${q.id}`}
-                    onClick={() => handleDelete(q.id)}
-                    className={cm.cn('text-xs font-bold text-error hover:underline')}
-                  >
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
-                  </button>
+                  {pendingDeleteId === q.id ? (
+                    <span
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 2 }),
+                        'ml-auto text-xs font-bold',
+                      )}
+                    >
+                      <span className={cm.cn('text-on-surface-variant')}>
+                        {t('myQuizzes.deleteConfirm', {}, { defaultValue: 'Delete forever?' })}
+                      </span>
+                      <button
+                        type="button"
+                        data-testid={`quiz-delete-confirm-${q.id}`}
+                        onClick={() => void handleDelete(q.id)}
+                        className={cm.cn(
+                          'px-3 min-h-[40px] rounded-lg bg-error text-white text-xs font-bold inline-flex items-center',
+                        )}
+                      >
+                        {t('common.confirm', {}, { defaultValue: 'Confirm' })}
+                      </button>
+                      <button
+                        type="button"
+                        data-testid={`quiz-delete-cancel-${q.id}`}
+                        onClick={() => setPendingDeleteId(null)}
+                        className={cm.cn(
+                          'px-2 min-h-[40px] inline-flex items-center text-xs font-bold text-on-surface-variant',
+                        )}
+                      >
+                        {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                      </button>
+                    </span>
+                  ) : (
+                    <button
+                      type="button"
+                      data-testid={`quiz-delete-${q.id}`}
+                      onClick={() => handleDelete(q.id)}
+                      className={cm.cn(
+                        'ml-auto inline-flex items-center min-h-[40px] px-3 rounded-lg text-xs font-bold text-error hover:bg-error/10',
+                      )}
+                    >
+                      {t('common.delete', {}, { defaultValue: 'Delete' })}
+                    </button>
+                  )}
                 </div>
               ) : null}
             </div>

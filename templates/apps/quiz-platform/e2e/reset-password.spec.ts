@@ -38,6 +38,11 @@ test.describe('/reset-password', () => {
     await page.goto(
       APP_BASE + '/reset-password?token=definitely-not-real-token-xyz&email=nobody%40example.com',
     )
+    // The expected 4xx logs a browser console error by design — allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4[0-9][0-9]',
+    })
     await page.locator('input[autocomplete="new-password"]').first().fill('NewPass!1234')
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /reset password/i }).click()

@@ -107,11 +107,16 @@ test.describe('/my-quizzes', () => {
     await page.waitForLoadState('networkidle')
     // Wait for the row to render before clicking delete (read-after-write).
     await expect(page.getByTestId(`quiz-row-${id}`)).toBeVisible({ timeout: 10000 })
+    // Destructive action: the first click arms the inline confirmation, the
+    // second (Confirm) commits the DELETE. Arm the response wait before it.
+    await page.getByTestId(`quiz-delete-${id}`).click()
+    const confirmBtn = page.getByTestId(`quiz-delete-confirm-${id}`)
+    await expect(confirmBtn).toBeVisible()
     const delPromise = page.waitForResponse(
       (r) => r.request().method() === 'DELETE' && r.url().includes(`/api/quizzes/${id}`),
       { timeout: 15000 },
     )
-    await page.getByTestId(`quiz-delete-${id}`).click()
+    await confirmBtn.click()
     const del = await delPromise
     expect(del.status()).toBe(204)
     // Verify backend really deleted
