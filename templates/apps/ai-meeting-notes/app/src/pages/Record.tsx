@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -204,16 +205,18 @@ export function Record() {
     // backend would 401. The client recognises Blob bodies and sends them
     // as-is (no JSON.stringify, no Content-Type override).
     try {
-      const res = await http.post<{ meeting_id?: string; error?: string; details?: string }>(
-        '/api/meetings/transcribe',
-        blob,
-        {
-          headers: {
-            'Content-Type': blob.type || mimeTypeRef.current,
-            'X-Meeting-Title': title.slice(0, 200),
-          },
+      const res = await http.post<{
+        meeting_id?: string
+        duration_minutes?: number
+        action_items_count?: number
+        error?: string
+        details?: string
+      }>('/api/meetings/transcribe', blob, {
+        headers: {
+          'Content-Type': blob.type || mimeTypeRef.current,
+          'X-Meeting-Title': title.slice(0, 200),
         },
-      )
+      })
       const json = res.data
       if (!json?.meeting_id) {
         const msg = json?.error
@@ -222,6 +225,29 @@ export function Record() {
         setErrorMessage(msg)
         setState('error')
         return
+      }
+      // Fire-and-forget domain events: the meeting funnel's commit point.
+      track({
+        name: 'meeting.created',
+        properties: {
+          meeting_id: json.meeting_id,
+          source: 'recorded',
+          duration_minutes: json.duration_minutes ?? null,
+          action_items_count: json.action_items_count ?? 0,
+        },
+      })
+      track({ name: 'notes.generated', properties: { meeting_id: json.meeting_id } })
+      if ((json.action_items_count ?? 0) > 0) {
+        // Transcription auto-extracts action items server-side; this records
+        // the batch creation with the funnel's commit point.
+        track({
+          name: 'action_item.created',
+          properties: {
+            meeting_id: json.meeting_id,
+            count: json.action_items_count,
+            source: 'transcription',
+          },
+        })
       }
       navigate(`/meetings/${json.meeting_id}`)
     } catch (err) {

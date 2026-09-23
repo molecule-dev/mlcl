@@ -70,6 +70,9 @@ test('login network contract: POST /login fires and a follow-up GET auth check h
 })
 
 test('bad password keeps user on /login', async ({ page }) => {
+  // The test deliberately triggers this failure; the console guard would
+  // otherwise fail the test on the expected browser console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.goto(APP_BASE + '/login')
   await page.getByLabel(/email/i).first().fill(uniqueEmail('nobody'))
   await page

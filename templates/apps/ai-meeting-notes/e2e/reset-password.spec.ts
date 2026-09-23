@@ -43,6 +43,9 @@ test('mismatched passwords show validation', async ({ page }) => {
 })
 
 test('reset-password POST fires with the token', async ({ page }) => {
+  // The test deliberately triggers this failure; the console guard would
+  // otherwise fail the test on the expected browser console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   const reqs = await captureNetwork(page, async () => {
     await page.goto(APP_BASE + '/reset-password?token=test-token-abc')
     const pw = page.getByLabel(/^password$|new password/i).first()

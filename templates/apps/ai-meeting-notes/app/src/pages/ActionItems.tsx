@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,6 +80,10 @@ export function ActionItems() {
     setItems((prev) => prev.map((i) => (i.id === a.id ? { ...i, status: next } : i)))
     try {
       await http.put(`/api/action_items/${a.id}`, { status: next })
+      track({
+        name: 'action_item.status_changed',
+        properties: { action_item_id: a.id, status: next },
+      })
     } catch (_error) {
       // optimistic update failed — revert to previous status
       setItems((prev) => prev.map((i) => (i.id === a.id ? { ...i, status: a.status } : i)))
@@ -105,7 +110,7 @@ export function ActionItems() {
         </p>
       </header>
 
-      <div className={cm.cn(cm.card(), cm.sp('p', 4), cm.flex({ gap: 'sm' }))}>
+      <div className={cm.cn(cm.card(), cm.sp('p', 4), cm.flex({ gap: 'sm', wrap: 'wrap' }))}>
         {FILTERS.map((f) => (
           <button
             key={f}
@@ -149,10 +154,10 @@ export function ActionItems() {
               className={cm.cn(
                 cm.card(),
                 cm.sp('p', 4),
-                cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
               )}
             >
-              <div className={cm.flex({ align: 'center', gap: 'md' })}>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
                 <span
                   className={cm.cn(
                     'h-9 w-9',
@@ -160,6 +165,7 @@ export function ActionItems() {
                     'bg-primary-container grid place-items-center',
                     cm.fontWeight('bold'),
                     cm.textPrimary,
+                    cm.shrink0,
                   )}
                 >
                   {a.owner_initial}
@@ -199,8 +205,8 @@ export function ActionItems() {
                       : t('actions.toggleDoneLabel', {}, { defaultValue: 'Mark as done' })
                   }
                   className={cm.cn(
-                    cm.sp('px', 2),
-                    cm.sp('py', 1),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
                     cm.textSize('xs'),
                     cm.fontWeight('semibold'),
                     cm.roundedFull,

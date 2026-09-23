@@ -61,15 +61,19 @@ export function Search() {
   const [filter, setFilter] = useState<FilterKey>('all')
   const [results, setResults] = useState<SearchResult[]>([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [retryNonce, setRetryNonce] = useState(0)
 
   useEffect(() => {
     const q = query.trim()
     if (!q) {
       setResults([])
+      setError(null)
       return
     }
     let cancelled = false
     setLoading(true)
+    setError(null)
     const url = `/api/search?q=${encodeURIComponent(q)}&filter=${encodeURIComponent(filter)}`
     http
       .get(url)
@@ -77,7 +81,10 @@ export function Search() {
         if (!cancelled) setResults(unwrapList<SearchResult>(res))
       })
       .catch(() => {
-        if (!cancelled) setResults([])
+        if (!cancelled) {
+          setResults([])
+          setError(t('search.loadError', {}, { defaultValue: 'Search failed. Try again.' }))
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -85,7 +92,7 @@ export function Search() {
     return () => {
       cancelled = true
     }
-  }, [http, query, filter])
+  }, [http, query, filter, retryNonce, t])
 
   const filtered = useMemo(() => {
     if (!query.trim()) return []
@@ -122,7 +129,7 @@ export function Search() {
             'w-full border border-outline-variant rounded-md',
           )}
         />
-        <div className={cm.flex({ gap: 'sm' })}>
+        <div className={cm.cn(cm.flex({ gap: 'sm', wrap: 'wrap' }))}>
           {FILTERS.map((f) => (
             <button
               key={f}
@@ -153,6 +160,32 @@ export function Search() {
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('search.empty', {}, { defaultValue: 'Type to search transcripts.' })}
         </p>
+      ) : error ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.card(),
+            cm.sp('p', 5),
+            cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
+            cm.textCenter,
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
+          <button
+            type="button"
+            onClick={() => setRetryNonce((n) => n + 1)}
+            data-mol-id="search-retry"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'bg-primary text-on-primary rounded-md hover:opacity-90 transition-opacity',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}

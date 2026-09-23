@@ -4,8 +4,10 @@ import { APP_BASE, captureNetwork, signup, uniqueEmail } from './_helpers.js'
 
 /**
  * Per-page spec for /settings. Three side tabs (Transcription, Sharing,
- * Retention) backed by users.oauthData.settings. Save fires
- * PATCH /api/users/:id and persists across reload.
+ * Retention) backed by the server-side settings channel
+ * (users.oauthData.settings, read/merged by GET/PATCH /api/settings/me — the
+ * platform user resource never returns oauthData on reads). Save fires
+ * PATCH /api/settings/me and persists across reload.
  */
 
 test.describe('settings page', () => {
@@ -66,8 +68,8 @@ test.describe('settings page', () => {
       await page.locator('[data-mol-id="settings-save"]').first().click()
       await expect(page.locator('[data-mol-id="settings-saved"]')).toBeVisible({ timeout: 5_000 })
     })
-    const patchCall = reqs.find((r) => /\/api\/users\//.test(r.url) && r.method === 'PATCH')
-    expect(patchCall, 'PATCH /api/users/:id should fire on save').toBeTruthy()
+    const patchCall = reqs.find((r) => /\/api\/settings\/me/.test(r.url) && r.method === 'PATCH')
+    expect(patchCall, 'PATCH /api/settings/me should fire on save').toBeTruthy()
     expect([200, 201]).toContain(patchCall!.status)
 
     await page.reload()

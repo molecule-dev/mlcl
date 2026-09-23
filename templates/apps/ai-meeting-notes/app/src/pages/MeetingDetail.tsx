@@ -188,9 +188,13 @@ export function MeetingDetail() {
                 {t('meetingDetail.decisionsHeading', {}, { defaultValue: 'Decisions' })}
               </h3>
               <ul className={'space-y-1 text-sm list-disc pl-4 mt-1'}>
-                {meeting.ai_decisions.map((d, i) => (
-                  <li key={i}>{d}</li>
-                ))}
+                {meeting.ai_decisions.length === 0 ? (
+                  <li className={'text-on-surface-variant list-none'}>
+                    {t('meetingDetail.none', {}, { defaultValue: 'None.' })}
+                  </li>
+                ) : (
+                  meeting.ai_decisions.map((d, i) => <li key={i}>{d}</li>)
+                )}
               </ul>
             </div>
             <div>
@@ -205,9 +209,13 @@ export function MeetingDetail() {
                 {t('meetingDetail.followupsHeading', {}, { defaultValue: 'Follow-ups' })}
               </h3>
               <ul className={'space-y-1 text-sm list-disc pl-4 mt-1'}>
-                {meeting.ai_followups.map((f, i) => (
-                  <li key={i}>{f}</li>
-                ))}
+                {meeting.ai_followups.length === 0 ? (
+                  <li className={'text-on-surface-variant list-none'}>
+                    {t('meetingDetail.none', {}, { defaultValue: 'None.' })}
+                  </li>
+                ) : (
+                  meeting.ai_followups.map((f, i) => <li key={i}>{f}</li>)
+                )}
               </ul>
             </div>
           </section>

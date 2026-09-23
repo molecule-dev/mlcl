@@ -40,20 +40,27 @@ interface ProfilePrefs {
   notifySummaries: boolean
 }
 
-interface UserOAuthData {
-  profile?: Partial<ProfilePrefs>
-  [key: string]: unknown
-}
-
 interface UserRow {
   id: string
   email?: string | null
   name?: string | null
-  oauthData?: UserOAuthData | null
 }
 
 interface UserReadEnvelope {
   props?: UserRow
+}
+
+/**
+ * Server-side settings channel (`/api/settings/me`). The platform user
+ * resource never returns `oauthData` on reads, so the profile slice MUST
+ * round-trip through this channel — hydrating from GET /api/users/:id would
+ * silently reset to defaults every load.
+ */
+interface ProfileMeResponse {
+  id: string
+  name?: string | null
+  email?: string | null
+  profile?: Partial<ProfilePrefs>
 }
 
 const DEFAULT_PREFS: ProfilePrefs = {
@@ -108,14 +115,13 @@ export function Profile() {
     setLoading(true)
     setError(null)
     try {
-      const res = await http.get<UserReadEnvelope>(`/api/users/${userId}`)
-      const row = extractUser(res.data)
-      setUser(row)
-      setEmail(row?.email ?? sessionUser?.email ?? '')
-      const stored = (row?.oauthData?.profile ?? {}) as Partial<ProfilePrefs>
+      const res = await http.get<ProfileMeResponse>('/api/settings/me')
+      const me = res.data
+      setUser({ id: me?.id ?? userId, email: me?.email, name: me?.name })
+      const stored = (me?.profile ?? {}) as Partial<ProfilePrefs>
       const merged: ProfilePrefs = {
         ...DEFAULT_PREFS,
-        displayName: stored.displayName ?? row?.name ?? '',
+        displayName: stored.displayName ?? me?.name ?? '',
         bio: stored.bio ?? '',
         speakerColor: (stored.speakerColor ?? 1) as SpeakerColor,
         timezone: stored.timezone ?? 'America/Los_Angeles',
@@ -126,6 +132,7 @@ export function Profile() {
       }
       setPrefs(merged)
       setSavedPrefs(merged)
+      setEmail(me?.email ?? sessionUser?.email ?? '')
     } catch (err) {
       setError(
         err instanceof Error
@@ -153,8 +160,8 @@ export function Profile() {
     setError(null)
     setSaveStatus('idle')
     try {
-      const nextOauth: UserOAuthData = {
-        ...((user?.oauthData ?? {}) as UserOAuthData),
+      await http.patch<ProfileMeResponse>('/api/settings/me', {
+        name: prefs.displayName,
         profile: {
           displayName: prefs.displayName,
           bio: prefs.bio,
@@ -165,13 +172,7 @@ export function Profile() {
           notifyAssignments: prefs.notifyAssignments,
           notifySummaries: prefs.notifySummaries,
         },
-      }
-      const res = await http.patch<UserReadEnvelope>(`/api/users/${userId}`, {
-        name: prefs.displayName,
-        oauthData: nextOauth,
       })
-      const fresh = extractUser(res.data) ?? user
-      if (fresh) setUser(fresh)
       setSavedPrefs(prefs)
       setSaveStatus('saved')
     } catch (err) {

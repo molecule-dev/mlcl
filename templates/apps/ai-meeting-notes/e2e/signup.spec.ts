@@ -45,6 +45,9 @@ test('signup network contract: POST /api/users fires with 201', async ({ page })
 })
 
 test('existing email cannot be reused', async ({ page, browser }) => {
+  // The test deliberately triggers this failure; the console guard would
+  // otherwise fail the test on the expected browser console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   const email = uniqueEmail('amn-dup')
   // First signup completes.
   const fresh = await browser.newContext()

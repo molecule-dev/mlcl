@@ -38,8 +38,30 @@ async function fetchUser(token: string, userId: string): Promise<UserReadEnvelop
   return (await res.json()) as UserReadEnvelope
 }
 
+/**
+ * The server-side settings channel. The platform user resource NEVER returns
+ * `oauthData` on reads, so persisted profile/settings/integrations state must
+ * be asserted here — GET /users/:id would always show defaults.
+ */
+interface SettingsMe {
+  id: string
+  name?: string | null
+  email?: string | null
+  profile?: Record<string, unknown>
+  settings?: Record<string, Record<string, unknown>>
+  integrations?: Record<string, { connected: boolean; connectedAt?: string }>
+}
+
+async function fetchSettings(token: string): Promise<SettingsMe> {
+  const res = await fetch(`${API_BASE}/settings/me`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+  if (!res.ok) throw new Error(`GET /settings/me failed: ${res.status}`)
+  return (await res.json()) as SettingsMe
+}
+
 test.describe('profile persistence', () => {
-  test('save changes round-trips through PATCH /api/users/:id and survives a reload', async ({
+  test('save changes round-trips through PATCH /api/settings/me and survives a reload', async ({
     page,
   }) => {
     const email = uniqueEmail('aimn-profile')
@@ -72,17 +94,18 @@ test.describe('profile persistence', () => {
     await page.locator('[data-mol-id="profile-save"]').click()
     await expect(page.locator('[data-mol-id="profile-saved"]')).toBeVisible({ timeout: 10_000 })
 
-    // Backend invariant: the user row's oauthData.profile reflects the writes.
-    const after = await fetchUser(token, userId)
-    const oauth = (after.props?.oauthData ?? {}) as { profile?: Record<string, unknown> }
-    expect(oauth.profile).toBeTruthy()
-    expect(oauth.profile?.displayName).toBe('Walked-Through Owner')
-    expect(oauth.profile?.bio).toBe('Bio set via the e2e walk.')
-    expect(oauth.profile?.speakerColor).toBe(3)
-    expect(oauth.profile?.timezone).toBe('Europe/London')
-    expect(oauth.profile?.jobTitle).toBe('Engineering Manager')
-    expect(oauth.profile?.notifySummaries).toBe(true)
-    expect(after.props?.name).toBe('Walked-Through Owner')
+    // Backend invariant: the server-side settings channel reflects the writes.
+    const after = await fetchSettings(token)
+    expect(after.profile).toBeTruthy()
+    expect(after.profile?.displayName).toBe('Walked-Through Owner')
+    expect(after.profile?.bio).toBe('Bio set via the e2e walk.')
+    expect(after.profile?.speakerColor).toBe(3)
+    expect(after.profile?.timezone).toBe('Europe/London')
+    expect(after.profile?.jobTitle).toBe('Engineering Manager')
+    expect(after.profile?.notifySummaries).toBe(true)
+    // Display name also lands on the platform user row (readable resource).
+    const userAfter = await fetchUser(token, userId)
+    expect(userAfter.props?.name).toBe('Walked-Through Owner')
 
     // Reload re-hydrates from the persisted state.
     await page.reload()
@@ -111,13 +134,13 @@ test.describe('profile persistence', () => {
 })
 
 test.describe('settings persistence', () => {
-  test('changing transcription/sharing/retention settings persists in users.oauthData.settings', async ({
+  test('changing transcription/sharing/retention settings persists via /api/settings/me', async ({
     page,
   }) => {
     const email = uniqueEmail('aimn-settings')
     const password = 'TestPass123!'
     await signup(page, email, password)
-    const { token, userId } = await logIn(email, password)
+    const { token } = await logIn(email, password)
 
     await page.goto(APP_BASE + '/settings')
     await expect(page.getByRole('heading', { name: /^settings$/i })).toBeVisible()
@@ -139,14 +162,11 @@ test.describe('settings persistence', () => {
     await page.locator('[data-mol-id="settings-save"]').click()
     await expect(page.locator('[data-mol-id="settings-saved"]')).toBeVisible({ timeout: 10_000 })
 
-    const after = await fetchUser(token, userId)
-    const oauth = (after.props?.oauthData ?? {}) as {
-      settings?: Record<string, Record<string, unknown>>
-    }
-    expect(oauth.settings).toBeTruthy()
-    expect(oauth.settings?.transcription).toMatchObject({ language: 'Spanish', profanity: 'Mask' })
-    expect(oauth.settings?.sharing).toMatchObject({ scope: 'Private', exportFormat: 'PDF' })
-    expect(oauth.settings?.retention).toMatchObject({ audio: '30 days', transcript: '1 year' })
+    const after = await fetchSettings(token)
+    expect(after.settings).toBeTruthy()
+    expect(after.settings?.transcription).toMatchObject({ language: 'Spanish', profanity: 'Mask' })
+    expect(after.settings?.sharing).toMatchObject({ scope: 'Private', exportFormat: 'PDF' })
+    expect(after.settings?.retention).toMatchObject({ audio: '30 days', transcript: '1 year' })
 
     // Reload re-hydrates the persisted values.
     await page.reload()
@@ -173,13 +193,13 @@ test.describe('settings persistence', () => {
 })
 
 test.describe('integrations persistence', () => {
-  test('toggling Connect/Disconnect persists into users.oauthData.integrations and survives reload', async ({
+  test('toggling Connect/Disconnect persists via /api/settings/me and survives reload', async ({
     page,
   }) => {
     const email = uniqueEmail('aimn-integrations')
     const password = 'TestPass123!'
     await signup(page, email, password)
-    const { token, userId } = await logIn(email, password)
+    const { token } = await logIn(email, password)
 
     await page.goto(APP_BASE + '/integrations')
     await expect(page.getByRole('heading', { name: /^integrations$/i })).toBeVisible()
@@ -212,13 +232,10 @@ test.describe('integrations persistence', () => {
     )
 
     // Backend invariant — both flags are persisted with timestamps.
-    const after = await fetchUser(token, userId)
-    const oauth = (after.props?.oauthData ?? {}) as {
-      integrations?: Record<string, { connected: boolean; connectedAt?: string }>
-    }
-    expect(oauth.integrations?.google_calendar?.connected).toBe(true)
-    expect(typeof oauth.integrations?.google_calendar?.connectedAt).toBe('string')
-    expect(oauth.integrations?.zoom?.connected).toBe(true)
+    const after = await fetchSettings(token)
+    expect(after.integrations?.google_calendar?.connected).toBe(true)
+    expect(typeof after.integrations?.google_calendar?.connectedAt).toBe('string')
+    expect(after.integrations?.zoom?.connected).toBe(true)
 
     // Reload preserves the connected state.
     await page.reload()
@@ -237,12 +254,9 @@ test.describe('integrations persistence', () => {
       },
     )
 
-    const after2 = await fetchUser(token, userId)
-    const oauth2 = (after2.props?.oauthData ?? {}) as {
-      integrations?: Record<string, { connected: boolean }>
-    }
-    expect(oauth2.integrations?.google_calendar?.connected).toBe(true)
-    expect(oauth2.integrations?.zoom?.connected).toBe(false)
+    const after2 = await fetchSettings(token)
+    expect(after2.integrations?.google_calendar?.connected).toBe(true)
+    expect(after2.integrations?.zoom?.connected).toBe(false)
   })
 })
 

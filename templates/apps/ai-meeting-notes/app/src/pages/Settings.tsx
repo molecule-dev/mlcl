@@ -7,7 +7,6 @@ import {
   useHttpClient,
   usePush,
   useTranslation,
-  useUser,
 } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import {
@@ -76,26 +75,15 @@ const DEFAULT_SETTINGS: AppSettings = {
   retention: { audio: '90 days', transcript: 'Forever' },
 }
 
-interface UserOAuthData {
-  settings?: Partial<AppSettings>
-  [key: string]: unknown
-}
-
-interface UserRow {
+/**
+ * Server-side settings channel (`/api/settings/me`). The platform user
+ * resource never returns `oauthData` on reads, so persisted settings MUST
+ * round-trip through this channel — GET/PATCH against /api/users/:id would
+ * silently reset to defaults.
+ */
+interface SettingsMeResponse {
   id: string
-  oauthData?: UserOAuthData | null
-}
-
-interface UserReadEnvelope {
-  props?: UserRow
-}
-
-function extractUser(payload: unknown): UserRow | null {
-  if (!payload || typeof payload !== 'object') return null
-  const data = payload as UserReadEnvelope & UserRow
-  if (data.props && typeof data.props === 'object') return data.props
-  if ('id' in data && typeof (data as UserRow).id === 'string') return data as UserRow
-  return null
+  settings?: Partial<AppSettings>
 }
 
 function mergeSettings(stored?: Partial<AppSettings>): AppSettings {
@@ -110,11 +98,8 @@ export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const sessionUser = useUser<{ id: string }>()
-  const userId = sessionUser?.id ?? ''
 
   const [section, setSection] = useState<Section>('transcription')
-  const [user, setUser] = useState<UserRow | null>(null)
   const [settings, setSettings] = useState<AppSettings>(DEFAULT_SETTINGS)
   const [savedSettings, setSavedSettings] = useState<AppSettings>(DEFAULT_SETTINGS)
   const [loading, setLoading] = useState(true)
@@ -123,14 +108,11 @@ export function Settings() {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
 
   const refresh = useCallback(async () => {
-    if (!userId) return
     setLoading(true)
     setError(null)
     try {
-      const res = await http.get<UserReadEnvelope>(`/api/users/${userId}`)
-      const row = extractUser(res.data)
-      setUser(row)
-      const merged = mergeSettings(row?.oauthData?.settings)
+      const res = await http.get<SettingsMeResponse>('/api/settings/me')
+      const merged = mergeSettings(res.data?.settings)
       setSettings(merged)
       setSavedSettings(merged)
     } catch (err) {
@@ -142,7 +124,7 @@ export function Settings() {
     } finally {
       setLoading(false)
     }
-  }, [http, userId, t])
+  }, [http, t])
 
   useEffect(() => {
     void refresh()
@@ -154,20 +136,11 @@ export function Settings() {
   )
 
   const handleSave = async () => {
-    if (!userId) return
     setSaving(true)
     setError(null)
     setSaveStatus('idle')
     try {
-      const nextOauth: UserOAuthData = {
-        ...((user?.oauthData ?? {}) as UserOAuthData),
-        settings,
-      }
-      const res = await http.patch<UserReadEnvelope>(`/api/users/${userId}`, {
-        oauthData: nextOauth,
-      })
-      const fresh = extractUser(res.data) ?? user
-      if (fresh) setUser(fresh)
+      await http.patch<SettingsMeResponse>('/api/settings/me', { settings })
       setSavedSettings(settings)
       setSaveStatus('saved')
     } catch (err) {

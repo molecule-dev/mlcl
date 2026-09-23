@@ -4,8 +4,10 @@ import { APP_BASE, captureNetwork, signup, uniqueEmail } from './_helpers.js'
 
 /**
  * Per-page spec for /profile. Three side tabs (Identity, Preferences,
- * Notifications) backed by users.oauthData.profile. Save fires
- * PATCH /api/users/:id and persists across reload.
+ * Notifications) backed by the server-side settings channel
+ * (users.oauthData.profile, read/merged by GET/PATCH /api/settings/me — the
+ * platform user resource never returns oauthData on reads). Save fires
+ * PATCH /api/settings/me and persists across reload.
  */
 
 test.describe('profile page', () => {
@@ -64,8 +66,8 @@ test.describe('profile page', () => {
       await page.locator('[data-mol-id="profile-save"]').first().click()
       await expect(page.locator('[data-mol-id="profile-saved"]')).toBeVisible({ timeout: 5_000 })
     })
-    const patchCall = reqs.find((r) => /\/api\/users\//.test(r.url) && r.method === 'PATCH')
-    expect(patchCall, 'PATCH /api/users/:id should fire on save').toBeTruthy()
+    const patchCall = reqs.find((r) => /\/api\/settings\/me/.test(r.url) && r.method === 'PATCH')
+    expect(patchCall, 'PATCH /api/settings/me should fire on save').toBeTruthy()
     expect([200, 201]).toContain(patchCall!.status)
 
     await page.reload()

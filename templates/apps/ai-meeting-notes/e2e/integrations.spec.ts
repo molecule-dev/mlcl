@@ -3,9 +3,11 @@ import { expect, test } from '@molecule/app-e2e-fixtures-default'
 import { APP_BASE, captureNetwork, signup, uniqueEmail } from './_helpers.js'
 
 /**
- * Per-page spec for /integrations. Toggling a card PATCHes
- * /api/users/:id with `oauthData.integrations[key].connected = true|false`.
- * State must survive reload (server-persisted).
+ * Per-page spec for /integrations. Toggling a card PATCHes /api/settings/me
+ * with `integrations[key] = { connected, connectedAt }` (server-side merge
+ * into users.oauthData — the platform user resource never returns oauthData
+ * on reads, and the page hydrates from GET /api/settings/me). State must
+ * survive reload (server-persisted).
  */
 
 test.describe('integrations page', () => {
@@ -55,8 +57,8 @@ test.describe('integrations page', () => {
         page.locator('[data-mol-id="integration-card-google_calendar"][data-status="connected"]'),
       ).toBeVisible({ timeout: 5_000 })
     })
-    const patchCall = reqs.find((r) => /\/api\/users\//.test(r.url) && r.method === 'PATCH')
-    expect(patchCall, 'PATCH /api/users/:id should fire on toggle').toBeTruthy()
+    const patchCall = reqs.find((r) => /\/api\/settings\/me/.test(r.url) && r.method === 'PATCH')
+    expect(patchCall, 'PATCH /api/settings/me should fire on toggle').toBeTruthy()
     expect([200, 201]).toContain(patchCall!.status)
 
     await page.reload()
@@ -65,14 +67,14 @@ test.describe('integrations page', () => {
     ).toBeVisible({ timeout: 5_000 })
   })
 
-  test('GET /api/users/:id fires on page load', async ({ page }) => {
+  test('GET /api/settings/me fires on page load', async ({ page }) => {
     await signup(page, uniqueEmail('int-get'), 'TestPass123!')
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/integrations')
       await page.waitForLoadState('networkidle')
     })
-    const getCall = reqs.find((r) => /\/api\/users\/[^/]+$/.test(r.url) && r.method === 'GET')
-    expect(getCall, 'GET /api/users/:id must fire to load oauthData').toBeTruthy()
+    const getCall = reqs.find((r) => /\/api\/settings\/me$/.test(r.url) && r.method === 'GET')
+    expect(getCall, 'GET /api/settings/me must fire to load integration states').toBeTruthy()
     expect([200, 201]).toContain(getCall!.status)
   })
 

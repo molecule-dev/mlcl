@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -57,36 +57,22 @@ interface IntegrationState {
   connectedAt?: string
 }
 
-interface UserOAuthData {
-  integrations?: Record<string, IntegrationState>
-  [key: string]: unknown
-}
-
-interface UserRow {
+/**
+ * Server-side settings channel (`/api/settings/me`). The platform user
+ * resource never returns `oauthData` on reads, so integration states MUST
+ * round-trip through this channel — hydrating from GET /api/users/:id would
+ * silently reset every card to "Not connected" on each load.
+ */
+interface IntegrationsMeResponse {
   id: string
-  oauthData?: UserOAuthData | null
-}
-
-interface UserReadEnvelope {
-  props?: UserRow
-}
-
-function extractUser(payload: unknown): UserRow | null {
-  if (!payload || typeof payload !== 'object') return null
-  const data = payload as UserReadEnvelope & UserRow
-  if (data.props && typeof data.props === 'object') return data.props
-  if ('id' in data && typeof (data as UserRow).id === 'string') return data as UserRow
-  return null
+  integrations?: Record<string, IntegrationState>
 }
 
 export function Integrations() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const sessionUser = useUser<{ id: string }>()
-  const userId = sessionUser?.id ?? ''
 
-  const [user, setUser] = useState<UserRow | null>(null)
   const [states, setStates] = useState<Record<string, IntegrationState>>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -94,14 +80,11 @@ export function Integrations() {
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
 
   const refresh = useCallback(async () => {
-    if (!userId) return
     setLoading(true)
     setError(null)
     try {
-      const res = await http.get<UserReadEnvelope>(`/api/users/${userId}`)
-      const row = extractUser(res.data)
-      setUser(row)
-      const stored = row?.oauthData?.integrations ?? {}
+      const res = await http.get<IntegrationsMeResponse>('/api/settings/me')
+      const stored = res.data?.integrations ?? {}
       setStates(stored)
     } catch (err) {
       setError(
@@ -112,7 +95,7 @@ export function Integrations() {
     } finally {
       setLoading(false)
     }
-  }, [http, userId, t])
+  }, [http, t])
 
   useEffect(() => {
     void refresh()
@@ -124,27 +107,19 @@ export function Integrations() {
   }
 
   const toggle = async (key: string) => {
-    if (!userId) return
     const current = states[key]
     const nextStateBool = !current?.connected
     setPending(key)
     try {
-      const nextStates: Record<string, IntegrationState> = {
-        ...states,
-        [key]: nextStateBool
-          ? { connected: true, connectedAt: new Date().toISOString() }
-          : { connected: false },
-      }
-      const nextOauth: UserOAuthData = {
-        ...((user?.oauthData ?? {}) as UserOAuthData),
-        integrations: nextStates,
-      }
-      const res = await http.patch<UserReadEnvelope>(`/api/users/${userId}`, {
-        oauthData: nextOauth,
+      // Send ONLY the toggled key — the server merges the slice, so other
+      // integrations (and the profile/settings slices) cannot be clobbered.
+      const nextEntry: IntegrationState = nextStateBool
+        ? { connected: true, connectedAt: new Date().toISOString() }
+        : { connected: false }
+      await http.patch<IntegrationsMeResponse>('/api/settings/me', {
+        integrations: { [key]: nextEntry },
       })
-      const fresh = extractUser(res.data) ?? user
-      if (fresh) setUser(fresh)
-      setStates(nextStates)
+      setStates((prev) => ({ ...prev, [key]: nextEntry }))
       flash(
         nextStateBool
           ? t('status.connected', { name: key }, { defaultValue: 'Connected' })

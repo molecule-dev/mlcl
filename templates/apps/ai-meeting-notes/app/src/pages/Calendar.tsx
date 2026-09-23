@@ -99,7 +99,7 @@ export function Calendar() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
           {t('calendar.heading', {}, { defaultValue: 'Calendar' })}
         </h1>

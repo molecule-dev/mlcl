@@ -94,6 +94,9 @@ test.describe('record page', () => {
   test('GET /api/meetings/transcribe is wired (asserted via captureNetwork on actual upload smoke)', async ({
     page,
   }) => {
+    // The upload smoke posts 1KB of zero bytes as audio/wav — the Whisper bond
+    // rejects it and the API answers 500. That console error is deliberate.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 500' })
     test.skip(!fs.existsSync(SAMPLE_AUDIO), 'Sample audio not present; skipping')
     const email = uniqueEmail('rec-cap')
     const password = 'TestPass123!'

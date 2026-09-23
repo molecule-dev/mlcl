@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,7 @@ export function Team() {
       setInviteEmail('')
       setInviteRole('Member')
       setInviteStatus('idle')
+      track({ name: 'team.invite_sent', properties: { role: inviteRole.toLowerCase() } })
       refresh()
     } catch (err) {
       setInviteStatus('error')
@@ -306,24 +308,25 @@ export function Team() {
                     className={cm.cn(
                       cm.sp('px', 5),
                       cm.sp('py', 4),
-                      cm.flex({ align: 'center', justify: 'between' }),
+                      cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
                     )}
                   >
-                    <div className={cm.flex({ align: 'center', gap: 'md' })}>
+                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0')}>
                       <span
                         className={cm.cn(
                           'h-10 w-10',
                           cm.roundedFull,
                           'grid place-items-center text-on-primary',
                           cm.fontWeight('bold'),
+                          cm.shrink0,
                         )}
                         style={{ backgroundColor: SPEAKER_BG[m.speaker_color] }}
                       >
                         {m.initial}
                       </span>
-                      <div>
-                        <p className={cm.fontWeight('semibold')}>{m.name}</p>
-                        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      <div className={cm.cn('min-w-0')}>
+                        <p className={cm.cn(cm.fontWeight('semibold'), 'truncate')}>{m.name}</p>
+                        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant truncate')}>
                           {m.email} ·{' '}
                           {t(
                             'team.lastActive',

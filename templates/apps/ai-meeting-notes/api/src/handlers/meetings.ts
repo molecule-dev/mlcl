@@ -313,11 +313,13 @@ router.post(
     let summaryMd = ''
     let summaryError: Error | null = null
     try {
+      // NOTE: no explicit `temperature` — thinking-era default models reject
+      // the param with a 400 ("temperature is deprecated for this model"),
+      // which failed every summarization. The provider default is fine here.
       const stream = ai.chat({
         system: systemPrompt,
         messages: [{ role: 'user', content: userPrompt }],
         maxTokens: 1500,
-        temperature: 0.2,
       })
       for await (const ev of stream) {
         if (ev.type === 'text') summaryMd += ev.content

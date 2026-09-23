@@ -16,8 +16,11 @@ interface SessionEnvelope {
   props: UserPropsBag
 }
 
-interface UserReadEnvelope {
-  props: UserPropsBag
+/** Response of the server-side settings channel (GET/PATCH /api/settings/me). */
+interface SettingsMeEnvelope {
+  id: string
+  settings?: { sharing?: { scope?: string } }
+  integrations?: Record<string, { connected?: boolean }>
 }
 
 async function loginViaApi(email: string, password: string): Promise<SessionEnvelope> {
@@ -91,9 +94,10 @@ test.describe('user journey (kitchen-sink)', () => {
     }
 
     // 5. Persist a settings tweak — flip default sharing scope. Verify
-    //    via direct GET /api/users/:id that oauthData persisted. The
-    //    Sharing pane is in a sibling tab on the Settings page, so we
-    //    open it first before touching the dropdown.
+    //    via GET /api/settings/me (the server-side channel; the platform
+    //    user resource never returns oauthData on reads). The Sharing
+    //    pane is in a sibling tab on the Settings page, so we open it
+    //    first before touching the dropdown.
     await page.goto(APP_BASE + '/settings')
     await page.locator('[data-mol-id="settings-section-sharing"]').click()
     await expect(page.locator('[data-mol-id="settings-sharing-scope"]')).toBeVisible({
@@ -104,14 +108,13 @@ test.describe('user journey (kitchen-sink)', () => {
     await page.locator('[data-mol-id="settings-save"]').click()
     await expect(page.locator('[data-mol-id="settings-saved"]')).toBeVisible({ timeout: 10_000 })
 
-    const userRes = await request.get(`${API_BASE}/users/${session.props.id}`, { headers: auth })
-    const user = (await userRes.json()) as UserReadEnvelope
-    const sharing = (user.props.oauthData as { settings?: { sharing?: { scope?: string } } } | null)
-      ?.settings?.sharing
-    expect(sharing?.scope).toBe('Public link')
+    const settingsRes = await request.get(`${API_BASE}/settings/me`, { headers: auth })
+    expect(settingsRes.status()).toBe(200)
+    const settingsMe = (await settingsRes.json()) as SettingsMeEnvelope
+    expect(settingsMe.settings?.sharing?.scope).toBe('Public link')
 
     // 6. Persist an integration — connect Google Calendar — and verify
-    //    via direct GET /api/users/:id that the connectedAt stamp exists.
+    //    via GET /api/settings/me that the connected state persisted.
     await page.goto(APP_BASE + '/integrations')
     const googleToggle = page.locator('[data-mol-id="integration-toggle-google_calendar"]')
     await expect(googleToggle).toBeVisible({ timeout: 15_000 })
@@ -122,15 +125,10 @@ test.describe('user journey (kitchen-sink)', () => {
       { timeout: 10_000 },
     )
 
-    const userAfterIntegration = (await (
-      await request.get(`${API_BASE}/users/${session.props.id}`, { headers: auth })
-    ).json()) as UserReadEnvelope
-    const integrations = (
-      userAfterIntegration.props.oauthData as {
-        integrations?: Record<string, { connected?: boolean }>
-      } | null
-    )?.integrations
-    expect(integrations?.['google_calendar']?.connected).toBe(true)
+    const settingsAfterIntegration = (await (
+      await request.get(`${API_BASE}/settings/me`, { headers: auth })
+    ).json()) as SettingsMeEnvelope
+    expect(settingsAfterIntegration.integrations?.['google_calendar']?.connected).toBe(true)
 
     // 7. Verify the public auth-recovery and static pages still render
     //    when revisited mid-session — they must be public and not
