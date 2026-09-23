@@ -99,10 +99,13 @@ export function History() {
   const http = useHttpClient()
   const [entries, setEntries] = useState<WorkoutHistoryEntry[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     async function load() {
+      setLoadError(false)
       try {
         const [workoutsRes, exercisesRes] = await Promise.all([
           http.get<ApiWorkout[]>('/workouts?status=completed&limit=200'),
@@ -147,6 +150,9 @@ export function History() {
             }
           }),
         )
+      } catch (_error) {
+        // Fetch failed — surface an inline error instead of a silent blank.
+        if (!cancelled) setLoadError(true)
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -156,7 +162,7 @@ export function History() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [http])
+  }, [http, reloadKey])
 
   const monthVolume = useMemo(() => entries.reduce((sum, r) => sum + r.totalVolume, 0), [entries])
 
@@ -211,6 +217,37 @@ export function History() {
         <h2 className={cm.cn('text-2xl font-extrabold tracking-tight text-on-surface')}>
           {t('forja.history.list.title', {}, { defaultValue: 'All workouts' })}
         </h2>
+        {loadError ? (
+          <div
+            role="alert"
+            data-mol-id="load-error"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('p', 4),
+              cm.textSize('sm'),
+              'flex-wrap rounded-xl bg-error-container text-on-error-container',
+            )}
+          >
+            <span>
+              {t(
+                'common.loadFailed',
+                {},
+                {
+                  defaultValue: 'Could not load your data — check your connection and try again.',
+                },
+              )}
+            </span>
+            <button
+              type="button"
+              data-mol-id="retry-load"
+              onClick={() => setReloadKey((k) => k + 1)}
+              className={cm.cn(cm.fontWeight('bold'), 'underline underline-offset-2')}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        ) : null}
+
         {loading ? (
           <p
             className={cm.cn(

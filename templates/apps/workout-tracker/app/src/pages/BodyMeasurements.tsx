@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -106,7 +107,12 @@ export function BodyMeasurements() {
     }
     setCreating(true)
     try {
-      await http.post('/measurements', body)
+      const created = (await http.post<{ id?: string }>('/measurements', body)).data
+      // Domain event: a body check-in was logged.
+      void track({
+        name: 'measurement.logged',
+        properties: { measurementId: created?.id ?? null },
+      })
       setDraft({})
       setShowCreate(false)
       await load()

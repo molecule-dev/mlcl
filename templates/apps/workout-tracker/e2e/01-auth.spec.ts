@@ -33,6 +33,15 @@ test.describe('auth', () => {
     const password = 'TestPass123!'
     await signup(page, email, password)
     await context.clearCookies()
+    // Wiping the cookie mid-session makes the auth client's refresh/probe
+    // calls (and the re-mounted dashboard prefetches) 401 on their way to
+    // the re-login — expected boundary noise on both sides of the
+    // transition. The assertions below still prove the real contract: a 2xx
+    // log-in POST and the app actually leaving /login.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await login(page, email, password)
     })

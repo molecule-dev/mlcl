@@ -3,7 +3,10 @@ import { test, expect } from '@molecule/app-e2e-fixtures-default'
 import { signup, API_BASE, captureNetwork } from './_helpers.js'
 
 test.describe('/settings persistence', () => {
-  test('weight unit toggle persists across reload via PATCH /users/:id', async ({ page }) => {
+  // The Settings page persists through the server-side GET/PATCH /api/settings
+  // channel: the platform user resource never returns `oauthData` on reads, so
+  // preferences written via PATCH /users/:id silently evaporate on the next GET.
+  test('weight unit toggle persists across reload via PATCH /api/settings', async ({ page }) => {
     await signup(page)
     await page.goto('/settings')
     await page.waitForLoadState('networkidle').catch(() => null)
@@ -18,8 +21,8 @@ test.describe('/settings persistence', () => {
       // Wait for the PATCH to settle by polling the server.
       await page.waitForTimeout(800)
     })
-    const patch = reqs.find((r) => /\/users\//.test(r.url) && r.method === 'PATCH')
-    expect(patch, 'PATCH /users/:id was not observed when toggling weight unit').toBeTruthy()
+    const patch = reqs.find((r) => /\/api\/settings/.test(r.url) && r.method === 'PATCH')
+    expect(patch, 'PATCH /api/settings was not observed when toggling weight unit').toBeTruthy()
     expect(patch!.status).toBeLessThan(300)
 
     await page.reload()
@@ -28,9 +31,7 @@ test.describe('/settings persistence', () => {
     expect(after).toBe(next)
   })
 
-  test('rest timer change persists in oauthData.preferences (read-after-write)', async ({
-    page,
-  }) => {
+  test('rest timer change persists server-side (read-after-write)', async ({ page }) => {
     await signup(page)
     await page.goto('/settings')
     await page.waitForLoadState('networkidle').catch(() => null)
@@ -38,17 +39,15 @@ test.describe('/settings persistence', () => {
     await page.getByTestId('pref-rest-timer').selectOption('180')
     await page.waitForTimeout(800)
 
-    // Verify on server: GET /users/me reflects the saved preference.
+    // Verify on server: GET /api/settings reflects the saved preference.
     const cookies = await page.context().cookies()
     const cookieHeader = cookies.map((c) => `${c.name}=${c.value}`).join('; ')
-    const me = await page.request.get(`${API_BASE}/users/me`, { headers: { Cookie: cookieHeader } })
-    expect(me.status()).toBe(200)
-    const body = await me.json()
-    const oauth =
-      (body?.props?.oauthData as Record<string, unknown> | undefined) ??
-      (body?.oauthData as Record<string, unknown> | undefined) ??
-      {}
-    const prefs = (oauth.preferences as Record<string, unknown> | undefined) ?? {}
+    const settings = await page.request.get(`${API_BASE}/settings`, {
+      headers: { Cookie: cookieHeader },
+    })
+    expect(settings.status()).toBe(200)
+    const body = await settings.json()
+    const prefs = (body?.preferences as Record<string, unknown> | undefined) ?? {}
     expect(prefs.restTimerSeconds).toBe(180)
   })
 
@@ -81,6 +80,18 @@ test.describe('account deletion', () => {
     await page.getByTestId('settings-delete-account').click()
     await expect(page.getByTestId('settings-delete-modal')).toBeVisible()
     await page.getByTestId('settings-delete-password').fill(res.password)
+    // The logout call after a successful self-deletion 401s by design (the
+    // session was revoked with the account), and the read-after-delete login
+    // below 403s by design (the user is gone) — both surface as console
+    // errors, so allow them before they fire.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.getByTestId('settings-delete-submit').click()
     await page.waitForURL(/\/login/, { timeout: 15000 })
 

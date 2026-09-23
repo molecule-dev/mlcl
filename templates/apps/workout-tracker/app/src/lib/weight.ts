@@ -61,14 +61,16 @@ export function toStorageKg(value: number, unit: WeightUnit = cachedUnit): numbe
 }
 
 interface UserPrefsResponse {
-  props?: { oauthData?: { preferences?: { weightUnit?: string } } }
+  preferences?: { weightUnit?: string }
 }
 
 /**
  * Fetch the signed-in user's weight-unit preference once and keep the module
  * cache fresh. Mount this in the authenticated app shell so every weight
- * renderer picks up the chosen unit and re-renders when it loads. A failed
- * profile load keeps the default and must never break rendering.
+ * renderer picks up the chosen unit and re-renders when it loads. Reads the
+ * server-side GET /api/settings channel — the platform user resource never
+ * returns `oauthData` on reads, so the preference cannot ride /users/:id.
+ * A failed load keeps the default and must never break rendering.
  */
 export function useWeightPreference(): WeightUnit {
   const http = useHttpClient()
@@ -79,10 +81,10 @@ export function useWeightPreference(): WeightUnit {
     if (!userId) return
     let cancelled = false
     http
-      .get<UserPrefsResponse>(`/users/${userId}`)
+      .get<UserPrefsResponse>('/settings')
       .then((res) => {
         if (cancelled) return
-        const next = normalizeWeightUnit(res.data?.props?.oauthData?.preferences?.weightUnit)
+        const next = normalizeWeightUnit(res.data?.preferences?.weightUnit)
         cachedUnit = next
         setUnit(next)
       })

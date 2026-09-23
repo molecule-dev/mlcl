@@ -128,6 +128,7 @@ export function Dashboard() {
   const [streak, setStreak] = useState<ApiStreak | null>(null)
   const [recentPRCount, setRecentPRCount] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -163,7 +164,9 @@ export function Dashboard() {
         const since = Date.now() - 30 * 86_400_000
         setRecentPRCount(prs.filter((r) => new Date(r.achieved_at).getTime() >= since).length)
       } catch (_error) {
-        // Network errors leave defaults — dashboard degrades gracefully
+        // Network errors leave defaults, but the failure is surfaced so it
+        // never reads as an empty account.
+        if (!cancelled) setLoadError(true)
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -315,6 +318,26 @@ export function Dashboard() {
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>
         </div>
+
+        {loadError ? (
+          <p
+            role="alert"
+            data-mol-id="load-error"
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.sp('p', 4),
+              'rounded-xl bg-error-container text-on-error-container',
+            )}
+          >
+            {t(
+              'common.loadFailed',
+              {},
+              {
+                defaultValue: 'Could not load your data — check your connection and try again.',
+              },
+            )}
+          </p>
+        ) : null}
 
         {loading ? (
           <div

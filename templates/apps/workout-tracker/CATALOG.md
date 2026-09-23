@@ -36,6 +36,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **progress** — `api/src/handlers/progress.ts`
 - **records** — `api/src/handlers/records.ts`
 - **routines** — `api/src/handlers/routines.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **workouts** — `api/src/handlers/workouts.ts`
 
 ## Screens (16)

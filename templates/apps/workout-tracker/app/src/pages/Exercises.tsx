@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -66,13 +67,18 @@ export function Exercises() {
   const [newGroup, setNewGroup] = useState<MuscleGroup>('chest')
   const [newEquipment, setNewEquipment] = useState('Barbell')
   const [createError, setCreateError] = useState('')
+  const [loadError, setLoadError] = useState(false)
   const [creating, setCreating] = useState(false)
 
   async function load() {
     setLoading(true)
+    setLoadError(false)
     try {
       const data = (await http.get<ApiExercise[]>('/exercises')).data ?? []
       setExercises(data)
+    } catch (_error) {
+      // Fetch failed — surface an inline error instead of a silent blank.
+      setLoadError(true)
     } finally {
       setLoading(false)
     }
@@ -107,7 +113,15 @@ export function Exercises() {
         muscle_groups: [newGroup],
       }
       if (newEquipment.trim()) body.equipment = newEquipment.trim()
-      await http.post('/exercises', body)
+      const created = (await http.post<{ id?: string }>('/exercises', body)).data
+      // Domain event: a custom exercise entered the library.
+      void track({
+        name: 'exercise.added',
+        properties: {
+          exerciseId: created?.id ?? null,
+          muscleGroup: newGroup,
+        },
+      })
       setShowCreate(false)
       setNewName('')
       setNewGroup('chest')
@@ -335,6 +349,37 @@ export function Exercises() {
           </button>
         ))}
       </div>
+
+      {loadError ? (
+        <div
+          role="alert"
+          data-mol-id="load-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            cm.sp('p', 4),
+            cm.textSize('sm'),
+            'flex-wrap rounded-xl bg-error-container text-on-error-container',
+          )}
+        >
+          <span>
+            {t(
+              'common.loadFailed',
+              {},
+              {
+                defaultValue: 'Could not load your data — check your connection and try again.',
+              },
+            )}
+          </span>
+          <button
+            type="button"
+            data-mol-id="retry-load"
+            onClick={() => void load()}
+            className={cm.cn(cm.fontWeight('bold'), 'underline underline-offset-2')}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       {loading ? (
         <p

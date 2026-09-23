@@ -70,6 +70,7 @@ export function PersonalRecords() {
   const [records, setRecords] = useState<ApiPersonalRecord[]>([])
   const [exercises, setExercises] = useState<Map<string, ApiExercise>>(new Map())
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [filterOpen, setFilterOpen] = useState(false)
   const [kind, setKind] = useState<'' | ApiPersonalRecord['kind']>('')
 
@@ -83,6 +84,9 @@ export function PersonalRecords() {
         if (cancelled) return
         setRecords(list)
         setExercises(new Map(exList.map((e) => [e.id, e])))
+      } catch (_error) {
+        // Fetch failed — surface an inline error instead of a silent blank.
+        if (!cancelled) setLoadError(true)
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -179,6 +183,26 @@ export function PersonalRecords() {
             </button>
           ))}
         </div>
+      ) : null}
+
+      {loadError ? (
+        <p
+          role="alert"
+          data-mol-id="load-error"
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.sp('p', 4),
+            'rounded-xl bg-error-container text-on-error-container',
+          )}
+        >
+          {t(
+            'common.loadFailed',
+            {},
+            {
+              defaultValue: 'Could not load your data — check your connection and try again.',
+            },
+          )}
+        </p>
       ) : null}
 
       {loading ? (

@@ -102,6 +102,7 @@ export function ExerciseDetail() {
     }>
   >([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -166,6 +167,9 @@ export function ExerciseDetail() {
           })
           .filter((x): x is NonNullable<typeof x> => Boolean(x))
         setSessions(rows.slice(0, 10))
+      } catch (_error) {
+        // Fetch failed — surface an inline error instead of a silent blank.
+        if (!cancelled) setLoadError(true)
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -270,6 +274,26 @@ export function ExerciseDetail() {
           </Link>
         }
       />
+
+      {loadError ? (
+        <p
+          role="alert"
+          data-mol-id="load-error"
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.sp('p', 4),
+            'rounded-xl bg-error-container text-on-error-container',
+          )}
+        >
+          {t(
+            'common.loadFailed',
+            {},
+            {
+              defaultValue: 'Could not load your data — check your connection and try again.',
+            },
+          )}
+        </p>
+      ) : null}
 
       {loading ? (
         <p

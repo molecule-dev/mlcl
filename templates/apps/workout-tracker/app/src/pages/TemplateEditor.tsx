@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -123,6 +124,8 @@ export function TemplateEditor() {
         description: description || null,
         estimated_duration_minutes: dur,
       })
+      // Domain event: a template definition was saved.
+      void track({ name: 'routine.saved', properties: { routineId: routine.id } })
       await load()
     } catch (err) {
       setError(
@@ -156,6 +159,11 @@ export function TemplateEditor() {
         sets,
         reps,
       })
+      // Domain event: the routine builder gained a planned exercise.
+      void track({
+        name: 'routine.exercise_added',
+        properties: { routineId: routine.id, exerciseId: pendingExerciseId, sets, reps },
+      })
       await load()
     } catch (err) {
       setError(
@@ -173,6 +181,10 @@ export function TemplateEditor() {
     setError('')
     try {
       await http.delete(`/routines/${routine.id}/exercises/${rowId}`)
+      void track({
+        name: 'routine.exercise_removed',
+        properties: { routineId: routine.id, rowId },
+      })
       await load()
     } catch (err) {
       setError(
@@ -192,6 +204,11 @@ export function TemplateEditor() {
     setError('')
     try {
       await http.post(`/routines/${routine.id}/start`)
+      // Domain event: a workout started FROM a template (builder funnel end).
+      void track({
+        name: 'workout.started',
+        properties: { routineId: routine.id },
+      })
       navigate('/workout/active')
     } catch (err) {
       setError(

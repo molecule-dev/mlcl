@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -20,17 +21,13 @@ type Preferences = {
 }
 
 /**
- * Shape returned by GET /api/users/:id from molecule's user resource.
- * The handler wraps the row in `props`, with the oauthData JSONB and a
- * couple of side fields (twoFactor) flattened next to it. Apps that
- * read the user must dig through `.props` to reach `oauthData`.
+ * Shape returned by GET /api/settings — the server-side preferences channel.
+ * The platform user resource NEVER returns `oauthData` on reads, so prefs
+ * cannot ride PATCH/GET /users/:id (writes vanish on the next read); this
+ * channel reads and merges the slice server-side instead.
  */
-type UserResponse = {
-  props?: UserProfile & {
-    oauthData?: {
-      preferences?: Partial<Preferences>
-    } | null
-  }
+type SettingsResponse = {
+  preferences?: Partial<Preferences>
 }
 
 const DEFAULT_PREFS: Preferences = {
@@ -95,9 +92,9 @@ export function Settings() {
     if (!user?.id) return
     async function load() {
       try {
-        const response = await http.get<UserResponse>(`/users/${user!.id}`)
+        const response = await http.get<SettingsResponse>('/settings')
         if (cancelled) return
-        const remote = response.data?.props?.oauthData?.preferences ?? {}
+        const remote = response.data?.preferences ?? {}
         setPrefs({ ...DEFAULT_PREFS, ...remote })
         primeWeightUnit(remote.weightUnit)
       } catch (_error) {
@@ -110,7 +107,6 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [http, user?.id])
 
   async function persist(next: Preferences, key: keyof Preferences) {
@@ -118,21 +114,11 @@ export function Settings() {
     setSaveError('')
     setSaving(key)
     try {
-      // PATCH /users/:id accepts oauthData as a freeform bag. Send it
-      // directly (NOT wrapped in `{ data: … }`) so req.body.oauthData is
-      // visible to molecule's user.update handler. We re-read the current
-      // oauthData first so we don't accidentally overwrite unrelated keys
-      // a sibling page may have written.
-      let currentOauth: Record<string, unknown> = {}
-      try {
-        const fresh = await http.get<UserResponse>(`/users/${user.id}`)
-        currentOauth = (fresh.data?.props?.oauthData as Record<string, unknown>) ?? {}
-      } catch (_error) {
-        // Re-read failed — proceed with empty oauth bag so we don't clobber unrelated keys
-      }
-      await http.patch(`/users/${user.id}`, {
-        oauthData: { ...currentOauth, preferences: next },
-      })
+      // PATCH /api/settings merges server-side, so sending just the full
+      // preferences slice never clobbers unrelated oauthData keys.
+      await http.patch<SettingsResponse>('/settings', { preferences: next })
+      // Domain event: a preference was persisted.
+      void track({ name: 'settings.updated', properties: { preference: key } })
       setPrefs(next)
       primeWeightUnit(next.weightUnit)
     } catch (err) {
@@ -234,10 +220,16 @@ export function Settings() {
         </p>
       ) : null}
 
-      <div className={cm.cn('grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6')}>
+      {/* Below lg the group nav becomes a horizontal chip row and the panel
+          gets the full width — a 200px+panel split at 768px leaves the pref
+          rows ~220px wide, narrower than a phone, and overflows the row. */}
+      <div className={cm.cn('grid grid-cols-1 lg:grid-cols-[200px_minmax(0,1fr)] gap-6')}>
         <nav
           aria-label={t('forja.settings.groupsNavLabel', {}, { defaultValue: 'Settings groups' })}
-          className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'list-none')}
+          className={cm.cn(
+            cm.flex({ gap: 'xs' }),
+            'flex-row overflow-x-auto lg:flex-col lg:overflow-visible list-none',
+          )}
         >
           {PREF_GROUPS.map((g) => (
             <button
@@ -251,7 +243,7 @@ export function Settings() {
                 cm.sp('py', 3),
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
-                'rounded-xl text-left transition-colors uppercase tracking-widest',
+                'shrink-0 whitespace-nowrap rounded-xl text-left transition-colors uppercase tracking-widest',
                 activeGroup === g.groupKey
                   ? 'bg-primary text-on-primary'
                   : 'text-on-surface hover:bg-surface-variant',
@@ -263,7 +255,7 @@ export function Settings() {
         </nav>
 
         <section
-          className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}
+          className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'min-w-0')}
           data-testid="settings-panel"
         >
           {!loaded ? (
@@ -563,9 +555,16 @@ export function Settings() {
               </button>
             </div>
           </article>
-        </section>
-        <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
-          <div className={cm.sp('mb', 6)}>
+
+          {/* Appearance lives inside the panel column so it never wraps
+              into the nav column on narrow viewports. */}
+          <article
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              cm.sp('p', 5),
+              'bg-surface-container-low rounded-xl',
+            )}
+          >
             <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
               {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
             </h3>
@@ -576,8 +575,8 @@ export function Settings() {
                 { defaultValue: 'Toggle between light and dark mode.' },
               )}
             </p>
-          </div>
-          <ThemeToggle />
+            <ThemeToggle />
+          </article>
         </section>
       </div>
 

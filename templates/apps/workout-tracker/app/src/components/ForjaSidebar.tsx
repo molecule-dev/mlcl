@@ -13,6 +13,11 @@ interface NavItem {
   filledIcon?: boolean
 }
 
+export type { NavItem }
+
+// Exported for ForjaMobileNav (the <768px drawer mirrors these lists).
+export { PRIMARY_ITEMS, SECONDARY_ITEMS }
+
 const PRIMARY_ITEMS: NavItem[] = [
   {
     to: '/dashboard',

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -168,6 +169,8 @@ export function ActiveWorkout() {
         })
       ).data
       if (created?.id) {
+        // Domain event: the workout funnel's entry point.
+        void track({ name: 'workout.started', properties: { workoutId: created.id } })
         const detail = (await http.get<ApiWorkout>(`/workouts/${created.id}`)).data ?? created
         setWorkout(detail)
         if (!pendingExerciseId && exercises[0]) setPendingExerciseId(exercises[0].id)
@@ -217,6 +220,17 @@ export function ActiveWorkout() {
         reps: r,
         is_completed: true,
       })
+      // Domain event: a set was committed to the active workout.
+      void track({
+        name: 'workout.set_logged',
+        properties: {
+          workoutId: workout.id,
+          exerciseId: pendingExerciseId,
+          setNumber: setIndex + 1,
+          weightKg: toStorageKg(w),
+          reps: r,
+        },
+      })
       setPendingWeight('')
       setPendingReps('')
       await load()
@@ -236,6 +250,11 @@ export function ActiveWorkout() {
     setError('')
     try {
       await http.delete(`/workouts/${workout.id}/sets/${setId}`)
+      // Domain event: destructive but expected — track for funnel sanity.
+      void track({
+        name: 'workout.set_deleted',
+        properties: { workoutId: workout.id, setId },
+      })
       await load()
     } catch (err) {
       setError(
@@ -252,6 +271,16 @@ export function ActiveWorkout() {
     setFinishing(true)
     try {
       await http.post(`/workouts/${workout.id}/complete`)
+      // Domain event: the workout funnel's success point — the session is
+      // logged (PRs are recomputed server-side at this same moment).
+      void track({
+        name: 'workout.logged',
+        properties: {
+          workoutId: workout.id,
+          sets: workout.sets?.length ?? 0,
+          totalVolumeKg: Math.round(totalVolume),
+        },
+      })
       navigate(`/history/${workout.id}`)
     } catch (err) {
       setError(
