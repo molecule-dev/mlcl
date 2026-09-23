@@ -111,7 +111,14 @@ test('"New alarm" button reveals a form that POSTs and the new alarm appears in 
   await page.locator('input[type="time"]').fill('07:42')
   const labelInput = page.locator('input[type="text"]').first()
   await labelInput.fill('Sunset weekend')
+  // Arm the POST wait BEFORE the click: the API readback below must not
+  // race the in-flight create (flaked when the GET landed first).
+  const saveResponse = page.waitForResponse(
+    (r) => /\/api\/alarms(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+    { timeout: 20_000 },
+  )
   await page.getByRole('button', { name: /save alarm/i }).click()
+  await saveResponse
 
   // Read-after-write via the API: row should exist on this user
   const list = await page.request.get(`${API_BASE}/alarms`, { headers: apiHeaders(accessToken) })
