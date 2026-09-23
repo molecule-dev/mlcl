@@ -5,9 +5,13 @@ import { APP_BASE, captureNetwork, signup } from './_helpers.js'
 test.describe('/profile/:id', () => {
   test('renders the creator display-name h1 and fetches /api/profile', async ({ page }) => {
     await signup(page)
+    // The page's data fetch fires from a mount effect — after the headings are
+    // already visible — so the capture must stay attached until the network
+    // settles (networkidle), not just until the first heading renders.
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/profile/me')
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+      await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {})
     })
     expect(reqs.some((r) => /\/api\/profile/.test(r.url) && r.method === 'GET')).toBeTruthy()
   })

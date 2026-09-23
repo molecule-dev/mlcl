@@ -82,7 +82,9 @@ export function GenerationCard({ generation, aspectClass }: GenerationCardProps)
           className={cm.cn(
             cm.flex({ direction: 'col', gap: 'xs' }),
             cm.sp('p', 4),
-            'absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity',
+            // Touch devices never hover — keep the prompt/actions visible at
+            // <md and restore the hover-reveal only where a pointer exists.
+            'absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity',
           )}
         >
           <p

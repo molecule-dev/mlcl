@@ -105,6 +105,14 @@ test.describe('backend invariants', () => {
     // is pure I/O, so 12 in parallel finishes in roughly the time of
     // one. Allow 4 minutes headroom in case the provider rate-limits.
     test.setTimeout(240_000)
+    // The whole point of this test is that /api/generations answers 402
+    // once the balance is drained — every drain/mop request that lands in
+    // that path logs a benign "Failed to load resource: … status of 402"
+    // console entry. Allow exactly that; everything else still fails.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 402',
+    })
     await signup(page)
 
     const startBalance = await getCreditBalance(page)
@@ -238,6 +246,14 @@ test.describe('backend invariants', () => {
   test('stripe confirm-checkout refuses to flip planKey for an unpaid session (no free upgrades)', async ({
     page,
   }) => {
+    // This test DELIBERATELY drives POST /api/plans/confirm-checkout into its
+    // refusal paths (unpaid session, bogus session id) — the browser logs a
+    // console error for every non-2xx fetch. Both refusals answer 402, which
+    // is the assertion, not a failure: allow that exact console noise here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 402',
+    })
     await signup(page)
 
     // Verify the starting state — the plan should be the seeded

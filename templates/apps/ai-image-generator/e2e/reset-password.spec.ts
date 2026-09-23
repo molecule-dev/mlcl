@@ -23,6 +23,13 @@ test.describe('/reset-password', () => {
     await page.goto(APP_BASE + '/reset-password?token=invalid-test-token')
     await page.getByLabel(/New password/i).fill('NewPass123!')
     await page.getByLabel(/Confirm password/i).fill('NewPass123!')
+    // An invalid token intentionally answers 401 (the shared user resource
+    // signals unknown/expired/consumed tokens that way) — the console entry
+    // for that response is expected; the request firing is the assertion.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /Save new password/i }).click()
       // expect call to fire even if token invalid; we only assert the request was made

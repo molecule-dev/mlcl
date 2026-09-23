@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -36,6 +37,10 @@ export function CollectionDetail() {
     try {
       await http.post(`/api/collections/${params.id}/share`, {})
       setShareState('shared')
+      void track({
+        name: 'collection.shared',
+        properties: { collectionId: params.id },
+      })
       await collectionState.refetch()
     } catch (error) {
       logError('collection.share', error)
@@ -52,6 +57,10 @@ export function CollectionDetail() {
     try {
       await http.put(`/api/collections/${params.id}`, { name: editName })
       setEditName(null)
+      void track({
+        name: 'collection.renamed',
+        properties: { collectionId: params.id },
+      })
       await collectionState.refetch()
     } catch (error) {
       logError('collection.saveEdit', error)

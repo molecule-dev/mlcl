@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -67,17 +68,29 @@ export function ImageDetail() {
             anchor.remove()
             setTimeout(() => URL.revokeObjectURL(objectUrl), 1_000)
             setFeedback(t('imageDetail.downloadStarted', {}, { defaultValue: 'Download started.' }))
+            void track({
+              name: 'image.downloaded',
+              properties: { generationId: params.id, model: imageState.data?.model },
+            })
             break
           }
           case 'upscale':
             await http.post(`/api/generations/${params.id}/variations`, { count: 1 })
             setFeedback(t('imageDetail.upscaleQueued', {}, { defaultValue: 'Upscale queued' }))
+            void track({
+              name: 'image.upscaled',
+              properties: { generationId: params.id },
+            })
             break
           case 'variations':
             await http.post(`/api/generations/${params.id}/variations`, { count: 4 })
             setFeedback(
               t('imageDetail.variationsQueued', {}, { defaultValue: 'Variations queued' }),
             )
+            void track({
+              name: 'image.variations_requested',
+              properties: { generationId: params.id },
+            })
             await variationsState.refetch()
             break
           case 'share':
@@ -85,6 +98,10 @@ export function ImageDetail() {
             setFeedback(
               t('imageDetail.visibilityToggled', {}, { defaultValue: 'Visibility updated' }),
             )
+            void track({
+              name: 'image.visibility_toggled',
+              properties: { generationId: params.id },
+            })
             await imageState.refetch()
             break
           // 'edit' is handled by the Link in topbar; no in-place handler needed.

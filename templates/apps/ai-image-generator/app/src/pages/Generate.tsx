@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -42,6 +43,7 @@ export function Generate() {
   const [seed, setSeed] = useState(184_204)
   const [seedLocked, setSeedLocked] = useState(true)
   const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const generationsState = useFetchList(
     '/api/generations?limit=8',
@@ -64,8 +66,9 @@ export function Generate() {
       const effectiveSeed = seedLocked ? seed : Math.floor(Math.random() * 1_000_000)
       if (!seedLocked) setSeed(effectiveSeed)
       setSubmitting(true)
+      setSubmitError(null)
       try {
-        await http.post('/api/generations', {
+        const res = await http.post<{ id?: string }>('/api/generations', {
           prompt: promptText,
           model,
           style,
@@ -74,9 +77,30 @@ export function Generate() {
           steps,
           cfg,
         })
+        // Domain event at the commit point — the funnel this app exists for.
+        void track({
+          name: 'image.generated',
+          properties: {
+            generationId: res.data?.id,
+            model,
+            style,
+            aspect,
+            seed: effectiveSeed,
+          },
+        })
         await generationsState.refetch()
       } catch (error) {
         logError('generate.handleSubmit', error)
+        setSubmitError(
+          t(
+            'generate.submitFailed',
+            {},
+            {
+              defaultValue:
+                'The generation could not be queued — check your connection and try again.',
+            },
+          ),
+        )
       } finally {
         setSubmitting(false)
       }
@@ -114,7 +138,37 @@ export function Generate() {
       />
 
       <main className={cm.cn(cm.sp('p', 8), 'grid gap-6 lg:grid-cols-12')}>
-        <section className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'lg:col-span-8')}>
+        {submitError && (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.fontWeight('semibold'),
+              cm.textSize('sm'),
+              'rounded-xl bg-error-container/40 text-error col-span-full',
+            )}
+          >
+            <span>{submitError}</span>
+            <button
+              type="button"
+              onClick={() => setSubmitError(null)}
+              aria-label={t('common.dismiss', {}, { defaultValue: 'Dismiss' })}
+              className={cm.cn(cm.fontWeight('bold'), 'shrink-0 text-error')}
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                close
+              </span>
+            </button>
+          </div>
+        )}
+        {/* min-w-0 on both grid items: below lg the implicit auto track sizes
+            to the content's min-content, so the unshrinkable seed input made
+            the page 42px wider than a 390px viewport. */}
+        <section
+          className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'lg:col-span-8 min-w-0')}
+        >
           <PromptComposer onSubmit={handleSubmit} />
           <article
             className={cm.cn(
@@ -239,7 +293,9 @@ export function Generate() {
           </article>
         </section>
 
-        <aside className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'lg:col-span-4')}>
+        <aside
+          className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'lg:col-span-4 min-w-0')}
+        >
           <article
             className={cm.cn(
               cm.sp('p', 6),
@@ -267,7 +323,7 @@ export function Generate() {
               </h3>
             </header>
 
-            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' })}>
+            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' }) + ' min-w-0'}>
               <legend
                 className={cm.cn(
                   cm.fontWeight('bold'),
@@ -310,7 +366,7 @@ export function Generate() {
               </div>
             </fieldset>
 
-            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' })}>
+            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' }) + ' min-w-0'}>
               <legend
                 className={cm.cn(
                   cm.fontWeight('bold'),
@@ -339,7 +395,7 @@ export function Generate() {
               </select>
             </fieldset>
 
-            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' })}>
+            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' }) + ' min-w-0'}>
               <div className={cm.flex({ align: 'center', justify: 'between' })}>
                 <legend
                   className={cm.cn(
@@ -365,7 +421,7 @@ export function Generate() {
               />
             </fieldset>
 
-            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' })}>
+            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' }) + ' min-w-0'}>
               <div className={cm.flex({ align: 'center', justify: 'between' })}>
                 <legend
                   className={cm.cn(
@@ -392,7 +448,7 @@ export function Generate() {
               />
             </fieldset>
 
-            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' })}>
+            <fieldset className={cm.flex({ direction: 'col', gap: 'xs' }) + ' min-w-0'}>
               <legend
                 className={cm.cn(
                   cm.fontWeight('bold'),
@@ -407,11 +463,15 @@ export function Generate() {
                   type="number"
                   value={seed}
                   onChange={(event) => setSeed(Number(event.target.value))}
+                  // size=8 keeps the intrinsic width ~8ch: the default size=20
+                  // makes the input's min-content ~262px, which nothing in the
+                  // mobile column can shrink, pushing the page past 390px.
+                  size={8}
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.sp('px', 3),
                     cm.sp('py', 2),
-                    'flex-1 rounded-xl border border-outline-variant/15 bg-surface-container font-mono text-on-surface focus:ring-2 focus:ring-primary/30 focus:outline-none',
+                    'min-w-0 flex-1 rounded-xl border border-outline-variant/15 bg-surface-container font-mono text-on-surface focus:ring-2 focus:ring-primary/30 focus:outline-none',
                   )}
                 />
                 <button

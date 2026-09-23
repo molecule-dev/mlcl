@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import {
@@ -123,10 +124,12 @@ export function Settings() {
         // Paid plans round-trip through Stripe Checkout. Free / downgrade
         // returns just `{ planKey }` and we update locally.
         if (res.data?.checkoutUrl) {
+          void track({ name: 'checkout.started', properties: { planKey } })
           window.location.assign(res.data.checkoutUrl)
           return
         }
         setFeedback(t('settings.billing.switched', {}, { defaultValue: 'Plan updated' }))
+        void track({ name: 'plan.switched', properties: { planKey } })
         await refetchPlans()
       } catch (error) {
         logError('settings.switchPlan', error)
@@ -189,6 +192,7 @@ export function Settings() {
           }
       await http.put('/api/profile/me', liveBody)
       setFeedback(t('settings.account.saved', {}, { defaultValue: 'Profile saved' }))
+      void track({ name: 'profile.updated' })
       await refetchProfile()
     } catch (error) {
       logError('settings.saveProfile', error)

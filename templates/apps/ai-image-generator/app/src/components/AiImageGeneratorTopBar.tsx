@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { useMobileNav } from './mobile-nav-context.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -29,31 +30,57 @@ export function AiImageGeneratorTopBar({
 }: AiImageGeneratorTopBarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const { openMobileNav } = useMobileNav()
 
   return (
     <header
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-        cm.sp('px', 8),
+        cm.sp('px', 4),
+        'md:px-8',
         cm.sp('py', 4),
-        'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10',
+        'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 min-w-0',
       )}
     >
-      <div className={cm.flex({ direction: 'col' })}>
-        <h1
+      <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' min-w-0 flex-1'}>
+        {/* Hamburger — opens the navigation drawer below the md breakpoint. */}
+        <button
+          type="button"
+          onClick={openMobileNav}
+          aria-label={t('common.openMenu', {}, { defaultValue: 'Open navigation menu' })}
+          aria-haspopup="dialog"
           className={cm.cn(
-            cm.textSize('2xl'),
-            cm.fontWeight('bold'),
-            'tracking-tight text-on-surface',
+            cm.flex({ align: 'center', justify: 'center' }),
+            'h-11 w-11 shrink-0 rounded-xl text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors md:hidden',
           )}
         >
-          {title}
-        </h1>
-        {subtitle && (
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-0.5')}>{subtitle}</p>
-        )}
+          <span className="material-symbols-outlined" aria-hidden="true">
+            menu
+          </span>
+        </button>
+        <div className={cm.flex({ direction: 'col' }) + ' min-w-0'}>
+          <h1
+            className={cm.cn(
+              cm.textSize('2xl'),
+              cm.fontWeight('bold'),
+              'tracking-tight text-on-surface truncate',
+            )}
+          >
+            {title}
+          </h1>
+          {subtitle && (
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                'text-on-surface-variant mt-0.5 truncate max-w-[60ch]',
+              )}
+            >
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
-      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+      <div className={cm.flex({ align: 'center', gap: 'sm' }) + ' shrink-0'}>
         {actions}
         {typeof credits === 'number' && (
           <span
@@ -67,7 +94,7 @@ export function AiImageGeneratorTopBar({
             )}
             title={t('topBar.creditsTooltip', {}, { defaultValue: 'Generation credits' })}
           >
-            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
+            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: 16 }}>
               token
             </span>
             <span className={cm.cn('font-mono')}>{credits.toLocaleString()}</span>

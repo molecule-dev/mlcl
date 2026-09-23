@@ -29,8 +29,11 @@ test.describe('/plan-updated', () => {
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
     await signup(page)
+    // The hook verifies only AFTER auth hydrates from the httpOnly cookie
+    // (GET /users/me on a cold load), so under a loaded machine that chain
+    // can take a while — give it the same 30s budget the signup helper uses.
     const confirmed = page
-      .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
+      .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 30_000 })
       .catch(() => null)
     // The provider's success_url lands on the APP origin, so this page is what
     // finishes the purchase — without the call the paid plan is never granted.

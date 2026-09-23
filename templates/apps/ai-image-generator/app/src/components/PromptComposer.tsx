@@ -127,7 +127,9 @@ export function PromptComposer({
                   cm.sp('py', 1),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
-                  'rounded-full uppercase tracking-widest transition-colors',
+                  // 36px touch floor — py-1 alone leaves these 24px tall,
+                  // well under a thumb-sized tap target on mobile.
+                  'min-h-9 rounded-full uppercase tracking-widest transition-colors',
                   active
                     ? 'bg-primary text-on-primary shadow-sm'
                     : 'bg-surface-container text-on-surface-variant hover:bg-primary/10 hover:text-primary',

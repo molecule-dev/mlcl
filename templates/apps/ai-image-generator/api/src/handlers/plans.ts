@@ -238,7 +238,25 @@ router.post(
       }
       const { sessionId } = req.body as z.infer<typeof confirmSchema>
       const stripe = getStripe()
-      const session = await stripe.checkout.sessions.retrieve(sessionId)
+      let session: Awaited<ReturnType<typeof stripe.checkout.sessions.retrieve>>
+      try {
+        session = await stripe.checkout.sessions.retrieve(sessionId)
+      } catch (err) {
+        // Unknown/malformed session id (Stripe raises `resource_missing` and
+        // similar): a client-input problem, NOT a server fault. Answer 402 so
+        // the caller sees "not confirmable" instead of an opaque 500 — the
+        // invariant this endpoint protects is that an unverifiable session is
+        // never confirmed.
+        console.error('[plans/confirm-checkout] session retrieve failed:', err)
+        return res.status(402).json({
+          error: t(
+            'plans.confirmUnpaid',
+            {},
+            { defaultValue: 'Checkout session is not yet paid' },
+          ),
+          paymentStatus: null,
+        })
+      }
       const sessionUserId = (session.metadata?.userId as string | undefined) ?? null
       const planKey = (session.metadata?.planKey as string | undefined) ?? null
       if (!sessionUserId || sessionUserId !== userId) {

@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -34,6 +35,7 @@ export function Collections() {
         name: t('collections.untitled', { stamp }, { defaultValue: 'Untitled · {{stamp}}' }),
         description: '',
       })
+      void track({ name: 'collection.created' })
       await collectionsState.refetch()
     } catch (error) {
       logError('collections.create', error)

@@ -200,7 +200,7 @@ export function Dashboard() {
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'text-primary hover:text-secondary transition-colors',
+                'py-2 -my-2 text-primary hover:text-secondary transition-colors',
               )}
             >
               {t('dashboard.queue.cta', {}, { defaultValue: 'Open studio' })}
@@ -294,7 +294,7 @@ export function Dashboard() {
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'text-primary hover:text-secondary transition-colors',
+                'py-2 -my-2 text-primary hover:text-secondary transition-colors',
               )}
             >
               {t('dashboard.recent.cta', {}, { defaultValue: 'Open gallery' })}

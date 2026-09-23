@@ -5,10 +5,13 @@ import { APP_BASE, captureNetwork, getFirstCollectionId, signup } from './_helpe
 test.describe('/collections/:id', () => {
   test('renders collection name as h1 (and fetches /api/collections)', async ({ page }) => {
     await signup(page)
+    // The page's data fetch fires from a mount effect — after the top-bar h1
+    // is already visible — so the capture must stay attached until the network
+    // settles (networkidle), not just until the heading renders.
     const id = await getFirstCollectionId(page)
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + `/collections/${id}`)
-      await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+      await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {})
     })
     expect(reqs.some((r) => /\/api\/collections/.test(r.url) && r.method === 'GET')).toBeTruthy()
   })

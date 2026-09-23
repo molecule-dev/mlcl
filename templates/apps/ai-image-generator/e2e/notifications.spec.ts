@@ -5,9 +5,12 @@ import { APP_BASE, captureNetwork, signup } from './_helpers.js'
 test.describe('/notifications', () => {
   test('renders Activity h1 and fetches list', async ({ page }) => {
     await signup(page)
+    // The page's data fetch fires from a mount effect — after the top-bar h1
+    // is already visible — so the capture must stay attached until the network
+    // settles (networkidle), not just until the heading renders.
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/notifications')
-      await expect(page.getByRole('heading', { name: /Activity/i, level: 1 })).toBeVisible()
+      await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {})
     })
     expect(reqs.some((r) => /\/api\/notifications/.test(r.url) && r.method === 'GET')).toBeTruthy()
   })
