@@ -29,29 +29,27 @@ test.describe('profile /profile', () => {
     expect(recCall?.status).toBe(200)
   })
 
-  test('PATCH /api/users/:id persists oauthData.screenSharingProfile.bio', async ({ page }) => {
-    const { accessToken, userId } = await signup(page)
-    const patch = await page.request.patch(`${API_BASE}/users/${userId}`, {
+  test('PATCH /api/settings persists oauthData.screenSharingProfile.bio', async ({ page }) => {
+    const { accessToken } = await signup(page)
+    // The profile slice lives in oauthData, which the platform user resource
+    // never returns on reads — the app persists it through the server-side
+    // /api/settings channel instead.
+    const patch = await page.request.patch(`${API_BASE}/settings`, {
       headers: authHeaders(accessToken),
       data: {
-        oauthData: {
-          screenSharingProfile: { bio: 'I make screencasts.', jobTitle: 'PM' },
-        },
+        screenSharingProfile: { bio: 'I make screencasts.', jobTitle: 'PM' },
       },
       failOnStatusCode: false,
     })
-    expect([200, 204]).toContain(patch.status())
-    const reread = await page.request.get(`${API_BASE}/users/${userId}`, {
+    expect(patch.status(), await patch.text().catch(() => '')).toBe(200)
+    const reread = await page.request.get(`${API_BASE}/settings`, {
       headers: authHeaders(accessToken),
     })
-    const body = (await reread.json()) as
-      | { props?: { oauthData?: { screenSharingProfile?: { bio?: string } } } }
-      | { oauthData?: { screenSharingProfile?: { bio?: string } } }
-    const profile =
-      ('props' in body && body.props?.oauthData?.screenSharingProfile) ||
-      ('oauthData' in body && body.oauthData?.screenSharingProfile) ||
-      undefined
-    expect(profile?.bio).toBe('I make screencasts.')
+    expect(reread.status()).toBe(200)
+    const body = (await reread.json()) as {
+      settings?: { screenSharingProfile?: { bio?: string } }
+    }
+    expect(body.settings?.screenSharingProfile?.bio).toBe('I make screencasts.')
   })
 
   test('stat tiles count owned recordings', async ({ page }) => {

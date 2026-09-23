@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -230,6 +231,15 @@ export function Record() {
       if (!created) {
         throw new Error('Server returned no recording id')
       }
+      track({
+        name: 'recording.created',
+        properties: {
+          recording_id: created.id,
+          duration_ms: finalElapsed * 1000,
+          visibility,
+          source,
+        },
+      })
       navigate(`/recordings/${created.id}`)
     } catch (err) {
       setError(
@@ -644,9 +654,10 @@ function InputToggleCard({
         type="button"
         onClick={onToggle}
         aria-pressed={enabled}
+        aria-label={label}
         data-mol-id={molId}
         className={cm.cn(
-          'relative inline-flex h-7 w-12 items-center rounded-full transition-colors',
+          'relative inline-flex h-10 w-12 shrink-0 items-center rounded-full transition-colors',
           enabled
             ? 'bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)]'
             : 'bg-surface-container',
@@ -654,8 +665,8 @@ function InputToggleCard({
       >
         <span
           className={cm.cn(
-            'inline-block h-5 w-5 transform rounded-full bg-surface shadow transition-transform',
-            enabled ? 'translate-x-6' : 'translate-x-1',
+            'inline-block h-6 w-6 transform rounded-full bg-surface shadow transition-transform',
+            enabled ? 'translate-x-5' : 'translate-x-1',
           )}
         />
       </button>

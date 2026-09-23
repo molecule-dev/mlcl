@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -152,6 +153,10 @@ export function RecordingDetail() {
       await http.post(`/api/comments/${id}`, {
         content: draft.trim(),
         timestamp_ms: progressMs,
+      })
+      track({
+        name: 'comment.created',
+        properties: { recording_id: id, timestamp_ms: progressMs },
       })
       setDraft('')
       await refresh()
@@ -468,7 +473,7 @@ export function RecordingDetail() {
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 2 }),
                 cm.sp('p', 2),
-                'rounded-full border border-outline-variant bg-surface-container-lowest',
+                'rounded-full border border-outline-variant bg-surface-container-lowest focus-within:ring-2 focus-within:ring-[var(--color-brand-gradient-from)]/40',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-on-surface-variant ml-2')}>

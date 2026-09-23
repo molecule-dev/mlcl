@@ -70,11 +70,16 @@ export function LibraryStatsHero({
         )}
       />
 
-      <div className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 6 }), 'relative')}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'start', justify: 'between', gap: 6 }),
+          'relative flex-wrap',
+        )}
+      >
         <div className={cm.stack(2)}>
           <span
             className={cm.cn(
-              'inline-flex items-center gap-2 rounded-full bg-surface/15 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.25em]',
+              'inline-flex items-center gap-2 rounded-full bg-surface/15 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.25em] w-fit',
             )}
           >
             <span
@@ -85,7 +90,7 @@ export function LibraryStatsHero({
           <h2
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-4xl md:text-5xl tracking-tight leading-[1.05] font-extrabold',
+              'text-3xl sm:text-4xl md:text-5xl tracking-tight leading-[1.05] font-extrabold break-words',
             )}
           >
             {t(
@@ -102,10 +107,10 @@ export function LibraryStatsHero({
             )}
           </p>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'shrink-0')}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'min-w-0 max-w-full')}>
           <span
             className={cm.cn(
-              'inline-flex items-center gap-1 rounded-full bg-surface/20 backdrop-blur-md px-3 py-1 text-xs font-bold',
+              'inline-flex items-center gap-1 rounded-full bg-surface/20 backdrop-blur-md px-3 py-1 text-xs font-bold whitespace-nowrap',
             )}
           >
             <span className={cm.cn('material-symbols-outlined text-base')}>
@@ -120,9 +125,15 @@ export function LibraryStatsHero({
         </div>
       </div>
 
-      <div className={cm.cn(cm.grid({ cols: 3, gap: 'md' }), cm.sp('mt', 8), 'relative')}>
+      <div
+        className={cm.cn(
+          cm.grid({ cols: 1, gap: 'md' }),
+          cm.sp('mt', 8),
+          'relative sm:grid-cols-3',
+        )}
+      >
         <div className={cm.cn(cm.sp('p', 4), 'rounded-2xl bg-surface/10 backdrop-blur-md')}>
-          <span className={cm.cn('text-4xl font-extrabold tracking-tight block')}>
+          <span className={cm.cn('text-3xl sm:text-4xl font-extrabold tracking-tight block')}>
             {totalRecordings.toLocaleString()}
           </span>
           <span
@@ -135,7 +146,7 @@ export function LibraryStatsHero({
           </span>
         </div>
         <div className={cm.cn(cm.sp('p', 4), 'rounded-2xl bg-surface/10 backdrop-blur-md')}>
-          <span className={cm.cn('text-4xl font-extrabold tracking-tight block')}>
+          <span className={cm.cn('text-3xl sm:text-4xl font-extrabold tracking-tight block')}>
             {totalViews.toLocaleString()}
           </span>
           <span
@@ -148,7 +159,7 @@ export function LibraryStatsHero({
           </span>
         </div>
         <div className={cm.cn(cm.sp('p', 4), 'rounded-2xl bg-surface/10 backdrop-blur-md')}>
-          <span className={cm.cn('text-4xl font-extrabold tracking-tight block')}>
+          <span className={cm.cn('text-3xl sm:text-4xl font-extrabold tracking-tight block')}>
             {averageWatchPercent}%
           </span>
           <span

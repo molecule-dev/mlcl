@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -171,6 +172,10 @@ export function Team() {
         email: inviteEmail.trim(),
         role: inviteRole,
       })
+      track({
+        name: 'member.invited',
+        properties: { workspace_id: workspace.id, role: inviteRole },
+      })
       setInviteEmail('')
       setInviteStatus('sent')
       setInviteMessage(
@@ -268,7 +273,7 @@ export function Team() {
               cm.flex1,
               cm.sp('px', 3),
               cm.sp('py', 2),
-              'min-w-[280px] rounded-full border border-outline-variant bg-surface-container-lowest',
+              'min-w-[280px] rounded-full border border-outline-variant bg-surface-container-lowest focus-within:ring-2 focus-within:ring-[var(--color-brand-gradient-from)]/40',
             )}
           >
             <span className={cm.cn('material-symbols-outlined text-on-surface-variant')}>mail</span>

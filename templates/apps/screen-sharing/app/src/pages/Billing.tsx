@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -150,6 +151,8 @@ export function Billing() {
       )
       const payload = (res?.data ?? {}) as { checkoutUrl?: string; updated?: boolean }
       if (payload.checkoutUrl) {
+        // Conversion-like funnel point: the user left for Stripe checkout.
+        track({ name: 'billing.checkout_started', properties: { price_id: priceId } })
         window.location.href = payload.checkoutUrl
         return
       }

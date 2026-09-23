@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -75,6 +76,11 @@ export function PublicShare() {
           throw new Error('Recording not found')
         }
         setRecording(data)
+        // Viewer-funnel event: a share link actually resolved for a visitor.
+        track({
+          name: 'share.opened',
+          properties: { recording_id: data.id },
+        })
       })
       .catch(() => {
         if (cancelled) return

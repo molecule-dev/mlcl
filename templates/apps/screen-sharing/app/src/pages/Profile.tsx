@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -23,20 +24,29 @@ interface ProfileData {
   jobTitle: string
 }
 
-interface UserOAuthData {
-  screenSharingProfile?: Partial<ProfileData>
-  [key: string]: unknown
-}
-
 interface UserRow {
   id: string
   email?: string | null
   name?: string | null
-  oauthData?: UserOAuthData | null
 }
 
 interface UserReadEnvelope {
   props?: UserRow
+}
+
+interface SettingsPayload {
+  screenSharing?: Record<string, unknown>
+  screenSharingProfile?: Partial<ProfileData>
+}
+
+interface SettingsEnvelope {
+  settings?: SettingsPayload
+}
+
+function extractSettings(payload: unknown): SettingsPayload | null {
+  if (!payload || typeof payload !== 'object') return null
+  const data = payload as SettingsEnvelope
+  return data.settings ?? (payload as SettingsPayload)
 }
 
 const DEFAULT_PROFILE: ProfileData = {
@@ -109,13 +119,19 @@ export function Profile() {
     setLoading(true)
     setError(null)
     try {
-      const [userRes, recRes] = await Promise.all([
+      // Identity (name/email) comes from the user resource; the profile slice
+      // (bio/job title) lives in oauthData, which the platform user resource
+      // never returns on reads — it is served by the server-side
+      // /api/settings channel instead.
+      const [userRes, settingsRes, recRes] = await Promise.all([
         http.get<UserReadEnvelope>(`/api/users/${userId}`),
+        http.get<SettingsEnvelope>('/api/settings'),
         http.get('/api/recordings'),
       ])
       const row = extractUser(userRes?.data)
       setUser(row)
-      const stored = (row?.oauthData?.screenSharingProfile ?? {}) as Partial<ProfileData>
+      const stored = (extractSettings(settingsRes?.data)?.screenSharingProfile ??
+        {}) as Partial<ProfileData>
       const merged: ProfileData = {
         bio: stored.bio ?? '',
         jobTitle: stored.jobTitle ?? '',
@@ -153,20 +169,25 @@ export function Profile() {
     setError(null)
     setSaveStatus('idle')
     try {
-      const nextOauth: UserOAuthData = {
-        ...((user?.oauthData ?? {}) as UserOAuthData),
-        screenSharingProfile: profile,
-      }
-      const res = await http.patch<UserReadEnvelope>(`/api/users/${userId}`, {
-        name: displayName.trim() || null,
-        oauthData: nextOauth,
-      })
-      const fresh = extractUser(res?.data) ?? user
-      if (fresh) setUser(fresh)
+      // Display name is a first-class user field (PATCH /api/users/:id); the
+      // bio/job-title slice goes through the server-side /api/settings
+      // channel because oauthData is write-only on the user resource.
+      await Promise.all([
+        http.patch<UserReadEnvelope>(`/api/users/${userId}`, {
+          name: displayName.trim() || null,
+        }),
+        http.patch<SettingsEnvelope>('/api/settings', {
+          screenSharingProfile: profile,
+        }),
+      ])
       setSavedProfile(profile)
       setSavedDisplayName(displayName)
       setSaveStatus('saved')
       setEditing(false)
+      track({
+        name: 'profile.updated',
+        properties: { user_id: userId, name_changed: displayName.trim() !== savedDisplayName },
+      })
     } catch (err) {
       setError(
         err instanceof Error

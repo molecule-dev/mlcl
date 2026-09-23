@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { track } from '@molecule/app-analytics'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -68,26 +69,19 @@ interface ScreenSharingSettings {
   hotkeys: Record<string, string>
 }
 
-interface UserOAuthData {
+interface SettingsPayload {
   screenSharing?: Partial<ScreenSharingSettings>
-  [key: string]: unknown
+  screenSharingProfile?: Record<string, unknown>
 }
 
-interface UserRow {
-  id: string
-  oauthData?: UserOAuthData | null
+interface SettingsEnvelope {
+  settings?: SettingsPayload
 }
 
-interface UserReadEnvelope {
-  props?: UserRow
-}
-
-function extractUser(payload: unknown): UserRow | null {
+function extractSettings(payload: unknown): SettingsPayload | null {
   if (!payload || typeof payload !== 'object') return null
-  const data = payload as UserReadEnvelope & UserRow
-  if (data.props && typeof data.props === 'object') return data.props
-  if ('id' in data && typeof (data as UserRow).id === 'string') return data as UserRow
-  return null
+  const data = payload as SettingsEnvelope
+  return data.settings ?? (payload as SettingsPayload)
 }
 
 function mergeSettings(stored?: Partial<ScreenSharingSettings>): ScreenSharingSettings {
@@ -102,13 +96,10 @@ export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const sessionUser = useUser<{ id: string }>()
-  const userId = sessionUser?.id ?? ''
 
   const [tab, setTab] = useState<'notifications' | 'capture' | 'hotkeys' | 'language'>(
     'notifications',
   )
-  const [user, setUser] = useState<UserRow | null>(null)
   const [settings, setSettings] = useState<ScreenSharingSettings>(mergeSettings())
   const [savedSettings, setSavedSettings] = useState<ScreenSharingSettings>(mergeSettings())
   const [loading, setLoading] = useState(true)
@@ -117,14 +108,15 @@ export function Settings() {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
 
   const refresh = useCallback(async () => {
-    if (!userId) return
     setLoading(true)
     setError(null)
     try {
-      const res = await http.get<UserReadEnvelope>(`/api/users/${userId}`)
-      const row = extractUser(res?.data)
-      setUser(row)
-      const merged = mergeSettings(row?.oauthData?.screenSharing)
+      // The platform user resource never returns `oauthData` on reads, so the
+      // preference slice is served through the server-side /api/settings
+      // channel, which reads and merges the stored row for the caller.
+      const res = await http.get<SettingsEnvelope>('/api/settings')
+      const stored = extractSettings(res?.data)?.screenSharing
+      const merged = mergeSettings(stored)
       setSettings(merged)
       setSavedSettings(merged)
     } catch (err) {
@@ -136,7 +128,7 @@ export function Settings() {
     } finally {
       setLoading(false)
     }
-  }, [http, userId, t])
+  }, [http, t])
 
   useEffect(() => {
     void refresh()
@@ -148,20 +140,14 @@ export function Settings() {
   )
 
   const handleSave = async () => {
-    if (!userId) return
     setSaving(true)
     setError(null)
     setSaveStatus('idle')
     try {
-      const nextOauth: UserOAuthData = {
-        ...((user?.oauthData ?? {}) as UserOAuthData),
+      await http.patch<SettingsEnvelope>('/api/settings', {
         screenSharing: settings,
-      }
-      const res = await http.patch<UserReadEnvelope>(`/api/users/${userId}`, {
-        oauthData: nextOauth,
       })
-      const fresh = extractUser(res?.data) ?? user
-      if (fresh) setUser(fresh)
+      track({ name: 'settings.updated', properties: { surface: 'workspace-settings' } })
       setSavedSettings(settings)
       setSaveStatus('saved')
     } catch (err) {
@@ -511,9 +497,10 @@ function PrefCard({
         type="button"
         onClick={onToggle}
         aria-pressed={enabled}
+        aria-label={label}
         data-mol-id={molId}
         className={cm.cn(
-          'relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors',
+          'relative inline-flex h-10 w-12 shrink-0 items-center rounded-full transition-colors',
           enabled
             ? 'bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)]'
             : 'bg-surface-container',
@@ -521,8 +508,8 @@ function PrefCard({
       >
         <span
           className={cm.cn(
-            'inline-block h-5 w-5 transform rounded-full bg-on-surface-variant shadow transition-transform',
-            enabled ? 'translate-x-6' : 'translate-x-1',
+            'inline-block h-6 w-6 transform rounded-full bg-on-surface-variant shadow transition-transform',
+            enabled ? 'translate-x-5' : 'translate-x-1',
           )}
         />
       </button>

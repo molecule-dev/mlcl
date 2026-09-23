@@ -151,7 +151,7 @@ export function Library() {
             cm.flex({ align: 'center', gap: 2 }),
             cm.sp('px', 3),
             cm.sp('py', 2),
-            'rounded-full border border-outline-variant bg-surface-container-lowest min-w-[280px]',
+            'rounded-full border border-outline-variant bg-surface-container-lowest min-w-[280px] focus-within:ring-2 focus-within:ring-[var(--color-brand-gradient-from)]/40',
           )}
         >
           <span className={cm.cn('material-symbols-outlined text-on-surface-variant')}>search</span>
