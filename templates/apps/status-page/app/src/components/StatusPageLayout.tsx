@@ -2,6 +2,8 @@ import { useTranslation } from '@molecule/app-react'
 import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
+import { MobileNavShell } from './MobileNavShell.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -9,9 +11,11 @@ import { UserMenu } from './UserMenu.js'
  * Incidents, Components, Maintenance, Subscribers, Notifications, Team,
  * Audit log, Settings) + a bottom UserMenu slot.
  *
- * Uses the shared SidebarLayout package; Vigil-specific only in nav
- * items + brand label. Kept thin so the polished Sweep 1 chrome stays
- * the source of truth.
+ * Uses the shared SidebarLayout package on md+ screens; below md (768px)
+ * the fixed 240px rail would crush a phone's content column, so a
+ * template-local MobileNavShell (sticky top bar + slide-in drawer) takes
+ * over — conditionally rendered, never CSS-hidden, so nav `data-mol-id`s
+ * stay unique in the DOM.
  */
 
 const NAV_KEYS = [
@@ -33,12 +37,16 @@ const NAV_KEYS = [
 
 export function StatusPageLayout() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`statusPageLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+  if (isMobile) {
+    return <MobileNavShell logoTo="/dashboard" navItems={navItems} />
+  }
   return (
     <SidebarLayout
       appName={APP_NAME}

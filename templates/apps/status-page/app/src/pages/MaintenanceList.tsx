@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -113,12 +114,17 @@ export function MaintenanceList() {
           t('maintenanceList.endAfterStart', {}, { defaultValue: 'End must be after start.' }),
         )
       }
-      await http.post('/api/maintenance', {
+      const res = await http.post('/api/maintenance', {
         title: title.trim(),
         message: message.trim() || undefined,
         scheduled_for: startIso,
         scheduled_until: endIso,
         affected_components: Array.from(selected),
+      })
+      const created = (res.data ?? {}) as { id?: string }
+      track({
+        name: 'maintenance.scheduled',
+        properties: { id: created.id, scheduled_for: startIso },
       })
       setTitle('')
       setMessage('')

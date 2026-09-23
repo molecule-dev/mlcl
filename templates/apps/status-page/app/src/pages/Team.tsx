@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -73,11 +74,13 @@ export function Team() {
     setInviting(true)
     setInviteError(null)
     try {
-      await http.post('/api/team', {
+      const res = await http.post('/api/team', {
         name: name.trim(),
         email: email.trim(),
         role,
       })
+      const created = (res.data ?? {}) as { id?: string }
+      track({ name: 'team.member_added', properties: { id: created.id, role } })
       setName('')
       setEmail('')
       setShowInvite(false)

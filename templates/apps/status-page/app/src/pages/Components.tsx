@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -69,11 +70,13 @@ export function Components() {
     setAdding(true)
     setAddError(null)
     try {
-      await http.post('/api/components', {
+      const res = await http.post('/api/components', {
         name: name.trim(),
         group: group.trim() || undefined,
         description: description.trim() || undefined,
       })
+      const created = (res.data ?? {}) as { id?: string }
+      track({ name: 'component.added', properties: { id: created.id, name: name.trim() } })
       setName('')
       setGroup('')
       setDescription('')

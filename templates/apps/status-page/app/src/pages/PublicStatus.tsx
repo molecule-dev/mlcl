@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -118,6 +119,7 @@ export function PublicStatusPage() {
         channel: 'email',
         notification_type: 'all',
       })
+      track({ name: 'subscriber.added', properties: { channel: 'email', source: 'public' } })
       setSubscribeStatus({
         kind: 'success',
         message: t(
@@ -189,6 +191,12 @@ export function PublicStatusPage() {
       style={{ backgroundColor: 'var(--mol-color-background)', color: 'var(--mol-color-text)' }}
       data-mol-id="page-public-status"
     >
+      {/* Visually-hidden H1: the page's visible hero headline is the
+          StatusOverviewCard's h2, so without this the heading outline
+          starts at h2 and skips level 1. */}
+      <h1 className="sr-only">
+        {t('publicStatus.pageTitle', { app: APP_NAME }, { defaultValue: '{{app}} status page' })}
+      </h1>
       {/* Top nav bar */}
       <nav
         className={cm.cn('sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b')}
@@ -242,7 +250,9 @@ export function PublicStatusPage() {
               <Link
                 to="/login"
                 className={cm.cn(
-                  'text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
+                  // Inline padding gives the text link a ~40px tall tap
+                  // target on touch screens without changing its visual size.
+                  'inline-flex items-center px-2 py-2 -my-2 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

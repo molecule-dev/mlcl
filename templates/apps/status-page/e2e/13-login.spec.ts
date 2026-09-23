@@ -4,6 +4,12 @@ import { API_BASE, APP_BASE, captureNetwork, uniqueEmail } from './_helpers.js'
 
 test.describe('/login', () => {
   test('login form rejects invalid credentials and stays on /login', async ({ page }) => {
+    // The API correctly answers 403 for unknown credentials; that expected
+    // rejection logs a browser console error the console-guard would fail on.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill('definitely-not-a-real-user@example.com')
     await page.locator('#password').fill('wrong-password-123')

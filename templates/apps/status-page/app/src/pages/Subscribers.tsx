@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,12 +103,17 @@ export function Subscribers() {
     setInviting(true)
     setInviteError(null)
     try {
-      await http.post('/api/subscribers', {
+      const res = await http.post('/api/subscribers', {
         channel,
         destination: destination.trim(),
         email: channel === 'email' ? destination.trim() : undefined,
         notification_type: notificationType,
         components: ['all'],
+      })
+      const created = (res.data ?? {}) as { id?: string }
+      track({
+        name: 'subscriber.added',
+        properties: { id: created.id, channel },
       })
       setDestination('')
       setShowInvite(false)

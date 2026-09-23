@@ -27,7 +27,9 @@ function HeaderUserArea() {
       <Link
         to="/login"
         className={cm.cn(
-          'text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
+          // Inline padding gives the text link a ~40px tall tap target on
+          // touch screens without changing its visual size.
+          'inline-flex items-center px-2 py-2 -my-2 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors',
         )}
       >
         {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

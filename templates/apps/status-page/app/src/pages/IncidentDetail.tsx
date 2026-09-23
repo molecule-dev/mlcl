@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -172,6 +173,10 @@ export function IncidentDetail() {
       await http.post(`/api/incidents/${incident.id}/updates`, {
         status: draftStatus,
         message: draftMessage.trim(),
+      })
+      track({
+        name: draftStatus === 'resolved' ? 'incident.resolved' : 'incident.updated',
+        properties: { id: incident.id, status: draftStatus },
       })
       if (draftKey) {
         try {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,12 +68,17 @@ export function IncidentForm() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post('/api/incidents', {
+      const res = await http.post('/api/incidents', {
         title,
         message,
         impact,
         status,
         affected_components: Array.from(selected),
+      })
+      const created = (res.data ?? {}) as { id?: string }
+      track({
+        name: 'incident.created',
+        properties: { id: created.id, impact, status },
       })
       navigate('/incidents')
     } catch (err) {
