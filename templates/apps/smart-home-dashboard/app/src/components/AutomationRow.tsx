@@ -104,7 +104,7 @@ export function AutomationRow({ automation, onToggle, onTrigger }: AutomationRow
               cm.roundedFull,
               cm.fontWeight('bold'),
               cm.textSize('xs'),
-              'uppercase tracking-widest bg-surface-container text-on-surface hover:bg-surface-container-high transition-all',
+              'min-h-[36px] uppercase tracking-widest bg-surface-container text-on-surface hover:bg-surface-container-high transition-all',
             )}
             aria-label={t(
               'automationRow.runNowAria',
@@ -130,9 +130,10 @@ export function AutomationRow({ automation, onToggle, onTrigger }: AutomationRow
               automation.enabled
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high',
-              'uppercase tracking-widest transition-all',
+              'min-h-[36px] uppercase tracking-widest transition-all',
             )}
             aria-pressed={automation.enabled}
+            aria-label={`${automation.name}: ${automation.enabled ? t('automationRow.on', {}, { defaultValue: 'On' }) : t('status.off', {}, { defaultValue: 'Off' })}`}
           >
             {automation.enabled
               ? t('automationRow.on', {}, { defaultValue: 'On' })

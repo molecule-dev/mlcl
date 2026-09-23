@@ -212,7 +212,7 @@ export function Overview() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('bold'),
-              'text-primary hover:underline',
+              'text-primary hover:underline inline-flex items-center min-h-[36px]',
             )}
           >
             {t('overview.viewAllRooms', {}, { defaultValue: 'Every room →' })}
@@ -244,7 +244,7 @@ export function Overview() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('bold'),
-              'text-primary hover:underline',
+              'text-primary hover:underline inline-flex items-center min-h-[36px]',
             )}
           >
             {t('overview.viewActivity', {}, { defaultValue: 'Recent activity →' })}

@@ -13,6 +13,10 @@ test.describe('/reset-password', () => {
   test('submitting an invalid token POSTs /api/users/reset-password and surfaces an error', async ({
     page,
   }) => {
+    // An invalid token is the subject of this test — the API's 401 shows up
+    // as a browser console resource error, which the console guard would
+    // otherwise fail the test for.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const url =
       APP_BASE +
       '/reset-password?email=' +

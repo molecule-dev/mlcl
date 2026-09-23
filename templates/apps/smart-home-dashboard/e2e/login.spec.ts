@@ -18,6 +18,10 @@ test.describe('/login', () => {
   })
 
   test('logging in with the wrong password shows an error', async ({ page }) => {
+    // A rejected login is the subject of this test — the API's 4xx shows up
+    // as a browser console resource error, which the console guard would
+    // otherwise fail the test for.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.getByPlaceholder(/email/i).first().fill(uniqueEmail('wrongpw'))
     await page

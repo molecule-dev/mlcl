@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -72,6 +73,13 @@ export function AddDevice() {
     }
     try {
       const response = await http.post('/api/iot-devices', payload)
+      track({
+        name: 'device.added',
+        properties: {
+          device_id: unwrapCreated(response)?.id ?? null,
+          device_type: payload.type ?? null,
+        },
+      })
       const created = unwrapCreated(response)
       if (created?.id) {
         navigate(`/devices/${created.id}`)

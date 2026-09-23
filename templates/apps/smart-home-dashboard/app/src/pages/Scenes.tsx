@@ -1,5 +1,6 @@
 import { type FormEvent, useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -89,6 +90,7 @@ export function Scenes() {
     setActivatingId(id)
     try {
       await http.post(`/api/scenes/${id}/activate`, {})
+      track({ name: 'scene.activated', properties: { scene_id: id } })
       setScenes((prev) => prev.map((s) => ({ ...s, active: s.id === id })))
     } catch (error) {
       logError('scenes.activate', error)
@@ -120,6 +122,7 @@ export function Scenes() {
       } else {
         await reload()
       }
+      track({ name: 'scene.created', properties: { scene_id: created?.id ?? null } })
       setNewName('')
       setNewDescription('')
       setNewIcon(ICON_OPTIONS[0]!.value)

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -104,6 +105,10 @@ export function RoomDetail() {
       setDevices((prev) => prev.map((d) => (d.id === deviceId ? { ...d, is_on: !d.is_on } : d)))
       try {
         await http.post(`/api/iot-devices/${deviceId}/toggle`, {})
+        track({
+          name: 'device.toggled',
+          properties: { device_id: deviceId, is_on: !previous.is_on },
+        })
       } catch (error) {
         logError('roomDetail.handleToggle', error)
         setDevices((prev) =>

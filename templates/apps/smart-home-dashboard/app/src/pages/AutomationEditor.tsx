@@ -1,6 +1,7 @@
 import { type FormEvent, useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -149,6 +150,7 @@ export function AutomationEditor() {
         const response = await http.post('/api/automations', body)
         const created = unwrap(response)
         if (created?.id) {
+          track({ name: 'automation.created', properties: { automation_id: created.id } })
           navigate('/automations')
         }
       } else {
@@ -182,6 +184,10 @@ export function AutomationEditor() {
     setInfo(null)
     try {
       await http.post(`/api/automations/${id}/trigger`, {})
+      track({
+        name: 'automation.triggered',
+        properties: { automation_id: id, source: 'editor-test' },
+      })
       setInfo(t('automationEditor.tested', {}, { defaultValue: 'Test trigger fired.' }))
     } catch (err) {
       setError(

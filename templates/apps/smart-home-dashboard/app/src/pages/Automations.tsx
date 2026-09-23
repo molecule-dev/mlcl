@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -66,6 +67,10 @@ export function Automations() {
     )
     try {
       await http.post(`/api/automations/${id}/${action}`, {})
+      track({
+        name: 'automation.toggled',
+        properties: { automation_id: id, enabled: !currentlyEnabled },
+      })
     } catch (error) {
       logError('automations.toggleEnabled', error)
       setAutomations((prev) =>
@@ -77,6 +82,7 @@ export function Automations() {
   async function trigger(id: string) {
     try {
       await http.post(`/api/automations/${id}/trigger`, {})
+      track({ name: 'automation.triggered', properties: { automation_id: id, source: 'row-run' } })
       setAutomations((prev) =>
         prev.map((a) =>
           a.id === id
@@ -148,7 +154,7 @@ export function Automations() {
                 filter === opt
                   ? 'bg-primary text-on-primary'
                   : 'text-on-surface-variant hover:text-on-surface',
-                'uppercase tracking-widest transition-all',
+                'min-h-[36px] uppercase tracking-widest transition-all',
               )}
               aria-pressed={filter === opt}
             >
@@ -164,7 +170,7 @@ export function Automations() {
               cm.fontWeight('bold'),
               cm.textSize('xs'),
               cm.sp('ml', 2),
-              'bg-primary-container text-on-primary-container uppercase tracking-widest hover:bg-primary/20',
+              'min-h-[36px] bg-primary-container text-on-primary-container uppercase tracking-widest hover:bg-primary/20',
             )}
           >
             {t('automations.newAutomation', {}, { defaultValue: '+ New' })}

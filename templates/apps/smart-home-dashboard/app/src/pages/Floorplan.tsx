@@ -114,12 +114,15 @@ export function Floorplan() {
       <section
         className={cm.cn(
           cm.sp('p', 4),
-          'bg-surface-container-lowest rounded-3xl relative overflow-hidden',
+          'bg-surface-container-lowest rounded-3xl relative overflow-x-auto',
         )}
       >
+        {/* Percentage-positioned room rects cram illegibly below ~560px (the
+            13%-wide Dining box cannot hold its own label), so the canvas
+            keeps a floor width and scrolls horizontally on phones. */}
         <div
           className={cm.cn(
-            'relative w-full bg-gradient-to-br from-info/10 via-surface to-warning/10 rounded-2xl',
+            'relative w-full min-w-[560px] bg-gradient-to-br from-info/10 via-surface to-warning/10 rounded-2xl',
           )}
           style={{ minHeight: '60vh' }}
         >

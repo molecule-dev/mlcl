@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -97,6 +98,7 @@ export function DeviceDetail() {
     setToggling(true)
     try {
       const payload = await http.post(`/api/iot-devices/${id}/toggle`, {})
+      track({ name: 'device.toggled', properties: { device_id: id, is_on: !device?.is_on } })
       const updated = unwrapDevice(payload)
       if (updated) {
         setDevice(updated)

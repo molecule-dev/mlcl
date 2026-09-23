@@ -1,5 +1,6 @@
 import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -119,6 +120,7 @@ export function Rooms() {
       } else {
         await reload()
       }
+      track({ name: 'room.created', properties: { room_id: created?.id ?? null } })
       setNewName('')
       setShowNew(false)
     } catch (err) {

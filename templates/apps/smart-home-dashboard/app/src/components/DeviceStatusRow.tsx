@@ -138,9 +138,10 @@ export function DeviceStatusRow({ device, onToggle }: DeviceStatusRowProps) {
             device.is_on
               ? 'bg-primary text-on-primary'
               : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high',
-            'uppercase tracking-widest transition-all',
+            'min-h-[36px] uppercase tracking-widest transition-all',
           )}
           aria-pressed={device.is_on}
+          aria-label={`${device.is_on ? t('deviceStatusRow.turnOff', {}, { defaultValue: 'Turn off' }) : t('deviceStatusRow.turnOn', {}, { defaultValue: 'Turn on' })} ${device.name}`}
         >
           {device.is_on
             ? t('deviceStatusRow.on', {}, { defaultValue: 'On' })
