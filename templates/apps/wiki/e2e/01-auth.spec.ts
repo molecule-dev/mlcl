@@ -35,6 +35,12 @@ test.describe('auth', () => {
     await page.context().clearCookies()
 
     await page.goto(APP_BASE + '/login')
+    // The server correctly rejects the bad password with 403 — that resource
+    // load error in the browser console is EXPECTED, so allow it explicitly.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.getByPlaceholder('you@team.com').fill(email)
     await page.getByPlaceholder('••••••••').fill('WrongPass!2026000')
     await page
@@ -44,5 +50,6 @@ test.describe('auth', () => {
     // We should remain on /login with an error
     await page.waitForTimeout(2_000)
     await expect(page).toHaveURL(/\/login/)
+    await expect(page.getByTestId('login-error')).toBeVisible()
   })
 })

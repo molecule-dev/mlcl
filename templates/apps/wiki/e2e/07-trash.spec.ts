@@ -42,7 +42,12 @@ test.describe('trash', () => {
 
     await page.goto('/trash')
     await expect(page.getByTestId(`trash-item-${created.id}`)).toBeVisible({ timeout: 10_000 })
-    await page.getByTestId(`trash-purge-${created.id}`).click()
+    // Purge is destructive: the first click ARMS the button (inline confirm),
+    // the second confirms and purges.
+    const purge = page.getByTestId(`trash-purge-${created.id}`)
+    await purge.click()
+    await expect(purge).toContainText(/purge forever/i)
+    await purge.click()
     await expect(page.getByTestId(`trash-item-${created.id}`)).toBeHidden({ timeout: 10_000 })
 
     // Trying to fetch the page now should 404.

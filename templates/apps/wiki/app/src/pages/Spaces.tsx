@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -68,7 +69,11 @@ export function Spaces() {
       const payload: { name: string; description?: string } = { name: draftName.trim() }
       const desc = draftDescription.trim()
       if (desc) payload.description = desc
-      await http.post('/spaces', payload)
+      const res = await http.post<{ id?: string }>('/spaces', payload)
+      void track({
+        name: 'space.created',
+        properties: { space_id: res.data?.id ?? '', visibility: 'private' },
+      })
       setDraftName('')
       setDraftDescription('')
       setShowDialog(false)

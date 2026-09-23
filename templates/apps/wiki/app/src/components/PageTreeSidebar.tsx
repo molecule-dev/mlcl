@@ -33,6 +33,12 @@ export interface PageTreeSidebarProps {
   tree?: PageTreeNode[]
   /** Workspace name shown in the top switcher. */
   workspaceName?: string
+  /**
+   * 'rail' (default): persistent desktop sidebar, hidden below md (the
+   * mobile drawer hosts a 'drawer' copy instead). 'drawer': always
+   * visible, rendered inside WikiLayout's slide-in mobile panel.
+   */
+  variant?: 'rail' | 'drawer'
 }
 
 const NAV_ITEMS: Array<{ key: string; href: string; icon: string; defaultLabel: string }> = [
@@ -116,7 +122,12 @@ function TreeRow({
   )
 }
 
-export function PageTreeSidebar({ recentPages, tree, workspaceName }: PageTreeSidebarProps) {
+export function PageTreeSidebar({
+  recentPages,
+  tree,
+  workspaceName,
+  variant = 'rail',
+}: PageTreeSidebarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { pathname } = useLocation()
@@ -125,6 +136,9 @@ export function PageTreeSidebar({ recentPages, tree, workspaceName }: PageTreeSi
     <aside
       className={cm.cn(
         cm.flex({ direction: 'col' }),
+        // Desktop-only rail; below md the same component renders inside
+        // WikiLayout's mobile drawer ('drawer' variant stays visible there).
+        variant === 'rail' ? 'hidden md:flex' : 'flex',
         'w-[280px] shrink-0 h-screen sticky top-0 border-r border-outline-variant/40 bg-surface-container-lowest',
       )}
     >

@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -159,6 +160,7 @@ export function PageView() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const navigate = useNavigate()
   const params = useParams<{ id: string }>()
 
   const [page, setPage] = useState<ApiPage | null>(null)
@@ -166,6 +168,11 @@ export function PageView() {
   const [error, setError] = useState<string | null>(null)
   const [regenerating, setRegenerating] = useState(false)
   const [summaryUnavailable, setSummaryUnavailable] = useState(false)
+  // Two-step trash: first click arms the button, second confirms. Auto-disarms
+  // so a stray click never throws a page away.
+  const [trashArmed, setTrashArmed] = useState(false)
+  const [trashing, setTrashing] = useState(false)
+  const disarmTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const loadPage = useCallback(async () => {
     if (!params.id) return
@@ -189,6 +196,35 @@ export function PageView() {
   useEffect(() => {
     loadPage()
   }, [loadPage])
+
+  useEffect(() => {
+    return () => {
+      if (disarmTimer.current) clearTimeout(disarmTimer.current)
+    }
+  }, [])
+
+  const handleTrash = async () => {
+    if (!params.id || trashing) return
+    // First click arms the destructive action; the second confirms.
+    if (!trashArmed) {
+      setTrashArmed(true)
+      if (disarmTimer.current) clearTimeout(disarmTimer.current)
+      disarmTimer.current = setTimeout(() => setTrashArmed(false), 4_000)
+      return
+    }
+    if (disarmTimer.current) clearTimeout(disarmTimer.current)
+    setTrashArmed(false)
+    setTrashing(true)
+    try {
+      await http.delete(`/pages/${params.id}`)
+      void track({ name: 'page.trashed', properties: { page_id: params.id, source: 'page_view' } })
+      navigate('/home')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to move page to trash')
+    } finally {
+      setTrashing(false)
+    }
+  }
 
   const handleRegenerate = async () => {
     if (!params.id || regenerating) return
@@ -346,6 +382,30 @@ export function PageView() {
               </span>
               {t('nav.history', {}, { defaultValue: 'History' })}
             </Link>
+            <button
+              type="button"
+              onClick={handleTrash}
+              disabled={trashing}
+              data-testid="page-view-trash"
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.sp('px', 4),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                trashArmed
+                  ? 'h-9 rounded-md bg-error text-on-error ring-2 ring-error/50 hover:bg-error-hover disabled:opacity-60 transition-colors'
+                  : 'h-9 rounded-md border border-error/50 text-error hover:bg-error/10 disabled:opacity-60 transition-colors',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                delete
+              </span>
+              {trashing
+                ? t('pageView.trashing', {}, { defaultValue: 'Trashing…' })
+                : trashArmed
+                  ? t('pageView.confirmTrash', {}, { defaultValue: 'Trash it?' })
+                  : t('pageView.trash', {}, { defaultValue: 'Trash' })}
+            </button>
           </div>
         </div>
         <hr className={cm.cn('border-t border-outline-variant/40')} />

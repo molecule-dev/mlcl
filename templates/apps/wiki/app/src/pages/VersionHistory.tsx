@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -146,6 +147,10 @@ export function VersionHistory() {
     setRestoring(true)
     try {
       await http.post(`/pages/${params.id}/restore/${active.version}`)
+      void track({
+        name: 'page.version_restored',
+        properties: { page_id: params.id, version: active.version },
+      })
       navigate(`/page/${params.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Restore failed')

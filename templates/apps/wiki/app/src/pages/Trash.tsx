@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -54,6 +55,11 @@ export function Trash() {
   const [spaces, setSpaces] = useState<Record<string, string>>({})
   const [working, setWorking] = useState<{ id: string; action: 'restore' | 'purge' } | null>(null)
   const [error, setError] = useState<string | null>(null)
+  // Two-step purge: the first click ARMS the button ("Purge forever?"), the
+  // second confirms. Auto-disarms after 4s so a stray click never leaves a
+  // destructive action primed.
+  const [confirmPurgeId, setConfirmPurgeId] = useState<string | null>(null)
+  const disarmTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const load = useCallback(async () => {
     try {
@@ -94,10 +100,23 @@ export function Trash() {
     load()
   }, [load])
 
+  useEffect(() => {
+    return () => {
+      if (disarmTimer.current) clearTimeout(disarmTimer.current)
+    }
+  }, [])
+
+  const armPurge = (id: string) => {
+    setConfirmPurgeId(id)
+    if (disarmTimer.current) clearTimeout(disarmTimer.current)
+    disarmTimer.current = setTimeout(() => setConfirmPurgeId(null), 4_000)
+  }
+
   const handleRestore = async (id: string) => {
     setWorking({ id, action: 'restore' })
     try {
       await http.post(`/pages/${id}/restore`)
+      void track({ name: 'page.restored', properties: { page_id: id, source: 'trash' } })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to restore')
@@ -107,9 +126,17 @@ export function Trash() {
   }
 
   const handlePurge = async (id: string) => {
+    // Two-step confirm: first click arms, second click (while armed) purges.
+    if (confirmPurgeId !== id) {
+      armPurge(id)
+      return
+    }
+    if (disarmTimer.current) clearTimeout(disarmTimer.current)
+    setConfirmPurgeId(null)
     setWorking({ id, action: 'purge' })
     try {
       await http.delete(`/pages/${id}`, { params: { permanent: 'true' } })
+      void track({ name: 'page.purged', properties: { page_id: id, source: 'trash' } })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to purge')
@@ -258,7 +285,7 @@ export function Trash() {
                   </p>
                 </div>
 
-                <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
                   <button
                     type="button"
                     onClick={() => handleRestore(p.id)}
@@ -287,12 +314,23 @@ export function Trash() {
                     onClick={() => handlePurge(p.id)}
                     disabled={isWorking}
                     data-testid={`trash-purge-${p.id}`}
+                    aria-label={
+                      confirmPurgeId === p.id
+                        ? t(
+                            'trash.confirmPurgeAria',
+                            { title: p.title },
+                            { defaultValue: 'Confirm: permanently delete {{title}}' },
+                          )
+                        : undefined
+                    }
                     className={cm.cn(
                       cm.flex({ align: 'center', gap: 'xs' }),
                       cm.sp('px', 4),
                       cm.textSize('sm'),
                       cm.fontWeight('semibold'),
-                      'h-9 rounded-md bg-error text-on-error hover:bg-error-hover disabled:opacity-60 transition-colors',
+                      confirmPurgeId === p.id
+                        ? 'h-9 rounded-md bg-error text-on-error ring-2 ring-error/50 hover:bg-error-hover disabled:opacity-60 transition-colors animate-pulse'
+                        : 'h-9 rounded-md bg-error/80 text-on-error hover:bg-error disabled:opacity-60 transition-colors',
                     )}
                   >
                     <span
@@ -303,7 +341,9 @@ export function Trash() {
                     </span>
                     {isWorking && working?.action === 'purge'
                       ? t('trash.purging', {}, { defaultValue: 'Purging…' })
-                      : t('trash.purge', {}, { defaultValue: 'Purge' })}
+                      : confirmPurgeId === p.id
+                        ? t('trash.confirmPurge', {}, { defaultValue: 'Purge forever?' })
+                        : t('trash.purge', {}, { defaultValue: 'Purge' })}
                   </button>
                 </div>
               </li>

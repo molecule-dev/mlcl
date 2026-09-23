@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Outlet, useNavigate } from 'react-router'
+import { Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -42,10 +42,27 @@ export function WikiLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const location = useLocation()
   const http = useHttpClient()
   const [tree, setTree] = useState<PageTreeNode[]>([])
   const [recent, setRecent] = useState<{ id: string; title: string }[]>([])
   const [workspaceName, setWorkspaceName] = useState<string>(APP_NAME)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
+  // Close the mobile drawer on any navigation — it overlays the page it links to.
+  useEffect(() => {
+    setDrawerOpen(false)
+  }, [location.pathname])
+
+  // Escape closes the drawer.
+  useEffect(() => {
+    if (!drawerOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDrawerOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [drawerOpen])
 
   useEffect(() => {
     let cancelled = false
@@ -92,34 +109,52 @@ export function WikiLayout() {
       <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
         <header
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            cm.sp('px', 8),
-            'h-14 border-b border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur',
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            'h-14 px-3 sm:px-8 border-b border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur sticky top-0 z-30',
           )}
         >
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 flex-1')}>
+            {/* Mobile-only hamburger — opens the page-tree drawer (below md). */}
+            <button
+              type="button"
+              onClick={() => setDrawerOpen(true)}
+              aria-label={t('wikiLayout.openMenu', {}, { defaultValue: 'Open navigation' })}
+              aria-expanded={drawerOpen}
+              aria-controls="wiki-mobile-nav-panel"
+              data-mol-id="mobile-nav-trigger"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'h-10 w-10 shrink-0 rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors md:hidden',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[22px]')} aria-hidden="true">
+                menu
+              </span>
+            </button>
             <button
               type="button"
               onClick={() => navigate('/search')}
               aria-label={t('common.search', {}, { defaultValue: 'Search' })}
+              data-mol-id="search-trigger"
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'sm' }),
-                cm.sp('px', 3),
-                'h-8 w-72 rounded-md bg-surface-container-high text-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors',
+                'h-9 w-10 sm:w-72 sm:px-3 rounded-md bg-surface-container-high text-sm text-on-surface-variant hover:bg-surface-container-highest transition-colors justify-center sm:justify-start min-w-0',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
                 search
               </span>
-              {t(
-                'wikiLayout.searchPlaceholder',
-                { appName: APP_NAME },
-                { defaultValue: 'Search {{appName}} — pages, comments…' },
-              )}
+              <span className={cm.cn('hidden sm:inline truncate')}>
+                {t(
+                  'wikiLayout.searchPlaceholder',
+                  { appName: APP_NAME },
+                  { defaultValue: 'Search {{appName}} — pages, comments…' },
+                )}
+              </span>
               <span
                 className={cm.cn(
                   cm.sp('px', 1),
-                  'ml-auto rounded text-[10px] font-mono bg-surface-container-lowest border border-outline-variant/60',
+                  'hidden md:inline ml-auto rounded text-[10px] font-mono bg-surface-container-lowest border border-outline-variant/60',
                 )}
                 aria-hidden="true"
               >
@@ -127,17 +162,46 @@ export function WikiLayout() {
               </span>
             </button>
           </div>
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
             <ThemeToggle />
             <UserMenu />
           </div>
         </header>
-        <main className={cm.cn(cm.sp('px', 10), cm.sp('py', 10), 'flex-1')}>
+        <main className={cm.cn('px-4 sm:px-10', cm.sp('py', 10), 'py-6 sm:py-10 flex-1')}>
           <div className={cm.cn('mx-auto max-w-6xl')}>
             <Outlet />
           </div>
         </main>
       </div>
+
+      {/* Mobile nav drawer (below md): hosts the SAME PageTreeSidebar the
+          desktop rail renders, in a slide-in panel over a backdrop. */}
+      {drawerOpen ? (
+        <div className={cm.cn('md:hidden')} data-mol-id="mobile-nav-root">
+          <button
+            type="button"
+            aria-label={t('wikiLayout.closeMenu', {}, { defaultValue: 'Close navigation' })}
+            className={cm.cn('fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm')}
+            onClick={() => setDrawerOpen(false)}
+          />
+          <aside
+            id="wiki-mobile-nav-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label={t('wikiLayout.menu', {}, { defaultValue: 'Navigation' })}
+            className={cm.cn(
+              'fixed inset-y-0 left-0 z-[61] w-[280px] max-w-[85vw] shadow-xl overflow-y-auto',
+            )}
+          >
+            <PageTreeSidebar
+              variant="drawer"
+              tree={tree}
+              recentPages={recent}
+              workspaceName={workspaceName}
+            />
+          </aside>
+        </div>
+      ) : null}
     </div>
   )
 }

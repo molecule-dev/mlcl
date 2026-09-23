@@ -139,6 +139,8 @@ export function Login() {
 
         {error ? (
           <p
+            data-testid="login-error"
+            role="alert"
             className={cm.cn(
               cm.sp('p', 3),
               cm.textSize('sm'),

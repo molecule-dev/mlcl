@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -137,6 +138,14 @@ export function Search() {
             : []
         const hits: ApiPage[] = rawHits.map(flattenHit)
         setResults(hits)
+        void track({
+          name: 'search.performed',
+          properties: {
+            query_length: q.trim().length,
+            results: hits.length,
+            has_space_filter: Boolean(spaceId),
+          },
+        })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Search failed')
         setResults([])

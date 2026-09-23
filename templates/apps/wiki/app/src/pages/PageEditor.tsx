@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -188,6 +189,7 @@ export function PageEditor() {
   const [spaces, setSpaces] = useState<ApiSpace[]>([])
   const [selectedSpaceId, setSelectedSpaceId] = useState<string>(searchParams.get('space_id') ?? '')
   const [, setPage] = useState<ApiPage | null>(null)
+  const loadedTitleRef = useRef<string | null>(null)
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [tags, setTags] = useState<string[]>([])
@@ -224,6 +226,7 @@ export function PageEditor() {
       setTags(tpl?.tags ?? [])
       setSavedAt(null)
       setPage(null)
+      loadedTitleRef.current = null
       return
     }
     let cancelled = false
@@ -232,6 +235,7 @@ export function PageEditor() {
       .then((res) => {
         if (cancelled || !res.data) return
         setPage(res.data)
+        loadedTitleRef.current = res.data.title
         setTitle(res.data.title)
         setBody(res.data.content || '')
         setTags(parseTags(res.data.tags))
@@ -270,6 +274,10 @@ export function PageEditor() {
           tags,
         })
         if (res.data?.id) {
+          void track({
+            name: 'page.created',
+            properties: { page_id: res.data.id, space_id: selectedSpaceId },
+          })
           navigate(`/page/${res.data.id}`)
         }
       } else {
@@ -279,7 +287,19 @@ export function PageEditor() {
           tags,
         })
         if (res.data) {
+          const renamed = loadedTitleRef.current !== null && loadedTitleRef.current !== title.trim()
+          void track({
+            name: 'page.edited',
+            properties: { page_id: params.id ?? '', version: res.data.version },
+          })
+          if (renamed) {
+            void track({
+              name: 'page.renamed',
+              properties: { page_id: params.id ?? '', title: title.trim() },
+            })
+          }
           setPage(res.data)
+          loadedTitleRef.current = title.trim()
           setSavedAt(new Date().toLocaleString())
         }
       }
