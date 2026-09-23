@@ -36,10 +36,16 @@ function unwrapUser(payload: unknown): UserRow {
 }
 
 test('PATCH /users/:id updates email and survives a refetch', async ({ page }) => {
-  await signup(page)
+  const { password } = await signup(page)
   const id = await getMyUserId(page)
   const newEmail = `vc-renamed+${Date.now()}@example.com`
-  await api(page, 'PATCH', `/users/${id}`, { email: newEmail })
+  // An email change is a sensitive update: the user resource requires the
+  // current password alongside it (400 "Current password is required."
+  // otherwise).
+  await api(page, 'PATCH', `/users/${id}`, {
+    email: newEmail,
+    currentPassword: password,
+  })
   const refetched = await api<unknown>(page, 'GET', `/users/${id}`)
   const row = unwrapUser(refetched)
   expect(row.email).toBe(newEmail)

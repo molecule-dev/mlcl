@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ClassroomStage } from '../components/ClassroomStage.js'
 import type { ChatMessageRow, RoomRow } from '../lib/api.js'
+import { isUuid } from '../lib/api.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
 interface AuthUser {
@@ -31,10 +33,21 @@ export function Classroom() {
   const [error, setError] = useState<string | null>(null)
   const scrollRef = useRef<HTMLDivElement | null>(null)
 
+  const myId = user?.id ?? ''
+  const isHost = !!room && room.host_id === myId
+
   // 1) Mount: fetch room (gates membership) + auto-join if not already a
   // member (idempotent on the server). Then load chat history.
+  // A malformed (non-UUID) id can never resolve — the API validates every
+  // :id as a UUID and answers 400 — so skip the network and show the
+  // not-found state directly instead of firing doomed requests.
   useEffect(() => {
     if (!roomId) return
+    if (!isUuid(roomId)) {
+      setError(t('classroom.roomNotFound', {}, { defaultValue: 'Classroom not found.' }))
+      setLoading(false)
+      return
+    }
     let cancelled = false
     setLoading(true)
     setError(null)
@@ -52,6 +65,11 @@ export function Classroom() {
         }
         if (cancelled) return
         setRoom(roomRes.data)
+        // Domain event: the student/instructor actually made it into the class.
+        void track({
+          name: 'class.joined',
+          properties: { roomId, isHost: roomRes.data.host_id === myId },
+        })
         const chat = await http.get<ChatMessageRow[]>(`/api/chat/room/${roomId}`)
         if (cancelled) return
         setMessages(chat.data)
@@ -65,7 +83,7 @@ export function Classroom() {
     return () => {
       cancelled = true
     }
-  }, [http, roomId])
+  }, [http, roomId, t, myId])
 
   // 2) Live chat: append new messages from the `room:<id>` room instantly (was a
   // 4 s poll — the server already broadcasts `new-message` via `safeBroadcast`).
@@ -132,8 +150,14 @@ export function Classroom() {
           content: text,
           type: 'text',
         })
-        setMessages((prev) => [...prev, res.data])
+        // The server also broadcasts `new-message` to the room socket — our
+        // own message can echo back BEFORE this POST response resolves. Dedupe
+        // by id so the optimistic append can't double-render it (React would
+        // warn about duplicate keys and could drop children).
+        setMessages((prev) => (prev.some((m) => m.id === res.data.id) ? prev : [...prev, res.data]))
         setDraft('')
+        // Domain event: chat engagement inside a live class.
+        void track({ name: 'chat.message_sent', properties: { roomId, messageId: res.data.id } })
       } catch (err: unknown) {
         setError(err instanceof Error ? err.message : 'Failed to send message')
       } finally {
@@ -152,9 +176,6 @@ export function Classroom() {
     navigate('/dashboard')
   }, [http, navigate, roomId])
 
-  const myId = user?.id ?? ''
-  const isHost = !!room && room.host_id === myId
-
   const formatTime = (iso: string) => {
     try {
       return new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
@@ -166,8 +187,10 @@ export function Classroom() {
 
   const headerTitle = useMemo(() => {
     if (room) return room.name
+    if (!loading && error)
+      return t('classroom.titleNotFound', {}, { defaultValue: 'Classroom unavailable' })
     return t('classroom.titleLoading', {}, { defaultValue: 'Joining classroom…' })
-  }, [room, t])
+  }, [room, loading, error, t])
 
   return (
     <div
@@ -373,6 +396,7 @@ export function Classroom() {
                 {},
                 { defaultValue: 'Send to the class…' },
               )}
+              aria-label={t('classroom.chatInputLabel', {}, { defaultValue: 'Class chat message' })}
               data-testid="classroom-chat-input"
               className={cm.cn(
                 cm.flex1,

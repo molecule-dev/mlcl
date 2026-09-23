@@ -130,3 +130,19 @@ export interface WhiteboardStroke {
   color?: string
   width?: number
 }
+
+/**
+ * Client-side shape check for room/course/assignment ids taken from the URL.
+ *
+ * The API validates every `:id` param as a UUID and answers 400 for anything
+ * else, so a malformed deep link (e.g. `/class/demo-room-1`) would otherwise
+ * fire requests that are guaranteed to fail — noisy console errors for the
+ * user and a failing console-error guard in e2e. Pages guard with this BEFORE
+ * fetching and render their not-found state instead.
+ */
+export function isUuid(id: string | undefined | null): id is string {
+  return (
+    typeof id === 'string' &&
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)
+  )
+}

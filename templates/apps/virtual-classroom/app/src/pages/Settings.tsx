@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -103,6 +104,8 @@ export function Settings() {
     try {
       await http.post(`/api/users/${userId}/verify-two-factor`, { action, token: tfToken })
       setTwoFactorEnabled(action === 'enable')
+      // Domain event: account-security activation is a key retention signal.
+      void track({ name: 'settings.two_factor_' + action, properties: { userId } })
       closeTf()
     } catch (err) {
       setTfError(

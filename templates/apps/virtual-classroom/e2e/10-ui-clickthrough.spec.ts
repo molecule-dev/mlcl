@@ -120,14 +120,12 @@ test.describe('signed-in click-through', () => {
 
     await expect(page.getByText(message)).toBeVisible({ timeout: 10000 })
 
-    // Backend invariant: chat message persisted.
-    const chat = await api<{ data?: Array<{ message: string }> } | Array<{ message: string }>>(
-      page,
-      'GET',
-      `/chat?room_id=${room.id}`,
-    )
-    const messages = Array.isArray(chat) ? chat : chat.data || []
-    expect(messages.some((m) => m.message === message)).toBe(true)
+    // Backend invariant: chat message persisted. Chat transcript reads go
+    // through GET /chat/room/:id (there is no GET /chat route) and rows
+    // carry the text in `content`.
+    const chat = await api<Array<{ content: string }>>(page, 'GET', `/chat/room/${room.id}`)
+    const messages = Array.isArray(chat) ? chat : []
+    expect(messages.some((m) => m.content === message)).toBe(true)
   })
 
   test('notifications page lets user mark all as read', async ({ page }) => {

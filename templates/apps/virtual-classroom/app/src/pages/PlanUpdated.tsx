@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+
+import { track } from '@molecule/app-analytics'
 import { ContentPageShell, PlanUpdatedPage } from '@molecule/app-legal-pages-react'
 import { useTranslation } from '@molecule/app-react'
 
@@ -6,6 +9,11 @@ import { Header } from '../components/Header.js'
 
 export function PlanUpdated() {
   const { t } = useTranslation()
+  // Domain event: this route is the post-checkout return — the completion
+  // point of the subscription funnel.
+  useEffect(() => {
+    void track({ name: 'billing.plan_updated' })
+  }, [])
   return (
     <ContentPageShell
       dataMolId="page-plan-updated"

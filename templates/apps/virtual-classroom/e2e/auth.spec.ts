@@ -34,6 +34,13 @@ test('login with the same email/password returns to /dashboard', async ({ page }
 })
 
 test('logging in with a wrong password returns an error and stays on /login', async ({ page }) => {
+  // The failed log-in answers 403 by design; the browser logs every 4xx
+  // response as a console error, which the console guard would otherwise
+  // fail the test for. This annotation allows exactly that expected line.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   const email = uniqueEmail('vc-badpw')
   await signup(page, email)
   await page.evaluate(() => window.localStorage.clear())

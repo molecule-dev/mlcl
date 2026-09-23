@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -115,6 +116,11 @@ export function Courses() {
       setCourses((prev) => [res.data, ...prev])
       setForm({ code: '', title: '', term: '', description: '' })
       setShowCreate(false)
+      // Domain event: a course went live in the catalogue.
+      void track({
+        name: 'course.created',
+        properties: { courseId: res.data.id, code: res.data.code },
+      })
     } catch (err: unknown) {
       setCreateError(err instanceof Error ? err.message : 'Failed to create course')
     } finally {
@@ -125,6 +131,8 @@ export function Courses() {
   const handleEnroll = async (courseId: string) => {
     try {
       await http.post(`/api/courses/${courseId}/enroll`, {})
+      // Domain event: enrollment is the app's core student funnel.
+      void track({ name: 'course.enrolled', properties: { courseId } })
       const next = await http.get<CourseRow[]>('/api/courses')
       setCourses(next.data)
     } catch (err: unknown) {

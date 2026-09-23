@@ -6,6 +6,7 @@ import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
 import type { WhiteboardRow, WhiteboardStroke } from '../lib/api.js'
+import { isUuid } from '../lib/api.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
 const SWATCHES = [
@@ -41,7 +42,14 @@ export function Whiteboard() {
   const [draftPoints, setDraftPoints] = useState<{ x: number; y: number }[]>([])
 
   const refresh = useCallback(async () => {
-    if (!roomId) return
+    // The API validates :roomId as a UUID (400 otherwise) — a malformed deep
+    // link must render its not-found state without firing doomed requests.
+    if (!roomId || !isUuid(roomId)) {
+      setError(
+        t('whiteboard.roomNotFound', {}, { defaultValue: 'Whiteboard not found for this link.' }),
+      )
+      return
+    }
     try {
       const res = await http.get<WhiteboardRow>(`/api/whiteboard/room/${roomId}`)
       setStrokes(Array.isArray(res.data.strokes) ? res.data.strokes : [])
@@ -50,7 +58,7 @@ export function Whiteboard() {
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to load whiteboard')
     }
-  }, [http, roomId])
+  }, [http, roomId, t])
 
   useEffect(() => {
     let cancelled = false
@@ -70,7 +78,9 @@ export function Whiteboard() {
   // and `whiteboard-cleared` empties it. A slow 20 s poll remains as a reconnect
   // safety net. Server: api/src/handlers/whiteboard.ts.
   useEffect(() => {
-    if (loading) return
+    // Also skip the realtime room for malformed ids — the server's join guard
+    // would deny `room:<non-uuid>` exactly like the HTTP read above.
+    if (loading || !isUuid(roomId)) return
     let active = true
     let connection: RealtimeConnection | null = null
 

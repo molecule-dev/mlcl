@@ -16,9 +16,11 @@ import { UserMenu } from './UserMenu.js'
  */
 export interface AulaTopBarProps {
   title?: string
+  /** Opens the mobile navigation drawer (<768px). Absent on md+ where the sidebar is permanent. */
+  onMenu?: () => void
 }
 
-export function AulaTopBar({ title }: AulaTopBarProps) {
+export function AulaTopBar({ title, onMenu }: AulaTopBarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const heading =
@@ -28,27 +30,41 @@ export function AulaTopBar({ title }: AulaTopBarProps) {
     <header
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between' }),
-        cm.sp('px', 8),
-        'fixed top-0 right-0 left-[260px] z-20 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/20',
+        'px-4 md:px-8',
+        'fixed top-0 right-0 left-0 md:left-[260px] z-20 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/20',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), cm.flex1, 'min-w-0')}>
+        <button
+          type="button"
+          onClick={onMenu}
+          aria-label={t('aulaTopBar.openMenu', {}, { defaultValue: 'Open navigation menu' })}
+          data-mol-id="nav-menu"
+          className={cm.cn(
+            'h-10 w-10 -ml-2 shrink-0 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low md:hidden',
+          )}
+        >
+          <span className={cm.cn('material-symbols-outlined text-[22px]')}>menu</span>
+        </button>
         <h1
           className={cm.cn(
             cm.textSize('lg'),
             cm.fontWeight('bold'),
-            'text-on-surface tracking-tight',
+            'text-on-surface tracking-tight truncate',
           )}
         >
           {heading}
         </h1>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'shrink-0')}>
         <label
           className={cm.cn(
             cm.flex({ align: 'center', gap: 2 }),
             cm.sp('px', 4),
             'h-10 w-72 rounded-xl bg-surface-container-low text-on-surface-variant focus-within:ring-2 focus-within:ring-primary/30 transition-all',
+            // The search box cannot fit beside a 260px sidebar on phones —
+            // desktop-only; the command palette / in-page filters cover it there.
+            'hidden md:flex',
           )}
         >
           <span className={cm.cn('material-symbols-outlined text-[18px]')}>search</span>

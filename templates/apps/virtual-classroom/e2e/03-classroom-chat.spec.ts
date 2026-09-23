@@ -83,17 +83,26 @@ test('Sending a chat message via the UI shows up after reload', async ({ page })
   // Find the chat input — the only text input in the chat panel
   const input = page.locator('input[type=text], input:not([type]), textarea').last()
   await input.fill(content)
+  // Arm the POST wait BEFORE clicking so a fast round-trip can't be missed
+  // (create→readback race: asserting only after the click left this test
+  // reading the transcript before the POST had landed under load).
+  const postResponse = page.waitForResponse(
+    (r) => /\/api\/chat(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+    { timeout: 20000 },
+  )
   // Click the send button (Material Symbols icon "send")
   await page
     .locator('button')
     .filter({ has: page.locator('text=send') })
     .first()
     .click()
-  await page.waitForLoadState('networkidle')
-  // Reload and verify via API that it persisted
-  const transcript = await api<ChatMessageRow[]>(page, 'GET', `/chat/room/${room.id}`)
-  expect(
-    transcript.find((m) => m.content === content),
-    `posted UI message "${content}" persists`,
-  ).toBeTruthy()
+  const resp = await postResponse
+  expect(resp.status(), `POST /api/chat → ${resp.status()}`).toBeLessThan(400)
+  // Poll (not a one-shot read) so a slow write→read path can't false-fail.
+  await expect
+    .poll(async () => {
+      const transcript = await api<ChatMessageRow[]>(page, 'GET', `/chat/room/${room.id}`)
+      return transcript.some((m) => m.content === content)
+    })
+    .toBe(true)
 })
