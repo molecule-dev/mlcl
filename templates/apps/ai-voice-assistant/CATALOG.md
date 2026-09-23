@@ -36,6 +36,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **agents** — `api/src/handlers/agents.ts`
 - **conversations** — `api/src/handlers/conversations.ts`
 - **preferences** — `api/src/handlers/preferences.ts`
+- **profile** — `api/src/handlers/profile.ts`
 - **speech** — `api/src/handlers/speech.ts`
 
 ## Screens (14)

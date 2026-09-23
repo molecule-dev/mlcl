@@ -39,6 +39,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **\_aliases** — `api/src/handlers/_aliases.ts`
 - **\_decorate** — `api/src/handlers/_decorate.ts`
 - **\_seed** — `api/src/handlers/_seed.ts`
+- **\_test** — `api/src/handlers/_test.ts`
 - **bookings** — `api/src/handlers/bookings.ts`
 - **bookmarks** — `api/src/handlers/bookmarks.ts`
 - **hosts** — `api/src/handlers/hosts.ts`
@@ -47,6 +48,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **notifications** — `api/src/handlers/notifications.ts`
 - **payouts** — `api/src/handlers/payouts.ts`
 - **reviews** — `api/src/handlers/reviews.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **uploads** — `api/src/handlers/uploads.ts`
 
 ## Screens (20)

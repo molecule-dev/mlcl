@@ -37,6 +37,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **folders** — `api/src/handlers/folders.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
 - **recordings** — `api/src/handlers/recordings.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **share-links** — `api/src/handlers/share-links.ts`
 - **views** — `api/src/handlers/views.ts`
 - **workspace-members** — `api/src/handlers/workspace-members.ts`

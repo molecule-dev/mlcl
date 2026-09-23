@@ -42,6 +42,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **notifications** — `api/src/handlers/notifications.ts`
 - **qa** — `api/src/handlers/qa.ts`
 - **reports** — `api/src/handlers/reports.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **sources** — `api/src/handlers/sources.ts`
 
 ## Screens (17)

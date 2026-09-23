@@ -13,7 +13,7 @@ Flipboard-like news with RSS parsing, categories, and personalization
 
 `auth`, `search`, `rss-parsing`, `categories`, `bookmarks`, `ai-summary`, `personalization`
 
-## Data model (10 domain tables)
+## Data model (11 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -27,6 +27,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **devices** — id, createdAt, updatedAt, userId, name, pushPlatform, pushSubscription, hasPushSubscription
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
 - **resource_tags** — id, tagId, resourceType, resourceId, createdAt
+- **user_preferences** — user_id, preferences, created_at, updatedAt
 
 ## API surface (handlers)
 
@@ -35,6 +36,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **articles** — `api/src/handlers/articles.ts`
 - **bookmarks** — `api/src/handlers/bookmarks.ts`
 - **categories** — `api/src/handlers/categories.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **search** — `api/src/handlers/search.ts`
 - **sources** — `api/src/handlers/sources.ts`
 - **stories** — `api/src/handlers/stories.ts`

@@ -37,6 +37,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **meetings** — `api/src/handlers/meetings.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
 - **search** — `api/src/handlers/search.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **team** — `api/src/handlers/team.ts`
 - **transcript_segments** — `api/src/handlers/transcript_segments.ts`
 

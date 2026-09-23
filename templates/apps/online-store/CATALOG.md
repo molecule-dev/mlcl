@@ -39,6 +39,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **orders** — `api/src/handlers/orders.ts`
 - **products** — `api/src/handlers/products.ts`
 - **reviews** — `api/src/handlers/reviews.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **storefront** — `api/src/handlers/storefront.ts`
 - **wishlist** — `api/src/handlers/wishlist.ts`
 

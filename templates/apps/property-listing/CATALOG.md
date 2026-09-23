@@ -13,7 +13,7 @@ Zillow-like property listing platform with search, maps, filters, and mortgage c
 
 `auth`, `search`, `maps`, `bookmarks`, `reviews`
 
-## Data model (10 domain tables)
+## Data model (11 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -27,6 +27,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **reviews** — id, resourceType, resourceId, userId, rating, title, body, helpful, createdAt, updatedAt
 - **showings** — id, property_id, agent_id, lead_id, scheduled_at, duration_min, status, notes, created_at, updated_at, updatedAt
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
+- **app_settings** — userId, data, createdAt, updatedAt
 
 ## API surface (handlers)
 
@@ -37,6 +38,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **leads** — `api/src/handlers/leads.ts`
 - **mortgage** — `api/src/handlers/mortgage.ts`
 - **properties** — `api/src/handlers/properties.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **showings** — `api/src/handlers/showings.ts`
 
 ## Screens (15)

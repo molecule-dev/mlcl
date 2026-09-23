@@ -39,6 +39,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **refills** — `api/src/handlers/refills.ts`
 - **reports** — `api/src/handlers/reports.ts`
 - **schedules** — `api/src/handlers/schedules.ts`
+- **settings** — `api/src/handlers/settings.ts`
 
 ## Screens (16)
 

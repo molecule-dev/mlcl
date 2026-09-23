@@ -35,6 +35,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **flags** — `api/src/handlers/flags.ts`
 - **seed** — `api/src/handlers/seed.ts`
 - **segments** — `api/src/handlers/segments.ts`
+- **settings** — `api/src/handlers/settings.ts`
 
 ## Screens (13)
 
